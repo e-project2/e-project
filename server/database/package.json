@@ -1,0 +1,17 @@
+{
+  "name": "bookbridge-database",
+  "version": "1.0.0",
+  "description": "MongoDB Database setup, schemas, models and seed scripts for BookBridge Project",
+  "type": "module",
+  "main": "connection.js",
+  "scripts": {
+    "seed": "node seed.js",
+    "init:mongo": "mongosh mongodb://127.0.0.1:27017/bookbridge_db init-mongo.js"
+  },
+  "keywords": ["mongodb", "mongoose", "bookbridge", "database"],
+  "author": "BookBridge Team",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^8.3.1"
+  }
+}

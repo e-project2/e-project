@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect width="600" height="400" fill="#091426"/>
+  <rect x="30" y="30" width="540" height="340" fill="none" stroke="#f59e0b" stroke-width="2" stroke-opacity="0.5"/>
+  <text x="300" y="200" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">Poster nghệ thuật đồ họa London ...</text>
+</svg>

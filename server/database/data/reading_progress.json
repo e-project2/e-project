@@ -1,0 +1,29 @@
+[
+  {
+    "bookId": "bk-01",
+    "status": "Reading",
+    "currentPage": 142,
+    "totalPages": 328,
+    "percentage": 43,
+    "notes": "Đang đọc dở phần 2 khi Winston gặp gỡ Julia trong khu rừng ngoại ô.",
+    "lastUpdated": "2026-10-10T14:20:00Z"
+  },
+  {
+    "bookId": "bk-03",
+    "status": "Completed",
+    "currentPage": 96,
+    "totalPages": 96,
+    "percentage": 100,
+    "notes": "Cuốn sách tuyệt vời về tình bạn với chú cáo và bài học cảm hóa.",
+    "lastUpdated": "2026-10-08T09:15:00Z"
+  },
+  {
+    "bookId": "bk-07",
+    "status": "To Read",
+    "currentPage": 0,
+    "totalPages": 120,
+    "percentage": 0,
+    "notes": "Dự định đọc vào dịp cuối tuần.",
+    "lastUpdated": "2026-10-12T18:00:00Z"
+  }
+]

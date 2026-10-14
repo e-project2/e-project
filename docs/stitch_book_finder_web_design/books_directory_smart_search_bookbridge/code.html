@@ -1,0 +1,1887 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary": "#240f00", "on-tertiary-fixed": "#2f1500", "inverse-on-surface": "#eaf1ff", "outline": "#75777d", "on-secondary-fixed-variant": "#004395", "surface-bright": "#f8f9ff", "text-primary": "#0F172A", "on-tertiary-fixed-variant": "#6e3900", "on-secondary-container": "#fefcff", "on-tertiary-container": "#d97705", "surface-container-low": "#eff4ff", "surface-container-lowest": "#ffffff", "on-secondary-fixed": "#001a42", "surface-container-high": "#dce9ff", "surface-tint": "#545f73", "on-error-container": "#93000a", "border-subtle": "#E2E8F0", "background": "#f8f9ff", "on-surface-variant": "#45474c", "surface-canvas": "#F8FAFC", "on-background": "#0b1c30", "secondary": "#0058be", "surface-container": "#e5eeff", "primary-fixed": "#d8e3fb", "accent-indigo": "#6366F1", "on-error": "#ffffff", "tertiary-container": "#422000", "status-danger": "#EF4444", "error": "#ba1a1a", "on-surface": "#0b1c30", "surface-variant": "#d3e4fe", "accent-gold-light": "#F59E0B", "surface": "#f8f9ff", "outline-variant": "#c5c6cd", "secondary-fixed": "#d8e2ff", "primary-container": "#1e293b", "on-secondary": "#ffffff", "secondary-container": "#2170e4", "primary-fixed-dim": "#bcc7de", "on-primary": "#ffffff", "primary": "#091426", "on-primary-fixed": "#111c2d", "surface-dim": "#cbdbf5", "inverse-primary": "#bcc7de", "status-info": "#0EA5E9", "on-primary-container": "#8590a6", "secondary-fixed-dim": "#adc6ff", "on-tertiary": "#ffffff", "surface-container-highest": "#d3e4fe", "status-success": "#10B981", "on-primary-fixed-variant": "#3c475a", "inverse-surface": "#213145", "tertiary-fixed-dim": "#ffb77d", "tertiary-fixed": "#ffdcc3", "error-container": "#ffdad6", "surface-card": "#FFFFFF" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1.5rem", "space-xl": "2.5rem", "margin-mobile": "1.25rem", "gutter-mobile": "1rem", "margin": "3rem", "gutter": "1.5rem", "space-md": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem" }, "fontFamily": { "display-hero-mobile": [ "Playfair Display" ], "title-md": [ "Plus Jakarta Sans" ], "headline-lg": [ "Playfair Display" ], "display-hero": [ "Playfair Display" ], "headline-sm": [ "Playfair Display" ], "label-md": [ "Plus Jakarta Sans" ], "body-md": [ "Plus Jakarta Sans" ], "label-sm": [ "Plus Jakarta Sans" ], "headline-md": [ "Playfair Display" ], "headline-lg-mobile": [ "Playfair Display" ], "body-lg": [ "Plus Jakarta Sans" ], "body-sm": [ "Plus Jakarta Sans" ] }, "fontSize": { "display-hero-mobile": [ "2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.01em", "fontWeight": "700" } ], "title-md": [ "1.125rem", { "lineHeight": "1.625rem", "fontWeight": "600" } ], "headline-lg": [ "2.5rem", { "lineHeight": "3rem", "letterSpacing": "-0.015em", "fontWeight": "700" } ], "display-hero": [ "3.5rem", { "lineHeight": "4.25rem", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "headline-sm": [ "1.25rem", { "lineHeight": "1.75rem", "fontWeight": "600" } ], "label-md": [ "0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "600" } ], "body-md": [ "1rem", { "lineHeight": "1.625rem", "fontWeight": "400" } ], "label-sm": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.025em", "fontWeight": "600" } ], "headline-md": [ "1.75rem", { "lineHeight": "2.25rem", "fontWeight": "600" } ], "headline-lg-mobile": [ "1.75rem", { "lineHeight": "2.25rem", "fontWeight": "700" } ], "body-lg": [ "1.125rem", { "lineHeight": "1.875rem", "fontWeight": "400" } ], "body-sm": [ "0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" } ] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-surface-variant selection:text-primary"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1440px] mx-auto px-6 lg:px-12 flex items-center justify-between gap-gutter"><div class="flex items-center gap-4 shrink-0"><img alt="BookBridge Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEDzO_GBPm8isEUkTqlc0rXu0_CDktn0QcjBDQc8lwZ2oQyRpG9MkPFYhbvUKXmBhdK2GJgYVYAMhG2Vx6oj7aqnEb4cuLSFnSJK5356BnlaaQpZo6m4C2iQsyTsxqQXmfC8dHRL30N8OSPQzTEYbxyaJZy0d3kun6iP7ROH7IBhuU9vkHTy06UR-JLKph1gjAHaH89kBMePOEsWbliDR50dnSmBfid-LCRtFZaQ"><span class="font-headline-md text-headline-md tracking-tight text-primary">BookBridge</span></div><nav class="hidden xl:flex items-center gap-1" data-active-classes="text-primary font-bold bg-surface-container rounded-full"><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="#">Home</a><a aria-current="page" class="px-3 py-1.5 transition-colors text-primary font-bold bg-surface-container rounded-full" data-path="directory" href="#">Directory</a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="explorer" href="#">Explorer</a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="collections" href="#">Collections</a><a class="inline-flex items-center gap-1.5 px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="my-library" href="#">My Library<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-tertiary-container font-label-sm text-label-sm font-semibold">3 saved</span></a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">About</a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-3 shrink-0"><button aria-label="Search Catalog" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">search</span></button><button aria-label="Toggle Theme" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">light_mode</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<div class="w-full bg-surface-container-low/60 py-12 px-6 lg:px-12 relative overflow-hidden">
+<div class="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-surface-container-high/40 blur-3xl pointer-events-none"></div>
+<div class="absolute left-1/3 bottom-0 w-80 h-32 bg-surface-variant/30 blur-2xl pointer-events-none"></div>
+<div class="max-w-[1440px] mx-auto relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-[15px]">auto_stories</span>
+          Universal Archive Edition
+        </div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Books Directory</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+          Explore our curated catalog of world literature and timeless stories spanning centuries, tongues, and civilizational epics.
+        </p>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-lowest p-2 rounded-xl shadow-sm self-start md:self-auto">
+<div class="px-4 py-2 flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-[20px]">library_books</span>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant uppercase">Catalog Status</span>
+<span class="font-label-md text-label-md text-primary font-bold" id="resultsCountBadge">20 Volume Editions</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12 py-8 w-full">
+<div class="flex flex-wrap items-center justify-between gap-4 pb-8">
+<div class="flex items-center gap-3">
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-all shadow-sm" id="toggleFilterBtn">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span>Filters</span>
+<span class="hidden px-2 py-0.2 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm" id="activeFilterBadge">0</span>
+</button>
+<p class="font-label-md text-label-md text-on-surface-variant font-medium" id="resultsCounter">
+          Showing <span class="font-bold text-primary" id="displayedCount">20</span> of <span class="font-bold text-primary">20</span> books
+        </p>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[18px] pointer-events-none">sort</span>
+<select class="pl-9 pr-8 py-2 rounded-full bg-surface-container-lowest font-label-md text-label-md text-primary shadow-sm hover:bg-surface-container-low transition-all appearance-none cursor-pointer focus:outline-none" id="sortSelect">
+<option value="title-az">Sort: Title (A-Z)</option>
+<option value="year-newest">Sort: Publication Year (Newest)</option>
+<option value="year-oldest">Sort: Publication Year (Oldest)</option>
+<option value="pages-short">Sort: Page Count (Short to Long)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 text-on-surface-variant text-[16px] pointer-events-none">expand_more</span>
+</div>
+<div class="flex items-center bg-surface-container p-1 rounded-full shadow-inner">
+<button aria-label="Grid View" class="w-8 h-8 rounded-full bg-surface-container-lowest text-primary flex items-center justify-center shadow-sm" id="viewGridBtn">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+<button aria-label="Compact View" class="w-8 h-8 rounded-full text-on-surface-variant hover:text-primary flex items-center justify-center transition-colors" id="viewListBtn">
+<span class="material-symbols-outlined text-[18px]">view_agenda</span>
+</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<aside class="lg:col-span-3 transition-all duration-300" id="filterSidebar">
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm space-y-6 sticky top-28">
+<div class="flex items-center justify-between pb-2">
+<h3 class="font-headline-sm text-headline-sm text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">filter_alt</span>
+              Smart Filter
+            </h3>
+<button class="font-label-sm text-label-sm text-status-danger hover:underline font-semibold flex items-center gap-1 transition-all" id="clearAllFiltersBtn">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+              Clear All
+            </button>
+</div>
+<div class="space-y-2">
+<label class="block font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Search Directory</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-2 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-primary placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none transition-all shadow-inner" id="searchInput" placeholder="Title, author, or keyword..." type="text">
+</div>
+</div>
+<div class="space-y-2.5">
+<label class="block font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Language Filter</label>
+<div class="flex flex-wrap gap-1.5" id="languageFilters">
+<button class="lang-btn px-3 py-1.5 rounded-full font-label-sm text-label-sm bg-primary text-on-primary font-semibold shadow-sm transition-all" data-lang="all">All</button>
+<button class="lang-btn px-3 py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface transition-all" data-lang="Vietnamese">Vietnamese (5)</button>
+<button class="lang-btn px-3 py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface transition-all" data-lang="English">English (6)</button>
+<button class="lang-btn px-3 py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface transition-all" data-lang="French">French (3)</button>
+<button class="lang-btn px-3 py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface transition-all" data-lang="Japanese">Japanese (3)</button>
+<button class="lang-btn px-3 py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface transition-all" data-lang="Spanish">Spanish (3)</button>
+</div>
+</div>
+<div class="space-y-2.5">
+<label class="block font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Genre Category</label>
+<div class="space-y-1.5 max-h-48 overflow-y-auto pr-1" id="genreCheckboxes">
+<label class="flex items-center gap-2.5 p-1.5 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors text-primary font-body-sm text-body-sm">
+<input class="genre-checkbox w-4 h-4 rounded text-secondary focus:ring-0 accent-secondary" type="checkbox" value="Fiction">
+<span>Fiction</span>
+</label>
+<label class="flex items-center gap-2.5 p-1.5 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors text-primary font-body-sm text-body-sm">
+<input class="genre-checkbox w-4 h-4 rounded text-secondary focus:ring-0 accent-secondary" type="checkbox" value="Non-Fiction">
+<span>Non-Fiction</span>
+</label>
+<label class="flex items-center gap-2.5 p-1.5 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors text-primary font-body-sm text-body-sm">
+<input class="genre-checkbox w-4 h-4 rounded text-secondary focus:ring-0 accent-secondary" type="checkbox" value="Sci-Fi &amp; Dystopia">
+<span>Sci-Fi &amp; Dystopia</span>
+</label>
+<label class="flex items-center gap-2.5 p-1.5 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors text-primary font-body-sm text-body-sm">
+<input class="genre-checkbox w-4 h-4 rounded text-secondary focus:ring-0 accent-secondary" type="checkbox" value="Poetry &amp; Classic">
+<span>Poetry &amp; Classic</span>
+</label>
+<label class="flex items-center gap-2.5 p-1.5 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors text-primary font-body-sm text-body-sm">
+<input class="genre-checkbox w-4 h-4 rounded text-secondary focus:ring-0 accent-secondary" type="checkbox" value="Philosophy">
+<span>Philosophy</span>
+</label>
+<label class="flex items-center gap-2.5 p-1.5 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors text-primary font-body-sm text-body-sm">
+<input class="genre-checkbox w-4 h-4 rounded text-secondary focus:ring-0 accent-secondary" type="checkbox" value="Mystery">
+<span>Mystery</span>
+</label>
+</div>
+</div>
+<div class="space-y-2.5">
+<label class="block font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Reading Level</label>
+<div class="grid grid-cols-3 gap-1.5" id="readingLevelFilters">
+<button class="level-btn py-1.5 text-center rounded-lg font-label-sm text-label-sm bg-primary text-on-primary font-semibold transition-all" data-level="all">All</button>
+<button class="level-btn py-1.5 text-center rounded-lg font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface transition-all" data-level="Beginner">Beginner</button>
+<button class="level-btn py-1.5 text-center rounded-lg font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface transition-all" data-level="Intermediate">Interm.</button>
+<button class="level-btn py-1.5 text-center rounded-lg font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface transition-all col-span-3" data-level="Advanced">Advanced Academic</button>
+</div>
+</div>
+<div class="space-y-2.5">
+<label class="block font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Publication Era</label>
+<div class="space-y-1.5 font-body-sm text-body-sm" id="periodFilters">
+<label class="flex items-center gap-2 p-1.5 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors text-primary">
+<input checked="" class="period-radio w-4 h-4 text-secondary accent-secondary" name="period" type="radio" value="all">
+<span>All Eras</span>
+</label>
+<label class="flex items-center gap-2 p-1.5 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors text-primary">
+<input class="period-radio w-4 h-4 text-secondary accent-secondary" name="period" type="radio" value="before-1950">
+<span>Before 1950 (Classics)</span>
+</label>
+<label class="flex items-center gap-2 p-1.5 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors text-primary">
+<input class="period-radio w-4 h-4 text-secondary accent-secondary" name="period" type="radio" value="1950-2000">
+<span>1950 – 2000 (Mid-Century)</span>
+</label>
+<label class="flex items-center gap-2 p-1.5 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors text-primary">
+<input class="period-radio w-4 h-4 text-secondary accent-secondary" name="period" type="radio" value="after-2000">
+<span>After 2000 (Contemporary)</span>
+</label>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low/80 space-y-2">
+<div class="flex items-center gap-2 text-on-tertiary-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">info</span>
+              Archival Metadata Note
+            </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Editions are cross-verified with standard bibliographic records and open-access library registries.
+            </p>
+</div>
+</div>
+</aside>
+<section class="lg:col-span-9 transition-all duration-300" id="bookCatalogSection">
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6" id="bookGrid">
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Minimalist book cover featuring a piercing mechanical eye rendered in vintage dark navy, stark deep blue, and muted gold accents with crisp mid-century typography." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">EN</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Intermediate</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('1984', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-status-danger">
+                <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Sci-Fi &amp; Dystopia</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('1984')">
+                  1984
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">George Orwell</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  A terrifying dystopian forecast about totalitarian surveillance, Winston Smith's quiet rebellion, and the manipulation of historical truth.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    328 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    1949
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('1984')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Dark brooding philosophical book cover with shadowy Saint Petersburg stone bridges, misty gas lamps, and high-contrast dramatic typography." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">EN</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Advanced</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('crime-punishment', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-[20px]">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Philosophy</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('crime-punishment')">
+                  Crime and Punishment
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">Fyodor Dostoevsky</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  The psychological torment of Raskolnikov after he commits murder to validate his theory of extraordinary men exempt from moral laws.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    671 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    1866
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('crime-punishment')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Charming editorial watercolor book illustration showing a gallant grasshopper cricket wandering through vibrant blades of green meadow grass and dewdrops." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">VI</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Beginner</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('de-men', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-[20px]">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Fiction</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('de-men')">
+                  Dế Mèn Phiêu Lưu Ký
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">Tô Hoài</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  A cherished coming-of-age fable following the adventures of an arrogant young cricket as he discovers empathy, camaraderie, and freedom.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    196 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    1941
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('de-men')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Escher-inspired labyrinth book cover showcasing infinite twisting library staircases and mirrored geometrical pathways in slate blue and gold." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">ES</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Advanced</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('ficciones', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-[20px]">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Mystery</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('ficciones')">
+                  Ficciones
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">Jorge Luis Borges</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  Dazzling labyrinthine short stories exploring infinite libraries, speculative heresies, secret societies, and the nature of infinity.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    174 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    1944
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('ficciones')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Serene Japanese woodcut aesthetic book cover showing fallen autumn maple leaves floating upon a quiet ripple of dark garden pond water." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">JA</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Intermediate</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('kokoro', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-[20px]">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Poetry &amp; Classic</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('kokoro')">
+                  Kokoro
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">Natsume Sōseki</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  A moving meditation on the loneliness of the individual navigating Meiji-era Japan, told through the friendship between a student and 'Sensei'.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    248 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    1914
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('kokoro')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Sun-bleached stark book cover showing an intense blinding white-gold Mediterranean sun casting deep geometric shadows across an empty beach." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">FR</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Intermediate</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('stranger', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-[20px]">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Philosophy</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('stranger')">
+                  L'Étranger (The Stranger)
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">Albert Camus</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  Meursault passively confronts the absurdity of human existence beneath the blinding Mediterranean sun on an Algerian shore.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    159 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    1942
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('stranger')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Warm charcoal and sepia book cover showing an elderly Vietnamese farmer stroking a gentle golden hound against a simple thatched garden cottage." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">VI</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Intermediate</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('lao-hac', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-[20px]">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Fiction</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('lao-hac')">
+                  Lão Hạc và Tuyển Tập
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">Nam Cao</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  An unforgettable, heartbreaking portrait of old farmer Lão Hạc and his beloved dog Vàng, exemplifying noble dignity amidst crippling poverty.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    184 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    1943
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('lao-hac')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Artistic celestial book cover depicting a tiny prince in an open coat standing upon a curved asteroid with stars and a delicate rose against deep lapis lazuli space." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">FR</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Beginner</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('le-petit-prince', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-[20px]">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Philosophy</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('le-petit-prince')">
+                  Le Petit Prince
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">Antoine de Saint-Exupéry</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  A poetic philosophical tale where an interplanetary child traveler teaches a stranded aviator profound secrets regarding human affection.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    140 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    1943
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('le-petit-prince')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Exquisite 19th-century French editorial cover with velvet textures, vintage lace motifs, and melancholy blue oil painting flourishes." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">FR</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Advanced</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('madame-bovary', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-[20px]">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Poetry &amp; Classic</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('madame-bovary')">
+                  Madame Bovary
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">Gustave Flaubert</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  Emma Bovary seeks romantic ecstasy and aristocratic luxury to escape the suffocating tedium of provincial marital life.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    429 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    1856
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('madame-bovary')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Minimalist Japanese book cover rendered in duo-tone crimson and midnight blue featuring quiet misty pine forest hills under cold rain." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">JA</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Intermediate</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('norwegian-wood', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-[20px]">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Fiction</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('norwegian-wood')">
+                  Norwegian Wood
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">Haruki Murakami</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  Toru Watanabe reflects upon his quiet Tokyo university years during the late 1960s, intertwined with memory, loss, and bittersweet music.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    296 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    1987
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('norwegian-wood')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Magical realist book cover displaying lush tropical banana leaves, golden yellow butterflies swirling, and mythical architectural archways." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">ES</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Advanced</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('solitude', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-status-danger">
+                <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Fiction</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('solitude')">
+                  One Hundred Years of Solitude
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">Gabriel García Márquez</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  Seven generations of the Buendía dynasty live through wonder, madness, and incestuous isolation in the mythical river town of Macondo.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    417 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    1967
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('solitude')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Haunting desert book cover featuring cracked arid clay earth, bleached adobe walls, and ghostly silhouettes under a blazing cobalt sky." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">ES</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Intermediate</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('pedro-paramo', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-[20px]">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Poetry &amp; Classic</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('pedro-paramo')">
+                  Pedro Páramo
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">Juan Rulfo</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  Juan Preciado journeys to Comala in search of his long-lost father, only to find a desolate ghost town inhabited solely by murmuring specters.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    128 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    1955
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('pedro-paramo')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Traditional Japanese ink wash sumi-e style book cover depicting the imposing weathered wooden beams of Kyoto gate under torrential rain." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">JA</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Advanced</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('rashomon', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-[20px]">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Mystery</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('rashomon')">
+                  Rashomon and Other Stories
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">Ryūnosuke Akutagawa</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  Psychological explorations of subjective truth, guilt, and human fragility framed by a dilapidated ancient Kyoto gate in heavy downpour.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    224 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    1915
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('rashomon')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Contemporary non-fiction book cover featuring a pale human ochre handprint impression against clean white slate and crisp modern editorial serif typography." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">EN</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Intermediate</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('sapiens', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-[20px]">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Non-Fiction</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('sapiens')">
+                  Sapiens: A Brief History
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">Yuval Noah Harari</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  A panoramic examination of how an insignificant ape became the master of planet Earth through the unique ability to create collective fiction.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    443 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    2011
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('sapiens')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Sharp satirical book cover in 1930s Indochine retro poster styling, featuring a comically flamboyant gentleman in a checkered colonial suit." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">VI</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Intermediate</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('so-do', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-[20px]">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Fiction</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('so-do')">
+                  Số Đỏ (Dumb Luck)
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">Vũ Trọng Phụng</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  A blistering satirical masterpiece exposing bourgeois hypocrisy in French-colonial Hanoi through the preposterous rise of street ball-boy Xuân Tóc Đỏ.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    256 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    1936
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('so-do')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Deep sepia tone dramatic book cover with the silhouette of a determined peasant woman carrying burdens into the stormy night darkness." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">VI</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Intermediate</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('tat-den', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-[20px]">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Fiction</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('tat-den')">
+                  Tắt Đèn
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">Ngô Tất Tố</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  A poignant realist narrative portraying the fierce resilience of Chị Dậu during an oppressive rural tax season in northern Vietnam.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    216 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    1939
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('tat-den')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Art deco literary book cover with luminous celestial eyes looking down over the golden glowing skylines and champagne silhouettes of the roaring 1920s." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">EN</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Intermediate</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('great-gatsby', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-[20px]">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Fiction</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('great-gatsby')">
+                  The Great Gatsby
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">F. Scott Fitzgerald</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  The quintessential portrait of the Jazz Age, detailing Jay Gatsby's obsessive yearning for Daisy Buchanan amid decadent Long Island estates.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    208 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    1925
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('great-gatsby')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Striking cognitive science book cover featuring dual brain hemispheres illustrated as intersecting geometric gears in slate navy and warm amber." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">EN</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Intermediate</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('thinking-fast-slow', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-[20px]">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Non-Fiction</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('thinking-fast-slow')">
+                  Thinking, Fast and Slow
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">Daniel Kahneman</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  Nobel laureate Kahneman explores the two cognitive systems that drive human choice: System 1 (instinctive) and System 2 (deliberative).
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    499 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    2011
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('thinking-fast-slow')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Moody atmospheric southern gothic book cover featuring the silhouette of a solitary mockingbird perched in an old oak branch at dusky sunset." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">EN</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Intermediate</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('kill-mockingbird', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-[20px]">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Fiction</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('kill-mockingbird')">
+                  To Kill a Mockingbird
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">Harper Lee</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  Scout Finch narrates childhood in Depression-era Alabama as her father, Atticus, defends a Black man falsely accused in a racially divided town.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    281 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    1960
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('kill-mockingbird')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="Intricate traditional Vietnamese woodcut print book cover of a poetic maiden by a willow tree in rich indigo, subtle gold, and aged parchment tones." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">VI</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">Advanced</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('truyen-kieu', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm text-status-danger">
+                <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">Poetry &amp; Classic</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('truyen-kieu')">
+                  Truyện Kiều
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span class="">Nguyễn Du</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  The crown jewel of Vietnamese literary heritage, recounting the epic fifteen-year tribulation of the virtuous, talented Thúy Kiều in lục bát verse.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    280 pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    1820
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('truyen-kieu')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+<div class="hidden flex-col items-center justify-center p-12 lg:p-20 text-center bg-surface-container-lowest rounded-3xl shadow-sm space-y-6 my-4" id="emptyState">
+<div class="w-24 h-24 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[48px]">search_off</span>
+</div>
+<div class="max-w-md space-y-2">
+<h3 class="font-headline-md text-headline-md text-primary">No volumes discovered</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              We couldn't find any books matching your specific combination of filters. Try broadening your keywords or clearing criteria.
+            </p>
+</div>
+<button class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-all shadow-md" id="emptyResetBtn">
+<span class="material-symbols-outlined text-[18px]">history</span>
+            Reset All Filters
+          </button>
+</div>
+</section>
+</div>
+</div>
+<div class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-primary/40 backdrop-blur-sm" id="detailsModal">
+<div class="bg-surface-container-lowest max-w-xl w-full rounded-2xl shadow-2xl p-6 md:p-8 space-y-6 relative max-h-[90vh] overflow-y-auto">
+<button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-primary transition-all" id="closeModalBtn">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="flex gap-6 items-start">
+<div class="w-32 h-48 rounded-lg overflow-hidden shrink-0 shadow-md" id="modalCoverContainer"></div>
+<div class="space-y-2">
+<span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-sm text-label-sm font-semibold" id="modalPill"></span>
+<h2 class="font-headline-md text-headline-md text-primary" id="modalTitle"></h2>
+<p class="font-label-md text-label-md text-on-surface-variant font-medium" id="modalAuthor"></p>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="modalMeta"></p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed" id="modalDescription"></p>
+<div class="flex justify-end gap-3 pt-4 border-t-0">
+<button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-all" id="modalSaveShelfBtn">
+<span class="material-symbols-outlined text-[18px]">bookmark_add</span>
+          Save to Shelf
+        </button>
+<button class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-all" id="modalCloseActionBtn">
+          Done
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function () {
+    const rawBooks = [
+      {
+        id: "1984",
+        title: "1984",
+        author: "George Orwell",
+        language: "English",
+        langCode: "EN",
+        genre: "Sci-Fi & Dystopia",
+        level: "Intermediate",
+        year: 1949,
+        pages: 328,
+        description: "A terrifying dystopian forecast about totalitarian surveillance, Winston Smith's quiet rebellion, and the manipulation of historical truth.",
+        imageAlt: "Minimalist book cover featuring a piercing mechanical eye rendered in vintage dark navy, stark deep blue, and muted gold accents with crisp mid-century typography."
+      },
+      {
+        id: "truyen-kieu",
+        title: "Truyện Kiều",
+        author: "Nguyễn Du",
+        language: "Vietnamese",
+        langCode: "VI",
+        genre: "Poetry & Classic",
+        level: "Advanced",
+        year: 1820,
+        pages: 280,
+        description: "The crown jewel of Vietnamese literary heritage, recounting the epic fifteen-year tribulation of the virtuous, talented Thúy Kiều in lục bát verse.",
+        imageAlt: "Intricate traditional Vietnamese woodcut print book cover of a poetic maiden by a willow tree in rich indigo, subtle gold, and aged parchment tones."
+      },
+      {
+        id: "de-men",
+        title: "Dế Mèn Phiêu Lưu Ký",
+        author: "Tô Hoài",
+        language: "Vietnamese",
+        langCode: "VI",
+        genre: "Fiction",
+        level: "Beginner",
+        year: 1941,
+        pages: 196,
+        description: "A cherished coming-of-age fable following the adventures of an arrogant young cricket as he discovers empathy, camaraderie, and freedom.",
+        imageAlt: "Charming editorial watercolor book illustration showing a gallant grasshopper cricket wandering through vibrant blades of green meadow grass and dewdrops."
+      },
+      {
+        id: "le-petit-prince",
+        title: "Le Petit Prince",
+        author: "Antoine de Saint-Exupéry",
+        language: "French",
+        langCode: "FR",
+        genre: "Philosophy",
+        level: "Beginner",
+        year: 1943,
+        pages: 140,
+        description: "A poetic philosophical tale where an interplanetary child traveler teaches a stranded aviator profound secrets regarding human affection.",
+        imageAlt: "Artistic celestial book cover depicting a tiny prince in an open coat standing upon a curved asteroid with stars and a delicate rose against deep lapis lazuli space."
+      },
+      {
+        id: "great-gatsby",
+        title: "The Great Gatsby",
+        author: "F. Scott Fitzgerald",
+        language: "English",
+        langCode: "EN",
+        genre: "Fiction",
+        level: "Intermediate",
+        year: 1925,
+        pages: 208,
+        description: "The quintessential portrait of the Jazz Age, detailing Jay Gatsby's obsessive yearning for Daisy Buchanan amid decadent Long Island estates.",
+        imageAlt: "Art deco literary book cover with luminous celestial eyes looking down over the golden glowing skylines and champagne silhouettes of the roaring 1920s."
+      },
+      {
+        id: "kill-mockingbird",
+        title: "To Kill a Mockingbird",
+        author: "Harper Lee",
+        language: "English",
+        langCode: "EN",
+        genre: "Fiction",
+        level: "Intermediate",
+        year: 1960,
+        pages: 281,
+        description: "Scout Finch narrates childhood in Depression-era Alabama as her father, Atticus, defends a Black man falsely accused in a racially divided town.",
+        imageAlt: "Moody atmospheric southern gothic book cover featuring the silhouette of a solitary mockingbird perched in an old oak branch at dusky sunset."
+      },
+      {
+        id: "solitude",
+        title: "One Hundred Years of Solitude",
+        author: "Gabriel García Márquez",
+        language: "Spanish",
+        langCode: "ES",
+        genre: "Fiction",
+        level: "Advanced",
+        year: 1967,
+        pages: 417,
+        description: "Seven generations of the Buendía dynasty live through wonder, madness, and incestuous isolation in the mythical river town of Macondo.",
+        imageAlt: "Magical realist book cover displaying lush tropical banana leaves, golden yellow butterflies swirling, and mythical architectural archways."
+      },
+      {
+        id: "crime-punishment",
+        title: "Crime and Punishment",
+        author: "Fyodor Dostoevsky",
+        language: "English",
+        langCode: "EN",
+        genre: "Philosophy",
+        level: "Advanced",
+        year: 1866,
+        pages: 671,
+        description: "The psychological torment of Raskolnikov after he commits murder to validate his theory of extraordinary men exempt from moral laws.",
+        imageAlt: "Dark brooding philosophical book cover with shadowy Saint Petersburg stone bridges, misty gas lamps, and high-contrast dramatic typography."
+      },
+      {
+        id: "so-do",
+        title: "Số Đỏ (Dumb Luck)",
+        author: "Vũ Trọng Phụng",
+        language: "Vietnamese",
+        langCode: "VI",
+        genre: "Fiction",
+        level: "Intermediate",
+        year: 1936,
+        pages: 256,
+        description: "A blistering satirical masterpiece exposing bourgeois hypocrisy in French-colonial Hanoi through the preposterous rise of street ball-boy Xuân Tóc Đỏ.",
+        imageAlt: "Sharp satirical book cover in 1930s Indochine retro poster styling, featuring a comically flamboyant gentleman in a checkered colonial suit."
+      },
+      {
+        id: "norwegian-wood",
+        title: "Norwegian Wood",
+        author: "Haruki Murakami",
+        language: "Japanese",
+        langCode: "JA",
+        genre: "Fiction",
+        level: "Intermediate",
+        year: 1987,
+        pages: 296,
+        description: "Toru Watanabe reflects upon his quiet Tokyo university years during the late 1960s, intertwined with memory, loss, and bittersweet music.",
+        imageAlt: "Minimalist Japanese book cover rendered in duo-tone crimson and midnight blue featuring quiet misty pine forest hills under cold rain."
+      },
+      {
+        id: "stranger",
+        title: "L'Étranger (The Stranger)",
+        author: "Albert Camus",
+        language: "French",
+        langCode: "FR",
+        genre: "Philosophy",
+        level: "Intermediate",
+        year: 1942,
+        pages: 159,
+        description: "Meursault passively confronts the absurdity of human existence beneath the blinding Mediterranean sun on an Algerian shore.",
+        imageAlt: "Sun-bleached stark book cover showing an intense blinding white-gold Mediterranean sun casting deep geometric shadows across an empty beach."
+      },
+      {
+        id: "rashomon",
+        title: "Rashomon and Other Stories",
+        author: "Ryūnosuke Akutagawa",
+        language: "Japanese",
+        langCode: "JA",
+        genre: "Mystery",
+        level: "Advanced",
+        year: 1915,
+        pages: 224,
+        description: "Psychological explorations of subjective truth, guilt, and human fragility framed by a dilapidated ancient Kyoto gate in heavy downpour.",
+        imageAlt: "Traditional Japanese ink wash sumi-e style book cover depicting the imposing weathered wooden beams of Kyoto gate under torrential rain."
+      },
+      {
+        id: "ficciones",
+        title: "Ficciones",
+        author: "Jorge Luis Borges",
+        language: "Spanish",
+        langCode: "ES",
+        genre: "Mystery",
+        level: "Advanced",
+        year: 1944,
+        pages: 174,
+        description: "Dazzling labyrinthine short stories exploring infinite libraries, speculative heresies, secret societies, and the nature of infinity.",
+        imageAlt: "Escher-inspired labyrinth book cover showcasing infinite twisting library staircases and mirrored geometrical pathways in slate blue and gold."
+      },
+      {
+        id: "tat-den",
+        title: "Tắt Đèn",
+        author: "Ngô Tất Tố",
+        language: "Vietnamese",
+        langCode: "VI",
+        genre: "Fiction",
+        level: "Intermediate",
+        year: 1939,
+        pages: 216,
+        description: "A poignant realist narrative portraying the fierce resilience of Chị Dậu during an oppressive rural tax season in northern Vietnam.",
+        imageAlt: "Deep sepia tone dramatic book cover with the silhouette of a determined peasant woman carrying burdens into the stormy night darkness."
+      },
+      {
+        id: "sapiens",
+        title: "Sapiens: A Brief History",
+        author: "Yuval Noah Harari",
+        language: "English",
+        langCode: "EN",
+        genre: "Non-Fiction",
+        level: "Intermediate",
+        year: 2011,
+        pages: 443,
+        description: "A panoramic examination of how an insignificant ape became the master of planet Earth through the unique ability to create collective fiction.",
+        imageAlt: "Contemporary non-fiction book cover featuring a pale human ochre handprint impression against clean white slate and crisp modern editorial serif typography."
+      },
+      {
+        id: "madame-bovary",
+        title: "Madame Bovary",
+        author: "Gustave Flaubert",
+        language: "French",
+        langCode: "FR",
+        genre: "Poetry & Classic",
+        level: "Advanced",
+        year: 1856,
+        pages: 429,
+        description: "Emma Bovary seeks romantic ecstasy and aristocratic luxury to escape the suffocating tedium of provincial marital life.",
+        imageAlt: "Exquisite 19th-century French editorial cover with velvet textures, vintage lace motifs, and melancholy blue oil painting flourishes."
+      },
+      {
+        id: "pedro-paramo",
+        title: "Pedro Páramo",
+        author: "Juan Rulfo",
+        language: "Spanish",
+        langCode: "ES",
+        genre: "Poetry & Classic",
+        level: "Intermediate",
+        year: 1955,
+        pages: 128,
+        description: "Juan Preciado journeys to Comala in search of his long-lost father, only to find a desolate ghost town inhabited solely by murmuring specters.",
+        imageAlt: "Haunting desert book cover featuring cracked arid clay earth, bleached adobe walls, and ghostly silhouettes under a blazing cobalt sky."
+      },
+      {
+        id: "kokoro",
+        title: "Kokoro",
+        author: "Natsume Sōseki",
+        language: "Japanese",
+        langCode: "JA",
+        genre: "Poetry & Classic",
+        level: "Intermediate",
+        year: 1914,
+        pages: 248,
+        description: "A moving meditation on the loneliness of the individual navigating Meiji-era Japan, told through the friendship between a student and 'Sensei'.",
+        imageAlt: "Serene Japanese woodcut aesthetic book cover showing fallen autumn maple leaves floating upon a quiet ripple of dark garden pond water."
+      },
+      {
+        id: "lao-hac",
+        title: "Lão Hạc và Tuyển Tập",
+        author: "Nam Cao",
+        language: "Vietnamese",
+        langCode: "VI",
+        genre: "Fiction",
+        level: "Intermediate",
+        year: 1943,
+        pages: 184,
+        description: "An unforgettable, heartbreaking portrait of old farmer Lão Hạc and his beloved dog Vàng, exemplifying noble dignity amidst crippling poverty.",
+        imageAlt: "Warm charcoal and sepia book cover showing an elderly Vietnamese farmer stroking a gentle golden hound against a simple thatched garden cottage."
+      },
+      {
+        id: "thinking-fast-slow",
+        title: "Thinking, Fast and Slow",
+        author: "Daniel Kahneman",
+        language: "English",
+        langCode: "EN",
+        genre: "Non-Fiction",
+        level: "Intermediate",
+        year: 2011,
+        pages: 499,
+        description: "Nobel laureate Kahneman explores the two cognitive systems that drive human choice: System 1 (instinctive) and System 2 (deliberative).",
+        imageAlt: "Striking cognitive science book cover featuring dual brain hemispheres illustrated as intersecting geometric gears in slate navy and warm amber."
+      }
+    ];
+
+    let savedBookmarks = new Set(["1984", "truyen-kieu", "solitude"]);
+    let currentLanguage = "all";
+    let currentReadingLevel = "all";
+    let currentPeriod = "all";
+    let isCompactView = false;
+    let sidebarOpen = true;
+
+    const bookGrid = document.getElementById("bookGrid");
+    const emptyState = document.getElementById("emptyState");
+    const displayedCount = document.getElementById("displayedCount");
+    const resultsCountBadge = document.getElementById("resultsCountBadge");
+    const searchInput = document.getElementById("searchInput");
+    const sortSelect = document.getElementById("sortSelect");
+    const clearAllFiltersBtn = document.getElementById("clearAllFiltersBtn");
+    const emptyResetBtn = document.getElementById("emptyResetBtn");
+    const toggleFilterBtn = document.getElementById("toggleFilterBtn");
+    const filterSidebar = document.getElementById("filterSidebar");
+    const bookCatalogSection = document.getElementById("bookCatalogSection");
+    const activeFilterBadge = document.getElementById("activeFilterBadge");
+    const viewGridBtn = document.getElementById("viewGridBtn");
+    const viewListBtn = document.getElementById("viewListBtn");
+
+    // Modal elements
+    const detailsModal = document.getElementById("detailsModal");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const modalCloseActionBtn = document.getElementById("modalCloseActionBtn");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalAuthor = document.getElementById("modalAuthor");
+    const modalMeta = document.getElementById("modalMeta");
+    const modalDescription = document.getElementById("modalDescription");
+    const modalPill = document.getElementById("modalPill");
+    const modalCoverContainer = document.getElementById("modalCoverContainer");
+    const modalSaveShelfBtn = document.getElementById("modalSaveShelfBtn");
+    let activeModalBook = null;
+
+    function renderBookCards(books) {
+      if (!books.length) {
+        bookGrid.innerHTML = "";
+        emptyState.classList.remove("hidden");
+        emptyState.classList.add("flex");
+        displayedCount.textContent = "0";
+        return;
+      }
+
+      emptyState.classList.add("hidden");
+      emptyState.classList.remove("flex");
+      displayedCount.textContent = books.length;
+      resultsCountBadge.textContent = `${books.length} Volume Editions`;
+
+      bookGrid.className = isCompactView 
+        ? "grid grid-cols-1 gap-4" 
+        : "grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6";
+
+      bookGrid.innerHTML = books.map(book => {
+        const isBookmarked = savedBookmarks.has(book.id);
+
+        if (isCompactView) {
+          return `
+            <article class="bg-surface-container-lowest rounded-xl p-4 shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+              <div class="flex items-center gap-4 min-w-0">
+                <div class="w-14 h-20 rounded-md overflow-hidden bg-surface-container shrink-0 shadow-sm">
+                  <img src="placeholder" data-alt="${book.imageAlt}" class="w-full h-full object-cover">
+                </div>
+                <div class="min-w-0">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-primary font-bold">${book.langCode}</span>
+                    <span class="text-on-surface-variant font-label-sm text-label-sm">${book.genre}</span>
+                  </div>
+                  <h3 class="font-headline-sm text-headline-sm text-primary truncate hover:text-secondary cursor-pointer mt-0.5" onclick="window.__openBookModal('${book.id}')">${book.title}</h3>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">${book.author} &bull; ${book.year} &bull; ${book.pages} p.</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 shrink-0 self-end sm:self-center">
+                <button onclick="window.__toggleBookmark('${book.id}', this)" class="w-9 h-9 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center transition-colors ${isBookmarked ? 'text-status-danger' : 'text-on-surface-variant'}">
+                  <span class="material-symbols-outlined text-[20px]" style="${isBookmarked ? "font-variation-settings: 'FILL' 1;" : ''}">bookmark</span>
+                </button>
+                <button onclick="window.__openBookModal('${book.id}')" class="px-4 py-2 rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold transition-all shadow-sm">
+                  View Details
+                </button>
+              </div>
+            </article>
+          `;
+        }
+
+        return `
+          <article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+            <div class="relative w-full aspect-[2/3] bg-surface-container overflow-hidden">
+              <img src="placeholder" data-alt="${book.imageAlt}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary shadow-sm">${book.langCode}</span>
+                <span class="px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-md font-label-sm text-label-sm text-on-primary shadow-sm">${book.level}</span>
+              </div>
+
+              <button onclick="window.__toggleBookmark('${book.id}', this)" aria-label="Bookmark Book" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center transition-transform hover:scale-110 shadow-sm ${isBookmarked ? 'text-status-danger' : 'text-on-surface-variant'}">
+                <span class="material-symbols-outlined text-[20px]" style="${isBookmarked ? "font-variation-settings: 'FILL' 1;" : ''}">bookmark</span>
+              </button>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high/90 backdrop-blur-sm text-secondary font-label-sm text-label-sm font-medium mb-1 shadow-sm">${book.genre}</span>
+              </div>
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div class="space-y-1.5">
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors cursor-pointer" onclick="window.__openBookModal('${book.id}')">
+                  ${book.title}
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant font-medium flex items-center gap-1">
+                  <span>${book.author}</span>
+                  <span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">
+                  ${book.description}
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-0 space-y-3">
+                <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    ${book.pages} pages
+                  </span>
+                  <span class="flex items-center gap-1 font-semibold text-primary">
+                    <span class="material-symbols-outlined text-[16px]">event</span>
+                    ${book.year}
+                  </span>
+                </div>
+
+                <button onclick="window.__openBookModal('${book.id}')" class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-all text-center">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function getSelectedGenres() {
+      const checked = document.querySelectorAll(".genre-checkbox:checked");
+      return Array.from(checked).map(c => c.value);
+    }
+
+    function filterAndSortBooks() {
+      const query = (searchInput.value || "").trim().toLowerCase();
+      const selectedGenres = getSelectedGenres();
+
+      let filtered = rawBooks.filter(book => {
+        if (query) {
+          const matchTitle = book.title.toLowerCase().includes(query);
+          const matchAuthor = book.author.toLowerCase().includes(query);
+          const matchDesc = book.description.toLowerCase().includes(query);
+          if (!matchTitle && !matchAuthor && !matchDesc) return false;
+        }
+
+        if (currentLanguage !== "all" && book.language !== currentLanguage) {
+          return false;
+        }
+
+        if (selectedGenres.length > 0 && !selectedGenres.includes(book.genre)) {
+          return false;
+        }
+
+        if (currentReadingLevel !== "all" && book.level !== currentReadingLevel) {
+          return false;
+        }
+
+        if (currentPeriod === "before-1950" && book.year >= 1950) return false;
+        if (currentPeriod === "1950-2000" && (book.year < 1950 || book.year > 2000)) return false;
+        if (currentPeriod === "after-2000" && book.year <= 2000) return false;
+
+        return true;
+      });
+
+      const sortVal = sortSelect.value;
+      filtered.sort((a, b) => {
+        if (sortVal === "title-az") return a.title.localeCompare(b.title);
+        if (sortVal === "year-newest") return b.year - a.year;
+        if (sortVal === "year-oldest") return a.year - b.year;
+        if (sortVal === "pages-short") return a.pages - b.pages;
+        return 0;
+      });
+
+      updateActiveFilterCountBadge();
+      renderBookCards(filtered);
+    }
+
+    function updateActiveFilterCountBadge() {
+      let count = 0;
+      if (searchInput.value.trim()) count++;
+      if (currentLanguage !== "all") count++;
+      if (getSelectedGenres().length > 0) count += getSelectedGenres().length;
+      if (currentReadingLevel !== "all") count++;
+      if (currentPeriod !== "all") count++;
+
+      if (count > 0) {
+        activeFilterBadge.textContent = count;
+        activeFilterBadge.classList.remove("hidden");
+      } else {
+        activeFilterBadge.classList.add("hidden");
+      }
+    }
+
+    function resetFilters() {
+      searchInput.value = "";
+      currentLanguage = "all";
+      currentReadingLevel = "all";
+      currentPeriod = "all";
+
+      document.querySelectorAll(".genre-checkbox").forEach(cb => cb.checked = false);
+
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        if (btn.getAttribute("data-lang") === "all") {
+          btn.className = "lang-btn px-3 py-1.5 rounded-full font-label-sm text-label-sm bg-primary text-on-primary font-semibold shadow-sm transition-all";
+        } else {
+          btn.className = "lang-btn px-3 py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface transition-all";
+        }
+      });
+
+      document.querySelectorAll(".level-btn").forEach(btn => {
+        if (btn.getAttribute("data-level") === "all") {
+          btn.className = "level-btn py-1.5 text-center rounded-lg font-label-sm text-label-sm bg-primary text-on-primary font-semibold transition-all";
+        } else {
+          btn.className = "level-btn py-1.5 text-center rounded-lg font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface transition-all";
+        }
+      });
+
+      const allRadio = document.querySelector('input[name="period"][value="all"]');
+      if (allRadio) allRadio.checked = true;
+
+      sortSelect.value = "title-az";
+      filterAndSortBooks();
+    }
+
+    window.__toggleBookmark = function (id, btn) {
+      if (savedBookmarks.has(id)) {
+        savedBookmarks.delete(id);
+        btn.classList.remove("text-status-danger");
+        btn.classList.add("text-on-surface-variant");
+        btn.innerHTML = `<span class="material-symbols-outlined text-[20px]">bookmark</span>`;
+      } else {
+        savedBookmarks.add(id);
+        btn.classList.remove("text-on-surface-variant");
+        btn.classList.add("text-status-danger");
+        btn.innerHTML = `<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>`;
+      }
+    };
+
+    window.__openBookModal = function (id) {
+      const book = rawBooks.find(b => b.id === id);
+      if (!book) return;
+
+      activeModalBook = book;
+      modalTitle.textContent = book.title;
+      modalAuthor.textContent = `By ${book.author}`;
+      modalMeta.textContent = `${book.language} Edition &bull; ${book.year} &bull; ${book.pages} pages &bull; Reading Level: ${book.level}`;
+      modalDescription.textContent = book.description;
+      modalPill.textContent = book.genre;
+      modalCoverContainer.innerHTML = `<img src="placeholder" data-alt="${book.imageAlt}" class="w-full h-full object-cover">`;
+
+      const isBookmarked = savedBookmarks.has(book.id);
+      modalSaveShelfBtn.innerHTML = `
+        <span class="material-symbols-outlined text-[18px]" style="${isBookmarked ? "font-variation-settings: 'FILL' 1;" : ''}">
+          ${isBookmarked ? "bookmark_added" : "bookmark_add"}
+        </span>
+        ${isBookmarked ? "Saved in Shelf" : "Save to Shelf"}
+      `;
+
+      detailsModal.classList.remove("hidden");
+      detailsModal.classList.add("flex");
+    };
+
+    function closeModal() {
+      detailsModal.classList.add("hidden");
+      detailsModal.classList.remove("flex");
+      activeModalBook = null;
+    }
+
+    closeModalBtn.addEventListener("click", closeModal);
+    modalCloseActionBtn.addEventListener("click", closeModal);
+    detailsModal.addEventListener("click", (e) => {
+      if (e.target === detailsModal) closeModal();
+    });
+
+    modalSaveShelfBtn.addEventListener("click", () => {
+      if (!activeModalBook) return;
+      if (savedBookmarks.has(activeModalBook.id)) {
+        savedBookmarks.delete(activeModalBook.id);
+        modalSaveShelfBtn.innerHTML = `<span class="material-symbols-outlined text-[18px]">bookmark_add</span> Save to Shelf`;
+      } else {
+        savedBookmarks.add(activeModalBook.id);
+        modalSaveShelfBtn.innerHTML = `<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">bookmark_added</span> Saved in Shelf`;
+      }
+      filterAndSortBooks();
+    });
+
+    // Language buttons
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".lang-btn").forEach(b => {
+          b.className = "lang-btn px-3 py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface transition-all";
+        });
+        btn.className = "lang-btn px-3 py-1.5 rounded-full font-label-sm text-label-sm bg-primary text-on-primary font-semibold shadow-sm transition-all";
+        currentLanguage = btn.getAttribute("data-lang");
+        filterAndSortBooks();
+      });
+    });
+
+    // Reading level buttons
+    document.querySelectorAll(".level-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".level-btn").forEach(b => {
+          b.className = "level-btn py-1.5 text-center rounded-lg font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface transition-all" + (b.getAttribute("data-level") === "Advanced" ? " col-span-3" : "");
+        });
+        btn.className = "level-btn py-1.5 text-center rounded-lg font-label-sm text-label-sm bg-primary text-on-primary font-semibold shadow-sm transition-all" + (btn.getAttribute("data-level") === "Advanced" ? " col-span-3" : "");
+        currentReadingLevel = btn.getAttribute("data-level");
+        filterAndSortBooks();
+      });
+    });
+
+    // Genre checkboxes
+    document.querySelectorAll(".genre-checkbox").forEach(cb => {
+      cb.addEventListener("change", filterAndSortBooks);
+    });
+
+    // Period radio
+    document.querySelectorAll(".period-radio").forEach(rb => {
+      rb.addEventListener("change", (e) => {
+        currentPeriod = e.target.value;
+        filterAndSortBooks();
+      });
+    });
+
+    // Search and Sort inputs
+    searchInput.addEventListener("input", filterAndSortBooks);
+    sortSelect.addEventListener("change", filterAndSortBooks);
+    clearAllFiltersBtn.addEventListener("click", resetFilters);
+    emptyResetBtn.addEventListener("click", resetFilters);
+
+    // Sidebar Toggle
+    toggleFilterBtn.addEventListener("click", () => {
+      sidebarOpen = !sidebarOpen;
+      if (sidebarOpen) {
+        filterSidebar.classList.remove("hidden");
+        bookCatalogSection.className = "lg:col-span-9 transition-all duration-300";
+      } else {
+        filterSidebar.classList.add("hidden");
+        bookCatalogSection.className = "lg:col-span-12 transition-all duration-300";
+      }
+    });
+
+    // View Switching
+    viewGridBtn.addEventListener("click", () => {
+      isCompactView = false;
+      viewGridBtn.className = "w-8 h-8 rounded-full bg-surface-container-lowest text-primary flex items-center justify-center shadow-sm";
+      viewListBtn.className = "w-8 h-8 rounded-full text-on-surface-variant hover:text-primary flex items-center justify-center transition-colors";
+      filterAndSortBooks();
+    });
+
+    viewListBtn.addEventListener("click", () => {
+      isCompactView = true;
+      viewListBtn.className = "w-8 h-8 rounded-full bg-surface-container-lowest text-primary flex items-center justify-center shadow-sm";
+      viewGridBtn.className = "w-8 h-8 rounded-full text-on-surface-variant hover:text-primary flex items-center justify-center transition-colors";
+      filterAndSortBooks();
+    });
+
+    // Initial render
+    filterAndSortBooks();
+  })();
+</script></main><footer class="w-full bg-surface-container-low shadow-[0_-1px_8px_rgba(0,0,0,0.02)]"><div class="max-w-[1440px] mx-auto px-6 lg:px-12 py-16"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10"><div class="lg:col-span-2 space-y-4"><div class="flex items-center gap-3"><img alt="BookBridge Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEDzO_GBPm8isEUkTqlc0rXu0_CDktn0QcjBDQc8lwZ2oQyRpG9MkPFYhbvUKXmBhdK2GJgYVYAMhG2Vx6oj7aqnEb4cuLSFnSJK5356BnlaaQpZo6m4C2iQsyTsxqQXmfC8dHRL30N8OSPQzTEYbxyaJZy0d3kun6iP7ROH7IBhuU9vkHTy06UR-JLKph1gjAHaH89kBMePOEsWbliDR50dnSmBfid-LCRtFZaQ"><span class="font-headline-sm text-headline-sm tracking-tight text-primary">BookBridge</span></div><p class="font-headline-sm text-headline-sm italic text-on-tertiary-container font-normal">“Bridge Worlds, Discover Voices Through Books”</p><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">A scholarly digital reading platform curated for reflective readers, archival researchers, and bibliophiles.</p></div><div class="space-y-3"><h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Explore</h4><ul class="space-y-2"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="directory" href="#">Book Directory</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="explorer" href="#">Interactive Explorer</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="gallery" href="#">Cover Visual Gallery</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="collections" href="#">Themed Shelves</a></li></ul></div><div class="space-y-3"><h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Collections</h4><ul class="space-y-2"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="collections" href="#">Literary Modernism</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="collections" href="#">Curated Anthologies</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="collections" href="#">Global Dissertations</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="my-library" href="#">Personal Archival Shelf</a></li></ul></div><div class="space-y-3"><h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Resources</h4><ul class="space-y-2"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">Editorial Standards</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">Archival Citations</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Scholarly Inquiry</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Community Reader Notes</a></li></ul></div><div class="space-y-3"><h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Legal</h4><ul class="space-y-2"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Privacy Charter</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Public Domain Notice</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Metadata Usage Rights</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Open Access Ethics</a></li></ul></div></div><div class="mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4"><p class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-left">BookBridge Academic eProject Demo © 2026. Interactive local storage reading tracker.</p><div class="flex items-center gap-6"><span class="font-label-sm text-label-sm text-on-surface-variant">v1.4 Archive Build</span><span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-on-tertiary-container"><span class="material-symbols-outlined text-[14px]">bookmarks</span>Local Persistence Active</span></div></div></div></footer>
+
+</body></html>

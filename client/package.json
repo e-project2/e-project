@@ -1,0 +1,23 @@
+{
+  "name": "bookbridge-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "npm run start --prefix backend",
+    "server:dev": "npm run dev --prefix backend",
+    "test:backend": "npm run test --prefix backend"
+  },
+  "dependencies": {
+    "lucide-react": "^1.57.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.2"
+  }
+}

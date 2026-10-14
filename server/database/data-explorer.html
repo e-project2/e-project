@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookBridge – MongoDB Demo Data Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #0B0F17;
+      --bg-surface: #141B26;
+      --bg-surface-elevated: #1E2738;
+      --bg-glass: rgba(20, 27, 38, 0.75);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-focus: #F59E0B;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+      --accent: #F59E0B;
+      --accent-hover: #D97706;
+      --accent-soft: rgba(245, 158, 11, 0.12);
+      --teal: #0D9488;
+      --teal-soft: rgba(13, 148, 136, 0.15);
+      --indigo: #6366F1;
+      --indigo-soft: rgba(99, 102, 241, 0.15);
+      --emerald: #10B981;
+      --rose: #F43F5E;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 25px rgba(245, 158, 11, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(245, 158, 11, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(13, 148, 136, 0.05) 0%, transparent 40%);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-main); }
+    ::-webkit-scrollbar-thumb { background: var(--bg-surface-elevated); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-dim); }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: var(--bg-glass);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--accent), #B45309);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: #0F172A;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .brand-text h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-text span.version {
+      font-size: 0.75rem;
+      background: var(--teal-soft);
+      color: #2DD4BF;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-weight: 600;
+      border: 1px solid rgba(45, 212, 191, 0.2);
+    }
+
+    .brand-text p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .header-stats {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+    }
+
+    .stat-pill strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    .db-name {
+      background: var(--accent-soft);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #FBBF24;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* Tabs Navigation */
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      background: var(--bg-surface);
+      padding: 6px;
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 28px;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 10px 20px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-main);
+      background: var(--bg-surface-elevated);
+    }
+
+    .tab-btn.active {
+      background: var(--accent);
+      color: #0F172A;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+    }
+
+    .tab-btn .badge {
+      background: rgba(0, 0, 0, 0.15);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .tab-btn:not(.active) .badge {
+      background: var(--bg-surface-elevated);
+      color: var(--text-muted);
+    }
+
+    /* Filter Toolbar (for Books tab) */
+    .toolbar {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin-bottom: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 260px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      background: var(--bg-main);
+      border: 1px solid var(--border-color);
+      padding: 10px 16px 10px 40px;
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-box input:focus {
+      border-color: var(--border-focus);
+    }
+
+    .search-box svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      color: var(--text-dim);
+    }
+
+    .filters-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .select-wrap select {
+      background: var(--bg-main);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .btn-action {
+      background: var(--bg-surface-elevated);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-action:hover {
+      background: var(--border-color);
+    }
+
+    /* Tab Panes */
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Books Grid */
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .book-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+
+    .book-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(245, 158, 11, 0.35);
+      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7);
+    }
+
+    .book-card-header {
+      padding: 16px 20px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .book-id-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: var(--bg-surface-elevated);
+      padding: 3px 8px;
+      border-radius: 6px;
+      color: #94A3B8;
+      border: 1px solid var(--border-color);
+    }
+
+    .badge-featured {
+      background: var(--accent-soft);
+      color: #FBBF24;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      border: 1px solid rgba(245, 158, 11, 0.25);
+    }
+
+    .book-card-body {
+      padding: 20px;
+      display: flex;
+      gap: 18px;
+      flex: 1;
+    }
+
+    /* Virtual Book Cover Preview */
+    .book-cover-mock {
+      width: 90px;
+      height: 130px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      padding: 10px 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #FFF;
+      box-shadow: -4px 6px 15px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+      border-left: 3px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .cover-title {
+      font-family: var(--font-serif);
+      font-size: 0.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    }
+
+    .cover-author {
+      font-size: 0.65rem;
+      opacity: 0.9;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .book-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .book-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      font-family: var(--font-serif);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .book-author-name {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .meta-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .meta-badge {
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      background: var(--bg-surface-elevated);
+      color: var(--text-muted);
+    }
+
+    .badge-genre { background: var(--teal-soft); color: #2DD4BF; }
+    .badge-lang { background: var(--indigo-soft); color: #818CF8; }
+    .badge-level { background: rgba(255, 255, 255, 0.06); color: #CBD5E1; }
+
+    .book-synopsis {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-top: auto;
+    }
+
+    .book-card-footer {
+      padding: 14px 20px;
+      background: var(--bg-surface-elevated);
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .rating-box {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #FBBF24;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-json {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-json:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    /* Authors Grid */
+    .authors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .author-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: all 0.25s;
+    }
+
+    .author-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--teal);
+    }
+
+    .author-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .author-avatar-mock {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), #0F766E);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(13, 148, 136, 0.3);
+    }
+
+    .author-title h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .author-meta {
+      font-size: 0.8rem;
+      color: #2DD4BF;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .author-specialty {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      font-style: italic;
+    }
+
+    .author-bio {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .themes-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .theme-tag {
+      font-size: 0.72rem;
+      background: var(--bg-surface-elevated);
+      color: #94A3B8;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+    }
+
+    /* Collections Grid */
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 24px;
+    }
+
+    .collection-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .col-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .col-title {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--text-main);
+    }
+
+    .col-badge {
+      background: var(--indigo-soft);
+      color: #A5B4FC;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .col-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .col-books-list {
+      background: var(--bg-main);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .col-book-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      padding: 6px 8px;
+      border-radius: 6px;
+      background: var(--bg-surface);
+    }
+
+    .col-book-item:hover {
+      background: var(--bg-surface-elevated);
+    }
+
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .gallery-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-image-box {
+      height: 200px;
+      background: linear-gradient(135deg, #1E293B, #0F172A);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-dim);
+      font-size: 0.9rem;
+    }
+
+    .gallery-info {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .gallery-caption {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .gallery-credit {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    /* Reading Progress & Favorites Table */
+    .table-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    .table-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+      background: var(--bg-surface-elevated);
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--bg-main);
+      padding: 12px 18px;
+      color: var(--text-dim);
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-main);
+    }
+
+    .progress-bar-wrap {
+      width: 120px;
+      height: 8px;
+      background: var(--bg-surface-elevated);
+      border-radius: 4px;
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--teal), var(--accent));
+      border-radius: 4px;
+    }
+
+    /* Modal for JSON View */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 720px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      animation: modalScale 0.2s ease-out;
+    }
+
+    @keyframes modalScale {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-header {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-close:hover {
+      color: var(--text-main);
+    }
+
+    .modal-body {
+      padding: 20px 24px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    pre.code-json {
+      background: var(--bg-main);
+      padding: 18px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: #38BDF8;
+      overflow-x: auto;
+      line-height: 1.6;
+      border: 1px solid var(--border-color);
+    }
+
+    .modal-footer {
+      padding: 14px 24px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--teal);
+      color: #0F172A;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      display: none;
+      z-index: 2000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="logo-badge">B</div>
+      <div class="brand-text">
+        <h1>BookBridge <span class="version">MongoDB Preview</span></h1>
+        <p>Hệ thống Khám phá Dữ liệu Mẫu (Interactive Data Demo Explorer)</p>
+      </div>
+    </div>
+    <div class="header-stats">
+      <div class="stat-pill db-name">
+        <span>💾 DB:</span> <strong>bookbridge_db</strong>
+      </div>
+      <div class="stat-pill">
+        <span>📚 Sách:</span> <strong id="total-books-count">26</strong>
+      </div>
+      <div class="stat-pill">
+        <span>✍️ Tác giả:</span> <strong id="total-authors-count">8</strong>
+      </div>
+      <div class="stat-pill">
+        <span>📦 Tuyển tập:</span> <strong>4</strong>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    <!-- Tabs Nav -->
+    <div class="nav-tabs">
+      <button class="tab-btn active" onclick="switchTab('books')">
+        📚 Danh mục Sách <span class="badge" id="badge-books">26</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('authors')">
+        ✍️ Tác giả <span class="badge">8</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('collections')">
+        📦 Bộ sưu tập Tuyển chọn <span class="badge">4</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('gallery')">
+        🖼️ Thư viện Minh họa <span class="badge">6</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('tracker')">
+        ⏱️ Tiến độ Đọc & Yêu thích <span class="badge">7</span>
+      </button>
+    </div>
+
+    <!-- TAB 1: BOOKS -->
+    <div id="tab-books" class="tab-pane active">
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="search-box">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          <input type="text" id="search-input" placeholder="Tìm kiếm theo tựa sách, tác giả, tóm tắt, từ khóa..." oninput="handleFilterChange()">
+        </div>
+
+        <div class="filters-group">
+          <div class="select-wrap">
+            <select id="genre-filter" onchange="handleFilterChange()">
+              <option value="">Tất cả Thể loại (All Genres)</option>
+              <option value="Classic">Classic</option>
+              <option value="Fiction">Fiction</option>
+              <option value="Dystopian">Dystopian</option>
+              <option value="Philosophy">Philosophy</option>
+              <option value="Science Fiction">Science Fiction</option>
+              <option value="Mystery">Mystery</option>
+              <option value="Non-Fiction">Non-Fiction</option>
+            </select>
+          </div>
+
+          <div class="select-wrap">
+            <select id="language-filter" onchange="handleFilterChange()">
+              <option value="">Tất cả Ngôn ngữ (All Languages)</option>
+              <option value="English">Tiếng Anh (English)</option>
+              <option value="French">Tiếng Pháp (French)</option>
+              <option value="Japanese">Tiếng Nhật (Japanese)</option>
+              <option value="German">Tiếng Đức (German)</option>
+              <option value="Spanish">Tiếng Tây Ban Nha (Spanish)</option>
+              <option value="Vietnamese">Tiếng Việt (Vietnamese)</option>
+              <option value="Russian">Tiếng Nga (Russian)</option>
+            </select>
+          </div>
+
+          <div class="select-wrap">
+            <select id="level-filter" onchange="handleFilterChange()">
+              <option value="">Độ khó đọc (Reading Level)</option>
+              <option value="Beginner">Beginner (Nhập môn)</option>
+              <option value="Intermediate">Intermediate (Trung cấp)</option>
+              <option value="Advanced">Advanced (Nâng cao)</option>
+            </select>
+          </div>
+
+          <button class="btn-action" onclick="resetFilters()">
+            🔄 Đặt lại bộ lọc
+          </button>
+        </div>
+      </div>
+
+      <!-- Result count notice -->
+      <div style="margin-bottom: 18px; color: var(--text-dim); font-size: 0.9rem; display: flex; justify-content: space-between;">
+        <span>Hiển thị <strong id="visible-books-count" style="color: var(--text-main);">26</strong> kết quả phù hợp</span>
+        <span>Mẹo: Nhấn nút <code>{ } JSON</code> để xem tài liệu MongoDB BSON gốc</span>
+      </div>
+
+      <!-- Books Cards Grid -->
+      <div id="books-grid" class="books-grid"></div>
+    </div>
+
+    <!-- TAB 2: AUTHORS -->
+    <div id="tab-authors" class="tab-pane">
+      <div id="authors-grid" class="authors-grid"></div>
+    </div>
+
+    <!-- TAB 3: COLLECTIONS -->
+    <div id="tab-collections" class="tab-pane">
+      <div id="collections-grid" class="collections-grid"></div>
+    </div>
+
+    <!-- TAB 4: GALLERY -->
+    <div id="tab-gallery" class="tab-pane">
+      <div id="gallery-grid" class="gallery-grid"></div>
+    </div>
+
+    <!-- TAB 5: TRACKER & FAVORITES -->
+    <div id="tab-tracker" class="tab-pane">
+      <div class="table-card">
+        <div class="table-header">
+          <span>📖 Trạng thái & Tiến độ Đọc Sách (Reading Progress Collection)</span>
+          <span class="stat-pill" style="font-size: 0.75rem;">3 Bản ghi mẫu</span>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Mã Sách</th>
+              <th>Tựa Đề</th>
+              <th>Trạng Thái</th>
+              <th>Tiến Độ Trang</th>
+              <th>% Đã Đọc</th>
+              <th>Ghi Chú</th>
+              <th>Cập Nhật Lần Cuối</th>
+            </tr>
+          </thead>
+          <tbody id="progress-table-body"></tbody>
+        </table>
+      </div>
+
+      <div class="table-card">
+        <div class="table-header">
+          <span>❤️ Danh sách Sách Yêu thích (Favorites Collection)</span>
+          <span class="stat-pill" style="font-size: 0.75rem;">4 Bản ghi mẫu</span>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Mã Sách</th>
+              <th>Tựa Đề</th>
+              <th>Tác Giả</th>
+              <th>Ngôn Ngữ</th>
+              <th>Thời Điểm Đánh Dấu (addedAt)</th>
+            </tr>
+          </thead>
+          <tbody id="favorites-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- JSON Modal -->
+  <div id="json-modal" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-title">
+          <span>📄 MongoDB Document Inspector</span>
+        </div>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <pre id="modal-json-content" class="code-json"></pre>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-action" onclick="copyModalJson()">📋 Copy JSON</button>
+        <button class="btn-action" style="background: var(--accent); color: #0F172A;" onclick="closeModal()">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="copy-toast">Đã copy dữ liệu JSON vào Clipboard!</div>
+
+  <!-- SCRIPT: Data & UI Engine -->
+  <script>
+    // Dữ liệu Authors nạp từ authors.json
+    const authorsData = [
+      {
+        "_id": "auth-01",
+        "name": "George Orwell",
+        "nationality": "British",
+        "specialization": "Dystopian Fiction & Political Commentary",
+        "bio": "Eric Arthur Blair (George Orwell) là tiểu thuyết gia, nhà viết tiểu luận người Anh nổi tiếng với các tác phẩm phản ánh áp bức xã hội và chuyên chế.",
+        "notableThemes": ["Totalitarianism", "Surveillance", "Social Injustice", "Individual Freedom"]
+      },
+      {
+        "_id": "auth-02",
+        "name": "Antoine de Saint-Exupéry",
+        "nationality": "French",
+        "specialization": "Philosophical Allegory & Aviation Literature",
+        "bio": "Nhà văn, phi công tiên phong người Pháp. Tác phẩm của ông kết hợp sâu sắc giữa triết lý nhân sinh, tình yêu thương và sự thuần khiết.",
+        "notableThemes": ["Innocence", "Humanity", "Love", "Friendship", "Responsibility"]
+      },
+      {
+        "_id": "auth-03",
+        "name": "Haruki Murakami",
+        "nationality": "Japanese",
+        "specialization": "Magical Realism & Contemporary Fiction",
+        "bio": "Nhà văn đương đại hàng đầu Nhật Bản với lối viết siêu thực huyền ảo, khai thác nỗi cô đơn và thế giới song song ẩn sau đô thị.",
+        "notableThemes": ["Loneliness", "Memory", "Magical Realism", "Subconscious", "Music"]
+      },
+      {
+        "_id": "auth-04",
+        "name": "Franz Kafka",
+        "nationality": "German",
+        "specialization": "Existential Fiction & Absurdist Literature",
+        "bio": "Tiểu thuyết gia vĩ đại thế kỷ 20, nổi tiếng với các tác phẩm khắc họa sự ngột ngạt của bộ máy quan liêu và sự phi lý của đời sống.",
+        "notableThemes": ["Alienation", "Bureaucracy", "Existential Dread", "Identity Crisis"]
+      },
+      {
+        "_id": "auth-05",
+        "name": "Gabriel García Márquez",
+        "nationality": "Spanish / Colombian",
+        "specialization": "Magical Realism & Latin American Epic",
+        "bio": "Nhà văn đoạt giải Nobel Văn học năm 1982, người đưa trường phái Hiện thực huyền ảo (Magic Realism) trở thành hiện tượng toàn cầu.",
+        "notableThemes": ["Solitude", "Fate", "Family Heritage", "Time Cycles"]
+      },
+      {
+        "_id": "auth-06",
+        "name": "Nam Cao",
+        "nationality": "Vietnamese",
+        "specialization": "Realistic Social Critique & Psychology",
+        "bio": "Cây bút hiện thực xuất sắc của văn học Việt Nam trước 1945, với cái nhìn xót xa sâu sắc về bi kịch tha hóa và nỗi đau tinh thần của trí thức nghèo.",
+        "notableThemes": ["Human Dignity", "Rural Poverty", "Psychological Tragedy", "Empathy"]
+      },
+      {
+        "_id": "auth-07",
+        "name": "Fyodor Dostoevsky",
+        "nationality": "Russian",
+        "specialization": "Psychological Realism & Philosophical Novel",
+        "bio": "Bậc thầy tiểu thuyết tâm lý người Nga, khai phá các xung đột đạo đức, đức tin, tội lỗi và sự chuộc tội trong chiều sâu tâm hồn con người.",
+        "notableThemes": ["Guilt & Redemption", "Moral Philosophy", "Free Will", "Faith vs Reason"]
+      },
+      {
+        "_id": "auth-08",
+        "name": "Albert Camus",
+        "nationality": "French",
+        "specialization": "Absurdism & Existential Ethics",
+        "bio": "Nhà triết học và văn hào Pháp đoạt giải Nobel Văn học 1957, đặt nền móng cho Triết học Phi lý và tinh thần phản kháng bất khuất.",
+        "notableThemes": ["The Absurd", "Revolt", "Freedom", "Morality without God"]
+      }
+    ];
+
+    // Dữ liệu Books (26 bản ghi chuẩn)
+    const booksData = [
+      {
+        "_id": "bk-01",
+        "title": "1984",
+        "authorId": "auth-01",
+        "isbn": "978-0451524935",
+        "language": "English",
+        "genre": "Dystopian",
+        "readingLevel": "Intermediate",
+        "period": "Modern",
+        "publicationYear": 1949,
+        "pageCount": 328,
+        "synopsis": "Một kiệt tác phản địa đàng mô tả một xã hội độc tài toàn trị dưới sự giám sát tối cao của Anh Cả (Big Brother), nơi ngay cả suy nghĩ cũng bị kiểm duyệt.",
+        "themes": ["Totalitarianism", "Surveillance", "Freedom of Speech"],
+        "rating": 4.9,
+        "isFeatured": true,
+        "bgGradient": "linear-gradient(135deg, #1E1B4B, #4338CA)"
+      },
+      {
+        "_id": "bk-02",
+        "title": "Animal Farm",
+        "authorId": "auth-01",
+        "isbn": "978-0451526342",
+        "language": "English",
+        "genre": "Classic",
+        "readingLevel": "Beginner",
+        "period": "Modern",
+        "publicationYear": 1945,
+        "pageCount": 140,
+        "synopsis": "Truyện ngụ ngôn chính trị sâu sắc về một cuộc nổi dậy của đàn gia súc trong nông trại nhằm lật đổ người chủ, nhưng dần rơi vào sự độc đoán mới.",
+        "themes": ["Power Corruption", "Class Struggle", "Propaganda"],
+        "rating": 4.7,
+        "isFeatured": true,
+        "bgGradient": "linear-gradient(135deg, #7F1D1D, #DC2626)"
+      },
+      {
+        "_id": "bk-03",
+        "title": "Le Petit Prince (The Little Prince)",
+        "authorId": "auth-02",
+        "isbn": "978-0156012195",
+        "language": "French",
+        "genre": "Philosophy",
+        "readingLevel": "Beginner",
+        "period": "Modern",
+        "publicationYear": 1943,
+        "pageCount": 96,
+        "synopsis": "Chuyến du hành liên hành tinh của hoàng tử bé thơ ngây, hé lộ những bài học sâu sắc về bản chất của tình yêu và sự gắn kết.",
+        "themes": ["Love & Attachment", "Childlike Wonder", "Human Solitude"],
+        "rating": 4.95,
+        "isFeatured": true,
+        "bgGradient": "linear-gradient(135deg, #065F46, #059669)"
+      },
+      {
+        "_id": "bk-04",
+        "title": "Vol de Nuit (Night Flight)",
+        "authorId": "auth-02",
+        "isbn": "978-2070360048",
+        "language": "French",
+        "genre": "Fiction",
+        "readingLevel": "Intermediate",
+        "period": "Modern",
+        "publicationYear": 1931,
+        "pageCount": 180,
+        "synopsis": "Tác phẩm đoạt giải Prix Femina về những chuyến bay đêm chở bưu phẩm xuyên Nam Mỹ đầy hiểm nguy và tinh thần dũng cảm vượt qua giới hạn.",
+        "themes": ["Duty & Responsibility", "Courage", "Nature vs Man"],
+        "rating": 4.4,
+        "isFeatured": false,
+        "bgGradient": "linear-gradient(135deg, #0F172A, #334155)"
+      },
+      {
+        "_id": "bk-05",
+        "title": "Norwegian Wood (Rừng Na Uy)",
+        "authorId": "auth-03",
+        "isbn": "978-0375704024",
+        "language": "Japanese",
+        "genre": "Fiction",
+        "readingLevel": "Intermediate",
+        "period": "Contemporary",
+        "publicationYear": 1987,
+        "pageCount": 296,
+        "synopsis": "Hồi ức hoài niệm của Toru Watanabe về tuổi thanh xuân tại Tokyo thập niên 60, những mất mát đau thương và tình yêu giằng xé.",
+        "themes": ["Youth & Grief", "Mental Health", "Love & Loss"],
+        "rating": 4.6,
+        "isFeatured": true,
+        "bgGradient": "linear-gradient(135deg, #831843, #BE185D)"
+      },
+      {
+        "_id": "bk-06",
+        "title": "Kafka on the Shore (Kafka bên bờ biển)",
+        "authorId": "auth-03",
+        "isbn": "978-1400079278",
+        "language": "Japanese",
+        "genre": "Fiction",
+        "readingLevel": "Advanced",
+        "period": "Contemporary",
+        "publicationYear": 2002,
+        "pageCount": 505,
+        "synopsis": "Hai tuyến truyện song song kỳ ảo đan xen: Cậu bé Kafka Tamura bỏ trốn và cụ già Nakata có năng lực trò chuyện với mèo.",
+        "themes": ["Fate & Free Will", "Magical Realism", "Subconscious"],
+        "rating": 4.75,
+        "isFeatured": true,
+        "bgGradient": "linear-gradient(135deg, #312E81, #4F46E5)"
+      },
+      {
+        "_id": "bk-07",
+        "title": "Die Verwandlung (The Metamorphosis)",
+        "authorId": "auth-04",
+        "isbn": "978-0553213690",
+        "language": "German",
+        "genre": "Classic",
+        "readingLevel": "Intermediate",
+        "period": "Modern",
+        "publicationYear": 1915,
+        "pageCount": 120,
+        "synopsis": "Gregor Samsa thức dậy sau giấc mơ bất an và thấy mình biến thành một con bọ khổng lồ, kéo theo sự xa lánh lạnh lùng từ chính người thân.",
+        "themes": ["Alienation", "Family Burden", "Existential Crisis"],
+        "rating": 4.65,
+        "isFeatured": true,
+        "bgGradient": "linear-gradient(135deg, #78350F, #B45309)"
+      },
+      {
+        "_id": "bk-08",
+        "title": "Der Process (The Trial)",
+        "authorId": "auth-04",
+        "isbn": "978-0805210408",
+        "language": "German",
+        "genre": "Philosophy",
+        "readingLevel": "Advanced",
+        "period": "Modern",
+        "publicationYear": 1925,
+        "pageCount": 255,
+        "synopsis": "Josef K. bất ngờ bị bắt giữ và truy tố bởi một hệ thống tòa án bí ẩn mà không hề được thông báo về tội danh của mình.",
+        "themes": ["Bureaucracy", "Absurdity of Justice", "Guilt"],
+        "rating": 4.5,
+        "isFeatured": false,
+        "bgGradient": "linear-gradient(135deg, #1C1917, #44403C)"
+      },
+      {
+        "_id": "bk-09",
+        "title": "Cien Años de Soledad (Trăm Năm Cô Đơn)",
+        "authorId": "auth-05",
+        "isbn": "978-0060883287",
+        "language": "Spanish",
+        "genre": "Fiction",
+        "readingLevel": "Advanced",
+        "period": "Modern",
+        "publicationYear": 1967,
+        "pageCount": 417,
+        "synopsis": "Biên niên sử huyền thoại qua bảy thế hệ của dòng họ Buendía tại ngôi làng Macondo, đỉnh cao của Hiện thực huyền ảo Mỹ Latin.",
+        "themes": ["Solitude", "Incest & Fate", "Repetition of History"],
+        "rating": 4.85,
+        "isFeatured": true,
+        "bgGradient": "linear-gradient(135deg, #701A75, #A21CAF)"
+      },
+      {
+        "_id": "bk-10",
+        "title": "El Coronel No Tiene Quien Le Escriba",
+        "authorId": "auth-05",
+        "isbn": "978-0307474728",
+        "language": "Spanish",
+        "genre": "Classic",
+        "readingLevel": "Intermediate",
+        "period": "Modern",
+        "publicationYear": 1961,
+        "pageCount": 115,
+        "synopsis": "Một đại tá già nghèo khó trải qua mười lăm năm mòn mỏi chờ đợi khoản lương hưu trợ cấp chiến tranh cùng niềm tin vào con gà chọi.",
+        "themes": ["Patience & Dignity", "Poverty", "Political Indifference"],
+        "rating": 4.4,
+        "isFeatured": false,
+        "bgGradient": "linear-gradient(135deg, #14532D, #16A34A)"
+      },
+      {
+        "_id": "bk-11",
+        "title": "Chí Phèo",
+        "authorId": "auth-06",
+        "isbn": "978-6042188449",
+        "language": "Vietnamese",
+        "genre": "Classic",
+        "readingLevel": "Beginner",
+        "period": "Modern",
+        "publicationYear": 1941,
+        "pageCount": 85,
+        "synopsis": "Tấn bi kịch lưu manh hóa và khát vọng làm người lương thiện tuyệt vọng của Chí Phèo trong bối cảnh làng quê phong kiến Bắc Bộ.",
+        "themes": ["Human Dignity", "Class Exploitation", "Awakening of Conscience"],
+        "rating": 4.9,
+        "isFeatured": true,
+        "bgGradient": "linear-gradient(135deg, #7C2D12, #C2410C)"
+      },
+      {
+        "_id": "bk-12",
+        "title": "Sống Mòn",
+        "authorId": "auth-06",
+        "isbn": "978-6041088726",
+        "language": "Vietnamese",
+        "genre": "Fiction",
+        "readingLevel": "Intermediate",
+        "period": "Modern",
+        "publicationYear": 1944,
+        "pageCount": 240,
+        "synopsis": "Bức tranh chân thực về nỗi đau sống mòn và sự bế tắc của người trí thức tiểu tư sản nghèo trong vòng xoáy cơm áo gạo tiền.",
+        "themes": ["Wasted Potential", "Poverty & Idealism", "Psychological Struggles"],
+        "rating": 4.7,
+        "isFeatured": false,
+        "bgGradient": "linear-gradient(135deg, #134E4A, #0D9488)"
+      },
+      {
+        "_id": "bk-13",
+        "title": "Crime and Punishment (Tội ác và Hình phạt)",
+        "authorId": "auth-07",
+        "isbn": "978-0140449136",
+        "language": "Russian",
+        "genre": "Classic",
+        "readingLevel": "Advanced",
+        "period": "Classic",
+        "publicationYear": 1866,
+        "pageCount": 671,
+        "synopsis": "Cuộc vật lộn tâm lý dữ dội của cựu sinh viên Raskolnikov sau khi sát hại bà lão cầm đồ để thử nghiệm lý thuyết 'kẻ phi thường'.",
+        "themes": ["Guilt & Conscience", "Redemption", "Moral Philosophy"],
+        "rating": 4.88,
+        "isFeatured": true,
+        "bgGradient": "linear-gradient(135deg, #3730A3, #4338CA)"
+      },
+      {
+        "_id": "bk-14",
+        "title": "Notes from Underground",
+        "authorId": "auth-07",
+        "isbn": "978-0679734529",
+        "language": "Russian",
+        "genre": "Philosophy",
+        "readingLevel": "Advanced",
+        "period": "Classic",
+        "publicationYear": 1864,
+        "pageCount": 160,
+        "synopsis": "Bản tuyên ngôn triết học tiên phong cho chủ nghĩa hiện sinh, phơi bày những mâu thuẫn sâu kín và sự nổi loạn của cá nhân dưới hầm.",
+        "themes": ["Free Will", "Nihilism", "Irrational Human Nature"],
+        "rating": 4.55,
+        "isFeatured": false,
+        "bgGradient": "linear-gradient(135deg, #1E293B, #475569)"
+      },
+      {
+        "_id": "bk-15",
+        "title": "L'Étranger (The Stranger / Kẻ Xa Lạ)",
+        "authorId": "auth-08",
+        "isbn": "978-0679720201",
+        "language": "French",
+        "genre": "Philosophy",
+        "readingLevel": "Intermediate",
+        "period": "Modern",
+        "publicationYear": 1942,
+        "pageCount": 159,
+        "synopsis": "Meursault – một người đàn ông hờ hững với mọi quy ước xã hội, bị kết án tử hình sau vụ nổ súng trên bãi biển Alger.",
+        "themes": ["The Absurd", "Alienation", "Societal Conventions"],
+        "rating": 4.8,
+        "isFeatured": true,
+        "bgGradient": "linear-gradient(135deg, #0E7490, #06B6D4)"
+      },
+      {
+        "_id": "bk-16",
+        "title": "La Peste (The Plague / Dịch Hạch)",
+        "authorId": "auth-08",
+        "isbn": "978-0679720218",
+        "language": "French",
+        "genre": "Fiction",
+        "readingLevel": "Advanced",
+        "period": "Modern",
+        "publicationYear": 1947,
+        "pageCount": 308,
+        "synopsis": "Trận dịch hạch bùng phát phong tỏa thành phố Oran và cuộc chiến chống chọi kiên cường của bác sĩ Rieux cùng người dân.",
+        "themes": ["Solidarity", "Human Resistance", "Suffering"],
+        "rating": 4.72,
+        "isFeatured": false,
+        "bgGradient": "linear-gradient(135deg, #854D0E, #CA8A04)"
+      },
+      {
+        "_id": "bk-17",
+        "title": "Brave New World",
+        "authorId": "auth-01",
+        "isbn": "978-0060850524",
+        "language": "English",
+        "genre": "Science Fiction",
+        "readingLevel": "Intermediate",
+        "period": "Modern",
+        "publicationYear": 1932,
+        "pageCount": 288,
+        "synopsis": "Viễn cảnh tương lai đen tối nơi loài người được nhân bản theo giai cấp và bị kiểm soát bằng lạc thú nhân tạo soma.",
+        "themes": ["Technological Control", "Loss of Individuality", "Consumerism"],
+        "rating": 4.68,
+        "isFeatured": false,
+        "bgGradient": "linear-gradient(135deg, #4C1D95, #7C3AED)"
+      },
+      {
+        "_id": "bk-18",
+        "title": "Terre des Hommes (Xứ Con Người)",
+        "authorId": "auth-02",
+        "isbn": "978-0156027625",
+        "language": "French",
+        "genre": "Non-Fiction",
+        "readingLevel": "Intermediate",
+        "period": "Modern",
+        "publicationYear": 1939,
+        "pageCount": 240,
+        "synopsis": "Hồi ký triết học về tình đồng đội phi công, sự mỏng manh của số phận và vẻ đẹp thiêng liêng của Trái Đất nhìn từ buồng lái.",
+        "themes": ["Human Fraternity", "Adventure", "Cosmic Perspective"],
+        "rating": 4.62,
+        "isFeatured": false,
+        "bgGradient": "linear-gradient(135deg, #064E3B, #10B981)"
+      },
+      {
+        "_id": "bk-19",
+        "title": "1Q84 (Book 1 & 2)",
+        "authorId": "auth-03",
+        "isbn": "978-0307593313",
+        "language": "Japanese",
+        "genre": "Science Fiction",
+        "readingLevel": "Advanced",
+        "period": "Contemporary",
+        "publicationYear": 2009,
+        "pageCount": 928,
+        "synopsis": "Thế giới năm 1984 bị bẻ cong thành năm 1Q84 với hai mặt trăng lơ lửng, nơi Aomame và Tengo tìm kiếm nhau giữa các giáo phái kỳ bí.",
+        "themes": ["Parallel Realities", "Love & Destiny", "Cults & Power"],
+        "rating": 4.52,
+        "isFeatured": false,
+        "bgGradient": "linear-gradient(135deg, #581C87, #9333EA)"
+      },
+      {
+        "_id": "bk-20",
+        "title": "Das Schloss (Lâu Đài)",
+        "authorId": "auth-04",
+        "isbn": "978-0805211061",
+        "language": "German",
+        "genre": "Classic",
+        "readingLevel": "Advanced",
+        "period": "Modern",
+        "publicationYear": 1926,
+        "pageCount": 352,
+        "synopsis": "Chàng trắc địa viên K. tìm mọi cách tiếp cận chính quyền tòa lâu đài bí hiểm nhưng liên tục bị chối từ bởi bức tường hành chính vô hình.",
+        "themes": ["Unreachable Authority", "Isolation", "Absurd Bureaucracy"],
+        "rating": 4.38,
+        "isFeatured": false,
+        "bgGradient": "linear-gradient(135deg, #292524, #57534E)"
+      },
+      {
+        "_id": "bk-21",
+        "title": "Crónica de una Muerte Anunciada",
+        "authorId": "auth-05",
+        "isbn": "978-1400034710",
+        "language": "Spanish",
+        "genre": "Mystery",
+        "readingLevel": "Beginner",
+        "period": "Modern",
+        "publicationYear": 1981,
+        "pageCount": 128,
+        "synopsis": "Một vụ án mạng danh dự được báo trước cho toàn thể dân làng, nhưng sự thờ ơ tập thể đã khiến nó trở thành thảm kịch không thể tránh.",
+        "themes": ["Collective Guilt", "Honor Code", "Fate vs Inaction"],
+        "rating": 4.65,
+        "isFeatured": true,
+        "bgGradient": "linear-gradient(135deg, #991B1B, #EF4444)"
+      },
+      {
+        "_id": "bk-22",
+        "title": "Đôi Mắt",
+        "authorId": "auth-06",
+        "isbn": "978-6042078917",
+        "language": "Vietnamese",
+        "genre": "Classic",
+        "readingLevel": "Beginner",
+        "period": "Modern",
+        "publicationYear": 1948,
+        "pageCount": 65,
+        "synopsis": "Truyện ngắn kinh điển đặt ra vấn đề cách nhìn nhận người nông dân và thời cuộc của người trí thức trong những ngày đầu kháng chiến.",
+        "themes": ["Perspective", "Intellectual Responsibility", "Patriotism"],
+        "rating": 4.78,
+        "isFeatured": false,
+        "bgGradient": "linear-gradient(135deg, #854D0E, #EAB308)"
+      },
+      {
+        "_id": "bk-23",
+        "title": "The Brothers Karamazov (Anh Em Nhà Karamazov)",
+        "authorId": "auth-07",
+        "isbn": "978-0374528379",
+        "language": "Russian",
+        "genre": "Classic",
+        "readingLevel": "Advanced",
+        "period": "Classic",
+        "publicationYear": 1880,
+        "pageCount": 824,
+        "synopsis": "Đỉnh cao tư tưởng thế giới xoay quanh vụ án giết cha và bốn người con trai đại diện cho đam mê xác thịt, lý trí, đức tin và thù hận.",
+        "themes": ["Existence of God", "Moral Responsibility", "Patricide", "Forgiveness"],
+        "rating": 4.92,
+        "isFeatured": true,
+        "bgGradient": "linear-gradient(135deg, #1E3A8A, #2563EB)"
+      },
+      {
+        "_id": "bk-24",
+        "title": "Le Mythe de Sisyphe (Huyền Thoại Sisyphus)",
+        "authorId": "auth-08",
+        "isbn": "978-0679733737",
+        "language": "French",
+        "genre": "Philosophy",
+        "readingLevel": "Advanced",
+        "period": "Modern",
+        "publicationYear": 1942,
+        "pageCount": 212,
+        "synopsis": "Luận đề triết học đặt câu hỏi liệu cuộc sống có đáng sống hay không, với hình ảnh chàng Sisyphus hạnh phúc khi lăn tảng đá lên núi.",
+        "themes": ["The Absurd", "Meaning of Life", "Rebellion"],
+        "rating": 4.7,
+        "isFeatured": false,
+        "bgGradient": "linear-gradient(135deg, #164E63, #0891B2)"
+      },
+      {
+        "_id": "bk-25",
+        "title": "Homage to Catalonia",
+        "authorId": "auth-01",
+        "isbn": "978-0156421171",
+        "language": "English",
+        "genre": "Non-Fiction",
+        "readingLevel": "Intermediate",
+        "period": "Modern",
+        "publicationYear": 1938,
+        "pageCount": 232,
+        "synopsis": "Ký ức chân thực của George Orwell khi trực tiếp cầm súng chiến đấu trong cuộc Nội chiến Tây Ban Nha và đối mặt với phản bội chính trị.",
+        "themes": ["War Reality", "Political Betrayal", "Solidarity"],
+        "rating": 4.58,
+        "isFeatured": false,
+        "bgGradient": "linear-gradient(135deg, #365314, #65A30D)"
+      },
+      {
+        "_id": "bk-26",
+        "title": "Men Without Women (Những Người Đàn Ông Không Có Đàn Bà)",
+        "authorId": "auth-03",
+        "isbn": "978-0525434184",
+        "language": "Japanese",
+        "genre": "Fiction",
+        "readingLevel": "Intermediate",
+        "period": "Contemporary",
+        "publicationYear": 2014,
+        "pageCount": 240,
+        "synopsis": "Tuyển tập 7 truyện ngắn tinh tế về những người đàn ông cô đơn phải học cách chấp nhận sự trống vắng sau khi người phụ nữ họ yêu rời bỏ.",
+        "themes": ["Loss", "Grief", "Urban Loneliness"],
+        "rating": 4.45,
+        "isFeatured": false,
+        "bgGradient": "linear-gradient(135deg, #831843, #DB2777)"
+      }
+    ];
+
+    // Dữ liệu Collections
+    const collectionsData = [
+      {
+        "_id": "col-01",
+        "title": "Timeless Classics",
+        "description": "Những kiệt tác văn chương định hình tư tưởng nhân loại qua nhiều thế hệ từ Orwell, Dostoevsky tới Kafka.",
+        "badge": "Top Recommended",
+        "bookIds": ["bk-01", "bk-07", "bk-13", "bk-23", "bk-02"]
+      },
+      {
+        "_id": "col-02",
+        "title": "Fast & Engaging Reads",
+        "description": "Các tác phẩm ngắn gọn dưới 150 trang, mạch truyện lôi cuốn phù hợp đọc xong trong 1-2 buổi thưởng trà.",
+        "badge": "Quick Read",
+        "bookIds": ["bk-03", "bk-11", "bk-21", "bk-22", "bk-07"]
+      },
+      {
+        "_id": "col-03",
+        "title": "Modern Literary Gems",
+        "description": "Sắc màu văn chương hiện thực huyền ảo và tiểu thuyết đương đại từ Murakami, García Márquez và Albert Camus.",
+        "badge": "Modern",
+        "bookIds": ["bk-05", "bk-06", "bk-09", "bk-15", "bk-26"]
+      },
+      {
+        "_id": "col-04",
+        "title": "Polyglot Starter Kit",
+        "description": "Tuyển tập sách phân chia theo độ khó ngôn ngữ từ Beginner tới Advanced dành riêng cho người luyện đọc ngoại ngữ.",
+        "badge": "Multi-language",
+        "bookIds": ["bk-02", "bk-03", "bk-10", "bk-05", "bk-17"]
+      }
+    ];
+
+    // Dữ liệu Gallery
+    const galleryData = [
+      {
+        "_id": "gal-01",
+        "bookId": "bk-01",
+        "caption": "Poster nghệ thuật đồ họa London 1984 dưới con mắt giám sát của Big Brother",
+        "credit": "Vintage Arts Archive",
+        "aspect": "portrait"
+      },
+      {
+        "_id": "gal-02",
+        "bookId": "bk-03",
+        "caption": "Hoàng tử bé và bông hồng trên tiểu tinh cầu B-612 giữa vũ trụ bao la",
+        "credit": "Estate of Saint-Exupéry",
+        "aspect": "landscape"
+      },
+      {
+        "_id": "gal-03",
+        "bookId": "bk-05",
+        "caption": "Không gian Tokyo thập niên 60 trong giai điệu u hoài của bài hát Norwegian Wood",
+        "credit": "Literary Film Stills Collection",
+        "aspect": "landscape"
+      },
+      {
+        "_id": "gal-04",
+        "bookId": "bk-07",
+        "caption": "Bản phác thảo phong cách Expressionism căn phòng của Gregor Samsa",
+        "credit": "Prague Literary Museum Archive",
+        "aspect": "portrait"
+      },
+      {
+        "_id": "gal-05",
+        "bookId": "bk-09",
+        "caption": "Ngôi làng Macondo huyền ảo với những cơn mưa hoa vàng và bướm vàng",
+        "credit": "Latin American Cultural Foundation",
+        "aspect": "square"
+      },
+      {
+        "_id": "gal-06",
+        "bookId": "bk-11",
+        "caption": "Minh họa làng Vũ Đại và lò gạch cũ trong tác phẩm Chí Phèo",
+        "credit": "Hội Mỹ thuật Việt Nam Heritage",
+        "aspect": "portrait"
+      }
+    ];
+
+    // Dữ liệu Reading Tracker & Favorites
+    const readingProgressData = [
+      {
+        "bookId": "bk-01",
+        "status": "Reading",
+        "currentPage": 142,
+        "totalPages": 328,
+        "percentage": 43,
+        "notes": "Đang đọc dở phần 2 khi Winston gặp gỡ Julia trong khu rừng ngoại ô.",
+        "lastUpdated": "2026-10-10T14:20:00Z"
+      },
+      {
+        "bookId": "bk-03",
+        "status": "Completed",
+        "currentPage": 96,
+        "totalPages": 96,
+        "percentage": 100,
+        "notes": "Cuốn sách tuyệt vời về tình bạn với chú cáo và bài học cảm hóa.",
+        "lastUpdated": "2026-10-08T09:15:00Z"
+      },
+      {
+        "bookId": "bk-07",
+        "status": "To Read",
+        "currentPage": 0,
+        "totalPages": 120,
+        "percentage": 0,
+        "notes": "Dự định đọc vào dịp cuối tuần.",
+        "lastUpdated": "2026-10-12T18:00:00Z"
+      }
+    ];
+
+    const favoritesData = [
+      { "bookId": "bk-01", "addedAt": "2026-10-05T10:00:00Z" },
+      { "bookId": "bk-03", "addedAt": "2026-10-06T15:30:00Z" },
+      { "bookId": "bk-05", "addedAt": "2026-10-07T08:45:00Z" },
+      { "bookId": "bk-11", "addedAt": "2026-10-09T11:20:00Z" }
+    ];
+
+    // Helper tra cứu tác giả
+    const authorsMap = {};
+    authorsData.forEach(a => authorsMap[a._id] = a);
+
+    const booksMap = {};
+    booksData.forEach(b => booksMap[b._id] = b);
+
+    // --- RENDER FUNCTIONS ---
+    function renderBooks(books) {
+      const grid = document.getElementById('books-grid');
+      document.getElementById('visible-books-count').innerText = books.length;
+      document.getElementById('badge-books').innerText = books.length;
+
+      if (books.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-dim);">
+            <div style="font-size: 3rem; margin-bottom: 12px;">🔍</div>
+            <h3 style="color: var(--text-main); font-size: 1.2rem; margin-bottom: 8px;">Không tìm thấy cuốn sách nào</h3>
+            <p>Vui lòng thử điều chỉnh lại từ khóa hoặc xóa bớt tiêu chí lọc.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = books.map(book => {
+        const author = authorsMap[book.authorId] || { name: 'Unknown Author' };
+        return `
+          <div class="book-card">
+            <div class="book-card-header">
+              <span class="book-id-tag">${book._id}</span>
+              ${book.isFeatured ? '<span class="badge-featured">★ Nổi bật</span>' : `<span style="font-size: 0.75rem; color: var(--text-dim);">${book.publicationYear}</span>`}
+            </div>
+
+            <div class="book-card-body">
+              <div class="book-cover-mock" style="background: ${book.bgGradient || 'linear-gradient(135deg, #1E293B, #334155)'}">
+                <div class="cover-title">${book.title}</div>
+                <div class="cover-author">${author.name}</div>
+              </div>
+
+              <div class="book-info">
+                <div class="book-title" title="${book.title}">${book.title}</div>
+                <div class="book-author-name">${author.name}</div>
+
+                <div class="meta-badges">
+                  <span class="meta-badge badge-genre">${book.genre}</span>
+                  <span class="meta-badge badge-lang">${book.language}</span>
+                  <span class="meta-badge badge-level">${book.readingLevel}</span>
+                </div>
+
+                <p class="book-synopsis">${book.synopsis}</p>
+              </div>
+            </div>
+
+            <div class="book-card-footer">
+              <div class="rating-box">
+                ★ <span>${book.rating.toFixed(1)}</span>
+                <span style="font-size: 0.75rem; color: var(--text-dim); font-weight: normal;">(${book.pageCount} tr)</span>
+              </div>
+              <div class="card-actions">
+                <button class="btn-json" onclick="openJsonModal('book', '${book._id}')">{ } JSON</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderAuthors() {
+      const grid = document.getElementById('authors-grid');
+      grid.innerHTML = authorsData.map(author => {
+        const authorBooks = booksData.filter(b => b.authorId === author._id);
+        const initials = author.name.split(' ').map(n => n[0]).join('').slice(0, 2);
+
+        return `
+          <div class="author-card">
+            <div class="author-header">
+              <div class="author-avatar-mock">${initials}</div>
+              <div class="author-title">
+                <h3>${author.name}</h3>
+                <div class="author-meta">📍 ${author.nationality} • ${authorBooks.length} tác phẩm</div>
+                <div class="author-specialty">${author.specialization}</div>
+              </div>
+            </div>
+
+            <p class="author-bio">${author.bio}</p>
+
+            <div>
+              <div style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 6px; text-transform: uppercase; font-weight: 700;">Chủ đề đặc trưng:</div>
+              <div class="themes-container">
+                ${author.notableThemes.map(t => `<span class="theme-tag">#${t}</span>`).join('')}
+              </div>
+            </div>
+
+            <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+              <span class="book-id-tag">${author._id}</span>
+              <button class="btn-json" onclick="openJsonModal('author', '${author._id}')">{ } JSON</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderCollections() {
+      const grid = document.getElementById('collections-grid');
+      grid.innerHTML = collectionsData.map(col => {
+        return `
+          <div class="collection-card">
+            <div class="col-header">
+              <h3 class="col-title">${col.title}</h3>
+              <span class="col-badge">${col.badge}</span>
+            </div>
+            <p class="col-desc">${col.description}</p>
+
+            <div class="col-books-list">
+              <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-dim); margin-bottom: 4px;">SÁCH TRONG BỘ SƯU TẬP (${col.bookIds.length} CUỐN):</div>
+              ${col.bookIds.map(bId => {
+                const book = booksMap[bId] || { title: bId, genre: '' };
+                return `
+                  <div class="col-book-item">
+                    <span><strong>${bId}:</strong> ${book.title}</span>
+                    <span class="meta-badge badge-genre" style="font-size: 0.65rem;">${book.genre}</span>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+              <span class="book-id-tag">${col._id}</span>
+              <button class="btn-json" onclick="openJsonModal('collection', '${col._id}')">{ } JSON</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderGallery() {
+      const grid = document.getElementById('gallery-grid');
+      grid.innerHTML = galleryData.map(item => {
+        const book = booksMap[item.bookId] || { title: item.bookId };
+        return `
+          <div class="gallery-card">
+            <div class="gallery-image-box">
+              <div style="text-align: center; padding: 20px;">
+                <div style="font-size: 2.2rem; margin-bottom: 6px;">🎨</div>
+                <div style="font-weight: 700; color: var(--text-main); font-size: 0.95rem;">${book.title}</div>
+                <div style="font-size: 0.75rem; color: var(--accent);">${item.aspect.toUpperCase()} VIEW</div>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-caption">${item.caption}</div>
+              <div class="gallery-credit">Nguồn: ${item.credit}</div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+                <span class="book-id-tag">${item._id} (${item.bookId})</span>
+                <button class="btn-json" onclick="openJsonModal('gallery', '${item._id}')">{ } JSON</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderTrackerTables() {
+      // Progress
+      const pTbody = document.getElementById('progress-table-body');
+      pTbody.innerHTML = readingProgressData.map(item => {
+        const book = booksMap[item.bookId] || { title: item.bookId };
+        let statusBadge = `<span class="meta-badge" style="background: rgba(255, 255, 255, 0.08);">${item.status}</span>`;
+        if (item.status === 'Reading') statusBadge = `<span class="meta-badge" style="background: var(--teal-soft); color: #2DD4BF;">📖 Reading</span>`;
+        if (item.status === 'Completed') statusBadge = `<span class="meta-badge" style="background: rgba(16, 185, 129, 0.2); color: #34D399;">✅ Completed</span>`;
+
+        return `
+          <tr>
+            <td><span class="book-id-tag">${item.bookId}</span></td>
+            <td><strong style="color: var(--text-main);">${book.title}</strong></td>
+            <td>${statusBadge}</td>
+            <td>${item.currentPage} / ${item.totalPages} trang</td>
+            <td>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar-fill" style="width: ${item.percentage}%;"></div>
+              </div>
+              <strong style="color: var(--text-main);">${item.percentage}%</strong>
+            </td>
+            <td>${item.notes || '—'}</td>
+            <td>${new Date(item.lastUpdated).toLocaleDateString('vi-VN')}</td>
+          </tr>
+        `;
+      }).join('');
+
+      // Favorites
+      const fTbody = document.getElementById('favorites-table-body');
+      fTbody.innerHTML = favoritesData.map(item => {
+        const book = booksMap[item.bookId] || { title: item.bookId, authorId: '', language: '' };
+        const author = authorsMap[book.authorId] || { name: '—' };
+        return `
+          <tr>
+            <td><span class="book-id-tag">${item.bookId}</span></td>
+            <td><strong style="color: var(--text-main);">${book.title}</strong></td>
+            <td style="color: var(--accent);">${author.name}</td>
+            <td><span class="meta-badge badge-lang">${book.language}</span></td>
+            <td>${new Date(item.addedAt).toLocaleString('vi-VN')}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // --- TAB SWITCHING ---
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+
+      const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick').includes(tabName));
+      if (activeBtn) activeBtn.classList.add('active');
+
+      const targetPane = document.getElementById(`tab-${tabName}`);
+      if (targetPane) targetPane.classList.add('active');
+    }
+
+    // --- FILTER PIPELINE ---
+    function handleFilterChange() {
+      const q = document.getElementById('search-input').value.trim().toLowerCase();
+      const genre = document.getElementById('genre-filter').value;
+      const lang = document.getElementById('language-filter').value;
+      const level = document.getElementById('level-filter').value;
+
+      const filtered = booksData.filter(b => {
+        const author = authorsMap[b.authorId] || { name: '' };
+        const matchesQuery = !q || 
+          b.title.toLowerCase().includes(q) ||
+          author.name.toLowerCase().includes(q) ||
+          b.synopsis.toLowerCase().includes(q) ||
+          b.themes.some(t => t.toLowerCase().includes(q));
+
+        const matchesGenre = !genre || b.genre === genre;
+        const matchesLang = !lang || b.language === lang;
+        const matchesLevel = !level || b.readingLevel === level;
+
+        return matchesQuery && matchesGenre && matchesLang && matchesLevel;
+      });
+
+      renderBooks(filtered);
+    }
+
+    function resetFilters() {
+      document.getElementById('search-input').value = '';
+      document.getElementById('genre-filter').value = '';
+      document.getElementById('language-filter').value = '';
+      document.getElementById('level-filter').value = '';
+      handleFilterChange();
+    }
+
+    // --- JSON MODAL INSPECTOR ---
+    let currentModalJsonStr = '';
+
+    function openJsonModal(type, id) {
+      let data = null;
+      let title = '';
+
+      if (type === 'book') {
+        data = booksData.find(b => b._id === id);
+        title = `📚 Sách: ${data.title} (${id})`;
+      } else if (type === 'author') {
+        data = authorsData.find(a => a._id === id);
+        title = `✍️ Tác giả: ${data.name} (${id})`;
+      } else if (type === 'collection') {
+        data = collectionsData.find(c => c._id === id);
+        title = `📦 Bộ sưu tập: ${data.title} (${id})`;
+      } else if (type === 'gallery') {
+        data = galleryData.find(g => g._id === id);
+        title = `🖼️ Gallery Item: ${id}`;
+      }
+
+      if (!data) return;
+
+      currentModalJsonStr = JSON.stringify(data, null, 2);
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-json-content').innerText = currentModalJsonStr;
+      document.getElementById('json-modal').classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('json-modal').classList.remove('open');
+    }
+
+    function closeModalOnOverlay(e) {
+      if (e.target.id === 'json-modal') closeModal();
+    }
+
+    function copyModalJson() {
+      navigator.clipboard.writeText(currentModalJsonStr).then(() => {
+        const toast = document.getElementById('toast');
+        toast.style.display = 'block';
+        setTimeout(() => toast.style.display = 'none', 2000);
+      });
+    }
+
+    // Initial render
+    renderBooks(booksData);
+    renderAuthors();
+    renderCollections();
+    renderGallery();
+    renderTrackerTables();
+  </script>
+</body>
+</html>

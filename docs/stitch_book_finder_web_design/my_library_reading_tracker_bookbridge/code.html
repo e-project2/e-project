@@ -1,0 +1,795 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary": "#240f00", "on-tertiary-fixed": "#2f1500", "inverse-on-surface": "#eaf1ff", "outline": "#75777d", "on-secondary-fixed-variant": "#004395", "surface-bright": "#f8f9ff", "text-primary": "#0F172A", "on-tertiary-fixed-variant": "#6e3900", "on-secondary-container": "#fefcff", "on-tertiary-container": "#d97705", "surface-container-low": "#eff4ff", "surface-container-lowest": "#ffffff", "on-secondary-fixed": "#001a42", "surface-container-high": "#dce9ff", "surface-tint": "#545f73", "on-error-container": "#93000a", "border-subtle": "#E2E8F0", "background": "#f8f9ff", "on-surface-variant": "#45474c", "surface-canvas": "#F8FAFC", "on-background": "#0b1c30", "secondary": "#0058be", "surface-container": "#e5eeff", "primary-fixed": "#d8e3fb", "accent-indigo": "#6366F1", "on-error": "#ffffff", "tertiary-container": "#422000", "status-danger": "#EF4444", "error": "#ba1a1a", "on-surface": "#0b1c30", "surface-variant": "#d3e4fe", "accent-gold-light": "#F59E0B", "surface": "#f8f9ff", "outline-variant": "#c5c6cd", "secondary-fixed": "#d8e2ff", "primary-container": "#1e293b", "on-secondary": "#ffffff", "secondary-container": "#2170e4", "primary-fixed-dim": "#bcc7de", "on-primary": "#ffffff", "primary": "#091426", "on-primary-fixed": "#111c2d", "surface-dim": "#cbdbf5", "inverse-primary": "#bcc7de", "status-info": "#0EA5E9", "on-primary-container": "#8590a6", "secondary-fixed-dim": "#adc6ff", "on-tertiary": "#ffffff", "surface-container-highest": "#d3e4fe", "status-success": "#10B981", "on-primary-fixed-variant": "#3c475a", "inverse-surface": "#213145", "tertiary-fixed-dim": "#ffb77d", "tertiary-fixed": "#ffdcc3", "error-container": "#ffdad6", "surface-card": "#FFFFFF" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1.5rem", "space-xl": "2.5rem", "margin-mobile": "1.25rem", "gutter-mobile": "1rem", "margin": "3rem", "gutter": "1.5rem", "space-md": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem" }, "fontFamily": { "display-hero-mobile": [ "Playfair Display" ], "title-md": [ "Plus Jakarta Sans" ], "headline-lg": [ "Playfair Display" ], "display-hero": [ "Playfair Display" ], "headline-sm": [ "Playfair Display" ], "label-md": [ "Plus Jakarta Sans" ], "body-md": [ "Plus Jakarta Sans" ], "label-sm": [ "Plus Jakarta Sans" ], "headline-md": [ "Playfair Display" ], "headline-lg-mobile": [ "Playfair Display" ], "body-lg": [ "Plus Jakarta Sans" ], "body-sm": [ "Plus Jakarta Sans" ] }, "fontSize": { "display-hero-mobile": [ "2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.01em", "fontWeight": "700" } ], "title-md": [ "1.125rem", { "lineHeight": "1.625rem", "fontWeight": "600" } ], "headline-lg": [ "2.5rem", { "lineHeight": "3rem", "letterSpacing": "-0.015em", "fontWeight": "700" } ], "display-hero": [ "3.5rem", { "lineHeight": "4.25rem", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "headline-sm": [ "1.25rem", { "lineHeight": "1.75rem", "fontWeight": "600" } ], "label-md": [ "0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "600" } ], "body-md": [ "1rem", { "lineHeight": "1.625rem", "fontWeight": "400" } ], "label-sm": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.025em", "fontWeight": "600" } ], "headline-md": [ "1.75rem", { "lineHeight": "2.25rem", "fontWeight": "600" } ], "headline-lg-mobile": [ "1.75rem", { "lineHeight": "2.25rem", "fontWeight": "700" } ], "body-lg": [ "1.125rem", { "lineHeight": "1.875rem", "fontWeight": "400" } ], "body-sm": [ "0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" } ] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-surface-variant selection:text-primary"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1440px] mx-auto px-6 lg:px-12 flex items-center justify-between gap-gutter"><div class="flex items-center gap-4 shrink-0"><img alt="BookBridge Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEDzO_GBPm8isEUkTqlc0rXu0_CDktn0QcjBDQc8lwZ2oQyRpG9MkPFYhbvUKXmBhdK2GJgYVYAMhG2Vx6oj7aqnEb4cuLSFnSJK5356BnlaaQpZo6m4C2iQsyTsxqQXmfC8dHRL30N8OSPQzTEYbxyaJZy0d3kun6iP7ROH7IBhuU9vkHTy06UR-JLKph1gjAHaH89kBMePOEsWbliDR50dnSmBfid-LCRtFZaQ"><span class="font-headline-md text-headline-md tracking-tight text-primary">BookBridge</span></div><nav class="hidden xl:flex items-center gap-1" data-active-classes="text-primary font-bold bg-surface-container rounded-full"><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="#">Home</a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="directory" href="#">Directory</a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="explorer" href="#">Explorer</a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="collections" href="#">Collections</a><a class="inline-flex items-center gap-1.5 px-3 py-1.5 transition-colors text-primary font-bold bg-surface-container rounded-full" data-path="my-library" href="#" aria-current="page">My Library<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-tertiary-container font-label-sm text-label-sm font-semibold">3 saved</span></a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">About</a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-3 shrink-0"><button aria-label="Search Catalog" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">search</span></button><button aria-label="Toggle Theme" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">light_mode</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<!-- Top Background Ambient Wash & Header Segment -->
+<section class="relative w-full overflow-hidden bg-gradient-to-b from-surface-container-high/40 via-surface to-surface pb-12 pt-8 px-6 lg:px-12">
+<!-- Atmospheric subtle decorative glow circles -->
+<div class="pointer-events-none absolute -top-24 left-1/4 h-96 w-96 rounded-full bg-accent-gold-light/10 blur-3xl"></div>
+<div class="pointer-events-none absolute top-12 right-10 h-80 w-80 rounded-full bg-secondary-container/5 blur-3xl"></div>
+<div class="max-w-[1440px] mx-auto w-full relative z-10">
+<!-- Breadcrumb & Archival Tag -->
+<div class="flex items-center gap-2 mb-4">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-tertiary-container bg-surface-container-high/60 px-3 py-1 rounded-full">Personal Archival Shelf</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">sync</span>
+          Auto-synchronized with LocalStorage
+        </span>
+</div>
+<!-- Main Heading & Subtitle -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8">
+<div class="max-w-3xl space-y-3">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">
+            My Personal Library &amp; Reading Tracker
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+            Track your reading journeys, update daily progress, and organize saved titles. Stored securely in your browser.
+          </p>
+</div>
+<!-- Quick Top Utility Actions -->
+<div class="flex items-center gap-3 shrink-0">
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-surface-container text-primary font-label-md text-label-md shadow-sm hover:bg-surface-container-high transition-all" id="export-library-btn">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span>Export Shelf</span>
+</button>
+<button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-md hover:bg-primary-container transition-all" onclick="openModal('Le Petit Prince', 42, 96)">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Log Daily Entry</span>
+</button>
+</div>
+</div>
+<!-- Reader Quick Stats Row (5 Rich Metric Cards) -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 pt-2">
+<!-- Stat 1: Total Saved -->
+<div class="p-5 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Saved</span>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">collections_bookmark</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md font-bold text-primary" id="stat-total-books">4</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">volumes</span>
+</div>
+<div class="mt-2 text-on-surface-variant font-label-sm text-label-sm">Curated shelf collection</div>
+</div>
+<!-- Stat 2: Currently Reading -->
+<div class="p-5 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm text-on-tertiary-container uppercase tracking-wider">In Progress</span>
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed/60 flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[18px]">auto_stories</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md font-bold text-on-tertiary-container" id="stat-reading-books">2</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">active</span>
+</div>
+<div class="mt-2 text-on-tertiary-container font-label-sm text-label-sm flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-on-tertiary-container animate-pulse"></span>
+            Daily session ongoing
+          </div>
+</div>
+<!-- Stat 3: Completed -->
+<div class="p-5 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm text-status-success uppercase tracking-wider">Completed</span>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-status-success">
+<span class="material-symbols-outlined text-[18px]">task_alt</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md font-bold text-primary" id="stat-completed-books">1</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">finished</span>
+</div>
+<div class="mt-2 text-status-success font-label-sm text-label-sm">25% complete ratio</div>
+</div>
+<!-- Stat 4: To Read -->
+<div class="p-5 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Wishlist</span>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md font-bold text-primary" id="stat-toread-books">1</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">queued</span>
+</div>
+<div class="mt-2 text-on-surface-variant font-label-sm text-label-sm">Next in queue</div>
+</div>
+<!-- Stat 5: Pages Read (With Inline SVG Donut) -->
+<div class="col-span-2 md:col-span-1 p-5 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Pages Read</span>
+<!-- Inline Mini Donut SVG Visualization -->
+<svg class="w-8 h-8 -rotate-90" viewBox="0 0 36 36">
+<path class="text-surface-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-on-tertiary-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="58, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+</div>
+<div class="mt-2">
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-md text-headline-md font-bold text-primary" id="stat-total-pages">482</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ 844 pgs</span>
+</div>
+<div class="mt-2 w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-full transition-all duration-500" style="width: 57%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Layout Section -->
+<section class="w-full px-6 lg:px-12 py-10 max-w-[1440px] mx-auto">
+<!-- Filter Bar & Display Controls -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8">
+<!-- Status Filter Tabs -->
+<div class="flex flex-wrap items-center gap-2 p-1 bg-surface-container-low rounded-full w-fit shadow-inner">
+<button class="tab-btn px-4 py-1.5 rounded-full font-label-md text-label-md bg-primary text-on-primary shadow-sm transition-all" id="tab-all" onclick="filterShelf('all')">
+          All Saved Books (4)
+        </button>
+<button class="tab-btn px-4 py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all" id="tab-reading" onclick="filterShelf('reading')">
+          Currently Reading (2)
+        </button>
+<button class="tab-btn px-4 py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all" id="tab-toread" onclick="filterShelf('toread')">
+          To Read (1)
+        </button>
+<button class="tab-btn px-4 py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all" id="tab-completed" onclick="filterShelf('completed')">
+          Completed (1)
+        </button>
+</div>
+<!-- Sort & Display Count Sub-label -->
+<div class="flex items-center gap-3 self-end sm:self-auto">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sort by:</span>
+<div class="relative">
+<select class="appearance-none bg-surface-container-lowest text-primary font-label-md text-label-md pl-3 pr-8 py-1.5 rounded-lg shadow-sm focus:outline-none cursor-pointer" id="sort-select" onchange="sortShelf(this.value)">
+<option value="recent">Recent Activity</option>
+<option value="progress">Reading Progress</option>
+<option value="title">Book Title</option>
+<option value="author">Author Name</option>
+</select>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant absolute right-2 top-2 pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Book Grid Container (Responsive 12-col rhythm) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="books-shelf-grid">
+<!-- CARD 1: Le Petit Prince (Currently Reading) -->
+<article class="book-card group flex flex-col justify-between bg-surface-container-lowest rounded-2xl p-5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" data-author="Antoine de Saint-Exupéry" data-book-id="1" data-progress="44" data-status="reading" data-title="Le Petit Prince">
+<div>
+<!-- Book Spine Frame & Cover Visual -->
+<div class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container mb-4 shadow-sm">
+<img alt="Le Petit Prince Cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Editorial close-up of vintage clothbound edition of Le Petit Prince by Antoine de Saint-Exupery, featuring soft minimalist celestial watercolor illustrations, deep indigo and warm desert gold hues, warm natural study library lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv7TiHxJJ5hHngzXPKHOhdAbFzTXtivH9VFTlExbHargI9VtChwo9vY-9KC1yhD6Pd5nsCGh8stC7mKUWh34joVvrzDnxN3v2jBJpGgPQOMCndqIdqXxVP0Tw74dH6cy2z5sBK7tZUu6Z-240yoOWCJB-6WDEus1V0SX9tGLpOgGn7eqYcfRURKsHTJr2aJcOYeqBD_Jk1sfR7zbwHD9cEixqL-QbuTzE8Ilf6pg">
+<!-- Status Badge Overlay -->
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-on-primary font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-accent-gold-light animate-pulse"></span>
+                Reading
+              </span>
+</div>
+<!-- Quick Bookmark Icon -->
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-on-tertiary-container flex items-center justify-center shadow-sm hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+<!-- Metadata -->
+<div class="space-y-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-tertiary-container font-semibold">Classic Novella</span>
+<h3 class="font-headline-sm text-headline-sm text-primary tracking-tight line-clamp-1 group-hover:text-secondary transition-colors">
+              Le Petit Prince
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Antoine de Saint-Exupéry</p>
+</div>
+<!-- Interactive Reading Status Selector -->
+<div class="mt-4 pt-4 bg-surface-container-low/50 rounded-xl p-3">
+<div class="flex items-center justify-between mb-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="status-1">Reading Shelf</label>
+<select class="text-xs bg-surface-container-lowest rounded px-2 py-1 font-label-sm text-primary shadow-xs focus:outline-none cursor-pointer" id="status-1" onchange="changeStatus(1, this.value)">
+<option selected="" value="reading">Currently Reading</option>
+<option value="toread">To Read</option>
+<option value="completed">Completed</option>
+</select>
+</div>
+<!-- Progress Metric with Smooth Amber Fill -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center text-xs">
+<span class="font-label-sm text-label-sm text-primary font-semibold" id="pg-text-1">42 / 96 pages</span>
+<span class="font-label-sm text-label-sm text-on-tertiary-container font-bold" id="pg-pct-1">44%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-gradient-to-r from-accent-gold-light to-on-tertiary-container h-full rounded-full transition-all duration-300" id="pg-bar-1" style="width: 44%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Action Buttons -->
+<div class="mt-5 pt-3 flex items-center justify-between gap-2">
+<button class="flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-full bg-primary text-on-primary font-label-sm text-label-sm shadow-sm hover:bg-primary-container transition-all" onclick="openModal('Le Petit Prince', 42, 96, 1)">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+<span>Update Progress</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center hover:bg-surface-container-high transition-colors" onclick="resetProgress(1, 96)" title="Reset to page 0">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-surface-container text-status-danger/80 flex items-center justify-center hover:bg-error-container hover:text-error transition-colors" onclick="removeBook(1)" title="Remove from shelf">
+<span class="material-symbols-outlined text-[16px]">delete_outline</span>
+</button>
+</div>
+</article>
+<!-- CARD 2: 1984 (Currently Reading) -->
+<article class="book-card group flex flex-col justify-between bg-surface-container-lowest rounded-2xl p-5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" data-author="George Orwell" data-book-id="2" data-progress="55" data-status="reading" data-title="1984">
+<div>
+<!-- Book Spine Frame & Cover Visual -->
+<div class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container mb-4 shadow-sm">
+<img alt="1984 Cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Monochrome dystopian hardcover book cover of 1984 by George Orwell featuring austere modernist typographic layout, bold architectural brutalist shadows, minimalist slate blue accents, archival scholarly setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT_BlIIzRNoUvQVIepR1-KHoQM1jcDfiGYU7YN6k3WCBoWVYuQEuCTo-p-qssDNryHqf6gRDVFWHcjICHPw1maFVLbMwhd2VBGTg4zMiPVxL_NLlrGUZk_2iV5Lb2NTDb3SgKT1wnD1w4v1ZG_Ia8hp3dN6-hmAE4bOLmW4uYbvD9ZNbmHOS4rj2vJN5BdDYFonqZrSYZNWoYg6tz2q-FOtOCUnSDlMcKXygy7rA">
+<!-- Status Badge Overlay -->
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-on-primary font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-accent-gold-light animate-pulse"></span>
+                Reading
+              </span>
+</div>
+<!-- Bookmark icon -->
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-on-tertiary-container flex items-center justify-center shadow-sm hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+<!-- Metadata -->
+<div class="space-y-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Dystopian Fiction</span>
+<h3 class="font-headline-sm text-headline-sm text-primary tracking-tight line-clamp-1 group-hover:text-secondary transition-colors">
+              1984
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">George Orwell</p>
+</div>
+<!-- Interactive Reading Status Selector -->
+<div class="mt-4 pt-4 bg-surface-container-low/50 rounded-xl p-3">
+<div class="flex items-center justify-between mb-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="status-2">Reading Shelf</label>
+<select class="text-xs bg-surface-container-lowest rounded px-2 py-1 font-label-sm text-primary shadow-xs focus:outline-none cursor-pointer" id="status-2" onchange="changeStatus(2, this.value)">
+<option selected="" value="reading">Currently Reading</option>
+<option value="toread">To Read</option>
+<option value="completed">Completed</option>
+</select>
+</div>
+<!-- Progress Metric with Dual Indigo/Amber Fill -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center text-xs">
+<span class="font-label-sm text-label-sm text-primary font-semibold" id="pg-text-2">180 / 328 pages</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold" id="pg-pct-2">55%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-gradient-to-r from-accent-indigo to-secondary-container h-full rounded-full transition-all duration-300" id="pg-bar-2" style="width: 55%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Action Buttons -->
+<div class="mt-5 pt-3 flex items-center justify-between gap-2">
+<button class="flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-full bg-primary text-on-primary font-label-sm text-label-sm shadow-sm hover:bg-primary-container transition-all" onclick="openModal('1984', 180, 328, 2)">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+<span>Update Progress</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-surface-container text-status-danger/80 flex items-center justify-center hover:bg-error-container hover:text-error transition-colors" onclick="removeBook(2)" title="Remove from shelf">
+<span class="material-symbols-outlined text-[16px]">delete_outline</span>
+</button>
+</div>
+</article>
+<!-- CARD 3: The Great Gatsby (Completed) -->
+<article class="book-card group flex flex-col justify-between bg-surface-container-lowest rounded-2xl p-5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" data-author="F. Scott Fitzgerald" data-book-id="3" data-progress="100" data-status="completed" data-title="The Great Gatsby">
+<div>
+<!-- Book Spine Frame & Cover Visual -->
+<div class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container mb-4 shadow-sm">
+<img alt="The Great Gatsby Cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Elegant art-deco book jacket of The Great Gatsby by F. Scott Fitzgerald with deep midnight navy blue tones, gilded gold filigree accents, geometric jazz age motifs, illuminated under soft library reading light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2tMf-r63gPUXb4ko7Y9nhf59vg0uFnvmyEKu0ZZybYgK7g9lYdjw5a-lzAutgihYa1R-GxommnZ_o_NWTbaMh7HKPx88ob643FwbQ7tFuiveF1T19UArtAj-QrPB3DpSjO-uJ049zdMmq-230S2Dq--qB0Oqq-1BSAbOd5f7Fn0IxTkrSx-Cd8XbgqdH61tMpmq6qmKhNkB0j32T9sc0Q2gX6kpUCr7YPs8sLLw">
+<!-- Status Badge Overlay -->
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-full bg-status-success text-on-primary font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+                Completed
+              </span>
+</div>
+<!-- Bookmark icon -->
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-on-surface-variant flex items-center justify-center shadow-sm hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[18px]">bookmark_added</span>
+</button>
+</div>
+<!-- Metadata -->
+<div class="space-y-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-status-success font-semibold">American Classic</span>
+<h3 class="font-headline-sm text-headline-sm text-primary tracking-tight line-clamp-1 group-hover:text-secondary transition-colors">
+              The Great Gatsby
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">F. Scott Fitzgerald</p>
+</div>
+<!-- Completed Status Indicator Panel -->
+<div class="mt-4 pt-4 bg-surface-container-low/50 rounded-xl p-3">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Archived Status</span>
+<span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded bg-surface-container text-status-success font-semibold">
+<span class="material-symbols-outlined text-[12px]">verified</span> Done
+              </span>
+</div>
+<!-- Progress 100% Bar -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center text-xs">
+<span class="font-label-sm text-label-sm text-primary font-semibold">180 / 180 pages</span>
+<span class="font-label-sm text-label-sm text-status-success font-bold">100%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-status-success h-full rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Action Buttons -->
+<div class="mt-5 pt-3 flex items-center justify-between gap-2">
+<button class="flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-full bg-surface-container text-primary font-label-sm text-label-sm shadow-sm hover:bg-surface-container-high transition-all" onclick="rereadBook(3, 180)">
+<span class="material-symbols-outlined text-[16px]">replay</span>
+<span>Re-read</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-surface-container text-status-danger/80 flex items-center justify-center hover:bg-error-container hover:text-error transition-colors" onclick="removeBook(3)" title="Remove from shelf">
+<span class="material-symbols-outlined text-[16px]">delete_outline</span>
+</button>
+</div>
+</article>
+<!-- CARD 4: Truyện Kiều (To Read / Wishlist) -->
+<article class="book-card group flex flex-col justify-between bg-surface-container-lowest rounded-2xl p-5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" data-author="Nguyễn Du" data-book-id="4" data-progress="0" data-status="toread" data-title="Truyện Kiều">
+<div>
+<!-- Book Spine Frame & Cover Visual -->
+<div class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container mb-4 shadow-sm">
+<img alt="Truyện Kiều Cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Traditional woodblock print inspired book jacket of Vietnamese epic Truyện Kiều by Nguyen Du, soft parchment textures, crimson and lotus ink motifs, refined editorial publishing aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmxGFAgMIEOO1nnUl_BgdWv6lzTssb_5rI__IqSpV2fdQZKI1qa5or4lFIiOo_emheCcfhy_FmmC8-pucHbU8-TTszcQGE1ge0PrBUEl4zz9o__vueTNc1cVpIB9WEo2R8TadIpSt-ylMgJ9PkZwJl8jE2XoPtIlHXIbOe96JJBfZ1ugc7V509lhdSe6inW3mS2yQaq9V0dOSEMQKZ4Af3rY70z8weM7QLyF6QRA">
+<!-- Status Badge Overlay -->
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm flex items-center gap-1 shadow-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">bookmark</span>
+                To Read
+              </span>
+</div>
+<!-- Bookmark icon -->
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-on-surface-variant flex items-center justify-center shadow-sm hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
+</button>
+</div>
+<!-- Metadata -->
+<div class="space-y-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-tertiary-container font-semibold">Epic Verse (3,254 verses)</span>
+<h3 class="font-headline-sm text-headline-sm text-primary tracking-tight line-clamp-1 group-hover:text-secondary transition-colors">
+              Truyện Kiều
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Nguyễn Du</p>
+</div>
+<!-- To Read Status Indicator Panel -->
+<div class="mt-4 pt-4 bg-surface-container-low/50 rounded-xl p-3">
+<div class="flex items-center justify-between mb-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="status-4">Reading Shelf</label>
+<select class="text-xs bg-surface-container-lowest rounded px-2 py-1 font-label-sm text-primary shadow-xs focus:outline-none cursor-pointer" id="status-4" onchange="changeStatus(4, this.value)">
+<option value="reading">Currently Reading</option>
+<option selected="" value="toread">To Read (Wishlist)</option>
+<option value="completed">Completed</option>
+</select>
+</div>
+<!-- Progress 0% Bar -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center text-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="pg-text-4">0 / 240 pages</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="pg-pct-4">0%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-full transition-all duration-300" id="pg-bar-4" style="width: 0%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Action Buttons -->
+<div class="mt-5 pt-3 flex items-center justify-between gap-2">
+<button class="flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-full bg-secondary text-on-primary font-label-sm text-label-sm shadow-sm hover:bg-secondary-container transition-all" onclick="startReading(4, 240)">
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+<span>Start Reading</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-surface-container text-status-danger/80 flex items-center justify-center hover:bg-error-container hover:text-error transition-colors" onclick="removeBook(4)" title="Remove from shelf">
+<span class="material-symbols-outlined text-[16px]">delete_outline</span>
+</button>
+</div>
+</article>
+</div>
+<!-- Empty State Fallback (Hidden by default) -->
+<div class="hidden flex-col items-center justify-center py-20 text-center max-w-md mx-auto" id="empty-state">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant mb-4">
+<span class="material-symbols-outlined text-[32px]">menu_book</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">No volumes found</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">
+        There are no books currently listed under this shelf filter tab.
+      </p>
+<button class="px-5 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md" onclick="filterShelf('all')">
+        View All Books
+      </button>
+</div>
+<!-- Reading Habit Insight Banner (Asymmetric Layout Accent) -->
+<div class="mt-16 rounded-2xl bg-gradient-to-r from-surface-container to-surface-container-high p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+<div class="space-y-2 max-w-xl">
+<div class="inline-flex items-center gap-1.5 font-label-sm text-label-sm text-on-tertiary-container font-semibold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+          Reader Velocity Insight
+        </div>
+<h4 class="font-headline-sm text-headline-sm text-primary">You are averaging 24 pages per reading session</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          At this current cadence, you will finish <em>Le Petit Prince</em> in approximately 2.3 days. Keep up your deliberate focus time!
+        </p>
+</div>
+<div class="flex items-center gap-4 shrink-0">
+<div class="flex flex-col items-center justify-center p-4 bg-surface-container-lowest rounded-xl shadow-xs min-w-[110px]">
+<span class="font-headline-md text-headline-md font-bold text-on-tertiary-container">5</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Day Streak</span>
+</div>
+<div class="flex flex-col items-center justify-center p-4 bg-surface-container-lowest rounded-xl shadow-xs min-w-[110px]">
+<span class="font-headline-md text-headline-md font-bold text-secondary">38m</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Daily Avg</span>
+</div>
+</div>
+</div>
+<!-- Data Persistence Note Banner (Requirement 5) -->
+<div class="mt-8 rounded-xl bg-surface-container-low p-4 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          All library bookmarks and reading progress are saved directly to your browser's Local Storage (Key: <code class="font-mono text-xs px-1.5 py-0.5 rounded bg-surface-container-high text-primary font-semibold">bookbridge_saved_books</code>). No account required.
+        </p>
+</div>
+<button class="shrink-0 inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary hover:underline cursor-pointer" id="reset-storage-btn" onclick="seedSampleData()">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+        Restore Sample State
+      </button>
+</div>
+</section>
+<!-- Interactive Update Reading Progress Modal (Requirement 4) -->
+<div class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-primary/40 backdrop-blur-sm transition-opacity duration-300" id="progress-modal">
+<div class="relative w-full max-w-md bg-surface-container-lowest rounded-2xl p-6 sm:p-8 shadow-2xl transform transition-all">
+<!-- Close icon button -->
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center hover:bg-surface-container-high transition-colors" onclick="closeModal()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+<!-- Modal Header -->
+<div class="space-y-1 mb-6">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-tertiary-container font-semibold">Session Tracker</span>
+<h3 class="font-headline-sm text-headline-sm text-primary" id="modal-book-title">
+          Update Reading Progress: Le Petit Prince
+        </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Log pages completed to reflect updated reading ratio.
+        </p>
+</div>
+<!-- Input Form -->
+<form class="space-y-5" id="progress-form" onsubmit="handleProgressSubmit(event)">
+<div>
+<label class="block font-label-md text-label-md text-primary mb-1" for="current-page-input">
+            Current Page Number
+          </label>
+<div class="relative">
+<input class="w-full h-11 px-4 rounded-lg bg-surface-container-low text-primary font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none transition-all" id="current-page-input" max="96" min="0" name="currentPage" oninput="validatePageInput(this)" type="number" value="42">
+<span class="absolute right-4 top-2.5 font-label-sm text-label-sm text-on-surface-variant" id="max-page-indicator">
+              / 96 pages
+            </span>
+</div>
+<p class="mt-1.5 font-label-sm text-label-sm text-on-surface-variant" id="validation-hint">
+            Enter pages read (0 - 96)
+          </p>
+</div>
+<!-- Quick Presets -->
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant mb-2">Quick Add Presets:</span>
+<div class="flex items-center gap-2">
+<button class="flex-1 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm transition-colors" onclick="applyPreset(10)" type="button">
+              +10 pages
+            </button>
+<button class="flex-1 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm transition-colors" onclick="applyPreset(25)" type="button">
+              +25 pages
+            </button>
+<button class="flex-1 py-1.5 rounded-lg bg-tertiary-fixed/70 hover:bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm transition-colors" onclick="markMaxPages()" type="button">
+              Completed
+            </button>
+</div>
+</div>
+<!-- Dialog Action Buttons -->
+<div class="pt-4 flex items-center justify-end gap-3">
+<button class="px-5 py-2.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="closeModal()" type="button">
+            Cancel
+          </button>
+<button class="px-6 py-2.5 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-md hover:bg-primary-container transition-all" type="submit">
+            Save Progress
+          </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Functional Reading Tracker Logic Script -->
+<script>
+  let activeBookId = 1;
+  let activeMaxPages = 96;
+
+  // Local Storage Schema Management
+  const STORAGE_KEY = 'bookbridge_saved_books';
+
+  function initLocalStorageData() {
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      const defaultData = [
+        { id: 1, title: 'Le Petit Prince', author: 'Antoine de Saint-Exupéry', current: 42, total: 96, status: 'reading' },
+        { id: 2, title: '1984', author: 'George Orwell', current: 180, total: 328, status: 'reading' },
+        { id: 3, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', current: 180, total: 180, status: 'completed' },
+        { id: 4, title: 'Truyện Kiều', author: 'Nguyễn Du', current: 0, total: 240, status: 'toread' }
+      ];
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultData));
+    }
+  }
+
+  function getBooks() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveBooks(books) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(books));
+    recalculateStats();
+  }
+
+  function openModal(title, currentPage, totalPages, bookId = 1) {
+    activeBookId = bookId;
+    activeMaxPages = totalPages;
+
+    const modal = document.getElementById('progress-modal');
+    const titleEl = document.getElementById('modal-book-title');
+    const inputEl = document.getElementById('current-page-input');
+    const maxInd = document.getElementById('max-page-indicator');
+    const valHint = document.getElementById('validation-hint');
+
+    titleEl.textContent = 'Update Reading Progress: ' + title;
+    inputEl.max = totalPages;
+    inputEl.value = currentPage;
+    maxInd.textContent = '/ ' + totalPages + ' pages';
+    valHint.textContent = 'Enter pages read (0 - ' + totalPages + ')';
+    valHint.className = 'mt-1.5 font-label-sm text-label-sm text-on-surface-variant';
+
+    modal.classList.remove('hidden');
+  }
+
+  function closeModal() {
+    document.getElementById('progress-modal').classList.add('hidden');
+  }
+
+  function validatePageInput(input) {
+    const val = parseInt(input.value) || 0;
+    const max = parseInt(input.max) || 100;
+    const hint = document.getElementById('validation-hint');
+
+    if (val < 0 || val > max) {
+      hint.textContent = 'Value must be between 0 and ' + max + '.';
+      hint.className = 'mt-1.5 font-label-sm text-label-sm text-status-danger';
+    } else {
+      hint.textContent = 'Valid page count. Enter pages read (0 - ' + max + ')';
+      hint.className = 'mt-1.5 font-label-sm text-label-sm text-on-surface-variant';
+    }
+  }
+
+  function applyPreset(increment) {
+    const input = document.getElementById('current-page-input');
+    let val = (parseInt(input.value) || 0) + increment;
+    if (val > activeMaxPages) val = activeMaxPages;
+    input.value = val;
+    validatePageInput(input);
+  }
+
+  function markMaxPages() {
+    const input = document.getElementById('current-page-input');
+    input.value = activeMaxPages;
+    validatePageInput(input);
+  }
+
+  function handleProgressSubmit(e) {
+    e.preventDefault();
+    const input = document.getElementById('current-page-input');
+    const val = parseInt(input.value) || 0;
+
+    if (val < 0 || val > activeMaxPages) return;
+
+    // Update in LocalStorage
+    const books = getBooks();
+    const target = books.find(b => b.id === activeBookId);
+    if (target) {
+      target.current = val;
+      if (val >= target.total) {
+        target.status = 'completed';
+      } else if (val > 0) {
+        target.status = 'reading';
+      }
+      saveBooks(books);
+    }
+
+    // Update Live Card in DOM
+    const pct = Math.round((val / activeMaxPages) * 100);
+    const textEl = document.getElementById('pg-text-' + activeBookId);
+    const pctEl = document.getElementById('pg-pct-' + activeBookId);
+    const barEl = document.getElementById('pg-bar-' + activeBookId);
+
+    if (textEl) textEl.textContent = val + ' / ' + activeMaxPages + ' pages';
+    if (pctEl) pctEl.textContent = pct + '%';
+    if (barEl) barEl.style.width = pct + '%';
+
+    const card = document.querySelector('[data-book-id="' + activeBookId + '"]');
+    if (card) {
+      card.setAttribute('data-progress', pct);
+    }
+
+    closeModal();
+  }
+
+  function resetProgress(id, max) {
+    const textEl = document.getElementById('pg-text-' + id);
+    const pctEl = document.getElementById('pg-pct-' + id);
+    const barEl = document.getElementById('pg-bar-' + id);
+    if (textEl) textEl.textContent = '0 / ' + max + ' pages';
+    if (pctEl) pctEl.textContent = '0%';
+    if (barEl) barEl.style.width = '0%';
+
+    const books = getBooks();
+    const target = books.find(b => b.id === id);
+    if (target) {
+      target.current = 0;
+      target.status = 'toread';
+      saveBooks(books);
+    }
+  }
+
+  function rereadBook(id, max) {
+    openModal('The Great Gatsby', 0, max, id);
+  }
+
+  function startReading(id, max) {
+    openModal('Truyện Kiều', 15, max, id);
+  }
+
+  function changeStatus(id, newStatus) {
+    const card = document.querySelector('[data-book-id="' + id + '"]');
+    if (card) {
+      card.setAttribute('data-status', newStatus);
+    }
+    const books = getBooks();
+    const target = books.find(b => b.id === id);
+    if (target) {
+      target.status = newStatus;
+      saveBooks(books);
+    }
+  }
+
+  function removeBook(id) {
+    const card = document.querySelector('[data-book-id="' + id + '"]');
+    if (card) {
+      card.style.opacity = '0';
+      card.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        card.remove();
+        const books = getBooks().filter(b => b.id !== id);
+        saveBooks(books);
+        checkEmptyShelf();
+      }, 200);
+    }
+  }
+
+  function filterShelf(status) {
+    const cards = document.querySelectorAll('.book-card');
+    const tabs = document.querySelectorAll('.tab-btn');
+
+    tabs.forEach(tab => {
+      tab.classList.remove('bg-primary', 'text-on-primary');
+      tab.classList.add('text-on-surface-variant');
+    });
+
+    const activeTab = document.getElementById('tab-' + status);
+    if (activeTab) {
+      activeTab.classList.remove('text-on-surface-variant');
+      activeTab.classList.add('bg-primary', 'text-on-primary');
+    }
+
+    let visibleCount = 0;
+    cards.forEach(card => {
+      const cardStatus = card.getAttribute('data-status');
+      if (status === 'all' || cardStatus === status) {
+        card.style.display = 'flex';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    checkEmptyShelf(visibleCount);
+  }
+
+  function sortShelf(criteria) {
+    const container = document.getElementById('books-shelf-grid');
+    const cards = Array.from(container.querySelectorAll('.book-card'));
+
+    cards.sort((a, b) => {
+      if (criteria === 'progress') {
+        return parseInt(b.getAttribute('data-progress') || 0) - parseInt(a.getAttribute('data-progress') || 0);
+      } else if (criteria === 'title') {
+        return (a.getAttribute('data-title') || '').localeCompare(b.getAttribute('data-title') || '');
+      } else if (criteria === 'author') {
+        return (a.getAttribute('data-author') || '').localeCompare(b.getAttribute('data-author') || '');
+      }
+      return 0;
+    });
+
+    cards.forEach(c => container.appendChild(c));
+  }
+
+  function checkEmptyShelf(overrideCount) {
+    const cards = document.querySelectorAll('.book-card');
+    let visible = 0;
+    cards.forEach(c => {
+      if (c.style.display !== 'none') visible++;
+    });
+    if (overrideCount !== undefined) visible = overrideCount;
+
+    const empty = document.getElementById('empty-state');
+    if (visible === 0) {
+      empty.classList.remove('hidden');
+      empty.classList.add('flex');
+    } else {
+      empty.classList.add('hidden');
+      empty.classList.remove('flex');
+    }
+  }
+
+  function recalculateStats() {
+    const books = getBooks();
+    const totalEl = document.getElementById('stat-total-books');
+    const readingEl = document.getElementById('stat-reading-books');
+    const completedEl = document.getElementById('stat-completed-books');
+    const toreadEl = document.getElementById('stat-toread-books');
+    const pagesEl = document.getElementById('stat-total-pages');
+
+    if (totalEl) totalEl.textContent = books.length;
+    if (readingEl) readingEl.textContent = books.filter(b => b.status === 'reading').length;
+    if (completedEl) completedEl.textContent = books.filter(b => b.status === 'completed').length;
+    if (toreadEl) toreadEl.textContent = books.filter(b => b.status === 'toread').length;
+    if (pagesEl) {
+      const sum = books.reduce((acc, curr) => acc + (curr.current || 0), 0);
+      pagesEl.textContent = sum;
+    }
+  }
+
+  function seedSampleData() {
+    localStorage.removeItem(STORAGE_KEY);
+    initLocalStorageData();
+    location.reload();
+  }
+
+  // Initialize on load
+  document.addEventListener('DOMContentLoaded', () => {
+    initLocalStorageData();
+    recalculateStats();
+
+    // Export button handler
+    const exportBtn = document.getElementById('export-library-btn');
+    if (exportBtn) {
+      exportBtn.addEventListener('click', () => {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(localStorage.getItem(STORAGE_KEY));
+        const downloadAnchor = document.createElement('a');
+        downloadAnchor.setAttribute("href", dataStr);
+        downloadAnchor.setAttribute("download", "bookbridge_library_shelf.json");
+        document.body.appendChild(downloadAnchor);
+        downloadAnchor.click();
+        downloadAnchor.remove();
+      });
+    }
+  });
+</script></main><footer class="w-full bg-surface-container-low shadow-[0_-1px_8px_rgba(0,0,0,0.02)]"><div class="max-w-[1440px] mx-auto px-6 lg:px-12 py-16"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10"><div class="lg:col-span-2 space-y-4"><div class="flex items-center gap-3"><img alt="BookBridge Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEDzO_GBPm8isEUkTqlc0rXu0_CDktn0QcjBDQc8lwZ2oQyRpG9MkPFYhbvUKXmBhdK2GJgYVYAMhG2Vx6oj7aqnEb4cuLSFnSJK5356BnlaaQpZo6m4C2iQsyTsxqQXmfC8dHRL30N8OSPQzTEYbxyaJZy0d3kun6iP7ROH7IBhuU9vkHTy06UR-JLKph1gjAHaH89kBMePOEsWbliDR50dnSmBfid-LCRtFZaQ"><span class="font-headline-sm text-headline-sm tracking-tight text-primary">BookBridge</span></div><p class="font-headline-sm text-headline-sm italic text-on-tertiary-container font-normal">“Bridge Worlds, Discover Voices Through Books”</p><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">A scholarly digital reading platform curated for reflective readers, archival researchers, and bibliophiles.</p></div><div class="space-y-3"><h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Explore</h4><ul class="space-y-2"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="directory" href="#">Book Directory</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="explorer" href="#">Interactive Explorer</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="gallery" href="#">Cover Visual Gallery</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="collections" href="#">Themed Shelves</a></li></ul></div><div class="space-y-3"><h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Collections</h4><ul class="space-y-2"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="collections" href="#">Literary Modernism</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="collections" href="#">Curated Anthologies</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="collections" href="#">Global Dissertations</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="my-library" href="#">Personal Archival Shelf</a></li></ul></div><div class="space-y-3"><h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Resources</h4><ul class="space-y-2"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">Editorial Standards</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">Archival Citations</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Scholarly Inquiry</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Community Reader Notes</a></li></ul></div><div class="space-y-3"><h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Legal</h4><ul class="space-y-2"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Privacy Charter</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Public Domain Notice</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Metadata Usage Rights</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Open Access Ethics</a></li></ul></div></div><div class="mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4"><p class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-left">BookBridge Academic eProject Demo © 2026. Interactive local storage reading tracker.</p><div class="flex items-center gap-6"><span class="font-label-sm text-label-sm text-on-surface-variant">v1.4 Archive Build</span><span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-on-tertiary-container"><span class="material-symbols-outlined text-[14px]">bookmarks</span>Local Persistence Active</span></div></div></div></footer>
+
+</body></html>

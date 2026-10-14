@@ -1,0 +1,888 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary": "#240f00", "on-tertiary-fixed": "#2f1500", "inverse-on-surface": "#eaf1ff", "outline": "#75777d", "on-secondary-fixed-variant": "#004395", "surface-bright": "#f8f9ff", "text-primary": "#0F172A", "on-tertiary-fixed-variant": "#6e3900", "on-secondary-container": "#fefcff", "on-tertiary-container": "#d97705", "surface-container-low": "#eff4ff", "surface-container-lowest": "#ffffff", "on-secondary-fixed": "#001a42", "surface-container-high": "#dce9ff", "surface-tint": "#545f73", "on-error-container": "#93000a", "border-subtle": "#E2E8F0", "background": "#f8f9ff", "on-surface-variant": "#45474c", "surface-canvas": "#F8FAFC", "on-background": "#0b1c30", "secondary": "#0058be", "surface-container": "#e5eeff", "primary-fixed": "#d8e3fb", "accent-indigo": "#6366F1", "on-error": "#ffffff", "tertiary-container": "#422000", "status-danger": "#EF4444", "error": "#ba1a1a", "on-surface": "#0b1c30", "surface-variant": "#d3e4fe", "accent-gold-light": "#F59E0B", "surface": "#f8f9ff", "outline-variant": "#c5c6cd", "secondary-fixed": "#d8e2ff", "primary-container": "#1e293b", "on-secondary": "#ffffff", "secondary-container": "#2170e4", "primary-fixed-dim": "#bcc7de", "on-primary": "#ffffff", "primary": "#091426", "on-primary-fixed": "#111c2d", "surface-dim": "#cbdbf5", "inverse-primary": "#bcc7de", "status-info": "#0EA5E9", "on-primary-container": "#8590a6", "secondary-fixed-dim": "#adc6ff", "on-tertiary": "#ffffff", "surface-container-highest": "#d3e4fe", "status-success": "#10B981", "on-primary-fixed-variant": "#3c475a", "inverse-surface": "#213145", "tertiary-fixed-dim": "#ffb77d", "tertiary-fixed": "#ffdcc3", "error-container": "#ffdad6", "surface-card": "#FFFFFF" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1.5rem", "space-xl": "2.5rem", "margin-mobile": "1.25rem", "gutter-mobile": "1rem", "margin": "3rem", "gutter": "1.5rem", "space-md": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem" }, "fontFamily": { "display-hero-mobile": [ "Playfair Display" ], "title-md": [ "Plus Jakarta Sans" ], "headline-lg": [ "Playfair Display" ], "display-hero": [ "Playfair Display" ], "headline-sm": [ "Playfair Display" ], "label-md": [ "Plus Jakarta Sans" ], "body-md": [ "Plus Jakarta Sans" ], "label-sm": [ "Plus Jakarta Sans" ], "headline-md": [ "Playfair Display" ], "headline-lg-mobile": [ "Playfair Display" ], "body-lg": [ "Plus Jakarta Sans" ], "body-sm": [ "Plus Jakarta Sans" ] }, "fontSize": { "display-hero-mobile": [ "2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.01em", "fontWeight": "700" } ], "title-md": [ "1.125rem", { "lineHeight": "1.625rem", "fontWeight": "600" } ], "headline-lg": [ "2.5rem", { "lineHeight": "3rem", "letterSpacing": "-0.015em", "fontWeight": "700" } ], "display-hero": [ "3.5rem", { "lineHeight": "4.25rem", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "headline-sm": [ "1.25rem", { "lineHeight": "1.75rem", "fontWeight": "600" } ], "label-md": [ "0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "600" } ], "body-md": [ "1rem", { "lineHeight": "1.625rem", "fontWeight": "400" } ], "label-sm": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.025em", "fontWeight": "600" } ], "headline-md": [ "1.75rem", { "lineHeight": "2.25rem", "fontWeight": "600" } ], "headline-lg-mobile": [ "1.75rem", { "lineHeight": "2.25rem", "fontWeight": "700" } ], "body-lg": [ "1.125rem", { "lineHeight": "1.875rem", "fontWeight": "400" } ], "body-sm": [ "0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" } ] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-surface-variant selection:text-primary"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1440px] mx-auto px-6 lg:px-12 flex items-center justify-between gap-gutter"><div class="flex items-center gap-4 shrink-0"><img alt="BookBridge Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEDzO_GBPm8isEUkTqlc0rXu0_CDktn0QcjBDQc8lwZ2oQyRpG9MkPFYhbvUKXmBhdK2GJgYVYAMhG2Vx6oj7aqnEb4cuLSFnSJK5356BnlaaQZo6m4C2iQsyTsxqQXmfC8dHRL30N8OSPQzTEYbxyaJZy0d3kun6iP7ROH7IBhuU9vkHTy06UR-JLKph1gjAHaH89kBMePOEsWbliDR50dnSmBfid-LCRtFZaQ"><span class="font-headline-md text-headline-md tracking-tight text-primary">BookBridge</span></div><nav class="hidden xl:flex items-center gap-1" data-active-classes="text-primary font-bold bg-surface-container rounded-full"><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="home---bookbridge-literary-platform" href="#">Home</a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="directory" href="#">Directory</a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="language-&amp;-genre-explorer-—-bookbridge" href="#">Explorer</a><a aria-current="page" class="px-3 py-1.5 transition-colors text-primary font-bold bg-surface-container rounded-full" data-path="featured-reading-collections-—-bookbridge" href="#">Collections</a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="my-library" href="#">My Library</a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">About</a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-3 shrink-0"><button aria-label="Search Catalog" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">search</span></button><button aria-label="Toggle Theme" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">light_mode</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<!-- Top Archival Ambient Backdrop -->
+<div class="relative w-full overflow-hidden bg-surface-canvas pb-16">
+<div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-surface-container opacity-60 blur-3xl pointer-events-none"></div>
+<div class="absolute top-1/3 -left-20 w-80 h-80 rounded-full bg-secondary-fixed opacity-40 blur-3xl pointer-events-none"></div>
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12 pt-8">
+<!-- Section 1: Header & Page Intro -->
+<div class="flex flex-col items-start gap-4 max-w-4xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-on-tertiary-container shadow-sm">
+<span class="material-symbols-outlined text-[16px]">collections_bookmark</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest font-semibold">Artistic Archives • Visual Cover Curation</span>
+</div>
+<h1 class="font-display-hero text-display-hero text-primary tracking-tight">
+          Interactive Book Gallery <span class="font-headline-lg text-headline-lg italic text-on-tertiary-container font-normal">and Visual Showcase</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed">
+          Experience the visual identity, historical typography, and cover illustrations of world literary treasures. Click any edition to inspect high-resolution artwork in full-screen Lightbox mode with preservation-grade archival metadata.
+        </p>
+</div>
+<!-- Gallery Filter & View Toolbar -->
+<div class="mt-10 p-4 rounded-xl bg-surface-card shadow-sm flex flex-col lg:flex-row items-center justify-between gap-4">
+<!-- Filter Pills -->
+<div class="flex items-center gap-2 overflow-x-auto w-full lg:w-auto pb-2 lg:pb-0" id="filterContainer">
+<button class="filter-btn active-filter px-4 py-2 rounded-full font-label-md text-label-md bg-primary text-on-primary shadow-sm whitespace-nowrap transition-all" data-category="all">
+            All Covers (20)
+          </button>
+<button class="filter-btn px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container whitespace-nowrap transition-all" data-category="classic">
+            Classic Typography
+          </button>
+<button class="filter-btn px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container whitespace-nowrap transition-all" data-category="illustrated">
+            Illustrated Masterpieces
+          </button>
+<button class="filter-btn px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container whitespace-nowrap transition-all" data-category="modernist">
+            Modernist Design
+          </button>
+<button class="filter-btn px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container whitespace-nowrap transition-all" data-category="vintage">
+            Vintage &amp; Archival
+          </button>
+</div>
+<!-- Controls: Search & Layout View Toggles -->
+<div class="flex items-center gap-4 w-full lg:w-auto justify-between lg:justify-end">
+<!-- Search within covers -->
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">search</span>
+<input class="w-full h-10 pl-9 pr-8 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-card transition-all placeholder:text-outline" id="gallerySearch" placeholder="Search cover or author..." type="text">
+<button class="hidden absolute right-2.5 top-2.5 text-outline hover:text-on-surface" id="clearSearch" title="Clear search">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<!-- Active counter & Layout switches -->
+<div class="hidden sm:flex items-center gap-3 pl-2">
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg">
+<button class="p-1.5 rounded bg-surface-card text-primary shadow-xs" title="Grid 4-columns">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+<button class="p-1.5 rounded text-outline hover:text-on-surface transition-colors" title="Masonry layout">
+<span class="material-symbols-outlined text-[18px]">dashboard</span>
+</button>
+<button class="p-1.5 rounded text-outline hover:text-on-surface transition-colors" title="Compact view">
+<span class="material-symbols-outlined text-[18px]">view_agenda</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm text-on-tertiary-container whitespace-nowrap bg-surface-container px-2.5 py-1 rounded-full">
+              20 Curated Editions
+            </span>
+</div>
+</div>
+</div>
+<!-- Section 2: Interactive Gallery Grid (12 Exemplar High-Fidelity Editions) -->
+<div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="galleryGrid">
+<!-- Book 1: Truyện Kiều -->
+<div class="gallery-card group relative flex flex-col rounded-xl bg-surface-card shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden" data-ack="Preservation digitization courtesy of National Library of Vietnam • Rare Books Vault MARC-21" data-author="Nguyễn Du" data-caption="Ornate traditional Vietnamese lacquer cover motif with embossed gold foil details portraying Thúy Kiều under weeping willow branches." data-category="illustrated vintage" data-id="1" data-lang="Vietnamese / Nôm" data-title="Truyện Kiều" data-year="1820 / 1925 Edition">
+<div class="relative w-full aspect-[2/3] overflow-hidden bg-primary-container">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Exquisite antique Vietnamese book cover of Truyen Kieu by Nguyen Du featuring ornate deep crimson and gilded gold lacquer artwork depicting an elegant woman beside willow branches and traditional pagoda lake landscape in classical East Asian woodblock engraving style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0Zbvv6XRs1lvUs8AwuJ9XDVF2aFVHHB0N7SOVikoK4a8CJOPOvCoQgV-8Ou3awloI4pV1X0vZDcrizhEz8TZ7vDn-jQZNoUwJ4Y4Cjsw3GClphqcUZCIn-cHxIrpx4CD626QSCUM8HTaAdJNxXv_KJuuG-bzrcRl7-SJOtpFvW6ioiVff4GuG1tG9_iOYYQNfxanzY6pql9e-ku_cDADCkjVq9Id0TunNpPYBpA">
+<!-- Dark Gradient overlay on hover -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="inline-flex items-center gap-1 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span> Open Lightbox
+              </span>
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Truyện Kiều</h3>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">Nguyễn Du • 1820</p>
+<div class="mt-4 flex items-center gap-2">
+<button class="open-lightbox-btn px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary font-label-sm text-label-sm hover:bg-secondary transition-colors" data-index="0">
+                  Inspect Art
+                </button>
+<a class="px-3 py-1.5 rounded-full bg-surface-card/20 backdrop-blur-sm text-on-primary font-label-sm text-label-sm hover:bg-surface-card/40 transition-colors" href="#">
+                  Details
+                </a>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-tertiary-container">Vietnamese Classic</span>
+<span class="font-label-sm text-label-sm text-outline">1820</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">Truyện Kiều</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Nguyễn Du</p>
+</div>
+</div>
+</div>
+<!-- Book 2: Le Petit Prince (Featured in open modal demo) -->
+<div class="gallery-card group relative flex flex-col rounded-xl bg-surface-card shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden" data-ack="Public Domain worldwide / Digitized via Open Library Archive • High-resolution preservation copy MARC-21 compliant" data-author="Antoine de Saint-Exupéry" data-caption="Original watercolor cover art depicting the Little Prince standing solitary on Asteroid B-612, surrounded by his beloved rose and miniature active volcanoes under a soft starry cosmos." data-category="illustrated classic" data-id="2" data-lang="French" data-title="Le Petit Prince" data-year="1943 Original Gallimard">
+<div class="relative w-full aspect-[2/3] overflow-hidden bg-primary-container">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Original first edition French book cover of Le Petit Prince by Antoine de Saint-Exupery with iconic minimalist watercolor illustration of the Little Prince standing in long scarf atop Asteroid B-612 surrounded by celestial stars and a bright red rose against pale parchment cream sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9Eh_rJUtXkl1YKsf6aUG3cBjnXRH2iDNyKPDkT7VyNmsBGO0WgtYrFaOoB8KV0XypVvImLlIFqimy2ASmKPufp4g6CK2bJKh7XzoRhI5pHv_fXTsWY5iZytwColznYd8uBwUB5HN6Bm0e5_MHXwHMJu5x3zWFMcIS4LlowOYc-gINj6ddovV1kdeEo4m8bWI6dPXIDB7oygbfY_APnQbjLKbY285hUwFxC0xFbg">
+<div class="absolute top-3 left-3 px-2 py-1 rounded bg-secondary text-on-secondary font-label-sm text-label-sm uppercase tracking-wider shadow-sm">
+              Featured Artwork
+            </div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="inline-flex items-center gap-1 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span> Open Lightbox
+              </span>
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Le Petit Prince</h3>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">Antoine de Saint-Exupéry • 1943</p>
+<div class="mt-4 flex items-center gap-2">
+<button class="open-lightbox-btn px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary font-label-sm text-label-sm hover:bg-secondary transition-colors" data-index="1">
+                  Inspect Art
+                </button>
+<a class="px-3 py-1.5 rounded-full bg-surface-card/20 backdrop-blur-sm text-on-primary font-label-sm text-label-sm hover:bg-surface-card/40 transition-colors" href="#">
+                  Details
+                </a>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-tertiary-container">Fable / Philosophy</span>
+<span class="font-label-sm text-label-sm text-outline">1943</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">Le Petit Prince</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Antoine de Saint-Exupéry</p>
+</div>
+</div>
+</div>
+<!-- Book 3: 1984 -->
+<div class="gallery-card group relative flex flex-col rounded-xl bg-surface-card shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden" data-ack="Internet Archive Rare Book Division • London 1949 Print Preservation" data-author="George Orwell" data-caption="Constructivist graphic design featuring severe geometric red and charcoal typography with an ominous omnipresent eye silhouette representing state surveillance." data-category="modernist vintage" data-id="3" data-lang="English" data-title="1984" data-year="1949 Secker &amp; Warburg">
+<div class="relative w-full aspect-[2/3] overflow-hidden bg-primary-container">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Constructivist minimalist book cover of 1984 by George Orwell featuring bold stark red and dark charcoal geometric typographic layout with a towering graphic all-seeing surveillance eye and vintage paper grain texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCufcIuKdcg-4c20DhV8K_YWT4V-3WtGg1QkDcQfJ-IeoK9TXRT7WlGgha56q16NEu4Zbxnp2LALp-usoqqFR5tPcbzCGtx-2I-uTDejktVd6omQhScXPJeClHH_KVVwY97ArKZ2RTTTdMvA8cETZ-UskErFWNj_A58m9ghyhGiNUGlKNawG5pRAotyFZ-c9Ht-r1UJYgmJE6Ht-zABEkumXRT-TCBzTc7a_HRnNw">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="inline-flex items-center gap-1 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span> Open Lightbox
+              </span>
+<h3 class="font-headline-sm text-headline-sm text-on-primary">1984</h3>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">George Orwell • 1949</p>
+<div class="mt-4 flex items-center gap-2">
+<button class="open-lightbox-btn px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary font-label-sm text-label-sm hover:bg-secondary transition-colors" data-index="2">
+                  Inspect Art
+                </button>
+<a class="px-3 py-1.5 rounded-full bg-surface-card/20 backdrop-blur-sm text-on-primary font-label-sm text-label-sm hover:bg-surface-card/40 transition-colors" href="#">
+                  Details
+                </a>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-tertiary-container">Dystopian Modernism</span>
+<span class="font-label-sm text-label-sm text-outline">1949</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">1984</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">George Orwell</p>
+</div>
+</div>
+</div>
+<!-- Book 4: The Great Gatsby -->
+<div class="gallery-card group relative flex flex-col rounded-xl bg-surface-card shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden" data-ack="Scribner Archival Records &amp; Library of Congress Digital Gallery Archive" data-author="F. Scott Fitzgerald" data-caption="Francis Cugat's legendary 1925 'Celestial Eyes' dust jacket, blending haunting Art Deco female eyes floating above the glittering Long Island carnival nightlife skyline." data-category="classic illustrated" data-id="4" data-lang="English" data-title="The Great Gatsby" data-year="1925 Charles Scribner's Sons">
+<div class="relative w-full aspect-[2/3] overflow-hidden bg-primary-container">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Iconic vintage book cover of The Great Gatsby by F. Scott Fitzgerald with the famous celestial eyes painting by Francis Cugat floating over a deep sapphire blue evening sky and dazzling Art Deco glowing carnival city skyline." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcY6qaiecleUUKSQ_m5mVd_my0MiCbWGg527r7oShOjP2BSHbmmDHVX4n4aGLZwLeII2xFVO0ewX8eqy_n2tsbxSo-tzwVb6DTXSyzLWj_o_vjwlTokKVwA-nqh8iXVLOf98_T9eInBDTn8jb-QDyICvRZ1XgCrdTxN9br6OMLtTvZbkkZRZZA9Pb6lQPulGkrezxgyem4ZLrSWIiw_ngJbYf3Y99dTAF8c4LUYg">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="inline-flex items-center gap-1 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span> Open Lightbox
+              </span>
+<h3 class="font-headline-sm text-headline-sm text-on-primary">The Great Gatsby</h3>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">F. Scott Fitzgerald • 1925</p>
+<div class="mt-4 flex items-center gap-2">
+<button class="open-lightbox-btn px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary font-label-sm text-label-sm hover:bg-secondary transition-colors" data-index="3">
+                  Inspect Art
+                </button>
+<a class="px-3 py-1.5 rounded-full bg-surface-card/20 backdrop-blur-sm text-on-primary font-label-sm text-label-sm hover:bg-surface-card/40 transition-colors" href="#">
+                  Details
+                </a>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-tertiary-container">Jazz Age Art Deco</span>
+<span class="font-label-sm text-label-sm text-outline">1925</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">The Great Gatsby</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">F. Scott Fitzgerald</p>
+</div>
+</div>
+</div>
+<!-- Book 5: Norwegian Wood -->
+<div class="gallery-card group relative flex flex-col rounded-xl bg-surface-card shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden" data-ack="Tokyo Modern Literature Archive &amp; Kodansha Typographic Records" data-author="Haruki Murakami" data-caption="Two-volume original packaging design featuring contrasting crimson red and evergreen forestry with clean modernist Kanji typography." data-category="modernist" data-id="5" data-lang="Japanese" data-title="Norwegian Wood" data-year="1987 Kodansha">
+<div class="relative w-full aspect-[2/3] overflow-hidden bg-primary-container">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Minimalist modern Japanese book cover design for Norwegian Wood by Haruki Murakami showcasing rich deep forest green backdrop with a delicate crimson red leaf motif and elegant vertical Japanese kanji calligraphy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyHOr2-Np2ZdX0adUrLZGn13_nxXjtvoNn8ZvdCl_OkhyB12Bx9Qx4qmpn9V8dIHM5RtgWSiA728rN9JO27vUUAEWQmycb6UayDIgtqExtIEbpxDPo11KZAg_99L3m7qz5ff-ec_sVrBdDhuCPwdMWXfTckwDeDRN1EWspZfLUv2J2fH5xFsRnCw16Vh0ySy9Vft97hgbIaVETRC74HcKcpws34FqJhtqbA9FTHw">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="inline-flex items-center gap-1 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span> Open Lightbox
+              </span>
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Norwegian Wood</h3>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">Haruki Murakami • 1987</p>
+<div class="mt-4 flex items-center gap-2">
+<button class="open-lightbox-btn px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary font-label-sm text-label-sm hover:bg-secondary transition-colors" data-index="4">
+                  Inspect Art
+                </button>
+<a class="px-3 py-1.5 rounded-full bg-surface-card/20 backdrop-blur-sm text-on-primary font-label-sm text-label-sm hover:bg-surface-card/40 transition-colors" href="#">
+                  Details
+                </a>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-tertiary-container">Contemporary Japanese</span>
+<span class="font-label-sm text-label-sm text-outline">1987</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">Norwegian Wood</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Haruki Murakami</p>
+</div>
+</div>
+</div>
+<!-- Book 6: Dế Mèn Phiêu Lưu Ký -->
+<div class="gallery-card group relative flex flex-col rounded-xl bg-surface-card shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden" data-ack="Preservation Archive Kim Đồng Publishing House Hanoi • Archival Folio" data-author="Tô Hoài" data-caption="Delicate pastoral gouache painting featuring the daring cricket protagonist traversing lush emerald blades of grass across rural northern Vietnamese waterways." data-category="illustrated vintage" data-id="6" data-lang="Vietnamese" data-title="Dế Mèn Phiêu Lưu Ký" data-year="1941 / 1957 Kim Đồng">
+<div class="relative w-full aspect-[2/3] overflow-hidden bg-primary-container">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Lush vintage storybook watercolor illustration for Vietnamese classic De Men Phieu Luu Ky by To Hoai showing an adventurous grasshopper insect character traversing towering dewy green meadow grass and lotus pond bank." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC557dVtCN5hjS6oi4_7O8SzMNRsZECwBVfSunv4qpNLnvFWyRAdUrw3k3wFiRPvcbdbvhTPhp0-Bz7BAmwR9ovBlZ4Bxmf4Q6VquF3UlmpRb0MF798wd9Hg733sX50M8D5MllYg89XDO0vzQ7d2BowRFXmuupFpIi2Vx8FG7F_FXjEP-YlPshOLop_TBru8SrlPxxQvMxZe4aAEx9s-hFPl81G2V7sJePxIKS03g">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="inline-flex items-center gap-1 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span> Open Lightbox
+              </span>
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Dế Mèn Phiêu Lưu Ký</h3>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">Tô Hoài • 1941</p>
+<div class="mt-4 flex items-center gap-2">
+<button class="open-lightbox-btn px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary font-label-sm text-label-sm hover:bg-secondary transition-colors" data-index="5">
+                  Inspect Art
+                </button>
+<a class="px-3 py-1.5 rounded-full bg-surface-card/20 backdrop-blur-sm text-on-primary font-label-sm text-label-sm hover:bg-surface-card/40 transition-colors" href="#">
+                  Details
+                </a>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-tertiary-container">Children's Literature</span>
+<span class="font-label-sm text-label-sm text-outline">1941</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">Dế Mèn Phiêu Lưu Ký</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tô Hoài</p>
+</div>
+</div>
+</div>
+<!-- Book 7: Crime and Punishment -->
+<div class="gallery-card group relative flex flex-col rounded-xl bg-surface-card shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden" data-ack="Saint Petersburg Literary Archive • Project Gutenberg Public Domain Repository" data-author="Fyodor Dostoevsky" data-caption="Gothic woodcut silhouette of 19th-century Saint Petersburg canals wrapped in winter fog, backlit by an amber gas streetlamp casting long psychological shadows." data-category="classic vintage" data-id="7" data-lang="Russian" data-title="Crime and Punishment" data-year="1866 The Russian Messenger">
+<div class="relative w-full aspect-[2/3] overflow-hidden bg-primary-container">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Moody dark atmospheric 19th century Russian book cover of Crime and Punishment by Fyodor Dostoevsky depicting a solitary dark silhouette crossing an arched Saint Petersburg bridge amidst winter mist and glowing amber streetlamp light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJgSS7IGGcDgnOZmgxFdrNAINgiZcEVIXwJqEVKVRd-IloEiSC6K5yrEJNaMhWHyTlEv6xHQNBn0cMBGFFHB7iOGrV-QDKzAmyx-ne8b89svfLHA2ooSYVezvGzI5YkKdyMdAAogVtvzlwNY6XwYFk7qDGUiecBOet6QZs7Iuudkl9uwzjCtVl-odCQTZVpOBNiZRYJZzVlyagCQC5jAXjZ3dgZ5mP4Si0YIX8YQ">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="inline-flex items-center gap-1 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span> Open Lightbox
+              </span>
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Crime and Punishment</h3>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">Fyodor Dostoevsky • 1866</p>
+<div class="mt-4 flex items-center gap-2">
+<button class="open-lightbox-btn px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary font-label-sm text-label-sm hover:bg-secondary transition-colors" data-index="6">
+                  Inspect Art
+                </button>
+<a class="px-3 py-1.5 rounded-full bg-surface-card/20 backdrop-blur-sm text-on-primary font-label-sm text-label-sm hover:bg-surface-card/40 transition-colors" href="#">
+                  Details
+                </a>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-tertiary-container">Russian Realism</span>
+<span class="font-label-sm text-label-sm text-outline">1866</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">Crime and Punishment</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Fyodor Dostoevsky</p>
+</div>
+</div>
+</div>
+<!-- Book 8: Số Đỏ (Dumb Luck) -->
+<div class="gallery-card group relative flex flex-col rounded-xl bg-surface-card shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden" data-ack="Hanoi University Institute of Literature Preservation Vault • Rare Colonial Printings" data-author="Vũ Trọng Phụng" data-caption="Brilliant 1930s Franco-Vietnamese satirical art deco caricature capturing the farcical bourgeois fashion craze of colonial Hanoi." data-category="modernist illustrated" data-id="8" data-lang="Vietnamese" data-title="Số Đỏ (Dumb Luck)" data-year="1936 Hanoi">
+<div class="relative w-full aspect-[2/3] overflow-hidden bg-primary-container">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Satirical 1930s French Indochina colonial book cover of So Do Dumb Luck by Vu Trong Phung featuring vibrant retro Art Deco caricature of an eccentric dapper tennis player in vintage Hanoi high society salon style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj74qEdPT3mFFT8ggzMYA5NOlYQM__BM2Xm3BKzI5ykvB9bUHkS3OT7LPYE7Aq6mEDzYeigWDLByc_deMc0ZwT39GCBa3DNWY-P_kNzzSA8xcOaX024ks6VelVi6FuF0qsxis_Ayqpu6TF8Zs5cuVKVPSXEgD35xA3EFHQgV3OIaX7QjdMXh5jcVwFoy2cuNEAOy6FOcfTmlGdb97KJFNOpEW9AYuULnmT3aKF3w">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="inline-flex items-center gap-1 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span> Open Lightbox
+              </span>
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Số Đỏ</h3>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">Vũ Trọng Phụng • 1936</p>
+<div class="mt-4 flex items-center gap-2">
+<button class="open-lightbox-btn px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary font-label-sm text-label-sm hover:bg-secondary transition-colors" data-index="7">
+                  Inspect Art
+                </button>
+<a class="px-3 py-1.5 rounded-full bg-surface-card/20 backdrop-blur-sm text-on-primary font-label-sm text-label-sm hover:bg-surface-card/40 transition-colors" href="#">
+                  Details
+                </a>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-tertiary-container">Satirical Art Deco</span>
+<span class="font-label-sm text-label-sm text-outline">1936</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">Số Đỏ (Dumb Luck)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Vũ Trọng Phụng</p>
+</div>
+</div>
+</div>
+<!-- Book 9: One Hundred Years of Solitude -->
+<div class="gallery-card group relative flex flex-col rounded-xl bg-surface-card shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden" data-ack="National Library of Colombia &amp; Buenos Aires Sudamericana First Edition Vault" data-author="Gabriel García Márquez" data-caption="Magical realist lush botanical tapestry bursting with yellow butterflies, tropical jungle ferns, and ancient Macondo alchemical machinery." data-category="illustrated modern" data-id="9" data-lang="Spanish" data-title="Cien Años de Soledad" data-year="1967 Editorial Sudamericana">
+<div class="relative w-full aspect-[2/3] overflow-hidden bg-primary-container">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Lush Latin American magical realism book cover for One Hundred Years of Solitude by Gabriel Garcia Marquez filled with radiant golden yellow butterflies floating through deep emerald tropical jungle foliage and ancient parchment textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWktxZXxoeu-RI_JO9bkMpkR6m0JVxhKuZqwjh77BqPSxeSrluaJmmCyCGfcv5aN_eLYA0zVZK58IRMpkDnktplASYCj7J-eI3Ma1mJYjDhhrv_juojlJF4U6Q8gUc7nsr9ghAT2V2rzTQ4mBt2dKmJ09TBwCFJutxVfR8lJEzw8B_7Jzjcyjw8wqnS2i8yiNJPzs4ISqLmK708Gd4hVG2_Sj7JbFNqYuU3XhZhA">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="inline-flex items-center gap-1 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span> Open Lightbox
+              </span>
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Cien Años de Soledad</h3>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">G. García Márquez • 1967</p>
+<div class="mt-4 flex items-center gap-2">
+<button class="open-lightbox-btn px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary font-label-sm text-label-sm hover:bg-secondary transition-colors" data-index="8">
+                  Inspect Art
+                </button>
+<a class="px-3 py-1.5 rounded-full bg-surface-card/20 backdrop-blur-sm text-on-primary font-label-sm text-label-sm hover:bg-surface-card/40 transition-colors" href="#">
+                  Details
+                </a>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-tertiary-container">Magical Realism</span>
+<span class="font-label-sm text-label-sm text-outline">1967</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">One Hundred Years of Solitude</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Gabriel García Márquez</p>
+</div>
+</div>
+</div>
+<!-- Book 10: Kokoro -->
+<div class="gallery-card group relative flex flex-col rounded-xl bg-surface-card shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden" data-ack="Waseda University Cultural Archives • Sōseki Memorial Collection" data-author="Natsume Sōseki" data-caption="Traditional Japanese bookbinding Wabi-sabi design with handmade mulberry washi paper texture and authentic brushstroke ink calligraphy." data-category="classic vintage" data-id="10" data-lang="Japanese" data-title="Kokoro (こころ)" data-year="1914 Iwanami Shoten">
+<div class="relative w-full aspect-[2/3] overflow-hidden bg-primary-container">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Refined wabi-sabi Japanese book cover of Kokoro by Natsume Soseki showing authentic rough textured cream washi paper with traditional four-hole stitch binding and subtle minimalist sumi-e ink brush calligraphy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNZLf5XFWob4wpINFHODb-LoRSJg9KgV3CHyBqSQ55OmuItt-K5X8LxVvXfbAJ6lRGDGejXkk0fnfnSiIUCxubyaqZoKK60y0BN65VRA-Rpao6SiaN9o8kaHt2hWOf2Zg_PVWg8tZ35zHkwC6lKj8SwfYhD2bCa7MjHYMRkYza4N5SSeScFqSHb6z8jy0SF_okpnd80vZGwV9TFPDq4hvVScqaPB19ncRm8h2l6A">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="inline-flex items-center gap-1 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span> Open Lightbox
+              </span>
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Kokoro</h3>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">Natsume Sōseki • 1914</p>
+<div class="mt-4 flex items-center gap-2">
+<button class="open-lightbox-btn px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary font-label-sm text-label-sm hover:bg-secondary transition-colors" data-index="9">
+                  Inspect Art
+                </button>
+<a class="px-3 py-1.5 rounded-full bg-surface-card/20 backdrop-blur-sm text-on-primary font-label-sm text-label-sm hover:bg-surface-card/40 transition-colors" href="#">
+                  Details
+                </a>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-tertiary-container">Meiji Classic</span>
+<span class="font-label-sm text-label-sm text-outline">1914</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">Kokoro</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Natsume Sōseki</p>
+</div>
+</div>
+</div>
+<!-- Book 11: Madame Bovary -->
+<div class="gallery-card group relative flex flex-col rounded-xl bg-surface-card shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden" data-ack="Bibliothèque nationale de France (BnF) Gallica Digitization Project" data-author="Gustave Flaubert" data-caption="Gilded 19th-century French morocco leather-bound cover with floral hand-tooled gold filigree on burgundy calfskin." data-category="vintage classic" data-id="11" data-lang="French" data-title="Madame Bovary" data-year="1857 Michel Lévy Frères">
+<div class="relative w-full aspect-[2/3] overflow-hidden bg-primary-container">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Luxurious antique 19th century French leather bound book cover of Madame Bovary by Gustave Flaubert featuring deep wine burgundy morocco leather with intricate hand-tooled gold filigree ornamentation and embossed spine typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuVvd5pAbY1Ol-GeDy7DKJfrHt5P4TZ6m62yEsM5rDROGcDJzmrW6VjaHGqERBV-MDx2Gx9N5PpITIdUugvLH5SQjm1CXyTHufzhUvgnhcKkD95DqrUlVj1aABvMb1ac0Rgqhs6uayyDtLgkMXbCNSJucgUpZ-ae09m1YISNaJnoe1ygXDyyuk-dyetaRQRv5zPESWrJAeHx0LwUK7OP8JkVVVwod55lSsz4cnaw">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="inline-flex items-center gap-1 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span> Open Lightbox
+              </span>
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Madame Bovary</h3>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">Gustave Flaubert • 1857</p>
+<div class="mt-4 flex items-center gap-2">
+<button class="open-lightbox-btn px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary font-label-sm text-label-sm hover:bg-secondary transition-colors" data-index="10">
+                  Inspect Art
+                </button>
+<a class="px-3 py-1.5 rounded-full bg-surface-card/20 backdrop-blur-sm text-on-primary font-label-sm text-label-sm hover:bg-surface-card/40 transition-colors" href="#">
+                  Details
+                </a>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-tertiary-container">French Realism</span>
+<span class="font-label-sm text-label-sm text-outline">1857</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">Madame Bovary</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Gustave Flaubert</p>
+</div>
+</div>
+</div>
+<!-- Book 12: L'Étranger -->
+<div class="gallery-card group relative flex flex-col rounded-xl bg-surface-card shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden" data-ack="Gallimard Archives &amp; Centre Culturel Camus Aix-en-Provence" data-author="Albert Camus" data-caption="Stark Mediterranean existentialist cover design featuring blinding sunburst geometries over a lone stark silhouette on Algiers sands." data-category="modernist classic" data-id="12" data-lang="French" data-title="L'Étranger (The Stranger)" data-year="1942 Gallimard Blanche">
+<div class="relative w-full aspect-[2/3] overflow-hidden bg-primary-container">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Existentialist minimalist book cover for L'Etranger by Albert Camus with stark geometric blinding yellow sun beating down on a solitary black human silhouette walking across white Algerian sand dunes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDgSiEFgf1KF--DBMYE3dDa4n0AKRUZDM5BIw5wGkaoAP-8n6ZleW0MRdOobpyaJIQw1ikvl7mvezJaLQRwEv455XykwcG1Kmm2NHbtgRAol0MUSlJdo5XrLuuj7C9_z31svQIzj8NBOfjrF1R9SbKwdeQBpkLtXBsr73pl5ZPCnh-OWFoKYK8F5ww3tbtpT4VgbECtd6bImY-WdgxI5itMGaptXvfklvP9t6Iyg">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="inline-flex items-center gap-1 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span> Open Lightbox
+              </span>
+<h3 class="font-headline-sm text-headline-sm text-on-primary">L'Étranger</h3>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">Albert Camus • 1942</p>
+<div class="mt-4 flex items-center gap-2">
+<button class="open-lightbox-btn px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary font-label-sm text-label-sm hover:bg-secondary transition-colors" data-index="11">
+                  Inspect Art
+                </button>
+<a class="px-3 py-1.5 rounded-full bg-surface-card/20 backdrop-blur-sm text-on-primary font-label-sm text-label-sm hover:bg-surface-card/40 transition-colors" href="#">
+                  Details
+                </a>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-tertiary-container">Existential Philosophy</span>
+<span class="font-label-sm text-label-sm text-outline">1942</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">L'Étranger</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Albert Camus</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 4: Visual Archival Standards & Rights Disclaimer Banner -->
+<div class="mt-20 p-8 lg:p-10 rounded-2xl bg-surface-container-low shadow-sm flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+<div class="flex items-start gap-5 max-w-3xl">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[28px]">verified</span>
+</div>
+<div class="space-y-2">
+<h3 class="font-headline-sm text-headline-sm text-primary">Visual Archival Standards &amp; Rights Compliance</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Every book cover showcased in the BookBridge Gallery is calibrated against MARC-21 conservation guidelines and retrieved through scholarly partnerships with Project Gutenberg, Open Library, Internet Archive, and institutional public domain repositories. Color profiling matches original pigment characteristics under 5000K museum lighting.
+            </p>
+<div class="flex flex-wrap items-center gap-4 pt-1">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">auto_stories</span> Open Access Archive
+              </span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">lock_open</span> Public Domain Certified
+              </span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">high_density</span> 4K Ultra-Resolution Scans
+              </span>
+</div>
+</div>
+</div>
+<div class="shrink-0 w-full lg:w-auto">
+<button class="w-full lg:w-auto px-6 py-3 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-secondary transition-colors shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">upload_file</span>
+            Submit Archival Asset
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Lightbox Preview Modal Component (Interactive Overlay) -->
+<div aria-label="High-resolution Book Cover Inspection" aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center p-4 lg:p-8 bg-primary/80 backdrop-blur-md transition-opacity duration-300 opacity-100 pointer-events-auto" id="lightboxModal" role="dialog">
+<!-- Modal Central Container -->
+<div class="relative w-full max-w-6xl max-h-[92vh] flex flex-col bg-surface-card rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+<!-- Top Action Bar -->
+<div class="h-16 px-6 bg-surface-container-low flex items-center justify-between shrink-0">
+<!-- Pagination Indicator -->
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-[20px]">photo_camera_back</span>
+<span class="font-label-md text-label-md text-primary font-semibold" id="lightboxCounter">Slide 02 of 12 • Le Petit Prince (The Little Prince)</span>
+</div>
+<!-- Controls: Zoom, Fullscreen, Close -->
+<div class="flex items-center gap-2">
+<!-- Zoom toggle button -->
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-card hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-colors" id="zoomBtn" title="Toggle zoom scale">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span>
+<span id="zoomLabel">100%</span>
+</button>
+<!-- Fullscreen simulation toggle -->
+<button class="w-9 h-9 rounded-lg bg-surface-card hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" id="fullscreenToggle" title="Toggle full canvas">
+<span class="material-symbols-outlined text-[18px]">fullscreen</span>
+</button>
+<!-- Close Modal Button with Esc hint -->
+<button class="flex items-center gap-1.5 pl-3 pr-3 py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface font-label-sm text-label-sm transition-colors ml-2" id="closeLightbox" title="Close Lightbox (Esc)">
+<span class="hidden sm:inline text-outline text-[11px] font-mono mr-1">[ESC]</span>
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Center Display Area (Split: Left/Right Nav Arrows + Book Cover Canvas) -->
+<div class="relative flex-grow min-h-[380px] lg:min-h-[460px] bg-primary flex items-center justify-center p-6 overflow-hidden select-none">
+<!-- Ambient Art Glow Behind Book -->
+<div class="absolute inset-0 bg-radial-gradient from-secondary-container/20 to-transparent pointer-events-none"></div>
+<!-- Previous Slide Navigation Button -->
+<button aria-label="Previous artwork" class="absolute left-4 z-20 w-12 h-12 rounded-full bg-surface-card/20 hover:bg-surface-card/40 backdrop-blur-md text-on-primary flex items-center justify-center shadow-lg transition-transform hover:-translate-x-0.5" id="prevSlide" title="Previous (Left Arrow [←])">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<!-- Centered High-Res Cover Image -->
+<div class="relative z-10 max-h-[50vh] lg:max-h-[54vh] aspect-[2/3] transition-transform duration-300 shadow-2xl rounded-lg overflow-hidden group" id="imageWrapper">
+<img class="w-full h-full object-cover transform origin-center transition-transform duration-300 cursor-zoom-in" data-alt="Original first edition French book cover of Le Petit Prince by Antoine de Saint-Exupery with iconic minimalist watercolor illustration of the Little Prince standing in long scarf atop Asteroid B-612 surrounded by celestial stars and a bright red rose against pale parchment cream sky." id="lightboxImage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXcU14OdblXD1YQB92L7fS9iGavXb8Z1OMdjsXQ28RjLpwvApIfV6WT2P26UkgC659JwwwxRQ9qusc_Mh0ASGs8BJX-_l735OIAu9hQCLjtX8_IPFPs8wEXD56hUU4GX7grSsLvnJrz6zYnjbsowPNHhRt6WRUQFFiSoSFNGMLFc1KGKq6mtbZmaJWrdzFZIcRqGuP-oPhoups4shrlqHIArKMs30aLomRsZKRfw">
+</div>
+<!-- Next Slide Navigation Button -->
+<button aria-label="Next artwork" class="absolute right-4 z-20 w-12 h-12 rounded-full bg-surface-card/20 hover:bg-surface-card/40 backdrop-blur-md text-on-primary flex items-center justify-center shadow-lg transition-transform hover:translate-x-0.5" id="nextSlide" title="Next (Right Arrow [→])">
+<span class="material-symbols-outlined text-[24px]">arrow_forward</span>
+</button>
+<!-- Keyboard Hint overlay pill -->
+<div class="absolute bottom-3 right-4 z-10 hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-primary/70 backdrop-blur-sm text-primary-fixed-dim text-[11px] font-mono">
+<span>Use [←] and [→] keys to navigate</span>
+</div>
+</div>
+<!-- Bottom Metadata & Acknowledgement Panel -->
+<div class="p-6 lg:p-8 bg-surface-card overflow-y-auto max-h-[38vh]">
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-6">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-secondary font-semibold" id="modalLangBadge">French</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono" id="modalYearBadge">Gallimard / Reynal &amp; Hitchcock 1943</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary" id="modalBookTitle">Le Petit Prince (The Little Prince)</h2>
+<p class="font-title-md text-title-md text-on-tertiary-container" id="modalAuthor">Antoine de Saint-Exupéry</p>
+</div>
+<!-- Quick Action Buttons -->
+<div class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
+<button class="flex-1 lg:flex-none px-4 py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">bookmark_add</span>
+              Add to My Library
+            </button>
+<button class="flex-1 lg:flex-none px-4 py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+              Open Reader
+            </button>
+<button class="flex-1 lg:flex-none px-4 py-2.5 rounded-full bg-secondary-container hover:bg-secondary text-on-secondary font-label-md text-label-md transition-colors flex items-center justify-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">download</span>
+              Download Study Slide
+            </button>
+</div>
+</div>
+<!-- Curatorial Description & Archival Rights -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-6 bg-surface-container-low p-5 rounded-xl">
+<div class="lg:col-span-2 space-y-2">
+<h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Curatorial Commentary</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" id="modalCaption">Original watercolor cover art depicting the Little Prince standing solitary on Asteroid B-612, surrounded by his beloved rose and miniature active volcanoes under a soft starry cosmos.</p>
+</div>
+<div class="space-y-2">
+<h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Licensing &amp; Provenance</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="modalAck">Public Domain worldwide / Digitized via Open Library Archive • High-resolution preservation copy MARC-21 compliant</p>
+<div class="pt-1 flex items-center gap-1.5 text-on-tertiary-container font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span>Scholarly Citation Permitted</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function initBookBridgeGallery() {
+    // Gallery Data Model (12 items)
+    const galleryItems = [
+      {
+        id: "1",
+        title: "Truyện Kiều",
+        author: "Nguyễn Du",
+        year: "1820 / 1925 Special Folio",
+        lang: "Vietnamese / Nôm",
+        caption: "Ornate traditional Vietnamese lacquer cover motif with embossed gold foil details portraying Thúy Kiều under weeping willow branches.",
+        ack: "Preservation digitization courtesy of National Library of Vietnam • Rare Books Vault MARC-21",
+        alt: "Exquisite antique Vietnamese book cover of Truyen Kieu by Nguyen Du featuring ornate deep crimson and gilded gold lacquer artwork depicting an elegant woman beside willow branches and traditional pagoda lake landscape in classical East Asian woodblock engraving style."
+      },
+      {
+        id: "2",
+        title: "Le Petit Prince (The Little Prince)",
+        author: "Antoine de Saint-Exupéry",
+        year: "Gallimard / Reynal & Hitchcock 1943",
+        lang: "French",
+        caption: "Original watercolor cover art depicting the Little Prince standing solitary on Asteroid B-612, surrounded by his beloved rose and miniature active volcanoes under a soft starry cosmos.",
+        ack: "Public Domain worldwide / Digitized via Open Library Archive • High-resolution preservation copy MARC-21 compliant",
+        alt: "Original first edition French book cover of Le Petit Prince by Antoine de Saint-Exupery with iconic minimalist watercolor illustration of the Little Prince standing in long scarf atop Asteroid B-612 surrounded by celestial stars and a bright red rose against pale parchment cream sky."
+      },
+      {
+        id: "3",
+        title: "1984",
+        author: "George Orwell",
+        year: "Secker & Warburg 1949",
+        lang: "English",
+        caption: "Constructivist graphic design featuring severe geometric red and charcoal typography with an ominous omnipresent eye silhouette representing state surveillance.",
+        ack: "Internet Archive Rare Book Division • London 1949 Print Preservation",
+        alt: "Constructivist minimalist book cover of 1984 by George Orwell featuring bold stark red and dark charcoal geometric typographic layout with a towering graphic all-seeing surveillance eye and vintage paper grain texture."
+      },
+      {
+        id: "4",
+        title: "The Great Gatsby",
+        author: "F. Scott Fitzgerald",
+        year: "Charles Scribner's Sons 1925",
+        lang: "English",
+        caption: "Francis Cugat's legendary 1925 'Celestial Eyes' dust jacket, blending haunting Art Deco female eyes floating above the glittering Long Island carnival nightlife skyline.",
+        ack: "Scribner Archival Records & Library of Congress Digital Gallery Archive",
+        alt: "Iconic vintage book cover of The Great Gatsby by F. Scott Fitzgerald with the famous celestial eyes painting by Francis Cugat floating over a deep sapphire blue evening sky and dazzling Art Deco glowing carnival city skyline."
+      },
+      {
+        id: "5",
+        title: "Norwegian Wood",
+        author: "Haruki Murakami",
+        year: "Kodansha 1987",
+        lang: "Japanese",
+        caption: "Two-volume packaging design featuring contrasting crimson red and evergreen forestry with clean modernist Kanji typography.",
+        ack: "Tokyo Modern Literature Archive & Kodansha Typographic Records",
+        alt: "Minimalist modern Japanese book cover design for Norwegian Wood by Haruki Murakami showcasing rich deep forest green backdrop with a delicate crimson red leaf motif and elegant vertical Japanese kanji calligraphy."
+      },
+      {
+        id: "6",
+        title: "Dế Mèn Phiêu Lưu Ký",
+        author: "Tô Hoài",
+        year: "Kim Đồng 1941 / 1957",
+        lang: "Vietnamese",
+        caption: "Delicate pastoral gouache painting featuring the daring cricket protagonist traversing lush emerald blades of grass across rural northern Vietnamese waterways.",
+        ack: "Preservation Archive Kim Đồng Publishing House Hanoi • Archival Folio",
+        alt: "Lush vintage storybook watercolor illustration for Vietnamese classic De Men Phieu Luu Ky by To Hoai showing an adventurous grasshopper insect character traversing towering dewy green meadow grass and lotus pond bank."
+      },
+      {
+        id: "7",
+        title: "Crime and Punishment",
+        author: "Fyodor Dostoevsky",
+        year: "The Russian Messenger 1866",
+        lang: "Russian",
+        caption: "Gothic woodcut silhouette of 19th-century Saint Petersburg canals wrapped in winter fog, backlit by an amber gas streetlamp casting long psychological shadows.",
+        ack: "Saint Petersburg Literary Archive • Project Gutenberg Public Domain Repository",
+        alt: "Moody dark atmospheric 19th century Russian book cover of Crime and Punishment by Fyodor Dostoevsky depicting a solitary dark silhouette crossing an arched Saint Petersburg bridge amidst winter mist and glowing amber streetlamp light."
+      },
+      {
+        id: "8",
+        title: "Số Đỏ (Dumb Luck)",
+        author: "Vũ Trọng Phụng",
+        year: "Hanoi Press 1936",
+        lang: "Vietnamese",
+        caption: "Brilliant 1930s Franco-Vietnamese satirical art deco caricature capturing the farcical bourgeois fashion craze of colonial Hanoi.",
+        ack: "Hanoi University Institute of Literature Preservation Vault • Rare Colonial Printings",
+        alt: "Satirical 1930s French Indochina colonial book cover of So Do Dumb Luck by Vu Trong Phung featuring vibrant retro Art Deco caricature of an eccentric dapper tennis player in vintage Hanoi high society salon style."
+      },
+      {
+        id: "9",
+        title: "One Hundred Years of Solitude",
+        author: "Gabriel García Márquez",
+        year: "Editorial Sudamericana 1967",
+        lang: "Spanish",
+        caption: "Magical realist lush botanical tapestry bursting with yellow butterflies, tropical jungle ferns, and ancient Macondo alchemical machinery.",
+        ack: "National Library of Colombia & Buenos Aires Sudamericana First Edition Vault",
+        alt: "Lush Latin American magical realism book cover for One Hundred Years of Solitude by Gabriel Garcia Marquez filled with radiant golden yellow butterflies floating through deep emerald tropical jungle foliage and ancient parchment textures."
+      },
+      {
+        id: "10",
+        title: "Kokoro (こころ)",
+        author: "Natsume Sōseki",
+        year: "Iwanami Shoten 1914",
+        lang: "Japanese",
+        caption: "Traditional Japanese bookbinding Wabi-sabi design with handmade mulberry washi paper texture and authentic brushstroke ink calligraphy.",
+        ack: "Waseda University Cultural Archives • Sōseki Memorial Collection",
+        alt: "Refined wabi-sabi Japanese book cover of Kokoro by Natsume Soseki showing authentic rough textured cream washi paper with traditional four-hole stitch binding and subtle minimalist sumi-e ink brush calligraphy."
+      },
+      {
+        id: "11",
+        title: "Madame Bovary",
+        author: "Gustave Flaubert",
+        year: "Michel Lévy Frères 1857",
+        lang: "French",
+        caption: "Gilded 19th-century French morocco leather-bound cover with floral hand-tooled gold filigree on burgundy calfskin.",
+        ack: "Bibliothèque nationale de France (BnF) Gallica Digitization Project",
+        alt: "Luxurious antique 19th century French leather bound book cover of Madame Bovary by Gustave Flaubert featuring deep wine burgundy morocco leather with intricate hand-tooled gold filigree ornamentation and embossed spine typography."
+      },
+      {
+        id: "12",
+        title: "L'Étranger (The Stranger)",
+        author: "Albert Camus",
+        year: "Gallimard Blanche 1942",
+        lang: "French",
+        caption: "Stark Mediterranean existentialist cover design featuring blinding sunburst geometries over a lone stark silhouette on Algiers sands.",
+        ack: "Gallimard Archives & Centre Culturel Camus Aix-en-Provence",
+        alt: "Existentialist minimalist book cover for L'Etranger by Albert Camus with stark geometric blinding yellow sun beating down on a solitary black human silhouette walking across white Algerian sand dunes."
+      }
+    ];
+
+    let currentIndex = 1; // Start on Le Petit Prince to fulfill feature prompt
+    let isZoomed = false;
+
+    // Elements
+    const modal = document.getElementById("lightboxModal");
+    const closeBtn = document.getElementById("closeLightbox");
+    const prevBtn = document.getElementById("prevSlide");
+    const nextBtn = document.getElementById("nextSlide");
+    const counterEl = document.getElementById("lightboxCounter");
+    const titleEl = document.getElementById("modalBookTitle");
+    const authorEl = document.getElementById("modalAuthor");
+    const langBadgeEl = document.getElementById("modalLangBadge");
+    const yearBadgeEl = document.getElementById("modalYearBadge");
+    const captionEl = document.getElementById("modalCaption");
+    const ackEl = document.getElementById("modalAck");
+    const lightboxImg = document.getElementById("lightboxImage");
+    const zoomBtn = document.getElementById("zoomBtn");
+    const zoomLabel = document.getElementById("zoomLabel");
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".gallery-card");
+    const searchInput = document.getElementById("gallerySearch");
+    const clearSearchBtn = document.getElementById("clearSearch");
+
+    function renderSlide(index) {
+      if (index < 0) index = galleryItems.length - 1;
+      if (index >= galleryItems.length) index = 0;
+      currentIndex = index;
+
+      const item = galleryItems[currentIndex];
+      const slideNum = String(currentIndex + 1).padStart(2, "0");
+      const totalNum = String(galleryItems.length).padStart(2, "0");
+
+      counterEl.textContent = `Slide ${slideNum} of ${totalNum} • ${item.title}`;
+      titleEl.textContent = item.title;
+      authorEl.textContent = item.author;
+      langBadgeEl.textContent = item.lang;
+      yearBadgeEl.textContent = item.year;
+      captionEl.textContent = item.caption;
+      ackEl.textContent = item.ack;
+      lightboxImg.setAttribute("data-alt", item.alt);
+
+      // Reset zoom
+      resetZoom();
+    }
+
+    function resetZoom() {
+      isZoomed = false;
+      lightboxImg.classList.remove("scale-150");
+      lightboxImg.classList.add("cursor-zoom-in");
+      lightboxImg.classList.remove("cursor-zoom-out");
+      zoomLabel.textContent = "100%";
+    }
+
+    function toggleZoom() {
+      isZoomed = !isZoomed;
+      if (isZoomed) {
+        lightboxImg.classList.add("scale-150");
+        lightboxImg.classList.remove("cursor-zoom-in");
+        lightboxImg.classList.add("cursor-zoom-out");
+        zoomLabel.textContent = "150%";
+      } else {
+        resetZoom();
+      }
+    }
+
+    function openModal(index) {
+      renderSlide(index);
+      modal.classList.remove("opacity-0", "pointer-events-none");
+      modal.classList.add("opacity-100", "pointer-events-auto");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.add("opacity-0", "pointer-events-none");
+      modal.classList.remove("opacity-100", "pointer-events-auto");
+      document.body.style.overflow = "";
+      resetZoom();
+    }
+
+    // Modal Control Listeners
+    closeBtn.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    prevBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      renderSlide(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      renderSlide(currentIndex + 1);
+    });
+
+    zoomBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleZoom();
+    });
+
+    lightboxImg.addEventListener("click", toggleZoom);
+
+    // Keyboard Navigation
+    window.addEventListener("keydown", (e) => {
+      if (modal.classList.contains("pointer-events-none")) return;
+      if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowLeft") renderSlide(currentIndex - 1);
+      if (e.key === "ArrowRight") renderSlide(currentIndex + 1);
+    });
+
+    // Gallery Card Quick Buttons
+    document.querySelectorAll(".open-lightbox-btn").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute("data-index"), 10) || 0;
+        openModal(idx);
+      });
+    });
+
+    cards.forEach((card, idx) => {
+      card.addEventListener("click", () => openModal(idx));
+    });
+
+    // Filter Buttons logic
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach((b) => {
+          b.classList.remove("bg-primary", "text-on-primary");
+          b.classList.add("bg-surface-container-low", "text-on-surface-variant");
+        });
+        btn.classList.add("bg-primary", "text-on-primary");
+        btn.classList.remove("bg-surface-container-low", "text-on-surface-variant");
+
+        const category = btn.getAttribute("data-category");
+        cards.forEach((card) => {
+          const cardCat = card.getAttribute("data-category") || "";
+          if (category === "all" || cardCat.includes(category)) {
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+
+    // Search Filtering logic
+    searchInput.addEventListener("input", (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      clearSearchBtn.classList.toggle("hidden", q.length === 0);
+
+      cards.forEach((card) => {
+        const title = (card.getAttribute("data-title") || "").toLowerCase();
+        const author = (card.getAttribute("data-author") || "").toLowerCase();
+        if (title.includes(q) || author.includes(q)) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+
+    clearSearchBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      clearSearchBtn.classList.add("hidden");
+      cards.forEach((card) => (card.style.display = "flex"));
+    });
+
+    // Fullscreen toggle mock
+    const fullscreenToggle = document.getElementById("fullscreenToggle");
+    fullscreenToggle.addEventListener("click", () => {
+      if (!document.fullscreenElement) {
+        modal.requestFullscreen?.().catch(() => {});
+      } else {
+        document.exitFullscreen?.().catch(() => {});
+      }
+    });
+
+    // Initial render of featured slide
+    renderSlide(1);
+  })();
+</script></main><footer class="w-full bg-surface-container-low shadow-[0_-1px_8px_rgba(0,0,0,0.02)]"><div class="max-w-[1440px] mx-auto px-6 lg:px-12 py-16"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10"><div class="lg:col-span-2 space-y-4"><div class="flex items-center gap-3"><img alt="BookBridge Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEDzO_GBPm8isEUkTqlc0rXu0_CDktn0QcjBDQc8lwZ2oQyRpG9MkPFYhbvUKXmBhdK2GJgYVYAMhG2Vx6oj7aqnEb4cuLSFnSJK5356BnlaaQZo6m4C2iQsyTsxqQXmfC8dHRL30N8OSPQzTEYbxyaJZy0d3kun6iP7ROH7IBhuU9vkHTy06UR-JLKph1gjAHaH89kBMePOEsWbliDR50dnSmBfid-LCRtFZaQ"><span class="font-headline-sm text-headline-sm tracking-tight text-primary">BookBridge</span></div><p class="font-headline-sm text-headline-sm italic text-on-tertiary-container font-normal">“Bridge Worlds, Discover Voices Through Books”</p><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">A scholarly digital reading platform curated for reflective readers, archival researchers, and bibliophiles.</p></div><div class="space-y-3"><h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Explore</h4><ul class="space-y-2"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="directory" href="#">Book Directory</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="language-&amp;-genre-explorer-—-bookbridge" href="#">Interactive Explorer</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="gallery" href="#">Cover Visual Gallery</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="featured-reading-collections-—-bookbridge" href="#">Themed Shelves</a></li></ul></div><div class="space-y-3"><h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Collections</h4><ul class="space-y-2"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="featured-reading-collections-—-bookbridge" href="#">Literary Modernism</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="featured-reading-collections-—-bookbridge" href="#">Curated Anthologies</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="featured-reading-collections-—-bookbridge" href="#">Global Dissertations</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="my-library" href="#">Personal Archival Shelf</a></li></ul></div><div class="space-y-3"><h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Resources</h4><ul class="space-y-2"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">Editorial Standards</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">Archival Citations</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Scholarly Inquiry</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Community Reader Notes</a></li></ul></div><div class="space-y-3"><h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Legal</h4><ul class="space-y-2"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Privacy Charter</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Public Domain Notice</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Metadata Usage Rights</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Open Access Ethics</a></li></ul></div></div><div class="mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4"><p class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-left">BookBridge Academic eProject Demo © 2026. Interactive local storage reading tracker.</p><div class="flex items-center gap-6"><span class="font-label-sm text-label-sm text-on-surface-variant">v1.4 Archive Build</span><span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-on-tertiary-container"><span class="material-symbols-outlined text-[14px]">bookmarks</span>Local Persistence Active</span></div></div></div></footer>
+
+</body></html>
