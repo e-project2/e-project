@@ -1,206 +1,232 @@
 import React, { useState } from 'react';
 import { useBooks } from '../../context/BookContext.jsx';
-import { BookCard } from '../directory/BookCard.jsx';
-import { ImageWithFallback } from '../common/ImageWithFallback.jsx';
-import { Icon } from '../common/Icon.jsx';
-import { LANGUAGES } from '../../constants/languages.js';
+import { useReadingTracker } from '../../context/ReadingTrackerContext.jsx';
+import { BookCard } from '../BookCard.jsx';
 
 export function HomeScreen({ onNavigate, onSelectBook, onSelectAuthor }) {
-  const { books, collections, updateFilters } = useBooks();
+  const { books, updateFilters } = useBooks();
+  const { readingList, activeBook, currentProgress } = useReadingTracker();
   const [searchInput, setSearchInput] = useState('');
-  const [selectedLangPill, setSelectedLangPill] = useState('all');
+  const [selectedLang, setSelectedLang] = useState('all');
 
-  const featuredBooks = books.filter(b => b.isFeatured).slice(0, 4);
+  const featuredBooks = books && books.length > 0 ? books.slice(0, 4) : [];
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     updateFilters({
       search: searchInput,
-      language: selectedLangPill === 'all' ? 'all' : selectedLangPill
+      language: selectedLang === 'all' ? 'all' : selectedLang
     });
-    onNavigate('directory');
+    if (onNavigate) onNavigate('directory');
   };
 
-  const handlePillClick = (langName) => {
-    setSelectedLangPill(langName);
+  const handlePillClick = (lang) => {
+    setSelectedLang(lang);
+    if (lang === 'all') {
+      setSearchInput('');
+    } else {
+      setSearchInput(lang);
+    }
+  };
+
+  const handleOpenBookByTitle = (titleKeyword) => {
+    const found = books.find(b => b.title.toLowerCase().includes(titleKeyword.toLowerCase())) || books[0];
+    if (found && onSelectBook) {
+      onSelectBook(found);
+    }
   };
 
   return (
-    <div className="w-full space-y-16 pb-20">
-      {/* Hero Canvas */}
-      <section className="relative w-full overflow-hidden bg-gradient-to-b from-blue-50/70 via-slate-50/50 to-transparent dark:from-slate-900/80 dark:via-slate-950 dark:to-transparent pt-10 pb-20 border-b border-slate-200/60 dark:border-slate-800">
-        <div className="bb-container relative z-10">
+    <div className="flex flex-col w-full bg-surface text-on-surface">
+      {/* Top Ambient Backing Glow & Hero Canvas */}
+      <section className="relative w-full overflow-hidden bg-surface-container-low/60 pb-20 pt-8">
+        <div className="pointer-events-none absolute -left-40 top-0 h-96 w-96 rounded-full bg-surface-container-highest/60 blur-3xl"></div>
+        <div className="pointer-events-none absolute right-0 top-12 h-[30rem] w-[30rem] rounded-full bg-surface-container/50 blur-3xl"></div>
+
+        <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Left Rail (7 cols) */}
+            {/* Hero Editorial Text Rail (7 Cols) */}
             <div className="lg:col-span-7 space-y-8">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm text-xs">
-                <Icon name="auto_stories" className="text-amber-500 text-[18px]" />
-                <span className="font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high/80 backdrop-blur shadow-sm">
+                <span className="material-symbols-outlined text-[16px] text-on-tertiary-container" style={{ fontVariationSettings: "'FILL' 1" }}>
+                  auto_stories
+                </span>
+                <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-tertiary-container">
                   Multilingual Scholarly Archive
                 </span>
-                <span className="h-1 w-1 rounded-full bg-slate-300 dark:bg-slate-600" />
-                <span className="text-slate-500 dark:text-slate-400 font-medium">
+                <span className="h-1 w-1 rounded-full bg-outline-variant"></span>
+                <span className="font-label-sm text-label-sm text-on-surface-variant">
                   Public Open Access
                 </span>
               </div>
 
-              {/* Title & Editorial Description */}
               <div className="space-y-4">
-                <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-slate-100 leading-[1.15]">
+                <h1 className="font-display-hero text-display-hero tracking-tight text-primary">
                   Bridge Worlds,<br />
-                  <span className="italic font-normal text-amber-600 dark:text-amber-400">
-                    Discover Voices
-                  </span><br />
+                  <span className="italic font-normal text-on-tertiary-container">Discover Voices</span><br />
                   Through Books.
                 </h1>
-                <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed">
-                  Immerse yourself in polyglot masterworks and world literature. Read seamlessly across French, Vietnamese, Japanese, German, and English with archival cultural notes, dual-language commentaries, and a lightweight reading companion built right into your browser.
+                <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                  Immerse yourself in polyglot masterworks and world literature. Read seamlessly across French, Vietnamese, Japanese, and English with archival cultural notes, dual-language commentaries, and a lightweight reading companion built right into your browser.
                 </p>
               </div>
 
-              {/* Catalog Search Block */}
-              <div className="bg-white dark:bg-slate-900 rounded-2xl p-3 shadow-xl border border-slate-200/80 dark:border-slate-800 space-y-3">
+              {/* Interactive Catalog Search Block */}
+              <div className="bg-surface-card rounded-2xl p-2.5 shadow-xl shadow-primary/5 space-y-3">
                 <form
                   onSubmit={handleSearchSubmit}
                   className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2"
+                  id="hero-search-form"
                 >
                   <div className="flex items-center gap-3 px-4 flex-1">
-                    <Icon name="search" className="text-slate-400 text-[22px]" />
+                    <span className="material-symbols-outlined text-on-surface-variant text-[22px]">search</span>
                     <input
+                      className="w-full bg-transparent font-body-md text-body-md text-primary placeholder:text-on-surface-variant/70 focus:outline-none py-2"
+                      id="catalog-search-input"
+                      placeholder="Search by title, author, keyword, or language (e.g. Vietnamese, French)..."
                       type="text"
                       value={searchInput}
                       onChange={(e) => setSearchInput(e.target.value)}
-                      placeholder="Search by title, author, keyword, or language (e.g. Vietnamese, French)..."
-                      className="w-full bg-transparent text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none py-2 font-medium"
                     />
                   </div>
                   <button
+                    className="px-8 py-3.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all flex items-center justify-center gap-2 shadow-sm cursor-pointer"
                     type="submit"
-                    className="btn btn-primary py-3 px-6 rounded-xl flex items-center justify-center gap-2"
                   >
                     <span>Explore Now</span>
-                    <Icon name="arrow_forward" className="text-[18px]" />
+                    <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
                   </button>
                 </form>
 
-                {/* Dialect Filter Pills */}
-                <div className="pt-2 px-2 flex flex-wrap items-center gap-1.5 border-t border-slate-100 dark:border-slate-800">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mr-1">
-                    Dialect:
+                {/* Language Pills Filter */}
+                <div className="pt-2 px-3 pb-1 flex flex-wrap items-center gap-2">
+                  <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mr-1">
+                    Filter Dialect:
                   </span>
-                  {LANGUAGES.slice(0, 6).map((l) => {
-                    const isSelected = selectedLangPill === (l.code === 'all' ? 'all' : l.name);
+                  {[
+                    { label: 'All', value: 'all' },
+                    { label: 'Tiếng Việt', value: 'Vietnamese' },
+                    { label: 'English', value: 'English' },
+                    { label: 'Français', value: 'French' },
+                    { label: '日本語', value: 'Japanese' },
+                    { label: 'Español', value: 'Spanish' }
+                  ].map((p) => {
+                    const isSelected = selectedLang === p.value;
                     return (
                       <button
-                        key={l.code}
+                        key={p.value}
                         type="button"
-                        onClick={() => handlePillClick(l.code === 'all' ? 'all' : l.name)}
-                        className={`px-3 py-0.5 rounded-full text-xs font-semibold transition-all ${
+                        onClick={() => handlePillClick(p.value)}
+                        className={`lang-pill px-3 py-1 rounded-full font-label-sm text-label-sm transition-all ${
                           isSelected
-                            ? 'bg-amber-500 text-slate-950 font-bold shadow-xs'
-                            : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
+                            ? 'bg-primary text-on-primary shadow-sm font-semibold'
+                            : 'bg-surface-container text-on-surface hover:bg-surface-container-high'
                         }`}
                       >
-                        {l.flag} {l.nativeName}
+                        {p.label}
                       </button>
                     );
                   })}
                 </div>
               </div>
 
-              {/* CTA Buttons & Live Counter */}
-              <div className="flex flex-wrap items-center gap-4 pt-1">
+              {/* Hero Action CTAs & Live Counter */}
+              <div className="flex flex-wrap items-center gap-4 pt-2">
                 <button
+                  type="button"
                   onClick={() => onNavigate('directory')}
-                  className="btn btn-primary py-3.5 px-7 rounded-full shadow-md flex items-center gap-2"
+                  className="px-7 py-3.5 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all shadow-md flex items-center gap-2 cursor-pointer"
                 >
-                  <Icon name="local_library" />
+                  <span className="material-symbols-outlined text-[20px]">local_library</span>
                   <span>Browse All Books</span>
                 </button>
                 <button
+                  type="button"
                   onClick={() => onNavigate('my-library')}
-                  className="btn btn-secondary py-3.5 px-7 rounded-full flex items-center gap-2"
+                  className="px-7 py-3.5 rounded-full bg-surface-container text-primary font-label-md text-label-md hover:bg-surface-container-high transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <Icon name="bookmark_add" />
+                  <span className="material-symbols-outlined text-[20px]">bookmark_add</span>
                   <span>Start Reading List</span>
                 </button>
-                <div className="hidden sm:flex items-center gap-2 ml-auto text-xs text-slate-500 font-medium">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>{books.length} Verified Editions Catalogued</span>
+                <div className="hidden sm:flex items-center gap-2 ml-auto text-on-surface-variant font-label-sm text-label-sm pl-4">
+                  <span className="h-2 w-2 rounded-full bg-status-success animate-pulse"></span>
+                  <span>{books.length > 0 ? `${books.length} Verified Editions Stored` : '1,248 Verified Editions Stored'}</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Showcase Visual Canvas (5 cols - Floating Trio of Masterpieces) */}
-            <div className="lg:col-span-5 relative flex items-center justify-center min-h-[460px]">
+            {/* Hero Showcase Visual Canvas (5 Cols Asymmetric Floating Book Stack) */}
+            <div className="lg:col-span-5 relative flex items-center justify-center lg:justify-end min-h-[460px]">
+              {/* Background Book Halo Aura */}
+              <div className="absolute h-80 w-80 rounded-full bg-secondary-fixed/50 blur-2xl -z-10"></div>
+
+              {/* Floating Trio of Distinct Masterpieces */}
               <div className="relative w-full max-w-[380px] h-[480px]">
-                {/* 1984 Card */}
+                {/* Card Back Left: 1984 */}
                 <div
-                  onClick={() => {
-                    const bk = books.find(b => b.title === '1984');
-                    if (bk) onSelectBook(bk);
-                  }}
-                  className="absolute left-0 bottom-4 w-52 rounded-2xl bg-white dark:bg-slate-900 p-3 shadow-xl -rotate-6 transition-all duration-300 hover:rotate-0 hover:z-30 hover:scale-105 cursor-pointer border border-slate-200/80 dark:border-slate-800"
+                  onClick={() => handleOpenBookByTitle('1984')}
+                  className="absolute left-0 bottom-4 w-52 rounded-2xl bg-surface-card p-3 shadow-xl -rotate-6 transition-transform duration-300 hover:rotate-0 hover:z-30 cursor-pointer"
                 >
-                  <div className="aspect-[2/3] w-full rounded-xl overflow-hidden mb-2 bg-slate-950">
-                    <ImageWithFallback
-                      src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=600&q=80"
-                      alt="1984"
-                      title="1984"
-                      author="George Orwell"
+                  <div className="relative aspect-[2/3] w-full rounded-xl overflow-hidden bg-primary mb-2.5">
+                    <img
                       className="w-full h-full object-cover"
+                      alt="1984 George Orwell"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXH4SAwCdCytQHlNx7czi8ardYBv2mzr92pR1dJ_x67gYoMoyozPs3Q8cdcupRX1kezJ7-LMh5vVLdhuw6FBQGuxd8invrTQcMff5YA1150V3aCFXreKf1XawMe88mnnPJ397YobhmvbIq8MRXo7qJ7sYI5-sqmCqYUzlHzLrUBmT-FJ5zt87LTn0Reh_8l0lBkQIjMYyYo4lEgrS2S2V6VEZ7RhNh4axm4XGXGQ"
                     />
+                    <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-primary/90 text-on-primary font-label-sm text-label-sm backdrop-blur">
+                      Dystopian
+                    </span>
                   </div>
-                  <p className="font-bold text-xs text-slate-900 dark:text-slate-100 truncate">1984</p>
-                  <p className="text-[11px] text-slate-400">George Orwell</p>
+                  <p className="font-title-md text-title-md text-primary truncate">1984</p>
+                  <p className="font-body-sm text-body-sm text-on-surface-variant">George Orwell</p>
                 </div>
 
-                {/* Tale of Kieu Card */}
+                {/* Card Back Right: Tale of Kieu */}
                 <div
-                  onClick={() => {
-                    const bk = books.find(b => b.title === 'Chí Phèo') || books[10];
-                    if (bk) onSelectBook(bk);
-                  }}
-                  className="absolute right-0 top-2 w-52 rounded-2xl bg-white dark:bg-slate-900 p-3 shadow-xl rotate-6 transition-all duration-300 hover:rotate-0 hover:z-30 hover:scale-105 cursor-pointer border border-slate-200/80 dark:border-slate-800"
+                  onClick={() => handleOpenBookByTitle('Kiều')}
+                  className="absolute right-0 top-2 w-52 rounded-2xl bg-surface-card p-3 shadow-xl rotate-6 transition-transform duration-300 hover:rotate-0 hover:z-30 cursor-pointer"
                 >
-                  <div className="aspect-[2/3] w-full rounded-xl overflow-hidden mb-2 bg-slate-950">
-                    <ImageWithFallback
-                      src="https://images.unsplash.com/photo-1532012164546-f432f2e3edd4?auto=format&fit=crop&w=600&q=80"
-                      alt="Chí Phèo"
-                      title="Chí Phèo"
-                      author="Nam Cao"
+                  <div className="relative aspect-[2/3] w-full rounded-xl overflow-hidden bg-primary mb-2.5">
+                    <img
                       className="w-full h-full object-cover"
+                      alt="Truyện Kiều Nguyễn Du"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5Tiwe5DiFEfxHvD8o2_T0TFfFzccOuFkDrmkjl7m5SpQKYHcyiMKB6bwry5c3Rby_IBaR_fvHzYRE-VQyJo9JaTqnVfnQAODW-JvQYnNO0L6ktqge8R3RWmgjqxLJPqKzqwxDwAw7zCw9dqfl101CT8gl1wkyVMFXB9g58Kkh2nUW3B5yVKPYJElliVqNbmUt1fvJQffO4Ek9uoxYMp3MLjsLW6KwI88K4wq5uQ"
                     />
+                    <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-on-tertiary-container text-surface font-label-sm text-label-sm backdrop-blur">
+                      Tiếng Việt
+                    </span>
                   </div>
-                  <p className="font-bold text-xs text-slate-900 dark:text-slate-100 truncate">Chí Phèo</p>
-                  <p className="text-[11px] text-slate-400">Nam Cao (Việt Nam)</p>
+                  <p className="font-title-md text-title-md text-primary truncate">Truyện Kiều</p>
+                  <p className="font-body-sm text-body-sm text-on-surface-variant">Nguyễn Du</p>
                 </div>
 
-                {/* Central Hero: Le Petit Prince */}
+                {/* Front Central Hero: The Little Prince */}
                 <div
-                  onClick={() => {
-                    const bk = books.find(b => b.title.includes('Prince')) || books[2];
-                    if (bk) onSelectBook(bk);
-                  }}
-                  className="absolute left-10 top-16 w-56 rounded-2xl bg-white dark:bg-slate-900 p-3.5 shadow-2xl z-20 -rotate-1 transition-all duration-300 hover:scale-105 cursor-pointer border border-slate-200/80 dark:border-slate-800"
+                  onClick={() => handleOpenBookByTitle('Prince')}
+                  className="absolute left-10 top-16 w-56 rounded-2xl bg-surface-card p-3.5 shadow-2xl z-20 -rotate-1 transition-transform duration-300 hover:scale-105 cursor-pointer"
                 >
-                  <div className="relative aspect-[2/3] w-full rounded-xl overflow-hidden mb-3 bg-slate-900">
-                    <ImageWithFallback
-                      src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80"
+                  <div className="relative aspect-[2/3] w-full rounded-xl overflow-hidden bg-surface-container mb-3">
+                    <img
+                      className="w-full h-full object-cover"
                       alt="Le Petit Prince"
-                      title="Le Petit Prince"
-                      author="Antoine de Saint-Exupéry"
-                      className="w-full h-full object-cover"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZu-XEQrnftqkfRLIZJaQnkQmZZbH8qcY_ZLlrntrpp0CvB9Q9qURA8RL_upd8DOaznIU4SfD4fMsVWke9cU9GkhUbX0mBqxl2m1T1cnP91d5S8rmXedUGQ_izsBVG38vdohPsw8JSx2PrFMD9DxcgV6r6LF0NHaA2lpc3iUAopzXuXhES8aFfMv3WJLnJQSmCsQB57X5BguMcA-vdOVxopAKZtXa53SJ01ciOtA"
                     />
-                    <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-slate-950/80 text-amber-400 text-[10px] font-bold backdrop-blur flex items-center gap-1">
-                      <span>★ Bilingual Gem</span>
+                    <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface/90 text-on-surface font-label-sm text-label-sm shadow-sm backdrop-blur">
+                      <span className="material-symbols-outlined text-[13px] text-on-tertiary-container" style={{ fontVariationSettings: "'FILL' 1" }}>
+                        star
+                      </span>
+                      <span>Bilingual Icon</span>
                     </div>
                   </div>
-                  <p className="font-bold text-sm text-slate-900 dark:text-slate-100 truncate">
-                    Le Petit Prince
-                  </p>
-                  <p className="text-xs text-slate-400">Antoine de Saint-Exupéry</p>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="font-title-md text-title-md text-primary leading-tight">Le Petit Prince</p>
+                      <p className="font-body-sm text-body-sm text-on-surface-variant">Saint-Exupéry</p>
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-tertiary-container">
+                      <span className="material-symbols-outlined text-[18px]">translate</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -208,166 +234,391 @@ export function HomeScreen({ onNavigate, onSelectBook, onSelectAuthor }) {
         </div>
       </section>
 
-      {/* Value Pillars (Architectural 3-Card Grid) */}
-      <section className="bb-container py-6">
+      {/* Value Pillars: Architectural 3-Card Grid */}
+      <section className="max-w-[1440px] mx-auto px-6 lg:px-12 py-20 w-full">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="space-y-2 max-w-xl">
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+            <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-tertiary-container">
               The Archival Standard
             </span>
-            <h2 className="font-display text-3xl font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="font-headline-lg text-headline-lg text-primary">
               Engineered for Scholarly Immersion
             </h2>
           </div>
-          <p className="text-sm text-slate-500 dark:text-slate-400 max-w-md leading-relaxed">
+          <p className="font-body-md text-body-md text-on-surface-variant max-w-md">
             Designed strictly without intrusive paywalls or distracting telemetry, granting pure focus to the beauty of international letters.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Pillar 1 */}
+          {/* Pillar 1: Multilingual Discovery */}
           <div
             onClick={() => onNavigate('explorer')}
-            className="bb-card p-8 cursor-pointer flex flex-col justify-between group bg-white dark:bg-slate-900"
+            className="rounded-2xl bg-surface-card p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group cursor-pointer"
           >
-            <div className="space-y-4">
-              <div className="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                <Icon name="language" className="text-[28px]" />
+            <div className="space-y-5">
+              <div className="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                <span className="material-symbols-outlined text-[28px]">language</span>
               </div>
-              <h3 className="font-display text-xl font-bold text-slate-900 dark:text-slate-100">
-                Multi-Language Discovery
-              </h3>
-              <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-                Explore classic and contemporary literature across 7+ languages with parallel cultural notes and bilingual reading tags.
-              </p>
-            </div>
-            <div className="pt-6 mt-4 flex items-center gap-2 text-xs font-bold text-amber-600 dark:text-amber-400 group-hover:translate-x-1 transition-transform">
-              <span>Explore Languages</span>
-              <Icon name="arrow_forward" className="text-[16px]" />
-            </div>
-          </div>
-
-          {/* Pillar 2 */}
-          <div
-            onClick={() => onNavigate('collections')}
-            className="bb-card p-8 cursor-pointer flex flex-col justify-between group bg-white dark:bg-slate-900"
-          >
-            <div className="space-y-4">
-              <div className="w-14 h-14 rounded-2xl bg-amber-50 dark:bg-amber-950/50 flex items-center justify-center text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
-                <Icon name="collections_bookmark" className="text-[28px]" />
-              </div>
-              <h3 className="font-display text-xl font-bold text-slate-900 dark:text-slate-100">
-                Curated Collections
-              </h3>
-              <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-                Expertly structured themed selections: Timeless Classics, Fast & Engaging Reads, Modern Literary Gems, and Polyglot Starter Kits.
-              </p>
-            </div>
-            <div className="pt-6 mt-4 flex items-center gap-2 text-xs font-bold text-amber-600 dark:text-amber-400 group-hover:translate-x-1 transition-transform">
-              <span>View Collections</span>
-              <Icon name="arrow_forward" className="text-[16px]" />
-            </div>
-          </div>
-
-          {/* Pillar 3 */}
-          <div
-            onClick={() => onNavigate('my-library')}
-            className="bb-card p-8 cursor-pointer flex flex-col justify-between group bg-white dark:bg-slate-900"
-          >
-            <div className="space-y-4">
-              <div className="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-                <Icon name="sync_saved_locally" className="text-[28px]" />
-              </div>
-              <h3 className="font-display text-xl font-bold text-slate-900 dark:text-slate-100">
-                Zero-Friction Reading Tracker
-              </h3>
-              <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-                Save bookmarks and log current pages safely in your browser LocalStorage with zero sign-up friction and offline durability.
-              </p>
-            </div>
-            <div className="pt-6 mt-4 flex items-center gap-2 text-xs font-bold text-amber-600 dark:text-amber-400 group-hover:translate-x-1 transition-transform">
-              <span>Open My Library</span>
-              <Icon name="arrow_forward" className="text-[16px]" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Books Showcase */}
-      <section className="bb-container py-6">
-        <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-200 dark:border-slate-800">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
-              Curator's Highlights
-            </span>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-100">
-              Featured Literary Masterpieces
-            </h2>
-          </div>
-          <button
-            onClick={() => onNavigate('directory')}
-            className="btn btn-outline text-xs py-2 px-4"
-          >
-            <span>See All ({books.length})</span>
-            <Icon name="arrow_forward" className="text-[14px]" />
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {featuredBooks.map((book) => (
-            <BookCard
-              key={book._id || book.id}
-              book={book}
-              onSelectBook={onSelectBook}
-              onSelectAuthor={onSelectAuthor}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* Curated Collections Teaser */}
-      <section className="bb-container py-6">
-        <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-200 dark:border-slate-800">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
-              Thematic Journeys
-            </span>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-100">
-              Explore Curated Anthologies
-            </h2>
-          </div>
-          <button
-            onClick={() => onNavigate('collections')}
-            className="btn btn-secondary text-xs py-2 px-4"
-          >
-            <span>Browse All Collections</span>
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {collections.map((col) => (
-            <div
-              key={col._id || col.id}
-              onClick={() => onNavigate('collections')}
-              className="bb-card p-6 cursor-pointer flex flex-col justify-between h-56 bg-gradient-to-br from-slate-900 to-slate-950 text-white group"
-            >
-              <div>
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-500 text-slate-950 inline-block mb-3">
-                  {col.badge}
-                </span>
-                <h3 className="font-display text-lg font-bold text-white group-hover:text-amber-400 transition-colors">
-                  {col.title}
-                </h3>
-                <p className="text-xs text-slate-400 line-clamp-3 mt-2">
-                  {col.description}
+              <div className="space-y-2">
+                <h3 className="font-headline-sm text-headline-sm text-primary">Multi-Language Discovery</h3>
+                <p className="font-body-md text-body-md text-on-surface-variant">
+                  Explore classic and contemporary literature across 5+ languages. Parallel reading views accompanied by nuanced contextual linguistic glosses.
                 </p>
               </div>
-              <div className="flex items-center justify-between text-xs text-amber-400 pt-4 border-t border-slate-800">
-                <span>{col.bookIds?.length || 5} Editions</span>
-                <Icon name="arrow_forward" className="group-hover:translate-x-1 transition-transform" />
+            </div>
+            <div className="pt-6 mt-6 flex items-center gap-2 text-on-tertiary-container font-label-md text-label-md">
+              <span>Read across cultures</span>
+              <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
+                arrow_forward
+              </span>
+            </div>
+          </div>
+
+          {/* Pillar 2: Curated Collections */}
+          <div
+            onClick={() => onNavigate('collections')}
+            className="rounded-2xl bg-surface-card p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+          >
+            <div className="space-y-5">
+              <div className="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                <span className="material-symbols-outlined text-[28px]">collections_bookmark</span>
+              </div>
+              <div className="space-y-2">
+                <h3 className="font-headline-sm text-headline-sm text-primary">Curated Literary Collections</h3>
+                <p className="font-body-md text-body-md text-on-surface-variant">
+                  Hand-picked thematic corridors ranging from existentialist continental philosophy to concise, single-sitting weekend translations.
+                </p>
               </div>
             </div>
-          ))}
+            <div className="pt-6 mt-6 flex items-center gap-2 text-on-tertiary-container font-label-md text-label-md">
+              <span>Explore hand-picked shelves</span>
+              <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
+                arrow_forward
+              </span>
+            </div>
+          </div>
+
+          {/* Pillar 3: Zero-Friction Tracker */}
+          <div
+            onClick={() => onNavigate('my-library')}
+            className="rounded-2xl bg-surface-card p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+          >
+            <div className="space-y-5">
+              <div className="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                <span className="material-symbols-outlined text-[28px]">sync_saved_locally</span>
+              </div>
+              <div className="space-y-2">
+                <h3 className="font-headline-sm text-headline-sm text-primary">Zero-Friction Reading Tracker</h3>
+                <p className="font-body-md text-body-md text-on-surface-variant">
+                  Seamlessly record reading milestones, chapters, and margin notes with instant browser storage persistence. Absolute zero account creation required.
+                </p>
+              </div>
+            </div>
+            <div className="pt-6 mt-6 flex items-center gap-2 text-on-tertiary-container font-label-md text-label-md">
+              <span>Inspect local shelf</span>
+              <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
+                arrow_forward
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Books Showcase (4 Key Works Grid with Micro-Interactions) */}
+      <section className="w-full bg-surface-container-low/40 py-20">
+        <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-2 w-2 rounded-full bg-on-tertiary-container"></span>
+                <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-tertiary-container">
+                  Curator's Spotlight
+                </span>
+              </div>
+              <h2 className="font-headline-lg text-headline-lg text-primary">
+                Featured Masterpieces
+              </h2>
+            </div>
+            <button
+              type="button"
+              onClick={() => onNavigate('directory')}
+              className="inline-flex items-center gap-2 font-label-md text-label-md text-primary hover:text-secondary transition-colors cursor-pointer"
+            >
+              <span>View all curated catalog titles</span>
+              <span className="material-symbols-outlined text-[18px]">trending_flat</span>
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {featuredBooks.map((book) => (
+              <BookCard
+                key={book._id || book.id}
+                book={book}
+                onSelect={onSelectBook}
+                onSelectAuthor={onSelectAuthor}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Curated Reading Collections Teaser (4 Visual Rich Themed Cards) */}
+      <section className="max-w-[1440px] mx-auto px-6 lg:px-12 py-20 w-full">
+        <div className="space-y-3 mb-12">
+          <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-tertiary-container">
+            Themed Pathways
+          </span>
+          <h2 className="font-headline-lg text-headline-lg text-primary">
+            Curated Reading Collections
+          </h2>
+          <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+            Immerse yourself along deliberate scholarly lineages, compiled by comparative literature academics and community archivists.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Collection 1: Timeless Classics */}
+          <div
+            onClick={() => onNavigate('collections')}
+            className="group relative rounded-2xl overflow-hidden bg-primary min-h-[320px] p-6 flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer"
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 group-hover:opacity-50 transition-all duration-700"
+              style={{
+                backgroundImage:
+                  "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCtqh2mIErlpE67fxx5ZE19fPx2qOr3k9G7sNS9ZrdRBI6mnDkh32K3CcWD8WAin5zq5UOoaEpW0bFue-YtIyQPg11aT4y4mUtkvB3DHof-2PJ20VHQB4FaVV3jNlzx3UBAxhAUxZBq_XQBkCFJv1o7QZ0rOxgROCHqVdNZnsL0j1Z10zPzKfJDmFuU5uolNy_ZnB23dZFkWqQIvnX8DVNJw7QW0jVCSU96DFR59g')"
+              }}
+            ></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent"></div>
+            <div className="relative z-10">
+              <span className="px-3 py-1 rounded-full bg-surface-container-high/40 text-on-secondary-container font-label-sm text-label-sm backdrop-blur">
+                42 Titles Available
+              </span>
+            </div>
+            <div className="relative z-10 space-y-2">
+              <div className="flex items-center gap-2 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider">
+                <span className="material-symbols-outlined text-[16px]">menu_book</span>
+                <span>Worldwide Canon</span>
+              </div>
+              <h3 className="font-headline-md text-headline-md text-on-primary group-hover:translate-x-1 transition-transform">
+                Timeless Classics
+              </h3>
+              <p className="font-body-sm text-body-sm text-on-primary-container">
+                Global literary giants that constructed civilization’s philosophical vernacular.
+              </p>
+            </div>
+          </div>
+
+          {/* Collection 2: Bite-sized Reads */}
+          <div
+            onClick={() => onNavigate('collections')}
+            className="group relative rounded-2xl overflow-hidden bg-primary min-h-[320px] p-6 flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer"
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 group-hover:opacity-50 transition-all duration-700"
+              style={{
+                backgroundImage:
+                  "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCWJ8ys0BRXJOkDtKNIoF1SgRfXXkDN9VuIuZoXzOhmrh0bdBTJeW87NGHKb-BFn4tnGmFZNtcoilARaQkSB8ZzaIlQiL4T5KwmYL2jjmLJ81gdoSyLAm0Y6fUCg9VfK9knqi6CFKi5QYUD2sfOGbczuPoNJ_2VuDMq0W6Hv630oJ9hFqTFOl-6ZkhpnBbXUpxOqPBwNk2bRydBRz5W2t-ItQ4Qdj1wgbosXKPjPQ')"
+              }}
+            ></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent"></div>
+            <div className="relative z-10">
+              <span className="px-3 py-1 rounded-full bg-surface-container-high/40 text-on-secondary-container font-label-sm text-label-sm backdrop-blur">
+                &lt; 200 Pages
+              </span>
+            </div>
+            <div className="relative z-10 space-y-2">
+              <div className="flex items-center gap-2 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider">
+                <span className="material-symbols-outlined text-[16px]">hourglass_top</span>
+                <span>Single Afternoon</span>
+              </div>
+              <h3 className="font-headline-md text-headline-md text-on-primary group-hover:translate-x-1 transition-transform">
+                Bite-sized Reads
+              </h3>
+              <p className="font-body-sm text-body-sm text-on-primary-container">
+                Deep, transformative literature engineered for busy readers and weekend respites.
+              </p>
+            </div>
+          </div>
+
+          {/* Collection 3: Contemporary Voices */}
+          <div
+            onClick={() => onNavigate('collections')}
+            className="group relative rounded-2xl overflow-hidden bg-primary min-h-[320px] p-6 flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer"
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 group-hover:opacity-50 transition-all duration-700"
+              style={{
+                backgroundImage:
+                  "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAxSKIsbtOJ1FEuxz93F3JPQPgEw7HNhpnhw0bwb3UnluMPM9xaJ61b3P3MDbRqQs2stFGxJu5GTpuWLJpP2GMqNAz7XnO7LiBvkgAEPMNZr9Dc3vhzL7peCjsC6k3vvlTApgGkXZ2DEEfWB_rOX_0Ejr28-dPKy3YpODWGrk1vVJfMNpI0QwvNpTDHaB9REeokv9EpnzOkCCnyC-YxofVfMJqAk_wYdMRWfc29oA')"
+              }}
+            ></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent"></div>
+            <div className="relative z-10">
+              <span className="px-3 py-1 rounded-full bg-surface-container-high/40 text-on-secondary-container font-label-sm text-label-sm backdrop-blur">
+                28 Modern Works
+              </span>
+            </div>
+            <div className="relative z-10 space-y-2">
+              <div className="flex items-center gap-2 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider">
+                <span className="material-symbols-outlined text-[16px]">public</span>
+                <span>21st Century</span>
+              </div>
+              <h3 className="font-headline-md text-headline-md text-on-primary group-hover:translate-x-1 transition-transform">
+                Contemporary Voices
+              </h3>
+              <p className="font-body-sm text-body-sm text-on-primary-container">
+                Modern reflections exploring migration, digital solitude, and cultural hybridity.
+              </p>
+            </div>
+          </div>
+
+          {/* Collection 4: Beginner Friendly */}
+          <div
+            onClick={() => onNavigate('collections')}
+            className="group relative rounded-2xl overflow-hidden bg-primary min-h-[320px] p-6 flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer"
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 group-hover:opacity-50 transition-all duration-700"
+              style={{
+                backgroundImage:
+                  "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRqdmiyBcAlcQ51Qu3xFhJhKrpIVAGU39NPAxbQW2YMWP7Q4cVxlMdO2Oj3UpYKZXlnRhL2szdnV957ZkmaacDWKF7oWyy-W_ysrQsxJIBrGctpBfR-_NTwJFganeRiRduaAlWDyidATJR1iHuwqyrPxMMtXEKgZ-3lI_O1CxyxYHhNmGa6hY1o5ubWTOlqpQDWwAc5cWlpTNMAnMKKUtF015fCQzTvOWJqBx6ig')"
+              }}
+            ></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent"></div>
+            <div className="relative z-10">
+              <span className="px-3 py-1 rounded-full bg-surface-container-high/40 text-on-secondary-container font-label-sm text-label-sm backdrop-blur">
+                Accessible Prose
+              </span>
+            </div>
+            <div className="relative z-10 space-y-2">
+              <div className="flex items-center gap-2 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider">
+                <span className="material-symbols-outlined text-[16px]">park</span>
+                <span>Gateway Books</span>
+              </div>
+              <h3 className="font-headline-md text-headline-md text-on-primary group-hover:translate-x-1 transition-transform">
+                Beginner Friendly
+              </h3>
+              <p className="font-body-sm text-body-sm text-on-primary-container">
+                Gentle narrative on-ramps to reawaken the habit of unhurried, reflective reading.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Reading Progress Micro-Dashboard (Local Persistence Live Demo) */}
+      <section className="max-w-[1440px] mx-auto px-6 lg:px-12 pb-16 w-full">
+        <div className="rounded-3xl bg-surface-container p-8 lg:p-12 shadow-sm relative overflow-hidden">
+          <div className="pointer-events-none absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-surface-variant/40 blur-2xl"></div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+            <div className="lg:col-span-7 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-card text-on-tertiary-container font-label-sm text-label-sm shadow-sm">
+                <span className="material-symbols-outlined text-[14px]">save</span>
+                <span>Zero Sign-Up Required • Saved to Your Browser</span>
+              </div>
+              <h3 className="font-headline-lg text-headline-lg text-primary">
+                Your Private Local Reading Desk
+              </h3>
+              <p className="font-body-md text-body-md text-on-surface-variant max-w-xl">
+                Track reading sessions right where you are. Books you save or read automatically sync with browser storage, safeguarding your privacy without requiring accounts or cloud synchronization.
+              </p>
+              <div className="pt-2 flex flex-wrap gap-4 items-center">
+                <button
+                  type="button"
+                  onClick={() => onNavigate('my-library')}
+                  className="px-6 py-3 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all shadow-md cursor-pointer"
+                >
+                  Open Reading Dashboard
+                </button>
+                <span className="font-body-sm text-body-sm text-on-surface-variant" id="reading-status-notice">
+                  {readingList?.length ? `${readingList.length} active volume${readingList.length > 1 ? 's' : ''} cataloged in your browser` : '3 active volumes cataloged in your browser'}
+                </span>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 bg-surface-card rounded-2xl p-6 shadow-md space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b border-surface-container">
+                <span className="font-label-md text-label-md text-primary font-bold">Currently In Progress</span>
+                <span className="px-2 py-0.5 rounded-full bg-surface-container-high text-on-tertiary-container font-label-sm text-label-sm">
+                  Active Session
+                </span>
+              </div>
+
+              {/* Active Reading Mini Card */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-title-md text-title-md text-primary">
+                      {activeBook ? activeBook.title : 'Le Petit Prince'}
+                    </p>
+                    <p className="font-body-sm text-body-sm text-on-surface-variant">
+                      {activeBook ? `Page ${currentProgress?.currentPage || 48} of ${activeBook.pageCount || 96}` : 'Page 48 of 96 • Chapter VII'}
+                    </p>
+                  </div>
+                  <span className="font-label-md text-label-md text-on-tertiary-container font-bold">
+                    {activeBook && activeBook.pageCount ? `${Math.round(((currentProgress?.currentPage || 48) / activeBook.pageCount) * 100)}%` : '50%'}
+                  </span>
+                </div>
+
+                {/* Progress Bar */}
+                <div className="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+                  <div
+                    className="h-full bg-on-tertiary-container rounded-full transition-all duration-500"
+                    style={{
+                      width: activeBook && activeBook.pageCount
+                        ? `${Math.min(100, Math.round(((currentProgress?.currentPage || 48) / activeBook.pageCount) * 100))}%`
+                        : '50%'
+                    }}
+                  ></div>
+                </div>
+              </div>
+
+              <div className="pt-3 flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+                <span className="flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-[16px] text-status-success">check_circle</span>
+                  <span>18 min read today</span>
+                </span>
+                <button
+                  type="button"
+                  onClick={() => onNavigate('my-library')}
+                  className="text-primary hover:text-secondary font-label-sm text-label-sm font-semibold cursor-pointer"
+                >
+                  Resume Reader →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Literary Quote of the Day Banner */}
+      <section className="w-full bg-tertiary-container text-on-tertiary-container relative overflow-hidden py-16 px-6 lg:px-12 my-6">
+        <div className="pointer-events-none absolute left-10 -top-12 text-surface-container-highest/10 font-headline-lg text-[140px] leading-none select-none">
+          “
+        </div>
+        <div className="max-w-[1000px] mx-auto text-center relative z-10 space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-tertiary text-on-tertiary font-label-sm text-label-sm uppercase tracking-wider">
+            <span className="material-symbols-outlined text-[14px]">format_quote</span>
+            <span>Literary Thought of the Day</span>
+          </div>
+          <blockquote className="font-headline-lg text-headline-lg italic font-normal text-surface leading-snug">
+            “On ne voit bien qu’avec le cœur. L’essentiel est invisible pour les yeux.”
+          </blockquote>
+          <div className="space-y-1">
+            <p className="font-title-md text-title-md text-on-tertiary font-bold tracking-wide">
+              Antoine de Saint-Exupéry
+            </p>
+            <p className="font-body-sm text-body-sm text-surface-container-highest/80">
+              <em>Le Petit Prince (The Little Prince)</em> • Chapter XXI, Published 1943
+            </p>
+          </div>
+          <div className="pt-2">
+            <span className="font-label-sm text-label-sm text-surface-container-highest/60 italic">
+              “One sees clearly only with the heart. What is essential is invisible to the eye.”
+            </span>
+          </div>
         </div>
       </section>
     </div>

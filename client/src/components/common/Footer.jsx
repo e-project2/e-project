@@ -1,108 +1,214 @@
 import React from 'react';
-import { Icon } from './Icon.jsx';
 
 export function Footer({ onNavigate }) {
+  const handleNav = (route) => {
+    if (onNavigate) {
+      onNavigate(route);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
-    <footer className="w-full bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800 mt-auto">
-      <div className="bb-container">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
-          {/* Brand Info (5 cols) */}
-          <div className="lg:col-span-5 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-amber-500 flex items-center justify-center text-slate-950 font-bold">
-                <Icon name="auto_stories" className="text-[20px]" />
-              </div>
-              <span className="font-display text-2xl font-bold tracking-tight text-white">
+    <footer className="w-full bg-surface-container-low dark:bg-slate-900 border-t border-border-subtle dark:border-slate-800 shadow-[0_-1px_8px_rgba(0,0,0,0.02)]">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
+          {/* Logo & Slogan (2 cols) */}
+          <div className="lg:col-span-2 space-y-4">
+            <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleNav('home')}>
+              <img
+                alt="BookBridge Logo"
+                className="h-7 w-auto object-contain"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEDzO_GBPm8isEUkTqlc0rXu0_CDktn0QcjBDQc8lwZ2oQyRpG9MkPFYhbvUKXmBhdK2GJgYVYAMhG2Vx6oj7aqnEb4cuLSFnSJK5356BnlaaQpZo6m4C2iQsyTsxqQXmfC8dHRL30N8OSPQzTEYbxyaJZy0d3kun6iP7ROH7IBhuU9vkHTy06UR-JLKph1gjAHaH89kBMePOEsWbliDR50dnSmBfid-LCRtFZaQ"
+              />
+              <span className="font-headline-sm text-headline-sm tracking-tight text-primary dark:text-slate-100">
                 BookBridge
               </span>
             </div>
-            <p className="text-slate-400 text-sm max-w-sm leading-relaxed">
-              An interactive multilingual book discovery portal and reading organizer. Bridging cultures through literary masterpieces across Vietnamese, English, French, Japanese, and Spanish.
+            <p className="font-headline-sm text-headline-sm italic text-on-tertiary-container font-normal leading-snug">
+              “Bridge Worlds, Discover Voices Through Books”
             </p>
-            <div className="flex items-center gap-2 text-xs text-amber-400 font-medium">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Fullstack Architecture: React 18 SPA + Express REST API</span>
-            </div>
+            <p className="font-body-sm text-body-sm text-on-surface-variant dark:text-slate-400 max-w-sm">
+              A scholarly digital reading platform curated for reflective readers, archival researchers, and bibliophiles.
+            </p>
           </div>
 
-          {/* Navigation Links (3 cols) */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-slate-200">
-              Platform Modules
+          {/* Explore */}
+          <div className="space-y-3">
+            <h4 className="font-label-md text-label-md uppercase tracking-wider text-primary dark:text-slate-200 font-bold">
+              Explore
             </h4>
-            <ul className="space-y-2 text-sm">
-              <li>
+            <ul className="space-y-2">
+              <li className="font-body-sm text-body-sm">
                 <button
-                  onClick={() => onNavigate('directory')}
-                  className="hover:text-amber-400 transition-colors"
+                  type="button"
+                  onClick={() => handleNav('directory')}
+                  className="text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-slate-100 transition-colors text-left"
                 >
-                  Books Directory & Smart Search
+                  Book Directory
                 </button>
               </li>
-              <li>
+              <li className="font-body-sm text-body-sm">
                 <button
-                  onClick={() => onNavigate('explorer')}
-                  className="hover:text-amber-400 transition-colors"
+                  type="button"
+                  onClick={() => handleNav('explorer')}
+                  className="text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-slate-100 transition-colors text-left"
                 >
-                  Language & Genre Explorer
+                  Interactive Explorer
                 </button>
               </li>
-              <li>
+              <li className="font-body-sm text-body-sm">
                 <button
-                  onClick={() => onNavigate('collections')}
-                  className="hover:text-amber-400 transition-colors"
+                  type="button"
+                  onClick={() => handleNav('gallery')}
+                  className="text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-slate-100 transition-colors text-left"
                 >
-                  Curated Reading Collections
+                  Cover Visual Gallery
                 </button>
               </li>
-              <li>
+              <li className="font-body-sm text-body-sm">
                 <button
-                  onClick={() => onNavigate('gallery')}
-                  className="hover:text-amber-400 transition-colors"
+                  type="button"
+                  onClick={() => handleNav('collections')}
+                  className="text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-slate-100 transition-colors text-left"
                 >
-                  Interactive Book Gallery & Lightbox
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('my-library')}
-                  className="hover:text-amber-400 transition-colors"
-                >
-                  My Library & Reading Tracker
+                  Themed Shelves
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Academic Mission & Links (4 cols) */}
-          <div className="lg:col-span-4 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-slate-200">
-              Provenance & Project
+          {/* Collections */}
+          <div className="space-y-3">
+            <h4 className="font-label-md text-label-md uppercase tracking-wider text-primary dark:text-slate-200 font-bold">
+              Collections
             </h4>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Designed according to Aptech eProject standards. Built with client-side fault tolerance, safe serialization, and full WCAG 2.1 AA accessibility guidelines.
-            </p>
-            <div className="flex flex-wrap gap-2 pt-2">
-              <button
-                onClick={() => onNavigate('about')}
-                className="text-xs px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors"
-              >
-                About Mission
-              </button>
-              <button
-                onClick={() => onNavigate('contact')}
-                className="text-xs px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors"
-              >
-                Archival Desk & Feedback
-              </button>
-            </div>
+            <ul className="space-y-2">
+              <li className="font-body-sm text-body-sm">
+                <button
+                  type="button"
+                  onClick={() => handleNav('collections')}
+                  className="text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-slate-100 transition-colors text-left"
+                >
+                  Literary Modernism
+                </button>
+              </li>
+              <li className="font-body-sm text-body-sm">
+                <button
+                  type="button"
+                  onClick={() => handleNav('collections')}
+                  className="text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-slate-100 transition-colors text-left"
+                >
+                  Curated Anthologies
+                </button>
+              </li>
+              <li className="font-body-sm text-body-sm">
+                <button
+                  type="button"
+                  onClick={() => handleNav('collections')}
+                  className="text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-slate-100 transition-colors text-left"
+                >
+                  Global Dissertations
+                </button>
+              </li>
+              <li className="font-body-sm text-body-sm">
+                <button
+                  type="button"
+                  onClick={() => handleNav('my-library')}
+                  className="text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-slate-100 transition-colors text-left"
+                >
+                  Personal Archival Shelf
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div className="space-y-3">
+            <h4 className="font-label-md text-label-md uppercase tracking-wider text-primary dark:text-slate-200 font-bold">
+              Resources
+            </h4>
+            <ul className="space-y-2">
+              <li className="font-body-sm text-body-sm">
+                <button
+                  type="button"
+                  onClick={() => handleNav('about')}
+                  className="text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-slate-100 transition-colors text-left"
+                >
+                  Editorial Standards
+                </button>
+              </li>
+              <li className="font-body-sm text-body-sm">
+                <button
+                  type="button"
+                  onClick={() => handleNav('about')}
+                  className="text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-slate-100 transition-colors text-left"
+                >
+                  Archival Citations
+                </button>
+              </li>
+              <li className="font-body-sm text-body-sm">
+                <button
+                  type="button"
+                  onClick={() => handleNav('contact')}
+                  className="text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-slate-100 transition-colors text-left"
+                >
+                  Scholarly Inquiry
+                </button>
+              </li>
+              <li className="font-body-sm text-body-sm">
+                <button
+                  type="button"
+                  onClick={() => handleNav('contact')}
+                  className="text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-slate-100 transition-colors text-left"
+                >
+                  Community Reader Notes
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal / Provenance */}
+          <div className="space-y-3">
+            <h4 className="font-label-md text-label-md uppercase tracking-wider text-primary dark:text-slate-200 font-bold">
+              Provenance
+            </h4>
+            <ul className="space-y-2">
+              <li className="font-body-sm text-body-sm text-on-surface-variant dark:text-slate-400">
+                Aptech eProject Standard
+              </li>
+              <li className="font-body-sm text-body-sm text-on-surface-variant dark:text-slate-400">
+                Public Domain Archive
+              </li>
+              <li className="font-body-sm text-body-sm text-on-surface-variant dark:text-slate-400">
+                WCAG 2.1 AA Compliant
+              </li>
+              <li className="font-body-sm text-body-sm">
+                <button
+                  type="button"
+                  onClick={() => handleNav('admin')}
+                  className="text-on-tertiary-container hover:underline font-semibold text-left"
+                >
+                  Admin Desk →
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
 
         {/* Bottom Credits */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© 2026 BookBridge Portal. All rights reserved. Non-commercial educational demonstration.</p>
-          <p>Curated with literary modernism & precision.</p>
+        <div className="mt-12 pt-8 border-t border-border-subtle/60 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="font-body-sm text-body-sm text-on-surface-variant dark:text-slate-400 text-center md:text-left">
+            BookBridge Academic eProject Demo © 2026. Interactive local storage reading tracker.
+          </p>
+          <div className="flex items-center gap-6">
+            <span className="font-label-sm text-label-sm text-on-surface-variant dark:text-slate-400">
+              v1.4 Archive Build
+            </span>
+            <span className="inline-flex items-center gap-1 font-label-sm text-label-sm text-on-tertiary-container">
+              <span className="material-symbols-outlined text-[14px]">bookmarks</span>
+              Local Persistence Active
+            </span>
+          </div>
         </div>
       </div>
     </footer>

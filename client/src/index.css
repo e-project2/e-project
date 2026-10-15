@@ -22,7 +22,7 @@
   --color-text-subtle: #94A3B8;
   --color-border: #E2E8F0;
   --color-border-subtle: #F1F5F9;
-  
+
   /* Status Colors */
   --color-success: #10B981;
   --color-success-bg: rgba(16, 185, 129, 0.12);
@@ -79,7 +79,9 @@ html.dark {
 /* ==========================================================================
    GLOBAL RESET & BASE STYLES
    ========================================================================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -183,7 +185,11 @@ body {
   font-family: var(--font-body);
 }
 
-h1, h2, h3, h4, .editorial-heading {
+h1,
+h2,
+h3,
+h4,
+.editorial-heading {
   font-family: var(--font-display);
   color: var(--color-primary);
   font-weight: 700;
@@ -362,8 +368,13 @@ h1, h2, h3, h4, .editorial-heading {
 
 /* Keyframes */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
@@ -371,6 +382,7 @@ h1, h2, h3, h4, .editorial-heading {
     opacity: 0;
     transform: translateY(20px) scale(0.98);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
