@@ -1,0 +1,1333 @@
+import { useEffect, useRef } from "react";
+import { initializePrototypePage } from "../prototypeRuntime.js";
+
+const pageStylesheets = [
+  {
+    rel: "preconnect",
+    href: "https://fonts.googleapis.com",
+  },
+  {
+    rel: "preconnect",
+    href: "https://fonts.gstatic.com",
+    crossOrigin: "",
+  },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap",
+  },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap",
+  },
+];
+const pageStyles =
+  "\n      @layer base {\n        html,\n        body {\n          margin: 0;\n          padding: 0;\n        }\n        body {\n          overscroll-behavior: none;\n        }\n        main > :first-child {\n          margin-top: 0 !important;\n        }\n        main > :last-child {\n          margin-bottom: 0 !important;\n        }\n      }\n      ::-webkit-scrollbar {\n        display: none;\n      }\n    ";
+const tailwindConfig = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary-fixed": "#ffddb8",
+        "inverse-surface": "#dfe2ee",
+        "on-primary-fixed": "#2a1700",
+        tertiary: "#ffc08e",
+        "tertiary-fixed": "#ffdcc3",
+        "inverse-on-surface": "#2c3039",
+        "tertiary-fixed-dim": "#ffb77d",
+        "outline-variant": "#534434",
+        "surface-container": "#1c2028",
+        surface: "#0f131c",
+        background: "#0f131c",
+        outline: "#a08e7a",
+        "on-surface": "#dfe2ee",
+        "tertiary-container": "#ff9837",
+        "surface-dim": "#0f131c",
+        "surface-bright": "#353942",
+        "on-secondary-fixed-variant": "#004395",
+        "secondary-fixed": "#d8e2ff",
+        "primary-container": "#f59e0b",
+        "on-surface-variant": "#d8c3ad",
+        "surface-tint": "#ffb95f",
+        "on-primary": "#472a00",
+        "surface-variant": "#31353e",
+        "primary-fixed-dim": "#ffb95f",
+        "surface-container-highest": "#31353e",
+        "on-primary-container": "#613b00",
+        "on-tertiary-fixed-variant": "#6e3900",
+        "on-secondary": "#002e6a",
+        "error-container": "#93000a",
+        "on-background": "#dfe2ee",
+        "on-error": "#690005",
+        secondary: "#adc6ff",
+        "secondary-container": "#0566d9",
+        "surface-container-high": "#262a33",
+        "surface-container-lowest": "#0a0e16",
+        "secondary-fixed-dim": "#adc6ff",
+        "on-secondary-fixed": "#001a42",
+        "on-tertiary": "#4d2600",
+        "on-tertiary-container": "#6a3700",
+        "on-secondary-container": "#e6ecff",
+        error: "#ffb4ab",
+        "on-tertiary-fixed": "#2f1500",
+        "surface-container-low": "#181c24",
+        "on-error-container": "#ffdad6",
+        "inverse-primary": "#855300",
+        primary: "#ffc174",
+        "on-primary-fixed-variant": "#653e00",
+      },
+      borderRadius: {
+        DEFAULT: "0.125rem",
+        lg: "0.25rem",
+        xl: "0.5rem",
+        full: "0.75rem",
+      },
+      spacing: {
+        "margin-sm": "1rem",
+        "space-sm": "0.5rem",
+        "space-2xl": "4rem",
+        "space-lg": "1.5rem",
+        margin: "1.5rem",
+        "gutter-lg": "2.5rem",
+        "margin-lg": "4rem",
+        "space-xl": "2.5rem",
+        "space-xs": "0.25rem",
+        "space-md": "1rem",
+        gutter: "1.5rem",
+        "gutter-sm": "1rem",
+      },
+      fontFamily: {
+        "display-lg-mobile": ["Playfair Display"],
+        "label-lg": ["Inter"],
+        "headline-xl": ["Playfair Display"],
+        "headline-xl-mobile": ["Playfair Display"],
+        "body-lg": ["Plus Jakarta Sans"],
+        "headline-sm": ["Playfair Display"],
+        "label-caps": ["Inter"],
+        "display-lg": ["Playfair Display"],
+        "headline-md": ["Playfair Display"],
+        "label-md": ["Inter"],
+        "headline-lg": ["Playfair Display"],
+        "body-xl": ["Plus Jakarta Sans"],
+        "body-md": ["Plus Jakarta Sans"],
+      },
+      fontSize: {
+        "display-lg-mobile": [
+          "36px",
+          {
+            lineHeight: "44px",
+            letterSpacing: "-0.01em",
+            fontWeight: "600",
+          },
+        ],
+        "label-lg": [
+          "14px",
+          {
+            lineHeight: "20px",
+            letterSpacing: "0.01em",
+            fontWeight: "600",
+          },
+        ],
+        "headline-xl": [
+          "40px",
+          {
+            lineHeight: "48px",
+            letterSpacing: "-0.015em",
+            fontWeight: "600",
+          },
+        ],
+        "headline-xl-mobile": [
+          "28px",
+          {
+            lineHeight: "36px",
+            letterSpacing: "-0.01em",
+            fontWeight: "600",
+          },
+        ],
+        "body-lg": ["16px", { lineHeight: "26px", fontWeight: "400" }],
+        "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+        "label-caps": [
+          "11px",
+          {
+            lineHeight: "16px",
+            letterSpacing: "0.08em",
+            fontWeight: "700",
+          },
+        ],
+        "display-lg": [
+          "56px",
+          {
+            lineHeight: "68px",
+            letterSpacing: "-0.02em",
+            fontWeight: "600",
+          },
+        ],
+        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "500" }],
+        "label-md": [
+          "12px",
+          {
+            lineHeight: "16px",
+            letterSpacing: "0.02em",
+            fontWeight: "500",
+          },
+        ],
+        "headline-lg": [
+          "32px",
+          {
+            lineHeight: "40px",
+            letterSpacing: "-0.01em",
+            fontWeight: "500",
+          },
+        ],
+        "body-xl": [
+          "20px",
+          {
+            lineHeight: "34px",
+            letterSpacing: "-0.005em",
+            fontWeight: "400",
+          },
+        ],
+        "body-md": ["14px", { lineHeight: "22px", fontWeight: "400" }],
+      },
+    },
+  },
+};
+const pageScripts = [
+  '\n        (function () {\n          const btn = document.getElementById("buildShelfBtn");\n          const note = document.getElementById("shelfNotification");\n          if (btn && note) {\n            btn.addEventListener("click", function () {\n              note.classList.remove("hidden");\n              setTimeout(() => {\n                note.classList.add("hidden");\n              }, 3800);\n            });\n          }\n        })();\n      ',
+];
+
+export default function FeaturedReadingCollectionsBookbridgeDarkMode() {
+  const rootRef = useRef(null);
+
+  useEffect(() => {
+    return initializePrototypePage(rootRef.current, {
+      id: "featured_reading_collections_bookbridge_dark_mode",
+      stylesheets: pageStylesheets,
+      styles: pageStyles,
+      tailwindConfig,
+      scripts: pageScripts,
+    });
+  }, []);
+
+  return (
+    <div
+      ref={rootRef}
+      className="bg-background text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"
+    >
+      <header className="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+        <div className="h-20 max-w-[1440px] mx-auto px-margin md:px-margin-lg flex items-center justify-between gap-space-md">
+          <div className="flex items-center gap-space-lg">
+            <a
+              className="flex items-center gap-space-xs group"
+              data-path="home"
+              href="#"
+            >
+              <span className="material-symbols-outlined text-primary text-[28px] transition-transform duration-300 group-hover:scale-105">
+                auto_stories
+              </span>
+              <span className="font-headline-md text-headline-md text-on-surface tracking-tight">
+                Book<span className="text-primary">Bridge</span>
+              </span>
+            </a>
+          </div>
+          <nav
+            className="hidden xl:flex items-center gap-space-xs"
+            data-active-classes="bg-surface-container-high text-primary font-semibold"
+          >
+            <a
+              className="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+              data-path="home"
+              href="#"
+            >
+              Home
+            </a>
+            <a
+              className="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+              data-path="directory"
+              href="#"
+            >
+              Directory
+            </a>
+            <a
+              className="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+              data-path="explorer"
+              href="#"
+            >
+              Explorer
+            </a>
+            <a
+              aria-current="page"
+              className="px-space-md py-space-xs rounded-lg transition-colors bg-surface-container-high text-primary font-semibold"
+              data-path="collections"
+              href="#"
+            >
+              Collections
+            </a>
+            <a
+              className="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+              data-path="my-library"
+              href="#"
+            >
+              <span>My Library</span>
+              <span className="px-1.5 py-0.5 rounded-full font-label-caps text-label-caps bg-primary-container text-on-primary-container">
+                3 saved
+              </span>
+            </a>
+            <a
+              className="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+              data-path="about"
+              href="#"
+            >
+              About
+            </a>
+            <a
+              className="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+              data-path="contact"
+              href="#"
+            >
+              Contact
+            </a>
+          </nav>
+          <div className="flex items-center gap-space-sm md:gap-space-md">
+            <button
+              aria-label="Quick Search"
+              className="p-space-xs rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors flex items-center justify-center"
+              type="button"
+            >
+              <span className="material-symbols-outlined text-[20px]">
+                search
+              </span>
+            </button>
+            <button
+              aria-label="Toggle Light or Dark Mode"
+              className="flex items-center p-1 bg-surface-container rounded-full hover:bg-surface-container-high transition-colors"
+              type="button"
+            >
+              <span className="w-6 h-6 rounded-full flex items-center justify-center text-on-surface-variant">
+                <span className="material-symbols-outlined text-[16px]">
+                  light_mode
+                </span>
+              </span>
+              <span className="w-6 h-6 rounded-full flex items-center justify-center bg-surface-container-highest text-primary shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+                <span className="material-symbols-outlined text-[16px]">
+                  dark_mode
+                </span>
+              </span>
+            </button>
+            <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+              <span className="material-symbols-outlined text-on-primary text-[18px]">
+                person
+              </span>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main className="w-full pt-20 bg-background min-h-screen">
+        <div className="flex flex-col w-full">
+          <div className="relative w-full overflow-hidden pb-space-2xl">
+            <div className="absolute -top-32 left-1/4 w-96 h-96 rounded-full bg-primary/10 blur-[120px] pointer-events-none" />
+            <div className="absolute top-1/3 -right-24 w-80 h-80 rounded-full bg-secondary-container/10 blur-[100px] pointer-events-none" />
+            <div className="max-w-[1440px] mx-auto px-margin md:px-margin-lg pt-space-xl">
+              <div className="relative flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg pb-space-xl">
+                <div className="space-y-space-sm max-w-3xl">
+                  <div className="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary animate-ping" />
+                    <span className="font-label-caps text-label-caps text-primary tracking-widest uppercase">
+                      Bibliotheca Curatoria
+                    </span>
+                    <span className="text-on-surface-variant font-label-caps text-label-caps">
+                      • Edition MMXXVI
+                    </span>
+                  </div>
+                  <h1 className="font-headline-xl text-headline-xl md:font-display-lg md:text-display-lg text-on-surface tracking-tight">
+                    Featured Reading
+                    <span className="italic text-primary font-normal">
+                      Collections
+                    </span>
+                  </h1>
+                  <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    Immerse yourself in precision-curated arcs of literary
+                    thought. Every shelf unites rare translation histories,
+                    comparative textual apparatuses, and contemplative pace
+                    metrics.
+                  </p>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-space-sm p-space-md rounded-xl bg-surface-container-low shadow-xl">
+                  <div className="flex flex-col">
+                    <span className="font-headline-sm text-headline-sm text-primary">
+                      04
+                    </span>
+                    <span className="font-label-md text-label-md text-on-surface-variant">
+                      Curated Paths
+                    </span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-headline-sm text-headline-sm text-on-surface">
+                      20+
+                    </span>
+                    <span className="font-label-md text-label-md text-on-surface-variant">
+                      Masterworks
+                    </span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-headline-sm text-headline-sm text-secondary">
+                      100%
+                    </span>
+                    <span className="font-label-md text-label-md text-on-surface-variant">
+                      Critical Context
+                    </span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="inline-flex items-center gap-1 font-label-md text-label-md text-primary mt-1">
+                      <span className="material-symbols-outlined text-[16px]">
+                        sync_saved_locally
+                      </span>
+                      Sync
+                    </span>
+                    <span className="font-label-md text-label-md text-on-surface-variant">
+                      Local Cache Active
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-space-md py-space-md mb-space-2xl">
+                <div className="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between group hover:bg-surface-container transition-all">
+                  <div className="space-y-0.5">
+                    <p className="font-label-caps text-label-caps text-on-surface-variant">
+                      Section I
+                    </p>
+                    <p className="font-label-lg text-label-lg text-on-surface">
+                      Timeless Classics
+                    </p>
+                  </div>
+                  <span className="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">
+                    arrow_forward
+                  </span>
+                </div>
+                <div className="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between group hover:bg-surface-container transition-all">
+                  <div className="space-y-0.5">
+                    <p className="font-label-caps text-label-caps text-on-surface-variant">
+                      Section II
+                    </p>
+                    <p className="font-label-lg text-label-lg text-on-surface">
+                      Bite-sized Masterpieces
+                    </p>
+                  </div>
+                  <span className="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">
+                    arrow_forward
+                  </span>
+                </div>
+                <div className="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between group hover:bg-surface-container transition-all">
+                  <div className="space-y-0.5">
+                    <p className="font-label-caps text-label-caps text-on-surface-variant">
+                      Section III
+                    </p>
+                    <p className="font-label-lg text-label-lg text-on-surface">
+                      Contemporary Reflections
+                    </p>
+                  </div>
+                  <span className="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">
+                    arrow_forward
+                  </span>
+                </div>
+                <div className="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between group hover:bg-surface-container transition-all">
+                  <div className="space-y-0.5">
+                    <p className="font-label-caps text-label-caps text-on-surface-variant">
+                      Section IV
+                    </p>
+                    <p className="font-label-lg text-label-lg text-on-surface">
+                      Beginner Pathways
+                    </p>
+                  </div>
+                  <span className="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">
+                    arrow_forward
+                  </span>
+                </div>
+              </div>
+              <section className="space-y-space-lg mb-space-2xl">
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-xs">
+                  <div>
+                    <div className="flex items-center gap-space-xs text-primary mb-1">
+                      <span className="material-symbols-outlined text-[18px]">
+                        history_edu
+                      </span>
+                      <span className="font-label-caps text-label-caps uppercase tracking-wider">
+                        Tủ Sách Kinh Điển
+                      </span>
+                    </div>
+                    <h2 className="font-headline-lg text-headline-lg text-on-surface">
+                      Timeless Classics
+                      <span className="font-body-md text-body-md text-on-surface-variant font-normal ml-space-xs">
+                        (Kinh điển Vượt Thời Gian)
+                      </span>
+                    </h2>
+                  </div>
+                  <div className="max-w-md p-space-sm rounded-lg bg-surface-container-high/60 backdrop-blur-md">
+                    <p className="font-body-md text-body-md text-on-surface-variant italic">
+                      “These monumental architectures of language have survived
+                      empires and literary trends, laying bare the core
+                      contradictions of human yearning.”
+                    </p>
+                    <span className="font-label-caps text-label-caps text-primary block mt-1 tracking-wider uppercase">
+                      — H. Nguyen, Senior Archival Fellow
+                    </span>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+                  <article className="group relative flex flex-col rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 overflow-hidden shadow-lg">
+                    <div className="relative h-64 w-full overflow-hidden bg-surface-container-lowest">
+                      <img
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-85"
+                        alt="Dark moody scholarly oil painting aesthetic of an ancient Vietnamese lacquer manuscript of Truyen Kieu under low amber candlelight with poetic calligraphy fragments in deep charcoal and warm golden tones"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEZ57KpoduSFexT_CyGJkEa4dkdbqwJbNmN1tdg7AaaRIAFihNWXMj-6HspGP849Og6xhHm-GWyWzrXfG3CAlYOyzKQXJY2wsgm8YHcZB9FMGag6MrdDu6L_TXBEdj2wEyCLpVQT6yHNMbu8bPkEOCQsN9NSCn18k62O2mTGHbazuuK6ZgRVzVA57bCU6Mwl3vjlf6YcuwicE2xyTIkJQyN8DWg-aTgJoHoLYiLg"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/30 to-transparent" />
+                      <span className="absolute top-space-sm left-space-sm px-space-xs py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-caps text-label-caps">
+                        Lục Bát Epic
+                      </span>
+                    </div>
+                    <div className="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+                      <div className="space-y-space-xs">
+                        <span className="font-label-md text-label-md text-primary">
+                          Nguyễn Du (1820)
+                        </span>
+                        <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                          Truyện Kiều
+                        </h3>
+                        <p className="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+                          The crowning gem of Vietnamese verse narrative,
+                          examining predestined fate, karmic debt, and
+                          unyielding filial devotion.
+                        </p>
+                      </div>
+                      <div className="pt-space-xs flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
+                        <span className="inline-flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[16px]">
+                            menu_book
+                          </span>
+                          3,254 verses
+                        </span>
+                        <button
+                          aria-label="Bookmark Truyện Kiều"
+                          className="p-space-xs rounded-lg hover:text-primary transition-colors"
+                        >
+                          <span className="material-symbols-outlined text-[20px]">
+                            bookmark_border
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                  <article className="group relative flex flex-col rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 overflow-hidden shadow-lg">
+                    <div className="relative h-64 w-full overflow-hidden bg-surface-container-lowest">
+                      <img
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-85"
+                        alt="Nocturnal 1920s Long Island dock with a faint hypnotic green beacon across dark water, opulent art deco silhouettes in mist, ambient amber lights reflecting on still nocturnal lake"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXD0Plvhz4vgY783m-0vHULzBql_M-LVwjW43hMjVl2PWed_yS0eG_Kxorkew48PPQbA--WOtVpRTsaCEAbsbgs_T_Q02aZRXlZTgBaeDynHBHLP8u2tRY6xhKb2uYbawFQbMXC-iGWD1Ph08O9UI4n5xOZniLoGkMizjUBq9qdqOLQzU1GTEV_M5xIk7IJjvL_ue8hch25ns0zYSuYFffLRZR5gQQssC663I2Kg"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/30 to-transparent" />
+                      <span className="absolute top-space-sm left-space-sm px-space-xs py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-caps text-label-caps">
+                        Jazz Age Tragedy
+                      </span>
+                    </div>
+                    <div className="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+                      <div className="space-y-space-xs">
+                        <span className="font-label-md text-label-md text-primary">
+                          F. Scott Fitzgerald (1925)
+                        </span>
+                        <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                          The Great Gatsby
+                        </h3>
+                        <p className="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+                          A dazzling autopsy of the American mirage, longing,
+                          and social stratification along the lavish Sound of
+                          East Egg.
+                        </p>
+                      </div>
+                      <div className="pt-space-xs flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
+                        <span className="inline-flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[16px]">
+                            menu_book
+                          </span>
+                          180 pages
+                        </span>
+                        <button
+                          aria-label="Bookmark The Great Gatsby"
+                          className="p-space-xs rounded-lg hover:text-primary transition-colors"
+                        >
+                          <span className="material-symbols-outlined text-[20px]">
+                            bookmark_border
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                  <article className="group relative flex flex-col rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 overflow-hidden shadow-lg">
+                    <div className="relative h-64 w-full overflow-hidden bg-surface-container-lowest">
+                      <img
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-85"
+                        alt="Moody cinematic St Petersburg winter dusk with snow over narrow cobblestones and gothic streetlamps, deep charcoal and desaturated gold lighting cast against heavy wooden doors"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDT1ZBm9SAafLvI68WIq8dThY5RGDZ7KR7oX_lzTss3MFi2DOm4mZzJ1kbe6xX55IhOdd4cTC-zfgnWzE5W0TTSX8phJRWMsNXadGqhXgoJKk7YbIAIAbBCLV-ADMoYiQrQ0X1ZgmduSONaphp54h7zlJ-xZZZqYyqOBf2PZMIZ_p9BpfDn-11V_0qYU36cWYkKw8KrlW00EWVXi8RjwraJBdxAoQTG-bErIY68Ng"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/30 to-transparent" />
+                      <span className="absolute top-space-sm left-space-sm px-space-xs py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-caps text-label-caps">
+                        Psychological Depth
+                      </span>
+                    </div>
+                    <div className="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+                      <div className="space-y-space-xs">
+                        <span className="font-label-md text-label-md text-primary">
+                          Fyodor Dostoevsky (1866)
+                        </span>
+                        <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                          Crime and Punishment
+                        </h3>
+                        <p className="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+                          The feverish moral descent and spiritual rebirth of
+                          Raskolnikov within the sweltering Haymarket of Saint
+                          Petersburg.
+                        </p>
+                      </div>
+                      <div className="pt-space-xs flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
+                        <span className="inline-flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[16px]">
+                            menu_book
+                          </span>
+                          545 pages
+                        </span>
+                        <button
+                          aria-label="Bookmark Crime and Punishment"
+                          className="p-space-xs rounded-lg hover:text-primary transition-colors"
+                        >
+                          <span className="material-symbols-outlined text-[20px]">
+                            bookmark_border
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                  <article className="group relative flex flex-col rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 overflow-hidden shadow-lg">
+                    <div className="relative h-64 w-full overflow-hidden bg-surface-container-lowest">
+                      <img
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-85"
+                        alt="Still life of velvet drapery, dried French roses, an ornate antique mirror with shattered glass in a quiet dark room lit by warm late afternoon sunbeams"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3Fl5llFoV_q6xiFnX_GjkyaicxMc6C5Nb_cQJxKGd9rC8XJyUeCOOBQjQkg8K1pupNAxkSfMF0SpRShDXxW2iRJ3avhbQuZU16pJGzH9PKTOdedGbKxk6xNDVydbwtGW0LR7h-C8DGNlJrokrNjXGnBohVCdVcpZE_-7A_qIGLPlEHEVZH0M0gIYnqwxiX0FWfp0zw8-ati1vayCT3mH64Tkdsb0gQOjens0hRA"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/30 to-transparent" />
+                      <span className="absolute top-space-sm left-space-sm px-space-xs py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-caps text-label-caps">
+                        French Realism
+                      </span>
+                    </div>
+                    <div className="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+                      <div className="space-y-space-xs">
+                        <span className="font-label-md text-label-md text-primary">
+                          Gustave Flaubert (1856)
+                        </span>
+                        <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                          Madame Bovary
+                        </h3>
+                        <p className="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+                          A ruthlessly calculated anatomy of romantic illusion,
+                          provincial boredom, and catastrophic consumer vanity.
+                        </p>
+                      </div>
+                      <div className="pt-space-xs flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
+                        <span className="inline-flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[16px]">
+                            menu_book
+                          </span>
+                          328 pages
+                        </span>
+                        <button
+                          aria-label="Bookmark Madame Bovary"
+                          className="p-space-xs rounded-lg hover:text-primary transition-colors"
+                        >
+                          <span className="material-symbols-outlined text-[20px]">
+                            bookmark_border
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </section>
+              <section className="space-y-space-lg mb-space-2xl">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+                  <div>
+                    <div className="flex items-center gap-space-xs text-primary mb-1">
+                      <span className="material-symbols-outlined text-[18px]">
+                        timelapse
+                      </span>
+                      <span className="font-label-caps text-label-caps uppercase tracking-wider">
+                        Sub-200 Page Masterworks
+                      </span>
+                    </div>
+                    <h2 className="font-headline-lg text-headline-lg text-on-surface">
+                      Bite-sized Masterpieces
+                      <span className="font-body-md text-body-md text-on-surface-variant font-normal ml-space-xs">
+                        (Đọc Nhanh &amp; Tinh Gọn)
+                      </span>
+                    </h2>
+                  </div>
+                  <span className="font-label-md text-label-md text-on-surface-variant">
+                    Calibrated for intensive single-sitting sessions
+                  </span>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+                  <div className="p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between group shadow-md">
+                    <div className="space-y-space-md">
+                      <div className="flex items-center justify-between">
+                        <span className="px-space-xs py-0.5 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps">
+                          96 Pages
+                        </span>
+                        <div className="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-md bg-surface-container-high text-primary font-label-md text-label-md">
+                          <span className="material-symbols-outlined text-[14px]">
+                            schedule
+                          </span>
+                          1.5h
+                        </div>
+                      </div>
+                      <div className="space-y-space-xs">
+                        <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                          Le Petit Prince
+                        </h3>
+                        <p className="font-label-md text-label-md text-on-surface-variant">
+                          Antoine de Saint-Exupéry
+                        </p>
+                        <p className="font-body-md text-body-md text-on-surface-variant pt-space-xs">
+                          A deceptively pure planetary fable meditating on love,
+                          invisible essences, and adult disillusionment.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="pt-space-md flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
+                      <span className="text-secondary font-label-caps text-label-caps tracking-widest uppercase">
+                        Allegorical
+                      </span>
+                      <a
+                        className="font-label-md text-label-md text-primary hover:underline flex items-center gap-0.5"
+                        href="#"
+                      >
+                        Read Arc
+                        <span className="material-symbols-outlined text-[14px]">
+                          chevron_right
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                  <div className="p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between group shadow-md">
+                    <div className="space-y-space-md">
+                      <div className="flex items-center justify-between">
+                        <span className="px-space-xs py-0.5 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps">
+                          123 Pages
+                        </span>
+                        <div className="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-md bg-surface-container-high text-primary font-label-md text-label-md">
+                          <span className="material-symbols-outlined text-[14px]">
+                            schedule
+                          </span>
+                          2.5h
+                        </div>
+                      </div>
+                      <div className="space-y-space-xs">
+                        <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                          L'Étranger
+                        </h3>
+                        <p className="font-label-md text-label-md text-on-surface-variant">
+                          Albert Camus
+                        </p>
+                        <p className="font-body-md text-body-md text-on-surface-variant pt-space-xs">
+                          The quintessential study of existential absurdity,
+                          sunstroke detachment, and institutional hypocrisy.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="pt-space-md flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
+                      <span className="text-secondary font-label-caps text-label-caps tracking-widest uppercase">
+                        Philosophical
+                      </span>
+                      <a
+                        className="font-label-md text-label-md text-primary hover:underline flex items-center gap-0.5"
+                        href="#"
+                      >
+                        Read Arc
+                        <span className="material-symbols-outlined text-[14px]">
+                          chevron_right
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                  <div className="p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between group shadow-md">
+                    <div className="space-y-space-md">
+                      <div className="flex items-center justify-between">
+                        <span className="px-space-xs py-0.5 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps">
+                          174 Pages
+                        </span>
+                        <div className="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-md bg-surface-container-high text-primary font-label-md text-label-md">
+                          <span className="material-symbols-outlined text-[14px]">
+                            schedule
+                          </span>
+                          3.0h
+                        </div>
+                      </div>
+                      <div className="space-y-space-xs">
+                        <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                          Ficciones
+                        </h3>
+                        <p className="font-label-md text-label-md text-on-surface-variant">
+                          Jorge Luis Borges
+                        </p>
+                        <p className="font-body-md text-body-md text-on-surface-variant pt-space-xs">
+                          Intricate labyrinths, infinite libraries, and
+                          imaginary encyclopedias reshaping modern world
+                          fiction.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="pt-space-md flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
+                      <span className="text-secondary font-label-caps text-label-caps tracking-widest uppercase">
+                        Metaphysical
+                      </span>
+                      <a
+                        className="font-label-md text-label-md text-primary hover:underline flex items-center gap-0.5"
+                        href="#"
+                      >
+                        Read Arc
+                        <span className="material-symbols-outlined text-[14px]">
+                          chevron_right
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                  <div className="p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between group shadow-md">
+                    <div className="space-y-space-md">
+                      <div className="flex items-center justify-between">
+                        <span className="px-space-xs py-0.5 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps">
+                          192 Pages
+                        </span>
+                        <div className="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-md bg-surface-container-high text-primary font-label-md text-label-md">
+                          <span className="material-symbols-outlined text-[14px]">
+                            schedule
+                          </span>
+                          4.0h
+                        </div>
+                      </div>
+                      <div className="space-y-space-xs">
+                        <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                          Kokoro
+                        </h3>
+                        <p className="font-label-md text-label-md text-on-surface-variant">
+                          Natsume Sōseki
+                        </p>
+                        <p className="font-body-md text-body-md text-on-surface-variant pt-space-xs">
+                          A piercing exploration of Meiji-era isolation,
+                          intergenerational guilt, and the enigmatic Sensei.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="pt-space-md flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
+                      <span className="text-secondary font-label-caps text-label-caps tracking-widest uppercase">
+                        Introspective
+                      </span>
+                      <a
+                        className="font-label-md text-label-md text-primary hover:underline flex items-center gap-0.5"
+                        href="#"
+                      >
+                        Read Arc
+                        <span className="material-symbols-outlined text-[14px]">
+                          chevron_right
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section className="space-y-space-lg mb-space-2xl">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+                  <div>
+                    <div className="flex items-center gap-space-xs text-primary mb-1">
+                      <span className="material-symbols-outlined text-[18px]">
+                        psychology
+                      </span>
+                      <span className="font-label-caps text-label-caps uppercase tracking-wider">
+                        Khảo Sát Hiện Đại
+                      </span>
+                    </div>
+                    <h2 className="font-headline-lg text-headline-lg text-on-surface">
+                      Contemporary Reflections
+                      <span className="font-body-md text-body-md text-on-surface-variant font-normal ml-space-xs">
+                        (Văn Học Đương Đại)
+                      </span>
+                    </h2>
+                  </div>
+                  <p className="font-body-md text-body-md text-on-surface-variant max-w-sm">
+                    Dispatches from twentieth-century crossroads: dystopias,
+                    phantom towns, and magical realism.
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+                  <div className="flex flex-col sm:flex-row gap-space-md p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-md group">
+                    <div className="sm:w-44 h-56 rounded-lg overflow-hidden bg-surface-container-lowest flex-shrink-0">
+                      <img
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        alt="Subdued melancholic Tokyo 1969 rainy street with dark neon reflections and deep amber cafe lamp through frosted glass in cinematic grain"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD333UBM3IQewl1rdDVSP24y4_MOlFrTkzZW0uvsqplFdDIbfu_VBp1N6Cl9PMbyjWEzH5Z2gVDne7IVEzxek3nHqWv3X9phMlHMA1fexsGT_o4D86hXLzq5Ah-De_hrVuZmDCUZvx7IKIWs7Piv07BLwwv-vRJ-9o6j7NjWPQskWAVQ_aXHDUVSRMHs47ooyd16-7hbyrKI58h_w4FVdk_J4jhk-wCrDicpji4rg"
+                      />
+                    </div>
+                    <div className="flex flex-col justify-between space-y-space-xs">
+                      <div className="space-y-1">
+                        <span className="font-label-caps text-label-caps text-primary tracking-wider uppercase">
+                          Japan • 1987
+                        </span>
+                        <h3 className="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                          Norwegian Wood
+                        </h3>
+                        <p className="font-label-md text-label-md text-on-surface-variant font-medium">
+                          Haruki Murakami
+                        </p>
+                        <p className="font-body-md text-body-md text-on-surface-variant pt-space-xs">
+                          An evocative elegy for lost youth, collegiate
+                          rebellion, and grief intertwined with the haunting
+                          melody of the Beatles.
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-space-md font-label-md text-label-md text-on-surface-variant pt-space-xs">
+                        <span className="inline-flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[16px]">
+                            record_voice_over
+                          </span>
+                          First-person
+                        </span>
+                        <span className="inline-flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[16px]">
+                            translate
+                          </span>
+                          40+ editions
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-space-md p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-md group">
+                    <div className="sm:w-44 h-56 rounded-lg overflow-hidden bg-surface-container-lowest flex-shrink-0">
+                      <img
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        alt="Dense atmospheric magical jungle with glowing yellow butterflies and solitary colonial iron bed in mysterious nocturnal lighting"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqai7aDpxlxX4KR5uLsjgOT3NVO4KkaDWcS9kS4INl3_l2vvdudW6IblUAXNi2KP-d1nFYbA82cgqe8uI7XjAW588UchCOpHxfL9kNALHfOeodDQn_X3bkdoW9wSzHBYXJ4PJinRZH0WhXAOFRL9YsGsoqamWNWHGGj0e4Yub4wmmIPMfcGU7ujZwqCG7y3y5WPK9sV4xVSbAdtyR75cEXkXLngndGiBGb8PAPFw"
+                      />
+                    </div>
+                    <div className="flex flex-col justify-between space-y-space-xs">
+                      <div className="space-y-1">
+                        <span className="font-label-caps text-label-caps text-primary tracking-wider uppercase">
+                          Colombia • 1967
+                        </span>
+                        <h3 className="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                          One Hundred Years of Solitude
+                        </h3>
+                        <p className="font-label-md text-label-md text-on-surface-variant font-medium">
+                          Gabriel García Márquez
+                        </p>
+                        <p className="font-body-md text-body-md text-on-surface-variant pt-space-xs">
+                          Seven generations of the Buendía family trapped in
+                          cyclical tragedy, alchemy, and rain that never ceases
+                          over Macondo.
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-space-md font-label-md text-label-md text-on-surface-variant pt-space-xs">
+                        <span className="inline-flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[16px]">
+                            cyclone
+                          </span>
+                          Multi-generational
+                        </span>
+                        <span className="inline-flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[16px]">
+                            stars
+                          </span>
+                          Nobel Prize
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-space-md p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-md group">
+                    <div className="sm:w-44 h-56 rounded-lg overflow-hidden bg-surface-container-lowest flex-shrink-0">
+                      <img
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        alt="Monolithic brutalist surveillance tower under leaden dystopian grey sky with faint amber telescreen glow in deep shadows"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7a7kHyAci1yEj0tVAOjqkE3ilUPaIAKivmTt8NYaSyB5i_4iLsOqsRRHgRUy_sTtz-kVhP-bMsSI-ngMHv4X_CuW7BFSaMxa351o2ZCWILPd_kyGAJpmbt4AtWE6S1mG-vPhKq8o3cs1Sa_7jnU5jos4XC0IhdtC298pEOlVOVxn-gGjuXeYy81bIdt_AQlQheEmWkV8aUSMDudCAY9xlStKR-FZW8qUcWZOyQg"
+                      />
+                    </div>
+                    <div className="flex flex-col justify-between space-y-space-xs">
+                      <div className="space-y-1">
+                        <span className="font-label-caps text-label-caps text-primary tracking-wider uppercase">
+                          United Kingdom • 1949
+                        </span>
+                        <h3 className="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                          1984
+                        </h3>
+                        <p className="font-label-md text-label-md text-on-surface-variant font-medium">
+                          George Orwell
+                        </p>
+                        <p className="font-body-md text-body-md text-on-surface-variant pt-space-xs">
+                          The definitive prophecy of systemic totalitarian
+                          control, linguistic erasure through Newspeak, and
+                          doublethink.
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-space-md font-label-md text-label-md text-on-surface-variant pt-space-xs">
+                        <span className="inline-flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[16px]">
+                            visibility
+                          </span>
+                          Panopticon
+                        </span>
+                        <span className="inline-flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[16px]">
+                            bolt
+                          </span>
+                          Seminal text
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-space-md p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-md group">
+                    <div className="sm:w-44 h-56 rounded-lg overflow-hidden bg-surface-container-lowest flex-shrink-0">
+                      <img
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        alt="Ghost town in the arid Mexican desert at midnight with adobe walls, spectral whispers, faint starlight and warm dust clouds"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWR3erA2SabB0fdQ3jX2gmXnPrq2NEG2F_6uJfqIGeY-_fBdlbpxwuSVsA1LwCN18haeIEPchhvbjw_6mTocXjXwfBQoNCId0eoILwXEzJg_wbd5RiJdgE_eyBRHvezlkyvBLtBhEgSxL8zLgWohYwGoE5gyNW0lNLGFH5JK5UafLS20gKNOknRP6v-ZvktZS69lD3wbEnz8ec5T-EewmgNFFvrO9co1xdJbnPVQ"
+                      />
+                    </div>
+                    <div className="flex flex-col justify-between space-y-space-xs">
+                      <div className="space-y-1">
+                        <span className="font-label-caps text-label-caps text-primary tracking-wider uppercase">
+                          Mexico • 1955
+                        </span>
+                        <h3 className="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                          Pedro Páramo
+                        </h3>
+                        <p className="font-label-md text-label-md text-on-surface-variant font-medium">
+                          Juan Rulfo
+                        </p>
+                        <p className="font-body-md text-body-md text-on-surface-variant pt-space-xs">
+                          A wanderer enters the spectral town of Comala,
+                          discovering that every living inhabitant is merely a
+                          dead soul whispering.
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-space-md font-label-md text-label-md text-on-surface-variant pt-space-xs">
+                        <span className="inline-flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[16px]">
+                            graphic_eq
+                          </span>
+                          Polyphonic voices
+                        </span>
+                        <span className="inline-flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[16px]">
+                            hourglass_empty
+                          </span>
+                          128 pages
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section className="space-y-space-lg mb-space-2xl">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+                  <div>
+                    <div className="flex items-center gap-space-xs text-primary mb-1">
+                      <span className="material-symbols-outlined text-[18px]">
+                        school
+                      </span>
+                      <span className="font-label-caps text-label-caps uppercase tracking-wider">
+                        Lộ Trình Nhập Môn
+                      </span>
+                    </div>
+                    <h2 className="font-headline-lg text-headline-lg text-on-surface">
+                      Beginner-Friendly Pathways
+                      <span className="font-body-md text-body-md text-on-surface-variant font-normal ml-space-xs">
+                        (Dành Cho Người Mới Bắt Đầu)
+                      </span>
+                    </h2>
+                  </div>
+                  <div className="flex items-center gap-space-xs">
+                    <span className="font-label-caps text-label-caps px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant">
+                      CEFR Standardized
+                    </span>
+                    <span className="font-label-caps text-label-caps px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant">
+                      Annotated Vocabulary
+                    </span>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+                  <div className="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between space-y-space-md shadow-md">
+                    <div className="space-y-space-xs">
+                      <div className="flex items-center justify-between">
+                        <span className="px-space-xs py-0.5 rounded bg-secondary-container/20 text-secondary font-label-caps text-label-caps font-semibold">
+                          CEFR A2-B1
+                        </span>
+                        <span className="material-symbols-outlined text-primary text-[20px]">
+                          explore
+                        </span>
+                      </div>
+                      <h3 className="font-headline-sm text-headline-sm text-on-surface pt-space-xs">
+                        Dế Mèn Phiêu Lưu Ký
+                      </h3>
+                      <p className="font-label-md text-label-md text-primary">
+                        Tô Hoài
+                      </p>
+                      <p className="font-body-md text-body-md text-on-surface-variant">
+                        Vibrant natural world adventures imparting enduring
+                        lessons of humility, solidarity, and peace.
+                      </p>
+                    </div>
+                    <div className="pt-space-xs space-y-space-xs">
+                      <div className="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+                        <div className="bg-primary h-full w-2/5" />
+                      </div>
+                      <div className="flex justify-between font-label-md text-label-md text-on-surface-variant">
+                        <span>Accessibility</span>
+                        <span className="text-primary font-medium">
+                          Elementary
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between space-y-space-md shadow-md">
+                    <div className="space-y-space-xs">
+                      <div className="flex items-center justify-between">
+                        <span className="px-space-xs py-0.5 rounded bg-secondary-container/20 text-secondary font-label-caps text-label-caps font-semibold">
+                          CEFR B1
+                        </span>
+                        <span className="material-symbols-outlined text-primary text-[20px]">
+                          lightbulb
+                        </span>
+                      </div>
+                      <h3 className="font-headline-sm text-headline-sm text-on-surface pt-space-xs">
+                        The Alchemist
+                      </h3>
+                      <p className="font-label-md text-label-md text-primary">
+                        Paulo Coelho
+                      </p>
+                      <p className="font-body-md text-body-md text-on-surface-variant">
+                        Simple lyrical prose following Santiago's journey across
+                        Andalusia toward the Egyptian pyramids.
+                      </p>
+                    </div>
+                    <div className="pt-space-xs space-y-space-xs">
+                      <div className="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+                        <div className="bg-primary h-full w-1/2" />
+                      </div>
+                      <div className="flex justify-between font-label-md text-label-md text-on-surface-variant">
+                        <span>Accessibility</span>
+                        <span className="text-primary font-medium">
+                          Intermediate
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between space-y-space-md shadow-md">
+                    <div className="space-y-space-xs">
+                      <div className="flex items-center justify-between">
+                        <span className="px-space-xs py-0.5 rounded bg-secondary-container/20 text-secondary font-label-caps text-label-caps font-semibold">
+                          CEFR B2
+                        </span>
+                        <span className="material-symbols-outlined text-primary text-[20px]">
+                          theater_comedy
+                        </span>
+                      </div>
+                      <h3 className="font-headline-sm text-headline-sm text-on-surface pt-space-xs">
+                        Số Đỏ
+                      </h3>
+                      <p className="font-label-md text-label-md text-primary">
+                        Vũ Trọng Phụng
+                      </p>
+                      <p className="font-body-md text-body-md text-on-surface-variant">
+                        Scathing satire and comedic farce unmasking colonial
+                        bourgeois pretensions in 1930s Hanoi.
+                      </p>
+                    </div>
+                    <div className="pt-space-xs space-y-space-xs">
+                      <div className="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+                        <div className="bg-primary h-full w-3/4" />
+                      </div>
+                      <div className="flex justify-between font-label-md text-label-md text-on-surface-variant">
+                        <span>Accessibility</span>
+                        <span className="text-primary font-medium">
+                          Advanced Idioms
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between space-y-space-md shadow-md">
+                    <div className="space-y-space-xs">
+                      <div className="flex items-center justify-between">
+                        <span className="px-space-xs py-0.5 rounded bg-secondary-container/20 text-secondary font-label-caps text-label-caps font-semibold">
+                          CEFR B2-C1
+                        </span>
+                        <span className="material-symbols-outlined text-primary text-[20px]">
+                          balance
+                        </span>
+                      </div>
+                      <h3 className="font-headline-sm text-headline-sm text-on-surface pt-space-xs">
+                        To Kill a Mockingbird
+                      </h3>
+                      <p className="font-label-md text-label-md text-primary">
+                        Harper Lee
+                      </p>
+                      <p className="font-body-md text-body-md text-on-surface-variant">
+                        Childhood innocence confronts deeply entrenched racial
+                        prejudice and moral conscience in Maycomb.
+                      </p>
+                    </div>
+                    <div className="pt-space-xs space-y-space-xs">
+                      <div className="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+                        <div className="bg-primary h-full w-4/5" />
+                      </div>
+                      <div className="flex justify-between font-label-md text-label-md text-on-surface-variant">
+                        <span>Accessibility</span>
+                        <span className="text-primary font-medium">
+                          Upper-Intermediate
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section className="relative rounded-xl bg-surface-container-low overflow-hidden shadow-2xl p-space-lg md:p-space-2xl">
+                <div className="absolute -right-24 -bottom-24 w-96 h-96 rounded-full bg-primary/10 blur-[100px] pointer-events-none" />
+                <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-space-xl">
+                  <div className="space-y-space-sm max-w-2xl">
+                    <div className="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high text-primary">
+                      <span className="material-symbols-outlined text-[16px]">
+                        shelves
+                      </span>
+                      <span className="font-label-caps text-label-caps uppercase tracking-wider">
+                        Curator Sandbox
+                      </span>
+                    </div>
+                    <h2 className="font-headline-xl text-headline-xl text-on-surface">
+                      Design Your Own
+                      <span className="italic text-primary font-normal">
+                        Thematic Shelf
+                      </span>
+                    </h2>
+                    <p className="font-body-lg text-body-lg text-on-surface-variant">
+                      Construct tailored reader itineraries with personal
+                      marginalia, custom milestone paces, and cross-volume
+                      comparative glossaries. Sync shelves locally across
+                      devices instantly.
+                    </p>
+                  </div>
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md">
+                    <button
+                      className="px-space-lg py-space-sm rounded-lg bg-primary text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-space-xs hover:bg-primary-fixed transition-colors shadow-lg shadow-primary/20"
+                      id="buildShelfBtn"
+                    >
+                      <span className="material-symbols-outlined text-[20px]">
+                        add_circle
+                      </span>
+                      Build Custom Shelf
+                    </button>
+                    <button className="px-space-lg py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-space-xs transition-colors">
+                      <span className="material-symbols-outlined text-[20px]">
+                        auto_stories
+                      </span>
+                      Browse Scholarly Templates
+                    </button>
+                  </div>
+                </div>
+                <div
+                  className="hidden mt-space-md p-space-sm rounded-lg bg-surface-container-high text-primary font-label-md text-label-md flex items-center gap-space-xs"
+                  id="shelfNotification"
+                >
+                  <span className="material-symbols-outlined text-[18px]">
+                    check_circle
+                  </span>
+                  <span>
+                    New custom shelf sandbox initialized in local storage.
+                  </span>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer className="w-full bg-surface-container-lowest py-space-2xl mt-space-2xl">
+        <div className="max-w-[1440px] mx-auto px-margin md:px-margin-lg">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg pb-space-xl">
+            <div className="space-y-space-xs">
+              <div className="flex items-center gap-space-xs">
+                <span className="material-symbols-outlined text-primary text-[24px]">
+                  auto_stories
+                </span>
+                <span className="font-headline-sm text-headline-sm text-on-surface tracking-tight">
+                  BookBridge
+                </span>
+              </div>
+              <p className="font-body-md text-body-md text-on-surface-variant max-w-md">
+                A digital sanctuary for archival discovery, rare volume
+                curations, and contemplative scholarship.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-space-md lg:gap-space-lg">
+              <a
+                className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+                data-path="home"
+                href="#"
+              >
+                Home
+              </a>
+              <a
+                className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+                data-path="directory"
+                href="#"
+              >
+                Directory
+              </a>
+              <a
+                className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+                data-path="explorer"
+                href="#"
+              >
+                Explorer
+              </a>
+              <a
+                className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+                data-path="collections"
+                href="#"
+              >
+                Collections
+              </a>
+              <a
+                className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+                data-path="about"
+                href="#"
+              >
+                About
+              </a>
+              <a
+                className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+                data-path="contact"
+                href="#"
+              >
+                Contact
+              </a>
+            </div>
+          </div>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-lg">
+            <div className="flex items-center gap-space-xs text-on-surface-variant">
+              <span className="font-label-md text-label-md">
+                © 2026 BookBridge Archive. All rights reserved.
+              </span>
+            </div>
+            <div className="inline-flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-low rounded-full">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">
+                Local Persistence Active
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
