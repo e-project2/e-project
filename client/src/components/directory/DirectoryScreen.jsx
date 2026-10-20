@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useBooks } from '../../context/BookContext.jsx';
-import { BookCard } from './BookCard.jsx';
+import { BookCard } from '../BookCard.jsx';
 import { FilterSidebar } from './FilterSidebar.jsx';
 import { filterBooks } from '../../utils/filterEngine.js';
 import { Icon } from '../common/Icon.jsx';
