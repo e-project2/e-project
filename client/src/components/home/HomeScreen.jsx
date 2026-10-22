@@ -3,7 +3,7 @@ import { useBooks } from '../../context/BookContext.jsx';
 import { useReadingTracker } from '../../context/ReadingTrackerContext.jsx';
 import { BookCard } from '../BookCard.jsx';
 
-export function HomeScreen({ onNavigate, onSelectBook, onSelectAuthor }) {
+export function HomeScreen({ onNavigate, onSelectBook, onSelectAuthor, onOpenReader }) {
   const { books, updateFilters } = useBooks();
   const { readingList, activeBook, currentProgress } = useReadingTracker();
   const [searchInput, setSearchInput] = useState('');
@@ -357,6 +357,7 @@ export function HomeScreen({ onNavigate, onSelectBook, onSelectAuthor }) {
                 book={book}
                 onSelect={onSelectBook}
                 onSelectAuthor={onSelectAuthor}
+                onRead={onOpenReader}
               />
             ))}
           </div>

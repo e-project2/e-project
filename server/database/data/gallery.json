@@ -2,7 +2,7 @@
   {
     "_id": "gal-01",
     "bookId": "bk-01",
-    "imageUrl": "/images/gallery/1984-concept.jpg",
+    "imageUrl": "/images/gallery/1984-concept.svg",
     "caption": "Poster nghệ thuật đồ họa London 1984 dưới con mắt giám sát của Big Brother",
     "credit": "Vintage Arts Archive",
     "aspect": "portrait"
@@ -10,7 +10,7 @@
   {
     "_id": "gal-02",
     "bookId": "bk-03",
-    "imageUrl": "/images/gallery/little-prince-stars.jpg",
+    "imageUrl": "/images/gallery/little-prince-stars.svg",
     "caption": "Hoàng tử bé và bông hồng trên tiểu tinh cầu B-612 giữa vũ trụ bao la",
     "credit": "Estate of Saint-Exupéry",
     "aspect": "landscape"
@@ -18,7 +18,7 @@
   {
     "_id": "gal-03",
     "bookId": "bk-05",
-    "imageUrl": "/images/gallery/norwegian-wood-mood.jpg",
+    "imageUrl": "/images/gallery/norwegian-wood-mood.svg",
     "caption": "Không gian Tokyo thập niên 60 trong giai điệu u hoài của bài hát Norwegian Wood",
     "credit": "Literary Film Stills Collection",
     "aspect": "landscape"
@@ -26,7 +26,7 @@
   {
     "_id": "gal-04",
     "bookId": "bk-07",
-    "imageUrl": "/images/gallery/metamorphosis-sketch.jpg",
+    "imageUrl": "/images/gallery/metamorphosis-sketch.svg",
     "caption": "Bản phác thảo phong cách Expressionism căn phòng của Gregor Samsa",
     "credit": "Prague Literary Museum Archive",
     "aspect": "portrait"
@@ -34,7 +34,7 @@
   {
     "_id": "gal-05",
     "bookId": "bk-09",
-    "imageUrl": "/images/gallery/macondo-dream.jpg",
+    "imageUrl": "/images/gallery/macondo-dream.svg",
     "caption": "Ngôi làng Macondo huyền ảo với những cơn mưa hoa vàng và bướm vàng",
     "credit": "Latin American Cultural Foundation",
     "aspect": "square"
@@ -42,7 +42,7 @@
   {
     "_id": "gal-06",
     "bookId": "bk-11",
-    "imageUrl": "/images/gallery/chi-pheo-art.jpg",
+    "imageUrl": "/images/gallery/chi-pheo-art.svg",
     "caption": "Minh họa làng Vũ Đại và lò gạch cũ trong tác phẩm Chí Phèo",
     "credit": "Hội Mỹ thuật Việt Nam Heritage",
     "aspect": "portrait"

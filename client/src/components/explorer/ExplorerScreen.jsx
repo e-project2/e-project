@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useBooks } from '../../context/BookContext.jsx';
-import { BookCard } from '../directory/BookCard.jsx';
+import { BookCard } from '../BookCard.jsx';
 import { LANGUAGES } from '../../constants/languages.js';
 import { GENRES } from '../../constants/genres.js';
 import { Icon } from '../common/Icon.jsx';
 
-export function ExplorerScreen({ onSelectBook, onSelectAuthor }) {
+export function ExplorerScreen({ onSelectBook, onSelectAuthor, onOpenReader }) {
   const { books } = useBooks();
   const [selectedLanguage, setSelectedLanguage] = useState('Vietnamese');
   const [selectedGenre, setSelectedGenre] = useState('All');
@@ -147,7 +147,9 @@ export function ExplorerScreen({ onSelectBook, onSelectAuthor }) {
                 <BookCard
                   key={book._id || book.id}
                   book={book}
+                  onSelect={onSelectBook}
                   onSelectBook={onSelectBook}
+                  onRead={onOpenReader}
                   onSelectAuthor={onSelectAuthor}
                 />
               ))}

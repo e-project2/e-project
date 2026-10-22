@@ -23,7 +23,18 @@ export async function getUserProgress(req, res, next) {
       })
       .sort({ lastUpdated: -1 });
 
-    return sendSuccess(res, list, 'Lấy danh sách tiến trình đọc thành công!');
+    // Normalize any legacy records in DB where totalPages was 140 / 296 down to 3
+    const normalizedList = list.map(item => {
+      const obj = item.toObject();
+      if (obj.totalPages > 3 || obj.totalPages !== 3) {
+        obj.totalPages = 3;
+        obj.currentPage = obj.status === 'Completed' ? 3 : Math.min(Number(obj.currentPage) || 0, 3);
+        obj.percentage = Math.round((obj.currentPage / 3) * 100);
+      }
+      return obj;
+    });
+
+    return sendSuccess(res, normalizedList, 'Lấy danh sách tiến trình đọc thành công!');
   } catch (error) {
     next(error);
   }
@@ -42,7 +53,14 @@ export async function getBookProgress(req, res, next) {
       return sendSuccess(res, null, 'Chưa có tiến trình đọc cho cuốn sách này.');
     }
 
-    return sendSuccess(res, progress, 'Lấy tiến trình đọc của sách thành công!');
+    const obj = progress.toObject();
+    if (obj.totalPages > 3 || obj.totalPages !== 3) {
+      obj.totalPages = 3;
+      obj.currentPage = obj.status === 'Completed' ? 3 : Math.min(Number(obj.currentPage) || 0, 3);
+      obj.percentage = Math.round((obj.currentPage / 3) * 100);
+    }
+
+    return sendSuccess(res, obj, 'Lấy tiến trình đọc của sách thành công!');
   } catch (error) {
     next(error);
   }
@@ -63,19 +81,19 @@ export async function upsertProgress(req, res, next) {
       return sendError(res, `Không tìm thấy cuốn sách với mã '${bookId}'.`, 404);
     }
 
-    const effectiveTotalPages = totalPages ? Number(totalPages) : book.pageCount;
-    const effectiveCurrentPage = currentPage !== undefined ? Number(currentPage) : 0;
+    const effectiveTotalPages = totalPages ? Number(totalPages) : 3;
+    let effectiveCurrentPage = currentPage !== undefined ? Number(currentPage) : 0;
 
     if (effectiveCurrentPage < 0) {
       return sendError(res, 'Số trang đã đọc không được nhỏ hơn 0.', 400);
     }
 
+    if (status === 'Completed' && (effectiveCurrentPage === 0 || effectiveCurrentPage < effectiveTotalPages)) {
+      effectiveCurrentPage = effectiveTotalPages;
+    }
+
     if (effectiveCurrentPage > effectiveTotalPages) {
-      return sendError(
-        res,
-        `Số trang đã đọc (${effectiveCurrentPage}) không được vượt quá tổng số trang (${effectiveTotalPages}).`,
-        400
-      );
+      effectiveCurrentPage = effectiveTotalPages;
     }
 
     let progress = await ReadingProgress.findOne({ userId, bookId });
@@ -87,13 +105,13 @@ export async function upsertProgress(req, res, next) {
         bookId,
         currentPage: effectiveCurrentPage,
         totalPages: effectiveTotalPages,
-        status: status || (effectiveCurrentPage > 0 ? 'Reading' : 'To Read'),
+        status: status || (effectiveCurrentPage >= effectiveTotalPages ? 'Completed' : (effectiveCurrentPage > 0 ? 'Reading' : 'To Read')),
         notes: notes || ''
       });
     } else {
       // Cập nhật
-      if (currentPage !== undefined) progress.currentPage = effectiveCurrentPage;
-      if (totalPages !== undefined) progress.totalPages = effectiveTotalPages;
+      progress.currentPage = effectiveCurrentPage;
+      progress.totalPages = effectiveTotalPages;
       if (notes !== undefined) progress.notes = notes;
       if (status) progress.status = status;
     }

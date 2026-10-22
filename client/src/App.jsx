@@ -24,9 +24,11 @@ import { AdminScreen } from './components/admin/AdminScreen.jsx';
 import { BookDetailModal } from './components/details/BookDetailModal.jsx';
 import { AuthorProfileModal } from './components/authors/AuthorProfileModal.jsx';
 import { AuthModal } from './components/auth/AuthModal.jsx';
+import { BookReaderModal } from './components/reader/BookReaderModal.jsx';
 
 function MainLayout() {
   const [activeRoute, setActiveRoute] = useState('home');
+  const [readingBook, setReadingBook] = useState(null);
   const {
     books,
     selectedBook,
@@ -105,6 +107,7 @@ function MainLayout() {
             onNavigate={handleNavigate}
             onSelectBook={handleSelectBook}
             onSelectAuthor={handleSelectAuthor}
+            onOpenReader={(b) => setReadingBook(b)}
           />
         )}
 
@@ -112,6 +115,7 @@ function MainLayout() {
           <DirectoryScreen
             onSelectBook={handleSelectBook}
             onSelectAuthor={handleSelectAuthor}
+            onOpenReader={(b) => setReadingBook(b)}
           />
         )}
 
@@ -119,6 +123,7 @@ function MainLayout() {
           <ExplorerScreen
             onSelectBook={handleSelectBook}
             onSelectAuthor={handleSelectAuthor}
+            onOpenReader={(b) => setReadingBook(b)}
           />
         )}
 
@@ -126,6 +131,7 @@ function MainLayout() {
           <CollectionsScreen
             onSelectBook={handleSelectBook}
             onSelectAuthor={handleSelectAuthor}
+            onOpenReader={(b) => setReadingBook(b)}
           />
         )}
 
@@ -137,6 +143,7 @@ function MainLayout() {
           <MyLibraryScreen
             onNavigate={handleNavigate}
             onSelectBook={handleSelectBook}
+            onOpenReader={(b) => setReadingBook(b)}
           />
         )}
 
@@ -171,6 +178,7 @@ function MainLayout() {
                       key={book._id || book.id}
                       book={book}
                       onSelect={handleSelectBook}
+                      onRead={(b) => setReadingBook(b)}
                       onBookmark={(b, saved) => console.log('Bookmark toggled:', b.title, saved)}
                     />
                   ))}
@@ -200,6 +208,17 @@ function MainLayout() {
           onClose={() => setSelectedBook(null)}
           onSelectAuthor={handleSelectAuthor}
           onSelectRelatedBook={(b) => setSelectedBook(b)}
+          onOpenReader={(b) => {
+            setSelectedBook(null);
+            setReadingBook(b);
+          }}
+        />
+      )}
+
+      {readingBook && (
+        <BookReaderModal
+          book={readingBook}
+          onClose={() => setReadingBook(null)}
         />
       )}
 

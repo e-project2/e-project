@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useFavorites } from '../context/FavoritesContext.jsx';
 import { Icon } from './common/Icon.jsx';
 
 /**
@@ -26,12 +27,17 @@ import { Icon } from './common/Icon.jsx';
 export function BookCard({
   book = {},
   onSelect,
+  onSelectBook,
   onBookmark,
   onAddToCart,
+  onRead,
   className = ''
 }) {
+  const { isFavorite, toggleFavorite } = useFavorites();
+  const bookId = book._id || book.id;
+  const isBookmarked = isFavorite(bookId);
+  const handleSelectCallback = onSelect || onSelectBook;
   const [imageError, setImageError] = useState(false);
-  const [bookmarked, setBookmarked] = useState(false);
 
   // Destructure book properties with safe fallbacks
   const {
@@ -64,23 +70,22 @@ export function BookCard({
 
   const handleBookmarkClick = (e) => {
     e.stopPropagation();
-    const nextState = !bookmarked;
-    setBookmarked(nextState);
+    toggleFavorite(bookId);
     if (onBookmark) {
-      onBookmark(book, nextState);
+      onBookmark(book, !isBookmarked);
     }
   };
 
   const handleCardClick = () => {
-    if (onSelect) {
-      onSelect(book);
+    if (handleSelectCallback) {
+      handleSelectCallback(book);
     }
   };
 
   const handleActionClick = (e) => {
     e.stopPropagation();
-    if (onSelect) {
-      onSelect(book);
+    if (handleSelectCallback) {
+      handleSelectCallback(book);
     } else if (onAddToCart) {
       onAddToCart(book);
     }
@@ -96,7 +101,7 @@ export function BookCard({
         {/* Cover Image or Fallback */}
         {coverImage && !imageError ? (
           <img
-            src={coverImage}
+            src={coverImage.startsWith('/images/') && coverImage.endsWith('.jpg') ? coverImage.replace(/\.jpg$/, '.svg') : coverImage}
             alt={title}
             onError={() => setImageError(true)}
             loading="lazy"
@@ -142,24 +147,45 @@ export function BookCard({
         <button
           type="button"
           onClick={handleBookmarkClick}
-          aria-label={bookmarked ? `Remove ${title} from bookmarks` : `Bookmark ${title}`}
-          className={`absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-200 shadow-md z-10 transform hover:scale-110 active:scale-90 ${bookmarked
+          aria-label={isBookmarked ? `Remove ${title} from bookmarks` : `Bookmark ${title}`}
+          className={`absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-200 shadow-md z-10 transform hover:scale-110 active:scale-90 cursor-pointer ${isBookmarked
               ? 'bg-rose-500 text-white shadow-rose-500/30'
               : 'bg-white/90 dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 hover:text-rose-500 dark:hover:text-rose-400'
             }`}
+          title={isBookmarked ? 'Bỏ yêu thích' : 'Thêm vào yêu thích (Thư viện cá nhân)'}
         >
           <Icon
-            name={bookmarked ? 'favorite' : 'bookmark_add'}
+            name={isBookmarked ? 'favorite' : 'bookmark_add'}
             className="text-[18px]"
           />
         </button>
 
-        {/* Quick View Button (Revealed on Hover) */}
-        <div className="absolute inset-x-3 bottom-3 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0 transition-all duration-300 ease-out">
-          <span className="w-full py-2 px-3 rounded-xl bg-white/95 dark:bg-slate-900/95 text-slate-900 dark:text-slate-100 font-semibold text-xs text-center backdrop-blur-md shadow-lg border border-white/20 flex items-center justify-center gap-1.5 hover:bg-amber-500 hover:text-slate-950 transition-colors">
-            <Icon name="visibility" className="text-[16px]" />
-            <span>Quick Preview</span>
-          </span>
+        {/* Quick View & Read Buttons (Revealed on Hover) */}
+        <div className="absolute inset-x-3 bottom-3 z-10 flex items-center gap-2 opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0 transition-all duration-300 ease-out">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              if (onRead) onRead(book);
+              else if (handleSelectCallback) handleSelectCallback(book);
+            }}
+            className="flex-1 py-2 px-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs text-center backdrop-blur-md shadow-lg flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+            title="Đọc trực tiếp sách này"
+          >
+            <Icon name="auto_stories" className="text-[15px]" />
+            <span>Đọc sách</span>
+          </button>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              if (handleSelectCallback) handleSelectCallback(book);
+            }}
+            className="py-2 px-2.5 rounded-xl bg-white/95 dark:bg-slate-900/95 text-slate-800 dark:text-slate-200 font-semibold text-xs text-center backdrop-blur-md shadow-lg border border-white/20 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+            title="Xem chi tiết"
+          >
+            <Icon name="visibility" className="text-[15px]" />
+          </button>
         </div>
       </div>
 

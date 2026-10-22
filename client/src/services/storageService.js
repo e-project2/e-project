@@ -4,11 +4,28 @@
  */
 
 const STORAGE_KEYS = {
-  FAVORITES: 'bookbridge_v1_favorites',
-  TRACKER: 'bookbridge_v1_reading_tracker',
+  FAVORITES: 'bookbridge_v2_favorites',
+  TRACKER: 'bookbridge_v2_reading_tracker',
   THEME: 'bookbridge_theme',
   AUTH: 'bookbridge_auth_user'
 };
+
+// Auto-purge any favorites or reading tracker from localStorage (only Database is source of truth)
+if (typeof window !== 'undefined' && window.localStorage) {
+  try {
+    const keysToRemove = [
+      'bookbridge_v1_favorites',
+      'bookbridge_v2_favorites',
+      'bookbridge_favorites',
+      'bookbridge_v1_reading_tracker',
+      'bookbridge_v2_reading_tracker',
+      'bookbridge_reading_tracker'
+    ];
+    keysToRemove.forEach(k => window.localStorage.removeItem(k));
+  } catch (e) {
+    // Ignore storage restrictions
+  }
+}
 
 // In-memory fallback if localStorage is blocked (Private browsing, cookies disabled)
 const memoryStorage = new Map();
@@ -51,7 +68,6 @@ export const storageService = {
       return true;
     } catch (error) {
       console.error(`Error setting key "${key}" in storage:`, error);
-      // Fallback to memory
       memoryStorage.set(key, value);
       return false;
     }
@@ -70,43 +86,29 @@ export const storageService = {
     }
   },
 
-  // Specialized helpers
+  // Favorites and Reading Tracker are purely Database-driven (no localStorage saving)
   getFavorites() {
-    return this.get(STORAGE_KEYS.FAVORITES, ['bk-01', 'bk-03', 'bk-11']);
+    return [];
   },
 
-  setFavorites(favoritesArray) {
-    return this.set(STORAGE_KEYS.FAVORITES, Array.from(new Set(favoritesArray)));
+  setFavorites() {
+    return true;
+  },
+
+  clearFavorites() {
+    return [];
   },
 
   getReadingTracker() {
-    return this.get(STORAGE_KEYS.TRACKER, {
-      'bk-01': {
-        status: 'Reading',
-        currentPage: 142,
-        totalPages: 328,
-        percentage: 43,
-        lastUpdated: new Date().toISOString()
-      },
-      'bk-03': {
-        status: 'Completed',
-        currentPage: 96,
-        totalPages: 96,
-        percentage: 100,
-        lastUpdated: new Date().toISOString()
-      },
-      'bk-11': {
-        status: 'To Read',
-        currentPage: 0,
-        totalPages: 85,
-        percentage: 0,
-        lastUpdated: new Date().toISOString()
-      }
-    });
+    return {};
   },
 
-  setReadingTracker(trackerObj) {
-    return this.set(STORAGE_KEYS.TRACKER, trackerObj);
+  setReadingTracker() {
+    return true;
+  },
+
+  clearReadingTracker() {
+    return {};
   },
 
   getTheme() {

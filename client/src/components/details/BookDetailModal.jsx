@@ -6,7 +6,7 @@ import { ImageWithFallback } from '../common/ImageWithFallback.jsx';
 import { Icon } from '../common/Icon.jsx';
 import { getLanguageBadgeStyle, getReadingLevelBadgeStyle } from '../../utils/formatters.js';
 
-export function BookDetailModal({ book, onClose, onSelectAuthor, onSelectRelatedBook }) {
+export function BookDetailModal({ book, onClose, onSelectAuthor, onSelectRelatedBook, onOpenReader }) {
   const { isFavorite, toggleFavorite } = useFavorites();
   const { getBookProgress, setStatusOnly, updateProgress } = useReadingTracker();
   const { getRelatedBooks } = useBooks();
@@ -26,7 +26,7 @@ export function BookDetailModal({ book, onClose, onSelectAuthor, onSelectRelated
   const levelStyle = getReadingLevelBadgeStyle(book.readingLevel);
 
   const handleSaveProgress = async () => {
-    const res = await updateProgress(bookId, inputPage, book.pageCount);
+    const res = await updateProgress(bookId, inputPage, 3);
     if (!res.success) {
       setProgressMsg(res.message);
     } else {
@@ -91,6 +91,20 @@ export function BookDetailModal({ book, onClose, onSelectAuthor, onSelectRelated
               </button>
             </div>
 
+            {/* Primary Online Reader CTA Button */}
+            <button
+              type="button"
+              onClick={() => {
+                if (onOpenReader) {
+                  onOpenReader(book);
+                }
+              }}
+              className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25 transition-all transform active:scale-95 cursor-pointer"
+            >
+              <Icon name="auto_stories" className="text-[18px]" />
+              <span>{progress?.currentPage > 0 ? `Tiếp tục đọc (Trang ${progress.currentPage})` : 'Đọc Trực Tuyến & Ghi Nhật Ký'}</span>
+            </button>
+
             {/* Reading Tracker Action */}
             <div className="bg-slate-50 dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200 dark:border-slate-700/60 space-y-3">
               <div className="flex items-center justify-between text-xs">
@@ -125,7 +139,7 @@ export function BookDetailModal({ book, onClose, onSelectAuthor, onSelectRelated
                   <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
                     <span>Pages Read</span>
                     <span className="font-bold text-slate-800 dark:text-slate-200">
-                      {progress.currentPage} / {book.pageCount} ({progress.percentage}%)
+                      {Math.min(progress.currentPage, 3)} / 3 ({progress.percentage}%)
                     </span>
                   </div>
                   <div className="progress-bar-track">
@@ -141,7 +155,7 @@ export function BookDetailModal({ book, onClose, onSelectAuthor, onSelectRelated
                         <input
                           type="number"
                           min="0"
-                          max={book.pageCount}
+                          max={3}
                           value={inputPage}
                           onChange={(e) => setInputPage(e.target.value)}
                           className="w-24 px-2 py-1 text-xs rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"

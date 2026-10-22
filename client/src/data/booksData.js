@@ -12,9 +12,14 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1949,
     "pageCount": 328,
-    "coverImage": "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/1984.svg",
     "synopsis": "Một kiệt tác phản địa đàng mô tả một xã hội độc tài toàn trị dưới sự giám sát tối cao của Anh Cả (Big Brother), nơi ngay cả suy nghĩ cũng bị kiểm duyệt bởi Cảnh sát Tư tưởng.",
-    "themes": ["Totalitarianism", "Surveillance", "Freedom of Speech", "Psychological Manipulation"],
+    "themes": [
+      "Totalitarianism",
+      "Surveillance",
+      "Freedom of Speech",
+      "Psychological Manipulation"
+    ],
     "targetAudience": "Young Adults & Adults",
     "rating": 4.9,
     "isFeatured": true
@@ -32,9 +37,14 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1945,
     "pageCount": 140,
-    "coverImage": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/animal-farm.svg",
     "synopsis": "Truyện ngụ ngôn chính trị sâu sắc về một cuộc nổi dậy của đàn gia súc trong nông trại nhằm lật đổ người chủ, nhưng dần rơi vào sự cai trị độc đoán mới của loài heo.",
-    "themes": ["Power Corruption", "Class Struggle", "Propaganda", "Revolution"],
+    "themes": [
+      "Power Corruption",
+      "Class Struggle",
+      "Propaganda",
+      "Revolution"
+    ],
     "targetAudience": "All Ages",
     "rating": 4.7,
     "isFeatured": true
@@ -52,9 +62,14 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1943,
     "pageCount": 96,
-    "coverImage": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/little-prince.svg",
     "synopsis": "Chuyến du hành liên hành tinh của một hoàng tử bé thơ ngây, gặp gỡ phi công bị rơi máy bay trên sa mạc Sahara, hé lộ những bài học sâu sắc về bản chất của tình yêu và sự gắn kết.",
-    "themes": ["Love & Attachment", "Childlike Wonder", "Human Solitude", "True Value"],
+    "themes": [
+      "Love & Attachment",
+      "Childlike Wonder",
+      "Human Solitude",
+      "True Value"
+    ],
     "targetAudience": "Children & Adults",
     "rating": 4.95,
     "isFeatured": true
@@ -72,9 +87,13 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1931,
     "pageCount": 180,
-    "coverImage": "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/night-flight.svg",
     "synopsis": "Tác phẩm đoạt giải Prix Femina về những chuyến bay đêm chở bưu phẩm xuyên Nam Mỹ đầy hiểm nguy, thể hiện lòng dũng cảm và tinh thần trách nhiệm vượt qua giới hạn thể xác.",
-    "themes": ["Duty & Responsibility", "Courage", "Nature vs Man"],
+    "themes": [
+      "Duty & Responsibility",
+      "Courage",
+      "Nature vs Man"
+    ],
     "targetAudience": "Adults",
     "rating": 4.4,
     "isFeatured": false
@@ -92,9 +111,14 @@ export const booksData = [
     "period": "Contemporary",
     "publicationYear": 1987,
     "pageCount": 296,
-    "coverImage": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/norwegian-wood.svg",
     "synopsis": "Hồi ức hoài niệm của Toru Watanabe về tuổi thanh xuân tại Tokyo những năm 1960, những mất mát đau thương và mối quan hệ phức tạp với hai cô gái mang tâm hồn đối lập Naoko và Midori.",
-    "themes": ["Youth & Grief", "Mental Health", "Love & Loss", "Nostalgia"],
+    "themes": [
+      "Youth & Grief",
+      "Mental Health",
+      "Love & Loss",
+      "Nostalgia"
+    ],
     "targetAudience": "Young Adults & Adults",
     "rating": 4.6,
     "isFeatured": true
@@ -112,9 +136,14 @@ export const booksData = [
     "period": "Contemporary",
     "publicationYear": 2002,
     "pageCount": 505,
-    "coverImage": "https://images.unsplash.com/photo-1476275466078-4007374efbbe?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/kafka-shore.svg",
     "synopsis": "Hai tuyến truyện song song kỳ ảo đan xen: Cậu bé Kafka Tamura bỏ trốn khỏi lời nguyền gia đình và cụ già Nakata có năng lực trò chuyện với loài mèo.",
-    "themes": ["Fate & Free Will", "Magical Realism", "Subconscious", "Music & Prophecy"],
+    "themes": [
+      "Fate & Free Will",
+      "Magical Realism",
+      "Subconscious",
+      "Music & Prophecy"
+    ],
     "targetAudience": "Adults",
     "rating": 4.75,
     "isFeatured": true
@@ -132,9 +161,14 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1915,
     "pageCount": 120,
-    "coverImage": "https://images.unsplash.com/photo-1495640388908-05fa85288e61?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/metamorphosis.svg",
     "synopsis": "Gregor Samsa thức dậy sau một giấc mơ bất an và thấy mình đã biến thành một con côn trùng khổng lồ gớm ghiếc, kéo theo sự xa lánh và ruồng bỏ lạnh lùng từ chính gia đình anh.",
-    "themes": ["Alienation", "Family Burden", "Existential Crisis", "Dehumanization"],
+    "themes": [
+      "Alienation",
+      "Family Burden",
+      "Existential Crisis",
+      "Dehumanization"
+    ],
     "targetAudience": "Adults",
     "rating": 4.65,
     "isFeatured": true
@@ -152,9 +186,13 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1925,
     "pageCount": 255,
-    "coverImage": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/the-trial.svg",
     "synopsis": "Josef K. bất ngờ bị bắt giữ và truy tố bởi một hệ thống tòa án bí ẩn mà không hề được thông báo về tội danh của mình, dẫn dắt người đọc vào mê cung pháp lý phi lý.",
-    "themes": ["Bureaucracy", "Absurdity of Justice", "Guilt & Powerlessness"],
+    "themes": [
+      "Bureaucracy",
+      "Absurdity of Justice",
+      "Guilt & Powerlessness"
+    ],
     "targetAudience": "Adults & Scholars",
     "rating": 4.5,
     "isFeatured": false
@@ -172,9 +210,14 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1967,
     "pageCount": 417,
-    "coverImage": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/hundred-years.svg",
     "synopsis": "Biên niên sử huyền thoại qua bảy thế hệ của dòng họ Buendía tại ngôi làng biệt lập Macondo, một thiên sử thi đỉnh cao của trường phái hiện thực huyền ảo Mỹ Latin.",
-    "themes": ["Solitude", "Incest & Fate", "Repetition of History", "Myth & Memory"],
+    "themes": [
+      "Solitude",
+      "Incest & Fate",
+      "Repetition of History",
+      "Myth & Memory"
+    ],
     "targetAudience": "Adults",
     "rating": 4.85,
     "isFeatured": true
@@ -192,9 +235,13 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1961,
     "pageCount": 115,
-    "coverImage": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/coronel.svg",
     "synopsis": "Một đại tá già nghèo khó trải qua mười lăm năm mòn mỏi chờ đợi khoản lương hưu trợ cấp chiến tranh không bao giờ tới, cùng niềm hy vọng gửi gắm vào một con gà chọi.",
-    "themes": ["Patience & Dignity", "Poverty", "Political Indifference"],
+    "themes": [
+      "Patience & Dignity",
+      "Poverty",
+      "Political Indifference"
+    ],
     "targetAudience": "Adults",
     "rating": 4.4,
     "isFeatured": false
@@ -212,9 +259,17 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1941,
     "pageCount": 85,
+<<<<<<< HEAD
     "coverImage": "https://images.unsplash.com/photo-1491841573634-28140fc7ced7?auto=format&fit=crop&w=600&q=80",
+=======
+    "coverImage": "/images/books/chi-pheo.svg",
+>>>>>>> dee39b261a46b77d369dbf56938ed4e16d619535
     "synopsis": "Tấn bi kịch lưu manh hóa và khát vọng làm người lương thiện tuyệt vọng của Chí Phèo trong bối cảnh làng quê phong kiến Bắc Bộ ngột ngạt trước Cách mạng.",
-    "themes": ["Human Dignity", "Class Exploitation", "Awakening of Conscience"],
+    "themes": [
+      "Human Dignity",
+      "Class Exploitation",
+      "Awakening of Conscience"
+    ],
     "targetAudience": "General Readers & Students",
     "rating": 4.9,
     "isFeatured": true
@@ -232,9 +287,13 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1944,
     "pageCount": 240,
-    "coverImage": "https://images.unsplash.com/photo-1491841573634-28140fc7ced7?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/song-mon.svg",
     "synopsis": "Bức tranh chân thực về nỗi đau sống mòn, những giằng xé nội tâm và sự bế tắc của người trí thức tiểu tư sản nghèo trong vòng xoáy cơm áo gạo tiền.",
-    "themes": ["Wasted Potential", "Poverty & Idealism", "Psychological Struggles"],
+    "themes": [
+      "Wasted Potential",
+      "Poverty & Idealism",
+      "Psychological Struggles"
+    ],
     "targetAudience": "Young Adults & Adults",
     "rating": 4.7,
     "isFeatured": false
@@ -252,9 +311,14 @@ export const booksData = [
     "period": "Classic",
     "publicationYear": 1866,
     "pageCount": 671,
-    "coverImage": "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/crime-punishment.svg",
     "synopsis": "Cuộc vật lộn tâm lý dữ dội của cựu sinh viên nghèo Raskolnikov sau khi sát hại bà lão cầm đồ để thử thách lý thuyết 'vĩ nhân đứng trên luật pháp' của chính mình.",
-    "themes": ["Guilt & Conscience", "Redemption", "Moral Philosophy", "Superhuman Theory"],
+    "themes": [
+      "Guilt & Conscience",
+      "Redemption",
+      "Moral Philosophy",
+      "Superhuman Theory"
+    ],
     "targetAudience": "Adults",
     "rating": 4.88,
     "isFeatured": true
@@ -272,9 +336,14 @@ export const booksData = [
     "period": "Classic",
     "publicationYear": 1864,
     "pageCount": 160,
-    "coverImage": "https://images.unsplash.com/photo-1463320726281-696a485928c7?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/notes-underground.svg",
     "synopsis": "Bản tuyên ngôn triết học tiên phong cho chủ nghĩa hiện sinh, phơi bày những mâu thuẫn sâu kín, sự căm ghét bản thân và khát vọng tự do tuyệt đối của 'người dưới hầm'.",
-    "themes": ["Free Will", "Nihilism", "Irrational Human Nature", "Isolation"],
+    "themes": [
+      "Free Will",
+      "Nihilism",
+      "Irrational Human Nature",
+      "Isolation"
+    ],
     "targetAudience": "Philosophical Readers",
     "rating": 4.55,
     "isFeatured": false
@@ -292,9 +361,14 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1942,
     "pageCount": 159,
-    "coverImage": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/the-stranger.svg",
     "synopsis": "Meursault – một người đàn ông hờ hững với mọi quy ước xã hội, bị kết án tử hình không chỉ vì vụ nổ súng trên bãi biển mà chủ yếu vì anh không khóc trong đám tang mẹ.",
-    "themes": ["The Absurd", "Alienation", "Societal Conventions", "Authenticity"],
+    "themes": [
+      "The Absurd",
+      "Alienation",
+      "Societal Conventions",
+      "Authenticity"
+    ],
     "targetAudience": "Adults & Thinkers",
     "rating": 4.8,
     "isFeatured": true
@@ -312,9 +386,14 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1947,
     "pageCount": 308,
-    "coverImage": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/the-plague.svg",
     "synopsis": "Trận dịch hạch bùng phát phong tỏa thành phố Oran và cuộc chiến chống chọi đầy kiên cường của bác sĩ Rieux cùng những người bạn trước tai ương phi lý của số phận.",
-    "themes": ["Solidarity", "Human Resistance", "Suffering", "Duty"],
+    "themes": [
+      "Solidarity",
+      "Human Resistance",
+      "Suffering",
+      "Duty"
+    ],
     "targetAudience": "Adults",
     "rating": 4.72,
     "isFeatured": false
@@ -332,9 +411,13 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1932,
     "pageCount": 288,
-    "coverImage": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/brave-new-world.svg",
     "synopsis": "Viễn cảnh tương lai đen tối nơi loài người được nhân bản theo giai cấp trong ống nghiệm và bị kiểm soát bằng lạc thú nhân tạo và thuốc an thần soma.",
-    "themes": ["Technological Control", "Loss of Individuality", "Consumerism"],
+    "themes": [
+      "Technological Control",
+      "Loss of Individuality",
+      "Consumerism"
+    ],
     "targetAudience": "Young Adults & Adults",
     "rating": 4.68,
     "isFeatured": false
@@ -352,9 +435,13 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1939,
     "pageCount": 240,
-    "coverImage": "https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/wind-sand-stars.svg",
     "synopsis": "Hồi ký triết học về tình đồng đội phi công, sự mỏng manh của số phận và vẻ đẹp thiêng liêng của Trái Đất nhìn từ buồng lái trên cao.",
-    "themes": ["Human Fraternity", "Adventure", "Cosmic Perspective"],
+    "themes": [
+      "Human Fraternity",
+      "Adventure",
+      "Cosmic Perspective"
+    ],
     "targetAudience": "General Readers",
     "rating": 4.62,
     "isFeatured": false
@@ -372,9 +459,13 @@ export const booksData = [
     "period": "Contemporary",
     "publicationYear": 2009,
     "pageCount": 928,
-    "coverImage": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/1q84.svg",
     "synopsis": "Thế giới năm 1984 bị bẻ cong thành năm 1Q84 với hai mặt trăng lơ lửng trên bầu trời, nơi Aomame và Tengo tìm kiếm nhau giữa các giáo phái bí ẩn và người tí hon.",
-    "themes": ["Parallel Realities", "Love & Destiny", "Cults & Power"],
+    "themes": [
+      "Parallel Realities",
+      "Love & Destiny",
+      "Cults & Power"
+    ],
     "targetAudience": "Adults",
     "rating": 4.52,
     "isFeatured": false
@@ -392,9 +483,13 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1926,
     "pageCount": 352,
-    "coverImage": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/the-castle.svg",
     "synopsis": "Chàng trắc địa viên K. đến một ngôi làng phủ tuyết và tìm mọi cách tiếp cận chính quyền tòa lâu đài bí hiểm nhưng liên tục bị chối từ bởi bức tường hành chính vô hình.",
-    "themes": ["Unreachable Authority", "Isolation", "Hopeless Search for Meaning"],
+    "themes": [
+      "Unreachable Authority",
+      "Isolation",
+      "Hopeless Search for Meaning"
+    ],
     "targetAudience": "Scholars & Advanced Readers",
     "rating": 4.38,
     "isFeatured": false
@@ -412,9 +507,13 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1981,
     "pageCount": 128,
-    "coverImage": "https://images.unsplash.com/photo-1476275466078-4007374efbbe?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/cronica.svg",
     "synopsis": "Một vụ ám sát danh dự được báo trước cho toàn bộ cư dân thị trấn, nhưng chuỗi trùng hợp và sự thờ ơ tập thể đã khiến nó trở thành một thảm kịch không thể đảo ngược.",
-    "themes": ["Collective Guilt", "Honor Code", "Fate vs Inaction"],
+    "themes": [
+      "Collective Guilt",
+      "Honor Code",
+      "Fate vs Inaction"
+    ],
     "targetAudience": "All Readers",
     "rating": 4.65,
     "isFeatured": true
@@ -432,9 +531,17 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1948,
     "pageCount": 65,
+<<<<<<< HEAD
     "coverImage": "https://images.unsplash.com/photo-1491841573634-28140fc7ced7?auto=format&fit=crop&w=600&q=80",
+=======
+    "coverImage": "/images/books/doi-mat.svg",
+>>>>>>> dee39b261a46b77d369dbf56938ed4e16d619535
     "synopsis": "Tác phẩm ngắn kinh điển đặt ra vấn đề cách nhìn nhận người nông dân và thời cuộc của người trí thức trong những ngày đầu toàn quốc kháng chiến.",
-    "themes": ["Perspective", "Intellectual Responsibility", "Patriotism"],
+    "themes": [
+      "Perspective",
+      "Intellectual Responsibility",
+      "Patriotism"
+    ],
     "targetAudience": "Students & General",
     "rating": 4.78,
     "isFeatured": false
@@ -452,9 +559,14 @@ export const booksData = [
     "period": "Classic",
     "publicationYear": 1880,
     "pageCount": 824,
-    "coverImage": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/brothers-karamazov.svg",
     "synopsis": "Đỉnh cao tư tưởng thế giới xoay quanh vụ án giết cha và bốn người con trai đại diện cho các mặt đối lập: đam mê xác thịt, lý trí kiêu hãnh, đức tin thuần khiết và hận thù.",
-    "themes": ["Existence of God", "Moral Responsibility", "Patricide", "Forgiveness"],
+    "themes": [
+      "Existence of God",
+      "Moral Responsibility",
+      "Patricide",
+      "Forgiveness"
+    ],
     "targetAudience": "Advanced Thinkers",
     "rating": 4.92,
     "isFeatured": true
@@ -472,9 +584,14 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1942,
     "pageCount": 212,
-    "coverImage": "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/sisyphus.svg",
     "synopsis": "Luận đề triết học đặt câu hỏi liệu cuộc sống có đáng sống hay không, với biểu tượng chàng Sisyphus hạnh phúc khi không ngừng lăn tảng đá lên đỉnh núi.",
-    "themes": ["The Absurd", "Meaning of Life", "Rebellion", "Lucidity"],
+    "themes": [
+      "The Absurd",
+      "Meaning of Life",
+      "Rebellion",
+      "Lucidity"
+    ],
     "targetAudience": "Philosophical Readers",
     "rating": 4.7,
     "isFeatured": false
@@ -492,9 +609,13 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1938,
     "pageCount": 232,
-    "coverImage": "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/catalonia.svg",
     "synopsis": "Ký ức chân thực và trần trụi của George Orwell khi trực tiếp cầm súng chiến đấu trong cuộc Nội chiến Tây Ban Nha, đối mặt với sự phản bội chính trị.",
-    "themes": ["War Reality", "Political Betrayal", "Solidarity"],
+    "themes": [
+      "War Reality",
+      "Political Betrayal",
+      "Solidarity"
+    ],
     "targetAudience": "History & Literature Enthusiasts",
     "rating": 4.58,
     "isFeatured": false
@@ -512,13 +633,16 @@ export const booksData = [
     "period": "Contemporary",
     "publicationYear": 2014,
     "pageCount": 240,
-    "coverImage": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80",
+    "coverImage": "/images/books/men-without-women.svg",
     "synopsis": "Tuyển tập 7 truyện ngắn tinh tế về những người đàn ông cô đơn phải học cách chấp nhận sự trống vắng sau khi người phụ nữ họ yêu rời bỏ.",
-    "themes": ["Loss", "Grief", "Urban Loneliness", "Male Psychology"],
+    "themes": [
+      "Loss",
+      "Grief",
+      "Urban Loneliness",
+      "Male Psychology"
+    ],
     "targetAudience": "Adults",
     "rating": 4.45,
     "isFeatured": false
   }
 ];
-
-export default booksData;

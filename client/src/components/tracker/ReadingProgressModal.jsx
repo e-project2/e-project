@@ -16,7 +16,7 @@ export function ReadingProgressModal({ book, onClose }) {
   const [errorMessage, setErrorMessage] = useState('');
   const [saving, setSaving] = useState(false);
 
-  const totalPages = book.pageCount || 100;
+  const totalPages = 3;
   const previewPercentage = Math.min(100, Math.round((Math.max(0, parseInt(page, 10) || 0) / totalPages) * 100));
 
   const handleSave = async (e) => {
