@@ -1,6 +1,6 @@
 import React from 'react';
 import { useBooks } from '../../context/BookContext.jsx';
-import { BookCard } from '../directory/BookCard.jsx';
+import { BookCard } from '../BookCard.jsx';
 import { Icon } from '../common/Icon.jsx';
 
 export function CollectionsScreen({ onSelectBook, onSelectAuthor }) {

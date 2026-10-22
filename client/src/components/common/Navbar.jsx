@@ -34,71 +34,75 @@ export function Navbar({ activeRoute, onNavigate }) {
 
   return (
     <>
-      <header className="sticky-glass-header flex items-center">
-        <div className="bb-container flex items-center justify-between">
+      <header className="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+        <div className="h-20 max-w-[1440px] mx-auto px-6 lg:px-12 flex items-center justify-between gap-gutter">
           {/* Logo */}
           <div
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-3 cursor-pointer select-none group"
+            className="flex items-center gap-4 shrink-0 cursor-pointer select-none group"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-slate-900 to-blue-950 flex items-center justify-center text-amber-500 shadow-sm group-hover:scale-105 transition-transform">
-              <Icon name="auto_stories" className="text-[22px]" />
-            </div>
-            <div>
-              <span className="font-display text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
-                BookBridge
-              </span>
-              <span className="block text-[10px] tracking-wider uppercase text-amber-600 font-semibold -mt-1">
-                Literary Platform
-              </span>
-            </div>
+            <img
+              alt="BookBridge Logo"
+              className="h-8 w-auto object-contain transition-transform group-hover:scale-105"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEDzO_GBPm8isEUkTqlc0rXu0_CDktn0QcjBDQc8lwZ2oQyRpG9MkPFYhbvUKXmBhdK2GJgYVYAMhG2Vx6oj7aqnEb4cuLSFnSJK5356BnlaaQZo6m4C2iQsyTsxqQXmfC8dHRL30N8OSPQzTEYbxyaJZy0d3kun6iP7ROH7IBhuU9vkHTy06UR-JLKph1gjAHaH89kBMePOEsWbliDR50dnSmBfid-LCRtFZaQ"
+            />
+            <span className="font-headline-md text-headline-md tracking-tight text-primary font-bold">
+              BookBridge
+            </span>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center gap-1.5" aria-label="Main Navigation">
+          <nav className="hidden xl:flex items-center gap-1" aria-label="Main Navigation">
             {navItems.map((item) => {
               const isActive = activeRoute === item.id;
               return (
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`px-3.5 py-1.5 rounded-full text-sm font-semibold transition-all flex items-center gap-1.5 ${
+                  aria-current={isActive ? 'page' : undefined}
+                  className={`px-3 py-1.5 font-label-md text-label-md transition-colors ${
                     isActive
-                      ? 'bg-slate-900 text-white dark:bg-amber-500 dark:text-slate-950 shadow-sm'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800'
+                      ? 'text-primary font-bold bg-surface-container rounded-full'
+                      : 'text-on-surface-variant hover:text-on-surface'
                   }`}
                 >
-                  <span>{item.label}</span>
-                  {item.badge && (
-                    <span className="px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-500 text-white dark:bg-slate-900 dark:text-amber-400">
-                      {item.badge}
-                    </span>
-                  )}
+                  <span className="flex items-center gap-1.5">
+                    <span>{item.label}</span>
+                    {item.badge && (
+                      <span className="px-2 py-0.5 rounded-full bg-surface-container-high text-on-tertiary-container font-label-sm text-label-sm font-semibold">
+                        {item.badge}
+                      </span>
+                    )}
+                  </span>
                 </button>
               );
             })}
           </nav>
 
           {/* Action Tools */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-3 shrink-0">
             {/* Quick Search Button */}
             <button
               onClick={() => handleNavClick('directory')}
               aria-label="Search Catalog"
-              className="btn-icon bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+              className="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+              type="button"
               title="Search catalog"
             >
-              <Icon name="search" />
+              <span className="material-symbols-outlined text-[20px]">search</span>
             </button>
 
             {/* Dark/Light Theme Toggle */}
             <button
               onClick={toggleTheme}
               aria-label="Toggle Theme"
-              className="btn-icon bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+              className="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+              type="button"
               title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
             >
-              <Icon name={theme === 'light' ? 'dark_mode' : 'light_mode'} />
+              <span className="material-symbols-outlined text-[20px]">
+                {theme === 'light' ? 'dark_mode' : 'light_mode'}
+              </span>
             </button>
 
             {/* Auth / Admin Account */}
@@ -108,24 +112,24 @@ export function Navbar({ activeRoute, onNavigate }) {
                   onClick={() => {
                     if (isAdmin) handleNavClick('admin');
                   }}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-xs font-semibold hover:bg-slate-200 transition-colors"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold hover:bg-surface-container-high transition-colors"
                   title={isAdmin ? 'Admin Dashboard' : 'User Account'}
                 >
-                  <span className="w-6 h-6 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-[11px]">
+                  <span className="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-[11px]">
                     {currentUser.user?.username?.[0]?.toUpperCase() || 'U'}
                   </span>
                   <span className="hidden sm:inline font-medium">
                     {currentUser.user?.username}
                   </span>
                   {isAdmin && (
-                    <span className="px-1.5 py-0.2 rounded bg-amber-600 text-white text-[9px] uppercase font-bold">
+                    <span className="px-1.5 py-0.2 rounded bg-on-tertiary-container text-surface text-[9px] uppercase font-bold">
                       Admin
                     </span>
                   )}
                 </button>
                 <button
                   onClick={logout}
-                  className="btn-icon w-8 h-8 text-slate-400 hover:text-rose-500 transition-colors"
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-status-danger hover:bg-surface-container transition-colors"
                   title="Logout"
                 >
                   <Icon name="logout" className="text-[18px]" />
@@ -137,18 +141,17 @@ export function Navbar({ activeRoute, onNavigate }) {
                   setAuthMode('login');
                   setAuthModalOpen(true);
                 }}
-                className="btn btn-primary text-xs py-2 px-4"
+                className="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:scale-105 transition-transform"
+                title="Sign In / Register"
               >
-                <Icon name="person" className="text-[16px]" />
-                <span className="hidden sm:inline">Sign In</span>
+                <span className="material-symbols-outlined text-[18px]">person</span>
               </button>
             )}
-
             {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle Navigation Menu"
-              className="xl:hidden btn-icon bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200"
+              className="xl:hidden w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
             >
               <Icon name={mobileMenuOpen ? 'close' : 'menu'} />
             </button>
