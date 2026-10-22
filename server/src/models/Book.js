@@ -106,7 +106,19 @@ const bookSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
       index: true
-    }
+    },
+    chapters: [
+      {
+        chapterNumber: { type: Number, default: 1 },
+        title: { type: String, default: '' },
+        pages: [
+          {
+            pageNumber: { type: Number, required: true },
+            content: { type: String, required: true }
+          }
+        ]
+      }
+    ]
   },
   {
     timestamps: true,

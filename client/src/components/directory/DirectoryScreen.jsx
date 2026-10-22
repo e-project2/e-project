@@ -5,7 +5,7 @@ import { FilterSidebar } from './FilterSidebar.jsx';
 import { filterBooks } from '../../utils/filterEngine.js';
 import { Icon } from '../common/Icon.jsx';
 
-export function DirectoryScreen({ onSelectBook, onSelectAuthor }) {
+export function DirectoryScreen({ onSelectBook, onSelectAuthor, onOpenReader }) {
   const { books, filters, updateFilters, resetFilters } = useBooks();
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
   const [viewMode, setViewMode] = useState('grid'); // 'grid' | 'compact'
@@ -191,7 +191,9 @@ export function DirectoryScreen({ onSelectBook, onSelectAuthor }) {
                   <BookCard
                     key={book._id || book.id}
                     book={book}
+                    onSelect={onSelectBook}
                     onSelectBook={onSelectBook}
+                    onRead={onOpenReader}
                     onSelectAuthor={onSelectAuthor}
                   />
                 ))}
@@ -231,9 +233,32 @@ export function DirectoryScreen({ onSelectBook, onSelectAuthor }) {
                         {book.synopsis}
                       </p>
                     </div>
-                    <button className="btn btn-outline text-xs py-1.5 px-3 shrink-0">
-                      View
-                    </button>
+                    <div className="flex items-center gap-2 shrink-0">
+                      {onOpenReader && (
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onOpenReader(book);
+                          }}
+                          className="btn btn-primary text-xs py-1.5 px-3 flex items-center gap-1 cursor-pointer"
+                          title="Đọc trực tiếp sách này"
+                        >
+                          <Icon name="auto_stories" className="text-[14px]" />
+                          <span>Đọc sách</span>
+                        </button>
+                      )}
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onSelectBook(book);
+                        }}
+                        className="btn btn-outline text-xs py-1.5 px-3 cursor-pointer"
+                      >
+                        Chi tiết
+                      </button>
+                    </div>
                   </div>
                 ))}
               </div>

@@ -3,7 +3,7 @@ import { useBooks } from '../../context/BookContext.jsx';
 import { BookCard } from '../BookCard.jsx';
 import { Icon } from '../common/Icon.jsx';
 
-export function CollectionsScreen({ onSelectBook, onSelectAuthor }) {
+export function CollectionsScreen({ onSelectBook, onSelectAuthor, onOpenReader }) {
   const { collections, books } = useBooks();
 
   const getBooksForCollection = (bookIds = []) => {
@@ -70,7 +70,9 @@ export function CollectionsScreen({ onSelectBook, onSelectAuthor }) {
                   <BookCard
                     key={book._id || book.id}
                     book={book}
+                    onSelect={onSelectBook}
                     onSelectBook={onSelectBook}
+                    onRead={onOpenReader}
                     onSelectAuthor={onSelectAuthor}
                   />
                 ))}

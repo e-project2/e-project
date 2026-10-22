@@ -11,7 +11,17 @@ export function ImageWithFallback({
 }) {
   const [hasError, setHasError] = useState(false);
 
-  if (hasError || !src) {
+  const resolveSrc = (url) => {
+    if (!url) return '';
+    if (url.startsWith('/images/') && url.endsWith('.jpg')) {
+      return url.replace(/\.jpg$/, '.svg');
+    }
+    return url;
+  };
+
+  const effectiveSrc = resolveSrc(src);
+
+  if (hasError || !effectiveSrc) {
     return (
       <div
         className={`relative flex flex-col justify-between p-4 overflow-hidden select-none bg-gradient-to-br from-slate-800 via-slate-900 to-indigo-950 text-white ${className}`}
@@ -41,7 +51,7 @@ export function ImageWithFallback({
 
   return (
     <img
-      src={src}
+      src={effectiveSrc}
       alt={alt}
       onError={() => setHasError(true)}
       className={className}

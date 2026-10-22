@@ -5,6 +5,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 
 import { connectDB, disconnectDB } from './config/db.js';
@@ -49,7 +50,23 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(sanitizeInputs);
 
 // 6. Phục vụ tĩnh tài nguyên hình ảnh (Static Images)
-app.use('/images', express.static(path.join(__dirname, '../../client/public/images')));
+const staticImagesPath = path.join(__dirname, '../../client/public/images');
+app.use('/images', (req, res, next) => {
+  if (req.path.endsWith('.jpg') || req.path.endsWith('.jpeg')) {
+    const svgPath = path.join(staticImagesPath, req.path.replace(/\.jpe?g$/, '.svg'));
+    if (fs.existsSync(svgPath)) {
+      res.setHeader('Content-Type', 'image/svg+xml; charset=utf-8');
+      return res.sendFile(svgPath);
+    }
+  }
+  next();
+}, express.static(staticImagesPath, {
+  setHeaders: (res, filePath) => {
+    if (filePath.endsWith('.svg')) {
+      res.setHeader('Content-Type', 'image/svg+xml; charset=utf-8');
+    }
+  }
+}));
 
 /* ==========================================================================
    TẦNG ĐỊA CHỈ & ROUTES CỦA HỆ THỐNG (API ROUTES LAYER)

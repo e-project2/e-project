@@ -5,45 +5,72 @@ import { apiService } from '../services/apiService.js';
 const FavoritesContext = createContext();
 
 export function FavoritesProvider({ children }) {
-  const [favorites, setFavorites] = useState(() => {
-    return storageService.getFavorites();
-  });
+  // Pure in-memory React state driven strictly by Database API (no localStorage)
+  const [favorites, setFavorites] = useState([]);
 
-  // Keep localStorage synced whenever favorites change
+  // Load real favorites directly from Backend API / Database
+  const loadRemoteFavorites = async () => {
+    try {
+      const res = await apiService.getFavorites();
+      const list = res?.data || (Array.isArray(res) ? res : []);
+      if (Array.isArray(list)) {
+        const ids = list
+          .map(item => item.bookId?._id || item.bookId?.id || item.bookId)
+          .filter(Boolean);
+        setFavorites(ids);
+        return ids;
+      }
+    } catch {
+      // Offline fallback
+    }
+    return [];
+  };
+
   useEffect(() => {
-    storageService.setFavorites(favorites);
-  }, [favorites]);
+    loadRemoteFavorites();
+  }, []);
 
   const isFavorite = (bookId) => {
     if (!bookId) return false;
-    return favorites.includes(bookId);
+    const cleanId = typeof bookId === 'object' ? (bookId._id || bookId.id) : bookId;
+    return favorites.some(id => String(id) === String(cleanId));
   };
 
   const toggleFavorite = async (bookId) => {
     if (!bookId) return;
+    const cleanId = typeof bookId === 'object' ? (bookId._id || bookId.id) : bookId;
 
     setFavorites(prev => {
-      if (prev.includes(bookId)) {
-        return prev.filter(id => id !== bookId);
+      const exists = prev.some(id => String(id) === String(cleanId));
+      if (exists) {
+        return prev.filter(id => String(id) !== String(cleanId));
       } else {
-        return [...prev, bookId];
+        return [...prev, cleanId];
       }
     });
 
-    // Optionally notify backend if logged in
+    // Notify backend if logged in
     try {
-      await apiService.toggleFavorite(bookId);
+      await apiService.toggleFavorite(cleanId);
     } catch {
       // Offline or unauthenticated, local state is already safely saved
     }
   };
 
-  const removeFavorite = (bookId) => {
-    setFavorites(prev => prev.filter(id => id !== bookId));
+  const removeFavorite = async (bookId) => {
+    if (!bookId) return;
+    const cleanId = typeof bookId === 'object' ? (bookId._id || bookId.id) : bookId;
+    setFavorites(prev => prev.filter(id => String(id) !== String(cleanId)));
+    try {
+      await apiService.removeFavorite(cleanId);
+    } catch {
+      // Offline fallback
+    }
   };
 
   const clearAllFavorites = () => {
     setFavorites([]);
+    storageService.clearFavorites();
   };
 
   return (
@@ -54,7 +81,8 @@ export function FavoritesProvider({ children }) {
         isFavorite,
         toggleFavorite,
         removeFavorite,
-        clearAllFavorites
+        clearAllFavorites,
+        refreshFavorites: loadRemoteFavorites
       }}
     >
       {children}

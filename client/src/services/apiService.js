@@ -44,7 +44,7 @@ export const apiService = {
     if (params.language && params.language !== 'all') query.append('language', params.language);
     if (params.readingLevel && params.readingLevel !== 'all') query.append('readingLevel', params.readingLevel);
     if (params.period && params.period !== 'all') query.append('period', params.period);
-    if (params.limit) query.append('limit', params.limit);
+    query.append('limit', params.limit || '100');
     if (params.page) query.append('page', params.page);
 
     const queryString = query.toString() ? `?${query.toString()}` : '';
@@ -118,18 +118,42 @@ export const apiService = {
   },
 
   // Tracker API
-  async updateTracker(bookId, currentPage, status, notes = '') {
+  async getUserProgress() {
+    return await fetchWithFallback('/tracker', {}, []);
+  },
+
+  async getReadingStats() {
+    return await fetchWithFallback('/tracker/stats', {}, null);
+  },
+
+  async updateTracker(bookId, currentPage, status, notes = '', totalPages = 3) {
     return await fetchWithFallback(`/tracker/${bookId}`, {
       method: 'POST',
-      body: JSON.stringify({ currentPage, status, notes })
-    }, { bookId, currentPage, status });
+      body: JSON.stringify({ currentPage, totalPages, status, notes })
+    }, { bookId, currentPage, totalPages, status });
+  },
+
+  async deleteProgress(bookId) {
+    return await fetchWithFallback(`/tracker/${bookId}`, {
+      method: 'DELETE'
+    });
   },
 
   // Favorites API
+  async getFavorites() {
+    return await fetchWithFallback('/favorites', {}, []);
+  },
+
   async toggleFavorite(bookId) {
     return await fetchWithFallback(`/favorites/${bookId}`, {
       method: 'POST'
     }, { bookId, isFavorited: true });
+  },
+
+  async removeFavorite(bookId) {
+    return await fetchWithFallback(`/favorites/${bookId}`, {
+      method: 'DELETE'
+    }, { bookId, isFavorited: false });
   },
 
   // Admin APIs
