@@ -259,11 +259,7 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1941,
     "pageCount": 85,
-<<<<<<< HEAD
-    "coverImage": "https://images.unsplash.com/photo-1491841573634-28140fc7ced7?auto=format&fit=crop&w=600&q=80",
-=======
     "coverImage": "/images/books/chi-pheo.svg",
->>>>>>> dee39b261a46b77d369dbf56938ed4e16d619535
     "synopsis": "Tấn bi kịch lưu manh hóa và khát vọng làm người lương thiện tuyệt vọng của Chí Phèo trong bối cảnh làng quê phong kiến Bắc Bộ ngột ngạt trước Cách mạng.",
     "themes": [
       "Human Dignity",
@@ -531,11 +527,7 @@ export const booksData = [
     "period": "Modern",
     "publicationYear": 1948,
     "pageCount": 65,
-<<<<<<< HEAD
-    "coverImage": "https://images.unsplash.com/photo-1491841573634-28140fc7ced7?auto=format&fit=crop&w=600&q=80",
-=======
     "coverImage": "/images/books/doi-mat.svg",
->>>>>>> dee39b261a46b77d369dbf56938ed4e16d619535
     "synopsis": "Tác phẩm ngắn kinh điển đặt ra vấn đề cách nhìn nhận người nông dân và thời cuộc của người trí thức trong những ngày đầu toàn quốc kháng chiến.",
     "themes": [
       "Perspective",
