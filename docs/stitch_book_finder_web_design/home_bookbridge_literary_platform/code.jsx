@@ -1,0 +1,1411 @@
+import { useEffect, useRef } from "react";
+import { initializePrototypePage } from "../prototypeRuntime.js";
+
+const pageStylesheets = [
+  {
+    rel: "preconnect",
+    href: "https://fonts.googleapis.com",
+  },
+  {
+    rel: "preconnect",
+    href: "https://fonts.gstatic.com",
+    crossOrigin: "",
+  },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap",
+  },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap",
+  },
+];
+const pageStyles =
+  "\n      @layer base {\n        html,\n        body {\n          margin: 0;\n          padding: 0;\n        }\n        body {\n          overscroll-behavior: none;\n        }\n        main > :first-child {\n          margin-top: 0 !important;\n        }\n        main > :last-child {\n          margin-bottom: 0 !important;\n        }\n      }\n      ::-webkit-scrollbar {\n        display: none;\n      }\n    ";
+const tailwindConfig = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        tertiary: "#240f00",
+        "on-tertiary-fixed": "#2f1500",
+        "inverse-on-surface": "#eaf1ff",
+        outline: "#75777d",
+        "on-secondary-fixed-variant": "#004395",
+        "surface-bright": "#f8f9ff",
+        "text-primary": "#0F172A",
+        "on-tertiary-fixed-variant": "#6e3900",
+        "on-secondary-container": "#fefcff",
+        "on-tertiary-container": "#d97705",
+        "surface-container-low": "#eff4ff",
+        "surface-container-lowest": "#ffffff",
+        "on-secondary-fixed": "#001a42",
+        "surface-container-high": "#dce9ff",
+        "surface-tint": "#545f73",
+        "on-error-container": "#93000a",
+        "border-subtle": "#E2E8F0",
+        background: "#f8f9ff",
+        "on-surface-variant": "#45474c",
+        "surface-canvas": "#F8FAFC",
+        "on-background": "#0b1c30",
+        secondary: "#0058be",
+        "surface-container": "#e5eeff",
+        "primary-fixed": "#d8e3fb",
+        "accent-indigo": "#6366F1",
+        "on-error": "#ffffff",
+        "tertiary-container": "#422000",
+        "status-danger": "#EF4444",
+        error: "#ba1a1a",
+        "on-surface": "#0b1c30",
+        "surface-variant": "#d3e4fe",
+        "accent-gold-light": "#F59E0B",
+        surface: "#f8f9ff",
+        "outline-variant": "#c5c6cd",
+        "secondary-fixed": "#d8e2ff",
+        "primary-container": "#1e293b",
+        "on-secondary": "#ffffff",
+        "secondary-container": "#2170e4",
+        "primary-fixed-dim": "#bcc7de",
+        "on-primary": "#ffffff",
+        primary: "#091426",
+        "on-primary-fixed": "#111c2d",
+        "surface-dim": "#cbdbf5",
+        "inverse-primary": "#bcc7de",
+        "status-info": "#0EA5E9",
+        "on-primary-container": "#8590a6",
+        "secondary-fixed-dim": "#adc6ff",
+        "on-tertiary": "#ffffff",
+        "surface-container-highest": "#d3e4fe",
+        "status-success": "#10B981",
+        "on-primary-fixed-variant": "#3c475a",
+        "inverse-surface": "#213145",
+        "tertiary-fixed-dim": "#ffb77d",
+        "tertiary-fixed": "#ffdcc3",
+        "error-container": "#ffdad6",
+        "surface-card": "#FFFFFF",
+      },
+      borderRadius: {
+        DEFAULT: "0.25rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        full: "9999px",
+      },
+      spacing: {
+        "space-lg": "1.5rem",
+        "space-xl": "2.5rem",
+        "margin-mobile": "1.25rem",
+        "gutter-mobile": "1rem",
+        margin: "3rem",
+        gutter: "1.5rem",
+        "space-md": "1rem",
+        "space-xs": "0.25rem",
+        "space-sm": "0.5rem",
+      },
+      fontFamily: {
+        "display-hero-mobile": ["Playfair Display"],
+        "title-md": ["Plus Jakarta Sans"],
+        "headline-lg": ["Playfair Display"],
+        "display-hero": ["Playfair Display"],
+        "headline-sm": ["Playfair Display"],
+        "label-md": ["Plus Jakarta Sans"],
+        "body-md": ["Plus Jakarta Sans"],
+        "label-sm": ["Plus Jakarta Sans"],
+        "headline-md": ["Playfair Display"],
+        "headline-lg-mobile": ["Playfair Display"],
+        "body-lg": ["Plus Jakarta Sans"],
+        "body-sm": ["Plus Jakarta Sans"],
+      },
+      fontSize: {
+        "display-hero-mobile": [
+          "2.25rem",
+          {
+            lineHeight: "2.75rem",
+            letterSpacing: "-0.01em",
+            fontWeight: "700",
+          },
+        ],
+        "title-md": ["1.125rem", { lineHeight: "1.625rem", fontWeight: "600" }],
+        "headline-lg": [
+          "2.5rem",
+          {
+            lineHeight: "3rem",
+            letterSpacing: "-0.015em",
+            fontWeight: "700",
+          },
+        ],
+        "display-hero": [
+          "3.5rem",
+          {
+            lineHeight: "4.25rem",
+            letterSpacing: "-0.02em",
+            fontWeight: "700",
+          },
+        ],
+        "headline-sm": [
+          "1.25rem",
+          { lineHeight: "1.75rem", fontWeight: "600" },
+        ],
+        "label-md": [
+          "0.875rem",
+          {
+            lineHeight: "1.25rem",
+            letterSpacing: "0.01em",
+            fontWeight: "600",
+          },
+        ],
+        "body-md": ["1rem", { lineHeight: "1.625rem", fontWeight: "400" }],
+        "label-sm": [
+          "0.75rem",
+          {
+            lineHeight: "1rem",
+            letterSpacing: "0.025em",
+            fontWeight: "600",
+          },
+        ],
+        "headline-md": [
+          "1.75rem",
+          { lineHeight: "2.25rem", fontWeight: "600" },
+        ],
+        "headline-lg-mobile": [
+          "1.75rem",
+          { lineHeight: "2.25rem", fontWeight: "700" },
+        ],
+        "body-lg": ["1.125rem", { lineHeight: "1.875rem", fontWeight: "400" }],
+        "body-sm": ["0.875rem", { lineHeight: "1.375rem", fontWeight: "400" }],
+      },
+    },
+  },
+};
+const pageScripts = [
+  '\n        document.querySelectorAll(".lang-pill").forEach((pill) => {\n          pill.addEventListener("click", function () {\n            document.querySelectorAll(".lang-pill").forEach((p) => {\n              p.classList.remove("bg-primary", "text-on-primary", "shadow-sm");\n              p.classList.add("bg-surface-container", "text-on-surface");\n            });\n            this.classList.remove("bg-surface-container", "text-on-surface");\n            this.classList.add("bg-primary", "text-on-primary", "shadow-sm");\n\n            const lang = this.getAttribute("data-lang");\n            const searchInput = document.getElementById("catalog-search-input");\n            if (searchInput && lang !== "all") {\n              searchInput.value = this.textContent.trim();\n            } else if (searchInput && lang === "all") {\n              searchInput.value = "";\n            }\n          });\n        });\n\n        function toggleBookmark(btn, bookTitle) {\n          const icon = btn.querySelector(".material-symbols-outlined");\n          const isBookmarked = icon.textContent.trim() === "bookmark";\n\n          if (isBookmarked) {\n            icon.textContent = "bookmark_border";\n            icon.style.fontVariationSettings = "\'FILL\' 0";\n            btn.classList.remove("text-on-tertiary-container");\n          } else {\n            icon.textContent = "bookmark";\n            icon.style.fontVariationSettings = "\'FILL\' 1";\n            btn.classList.add("text-on-tertiary-container");\n          }\n\n          try {\n            let saved = JSON.parse(\n              localStorage.getItem("bookbridge_saved") || "[]",\n            );\n            if (isBookmarked) {\n              saved = saved.filter((t) => t !== bookTitle);\n            } else {\n              if (!saved.includes(bookTitle)) saved.push(bookTitle);\n            }\n            localStorage.setItem("bookbridge_saved", JSON.stringify(saved));\n\n            const statusNotice = document.getElementById(\n              "reading-status-notice",\n            );\n            if (statusNotice) {\n              statusNotice.textContent = `${saved.length + 3} active volumes cataloged in your current browser`;\n            }\n          } catch (e) {}\n        }\n\n        function triggerSearch() {\n          const val = document\n            .getElementById("catalog-search-input")\n            ?.value.trim();\n          if (val) {\n            const btn = document.querySelector("#hero-search-form button");\n            if (btn) {\n              const orig = btn.innerHTML;\n              btn.innerHTML =\n                \'<span class="material-symbols-outlined text-[18px] animate-spin">progress_activity</span><span>Searching...</span>\';\n              setTimeout(() => {\n                btn.innerHTML = orig;\n              }, 600);\n            }\n          }\n        }\n      \nwindow["triggerSearch"] = triggerSearch;\nwindow["toggleBookmark"] = toggleBookmark;',
+];
+
+export default function HomeBookbridgeLiteraryPlatform() {
+  const rootRef = useRef(null);
+
+  useEffect(() => {
+    return initializePrototypePage(rootRef.current, {
+      id: "home_bookbridge_literary_platform",
+      stylesheets: pageStylesheets,
+      styles: pageStyles,
+      tailwindConfig,
+      scripts: pageScripts,
+    });
+  }, []);
+
+  return (
+    <div
+      ref={rootRef}
+      className="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-surface-variant selection:text-primary"
+    >
+      <header className="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+        <div className="h-20 max-w-[1440px] mx-auto px-6 lg:px-12 flex items-center justify-between gap-gutter">
+          <div className="flex items-center gap-4 shrink-0">
+            <img
+              alt="BookBridge Logo"
+              className="h-8 w-auto object-contain"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEDzO_GBPm8isEUkTqlc0rXu0_CDktn0QcjBDQc8lwZ2oQyRpG9MkPFYhbvUKXmBhdK2GJgYVYAMhG2Vx6oj7aqnEb4cuLSFnSJK5356BnlaaQpZo6m4C2iQsyTsxqQXmfC8dHRL30N8OSPQzTEYbxyaJZy0d3kun6iP7ROH7IBhuU9vkHTy06UR-JLKph1gjAHaH89kBMePOEsWbliDR50dnSmBfid-LCRtFZaQ"
+            />
+            <span className="font-headline-md text-headline-md tracking-tight text-primary">
+              BookBridge
+            </span>
+          </div>
+          <nav
+            className="hidden xl:flex items-center gap-1"
+            data-active-classes="text-primary font-bold bg-surface-container rounded-full"
+          >
+            <a
+              aria-current="page"
+              className="px-3 py-1.5 transition-colors text-primary font-bold bg-surface-container rounded-full"
+              data-path="home"
+              href="#"
+            >
+              Home
+            </a>
+            <a
+              className="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors"
+              data-path="directory"
+              href="#"
+            >
+              Directory
+            </a>
+            <a
+              className="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors"
+              data-path="explorer"
+              href="#"
+            >
+              Explorer
+            </a>
+            <a
+              className="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors"
+              data-path="collections"
+              href="#"
+            >
+              Collections
+            </a>
+            <a
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors"
+              data-path="my-library"
+              href="#"
+            >
+              My Library
+              <span className="px-2 py-0.5 rounded-full bg-surface-container-high text-on-tertiary-container font-label-sm text-label-sm font-semibold">
+                3 saved
+              </span>
+            </a>
+            <a
+              className="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors"
+              data-path="about"
+              href="#"
+            >
+              About
+            </a>
+            <a
+              className="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors"
+              data-path="contact"
+              href="#"
+            >
+              Contact
+            </a>
+          </nav>
+          <div className="flex items-center gap-3 shrink-0">
+            <button
+              aria-label="Search Catalog"
+              className="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+              type="button"
+            >
+              <span className="material-symbols-outlined text-[20px]">
+                search
+              </span>
+            </button>
+            <button
+              aria-label="Toggle Theme"
+              className="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+              type="button"
+            >
+              <span className="material-symbols-outlined text-[20px]">
+                light_mode
+              </span>
+            </button>
+            <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+              <span className="material-symbols-outlined text-on-primary text-[18px]">
+                person
+              </span>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main className="w-full pt-20 bg-surface">
+        <div className="flex flex-col w-full">
+          <section className="relative w-full overflow-hidden bg-surface-container-low/60 pb-20 pt-8">
+            <div className="pointer-events-none absolute -left-40 top-0 h-96 w-96 rounded-full bg-surface-container-highest/60 blur-3xl" />
+            <div className="pointer-events-none absolute right-0 top-12 h-[30rem] w-[30rem] rounded-full bg-surface-container/50 blur-3xl" />
+            <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <div className="lg:col-span-7 space-y-8">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high/80 backdrop-blur shadow-sm">
+                    <span
+                      className="material-symbols-outlined text-[16px] text-on-tertiary-container"
+                      style={{ fontVariationSettings: '"FILL" 1' }}
+                    >
+                      auto_stories
+                    </span>
+                    <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-tertiary-container">
+                      Multilingual Scholarly Archive
+                    </span>
+                    <span className="h-1 w-1 rounded-full bg-outline-variant" />
+                    <span className="font-label-sm text-label-sm text-on-surface-variant">
+                      Public Open Access
+                    </span>
+                  </div>
+                  <div className="space-y-4">
+                    <h1 className="font-display-hero text-display-hero tracking-tight text-primary">
+                      Bridge Worlds,
+                      <br />
+                      <span className="italic font-normal text-on-tertiary-container">
+                        Discover Voices
+                      </span>
+                      <br />
+                      Through Books.
+                    </h1>
+                    <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                      Immerse yourself in polyglot masterworks and world
+                      literature. Read seamlessly across French, Vietnamese,
+                      Japanese, and English with archival cultural notes,
+                      dual-language commentaries, and a lightweight reading
+                      companion built right into your browser.
+                    </p>
+                  </div>
+                  <div className="bg-surface-card rounded-2xl p-2.5 shadow-xl shadow-primary/5 space-y-3">
+                    <form
+                      className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2"
+                      id="hero-search-form"
+                      onSubmit={(event) => {
+                        event.preventDefault();
+                        window.triggerSearch();
+                      }}
+                    >
+                      <div className="flex items-center gap-3 px-4 flex-1">
+                        <span className="material-symbols-outlined text-on-surface-variant text-[22px]">
+                          search
+                        </span>
+                        <input
+                          className="w-full bg-transparent font-body-md text-body-md text-primary placeholder:text-on-surface-variant/70 focus:outline-none py-2"
+                          id="catalog-search-input"
+                          placeholder="Search by title, author, keyword, or language (e.g. Vietnamese, French)..."
+                          type="text"
+                        />
+                      </div>
+                      <button
+                        className="px-8 py-3.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all flex items-center justify-center gap-2 shadow-sm"
+                        type="submit"
+                      >
+                        <span className>Explore Now</span>
+                        <span className="material-symbols-outlined text-[18px]">
+                          arrow_forward
+                        </span>
+                      </button>
+                    </form>
+                    <div className="pt-2 px-3 pb-1 flex flex-wrap items-center gap-2">
+                      <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mr-1">
+                        Filter Dialect:
+                      </span>
+                      <button
+                        className="lang-pill px-3 py-1 rounded-full font-label-sm text-label-sm bg-primary text-on-primary shadow-sm"
+                        data-lang="all"
+                        type="button"
+                      >
+                        All
+                      </button>
+                      <button
+                        className="lang-pill px-3 py-1 rounded-full font-label-sm text-label-sm bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors"
+                        data-lang="vi"
+                        type="button"
+                      >
+                        Tiếng Việt
+                      </button>
+                      <button
+                        className="lang-pill px-3 py-1 rounded-full font-label-sm text-label-sm bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors"
+                        data-lang="en"
+                        type="button"
+                      >
+                        English
+                      </button>
+                      <button
+                        className="lang-pill px-3 py-1 rounded-full font-label-sm text-label-sm bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors"
+                        data-lang="fr"
+                        type="button"
+                      >
+                        Français
+                      </button>
+                      <button
+                        className="lang-pill px-3 py-1 rounded-full font-label-sm text-label-sm bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors"
+                        data-lang="ja"
+                        type="button"
+                      >
+                        日本語
+                      </button>
+                      <button
+                        className="lang-pill px-3 py-1 rounded-full font-label-sm text-label-sm bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors"
+                        data-lang="es"
+                        type="button"
+                      >
+                        Español
+                      </button>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-4 pt-2">
+                    <a
+                      className="px-7 py-3.5 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all shadow-md flex items-center gap-2"
+                      data-path="directory"
+                      href="#"
+                    >
+                      <span className="material-symbols-outlined text-[20px]">
+                        local_library
+                      </span>
+                      <span className>Browse All Books</span>
+                    </a>
+                    <a
+                      className="px-7 py-3.5 rounded-full bg-surface-container text-primary font-label-md text-label-md hover:bg-surface-container-high transition-all flex items-center gap-2"
+                      data-path="my-library"
+                      href="#"
+                    >
+                      <span className="material-symbols-outlined text-[20px]">
+                        bookmark_add
+                      </span>
+                      <span className>Start Reading List</span>
+                    </a>
+                    <div className="hidden sm:flex items-center gap-2 ml-auto text-on-surface-variant font-label-sm text-label-sm pl-4">
+                      <span className="h-2 w-2 rounded-full bg-status-success animate-pulse" />
+                      <span className>1,248 Verified Editions Stored</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="lg:col-span-5 relative flex items-center justify-center lg:justify-end min-h-[460px]">
+                  <div className="absolute h-80 w-80 rounded-full bg-secondary-fixed/50 blur-2xl -z-10" />
+                  <div className="relative w-full max-w-[380px] h-[480px]">
+                    <div className="absolute left-0 bottom-4 w-52 rounded-2xl bg-surface-card p-3 shadow-xl -rotate-6 transition-transform duration-300 hover:rotate-0 hover:z-30 cursor-pointer">
+                      <div className="relative aspect-[2/3] w-full rounded-xl overflow-hidden bg-primary mb-2.5">
+                        <img
+                          className="w-full h-full object-cover"
+                          alt="Editorial book cover photograph of 1984 by George Orwell featuring stark vintage modernist typography in muted deep slate navy, stark off-white, and amber accents with subtle aged paper texture."
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXH4SAwCdCytQHlNx7czi8ardYBv2mzr92pR1dJ_x67gYoMoyozPs3Q8cdcupRX1kezJ7-LMh5vVLdhuw6FBQGuxd8invrTQcMff5YA1150V3aCFXreKf1XawMe88mnnPJ397YobhmvbIq8MRXo7qJ7sYI5-sqmCqYUzlHzLrUBmT-FJ5zt87LTn0Reh_8l0lBkQIjMYyYo4lEgrS2S2V6VEZ7RhNh4axm4XGXGQ"
+                        />
+                        <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-primary/90 text-on-primary font-label-sm text-label-sm backdrop-blur">
+                          Dystopian
+                        </span>
+                      </div>
+                      <p className="font-title-md text-title-md text-primary truncate">
+                        1984
+                      </p>
+                      <p className="font-body-sm text-body-sm text-on-surface-variant">
+                        George Orwell
+                      </p>
+                    </div>
+                    <div className="absolute right-0 top-2 w-52 rounded-2xl bg-surface-card p-3 shadow-xl rotate-6 transition-transform duration-300 hover:rotate-0 hover:z-30 cursor-pointer">
+                      <div className="relative aspect-[2/3] w-full rounded-xl overflow-hidden bg-primary mb-2.5">
+                        <img
+                          className="w-full h-full object-cover"
+                          alt="Intricate Vietnamese literary book cover for Truyện Kiều by Nguyễn Du featuring classic East Asian woodblock illustration accents, lotus blossoms, deep indigo and goldenrod foil detailing on silk textured background."
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5Tiwe5DiFEfxHvD8o2_T0TFfFzccOuFkDrmkjl7m5SpQKYHcyiMKB6bwry5c3Rby_IBaR_fvHzYRE-VQyJo9JaTqnVfnQAODW-JvQYnNO0L6ktqge8R3RWmgjqxLJPqKzqwxDwAw7zCw9dqfl101CT8gl1wkyVMFXB9g58Kkh2nUW3B5yVKPYJElliVqNbmUt1fvJQffO4Ek9uoxYMp3MLjsLW6KwI88K4wq5uQ"
+                        />
+                        <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-on-tertiary-container text-surface font-label-sm text-label-sm backdrop-blur">
+                          Tiếng Việt
+                        </span>
+                      </div>
+                      <p className="font-title-md text-title-md text-primary truncate">
+                        Truyện Kiều
+                      </p>
+                      <p className="font-body-sm text-body-sm text-on-surface-variant">
+                        Nguyễn Du
+                      </p>
+                    </div>
+                    <div className="absolute left-10 top-16 w-56 rounded-2xl bg-surface-card p-3.5 shadow-2xl z-20 -rotate-1 transition-transform duration-300 hover:scale-105 cursor-pointer">
+                      <div className="relative aspect-[2/3] w-full rounded-xl overflow-hidden bg-surface-container mb-3">
+                        <img
+                          className="w-full h-full object-cover"
+                          alt="Delicate celestial water-color style cover of Le Petit Prince by Antoine de Saint-Exupéry showcasing the prince standing upon an asteroid surrounded by tiny golden stars and midnight blue watercolor wash."
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZu-XEQrnftqkfRLIZJaQnkQmZZbH8qcY_ZLlrntrpp0CvB9Q9qURA8RL_upd8DOaznIU4SfD4fMsVWke9cU9GkhUbX0mBqxl2m1T1cnP91d5S8rmXedUGQ_izsBVG38vdohPsw8JSx2PrFMD9DxcgV6r6LF0NHaA2lpc3iUAopzXuXhES8aFfMv3WJLnJQSmCsQB57X5BguMcA-vdOVxopAKZtXa53SJ01ciOtA"
+                        />
+                        <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface/90 text-on-surface font-label-sm text-label-sm shadow-sm backdrop-blur">
+                          <span
+                            className="material-symbols-outlined text-[13px] text-on-tertiary-container"
+                            style={{ fontVariationSettings: '"FILL" 1' }}
+                          >
+                            star
+                          </span>
+                          <span className>Bilingual Icon</span>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="font-title-md text-title-md text-primary leading-tight">
+                            Le Petit Prince
+                          </p>
+                          <p className="font-body-sm text-body-sm text-on-surface-variant">
+                            Saint-Exupéry
+                          </p>
+                        </div>
+                        <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-tertiary-container">
+                          <span className="material-symbols-outlined text-[18px]">
+                            translate
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section className="max-w-[1440px] mx-auto px-6 lg:px-12 py-20 w-full">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+              <div className="space-y-2 max-w-xl">
+                <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-tertiary-container">
+                  The Archival Standard
+                </span>
+                <h2 className="font-headline-lg text-headline-lg text-primary">
+                  Engineered for Scholarly Immersion
+                </h2>
+              </div>
+              <p className="font-body-md text-body-md text-on-surface-variant max-w-md">
+                Designed strictly without intrusive paywalls or distracting
+                telemetry, granting pure focus to the beauty of international
+                letters.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="rounded-2xl bg-surface-card p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                <div className="space-y-5">
+                  <div className="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                    <span className="material-symbols-outlined text-[28px]">
+                      language
+                    </span>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-headline-sm text-headline-sm text-primary">
+                      Multi-Language Discovery
+                    </h3>
+                    <p className="font-body-md text-body-md text-on-surface-variant">
+                      Explore classic and contemporary literature across 5+
+                      languages. Parallel reading views accompanied by nuanced
+                      contextual linguistic glosses.
+                    </p>
+                  </div>
+                </div>
+                <div className="pt-6 mt-6 flex items-center gap-2 text-on-tertiary-container font-label-md text-label-md">
+                  <span className>Read across cultures</span>
+                  <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
+                    arrow_forward
+                  </span>
+                </div>
+              </div>
+              <div className="rounded-2xl bg-surface-card p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                <div className="space-y-5">
+                  <div className="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                    <span className="material-symbols-outlined text-[28px]">
+                      collections_bookmark
+                    </span>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-headline-sm text-headline-sm text-primary">
+                      Curated Literary Collections
+                    </h3>
+                    <p className="font-body-md text-body-md text-on-surface-variant">
+                      Hand-picked thematic corridors ranging from existentialist
+                      continental philosophy to concise, single-sitting weekend
+                      translations.
+                    </p>
+                  </div>
+                </div>
+                <div className="pt-6 mt-6 flex items-center gap-2 text-on-tertiary-container font-label-md text-label-md">
+                  <span className>Explore hand-picked shelves</span>
+                  <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
+                    arrow_forward
+                  </span>
+                </div>
+              </div>
+              <div className="rounded-2xl bg-surface-card p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                <div className="space-y-5">
+                  <div className="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                    <span className="material-symbols-outlined text-[28px]">
+                      sync_saved_locally
+                    </span>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-headline-sm text-headline-sm text-primary">
+                      Zero-Friction Reading Tracker
+                    </h3>
+                    <p className="font-body-md text-body-md text-on-surface-variant">
+                      Seamlessly record reading milestones, chapters, and margin
+                      notes with instant browser storage persistence. Absolute
+                      zero account creation required.
+                    </p>
+                  </div>
+                </div>
+                <div className="pt-6 mt-6 flex items-center gap-2 text-on-tertiary-container font-label-md text-label-md">
+                  <span className>Inspect local shelf</span>
+                  <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
+                    arrow_forward
+                  </span>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section className="w-full bg-surface-container-low/40 py-20">
+            <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="h-2 w-2 rounded-full bg-on-tertiary-container" />
+                    <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-tertiary-container">
+                      Curator's Spotlight
+                    </span>
+                  </div>
+                  <h2 className="font-headline-lg text-headline-lg text-primary">
+                    Featured Masterpieces
+                  </h2>
+                </div>
+                <a
+                  className="inline-flex items-center gap-2 font-label-md text-label-md text-primary hover:text-secondary transition-colors"
+                  data-path="directory"
+                  href="#"
+                >
+                  <span className>View all curated catalog titles</span>
+                  <span className="material-symbols-outlined text-[18px]">
+                    trending_flat
+                  </span>
+                </a>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <article className="bg-surface-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group -translate-y-0 hover:-translate-y-1">
+                  <div className="relative aspect-[2/3] w-full overflow-hidden bg-primary">
+                    <img
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      alt="Editorial book cover photograph of Truyen Kieu Nguyen Du with traditional lacquer art finish, intricate gold foil poetic calligraphy over deep emerald and night sky hues."
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG9iaRCJd-fEm8M-FmeTd6NXSDGADuGVbqsmzvJX4_uGHj0Gkg6YK8ANXpVpFEs0qBBAYupPdCKzZetfZOo6lVfH9fDaMPrRklXXiMhGR7TPTfMZK-l2SJ0GcpUv-M5jubFtREoyr1LWnu0_27wRJRhfdwgrMnXoi0pp7a4jo0gIjqoWI-5cOhcYKRfp7OxIDensTKdy1PIT1cg8jOmQecgd2okp3pJ-3GzgYz9A"
+                    />
+                    <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-on-tertiary-container text-surface font-label-sm text-label-sm shadow-sm backdrop-blur">
+                      Staff Pick
+                    </span>
+                    <button
+                      aria-label="Bookmark Truyện Kiều"
+                      className="bookmark-btn absolute top-3 right-3 w-9 h-9 rounded-full bg-surface/90 text-primary hover:bg-surface flex items-center justify-center shadow-md backdrop-blur transition-all"
+                      onClick={(event) => {
+                        window.toggleBookmark(
+                          event.currentTarget,
+                          "Truyện Kiều",
+                        );
+                      }}
+                      type="button"
+                    >
+                      <span className="material-symbols-outlined text-[18px]">
+                        bookmark_border
+                      </span>
+                    </button>
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2">
+                      <span className="px-2 py-0.5 rounded-full bg-primary/80 text-on-primary font-label-sm text-label-sm backdrop-blur">
+                        Tiếng Việt
+                      </span>
+                      <span className="px-2 py-0.5 rounded-full bg-primary/80 text-on-primary font-label-sm text-label-sm backdrop-blur">
+                        Classic
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                    <div>
+                      <div className="flex items-center gap-1 text-on-tertiary-container mb-1">
+                        <span
+                          className="material-symbols-outlined text-[16px]"
+                          style={{ fontVariationSettings: '"FILL" 1' }}
+                        >
+                          star
+                        </span>
+                        <span className="font-label-sm text-label-sm font-bold">
+                          4.9
+                        </span>
+                        <span className="text-on-surface-variant font-label-sm text-label-sm">
+                          (3,240 citations)
+                        </span>
+                      </div>
+                      <h3 className="font-headline-sm text-headline-sm text-primary leading-tight">
+                        Truyện Kiều
+                      </h3>
+                      <p className="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                        Nguyễn Du
+                      </p>
+                      <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-2">
+                        The epic 3,254-line verse narrative illuminating duty,
+                        love, and fate in 18th-century Vietnam.
+                      </p>
+                    </div>
+                    <div className="pt-3 flex items-center justify-between">
+                      <a
+                        className="w-full py-2.5 rounded-xl bg-surface-container text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md transition-colors text-center"
+                        data-path="explorer"
+                        href="#"
+                      >
+                        View Details
+                      </a>
+                    </div>
+                  </div>
+                </article>
+                <article className="bg-surface-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group -translate-y-0 hover:-translate-y-1">
+                  <div className="relative aspect-[2/3] w-full overflow-hidden bg-primary">
+                    <img
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      alt="Editorial book cover photograph of Le Petit Prince by Antoine de Saint-Exupery with ethereal watercolor cosmic artwork depicting the prince on asteroid B-612 with golden planetary rings."
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ45y4Hbd3dv-DFz8B6GRFp8CyltBIWj9NjegW9brtMlpjGnkUi3A6eCLu_XxOVhQWjkpij4r110N1-TrjY6Y7Nh-gUXZHQm0GuYKs2e-sS3l_zMnzSIMtBCcVsG3rc-fOC5pXMVaNlHSEgbjZ8xxeWso8aGxba9GK9SOhHRnmoUtSip2HPDcR8gfkigrI5k1kQcZIf5xLCUbhlNzQwTeG-uV1kXJ9cwzqyozkHA"
+                    />
+                    <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm shadow-sm backdrop-blur">
+                      Bilingual
+                    </span>
+                    <button
+                      aria-label="Bookmark Le Petit Prince"
+                      className="bookmark-btn absolute top-3 right-3 w-9 h-9 rounded-full bg-surface/90 text-primary hover:bg-surface flex items-center justify-center shadow-md backdrop-blur transition-all"
+                      onClick={(event) => {
+                        window.toggleBookmark(
+                          event.currentTarget,
+                          "Le Petit Prince",
+                        );
+                      }}
+                      type="button"
+                    >
+                      <span className="material-symbols-outlined text-[18px]">
+                        bookmark_border
+                      </span>
+                    </button>
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2">
+                      <span className="px-2 py-0.5 rounded-full bg-primary/80 text-on-primary font-label-sm text-label-sm backdrop-blur">
+                        Français
+                      </span>
+                      <span className="px-2 py-0.5 rounded-full bg-primary/80 text-on-primary font-label-sm text-label-sm backdrop-blur">
+                        Philosophy
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                    <div>
+                      <div className="flex items-center gap-1 text-on-tertiary-container mb-1">
+                        <span
+                          className="material-symbols-outlined text-[16px]"
+                          style={{ fontVariationSettings: '"FILL" 1' }}
+                        >
+                          star
+                        </span>
+                        <span className="font-label-sm text-label-sm font-bold">
+                          4.8
+                        </span>
+                        <span className="text-on-surface-variant font-label-sm text-label-sm">
+                          (12,190 citations)
+                        </span>
+                      </div>
+                      <h3 className="font-headline-sm text-headline-sm text-primary leading-tight">
+                        Le Petit Prince
+                      </h3>
+                      <p className="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                        Antoine de Saint-Exupéry
+                      </p>
+                      <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-2">
+                        A poetic fable pondering solitude, friendship, and the
+                        invisible essentials of human life.
+                      </p>
+                    </div>
+                    <div className="pt-3 flex items-center justify-between">
+                      <a
+                        className="w-full py-2.5 rounded-xl bg-surface-container text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md transition-colors text-center"
+                        data-path="explorer"
+                        href="#"
+                      >
+                        View Details
+                      </a>
+                    </div>
+                  </div>
+                </article>
+                <article className="bg-surface-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group -translate-y-0 hover:-translate-y-1">
+                  <div className="relative aspect-[2/3] w-full overflow-hidden bg-primary">
+                    <img
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      alt="Editorial book cover photograph of George Orwell 1984 with an ominous abstract eye motif composed of fine line typography in crimson and charcoal on parchment tone paper."
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXe-EHcqRc5XKDEg73m7clbbQbwpiJo0J_SuqtrouPio-NjO6zDKyn3kE03T9BSAr2wtiEdVwfqs1W0IKtO3k4OncE2bpkKBKt1n-gf-Puqzhc2VRxZxBMbnIglRIhElY64LMaXnfqrDSbAu9IgcBWB3yem_A7tCdxdQaiyOsIlqjNlKwnoGCKD74LPO40XyLLWYwVmlabGWEyk49KmmMIfD0I1rFaKdXT-s3aTQ"
+                    />
+                    <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-status-danger text-on-primary font-label-sm text-label-sm shadow-sm backdrop-blur">
+                      Trending
+                    </span>
+                    <button
+                      aria-label="Bookmark 1984"
+                      className="bookmark-btn absolute top-3 right-3 w-9 h-9 rounded-full bg-surface/90 text-primary hover:bg-surface flex items-center justify-center shadow-md backdrop-blur transition-all"
+                      onClick={(event) => {
+                        window.toggleBookmark(event.currentTarget, "1984");
+                      }}
+                      type="button"
+                    >
+                      <span className="material-symbols-outlined text-[18px]">
+                        bookmark_border
+                      </span>
+                    </button>
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2">
+                      <span className="px-2 py-0.5 rounded-full bg-primary/80 text-on-primary font-label-sm text-label-sm backdrop-blur">
+                        English
+                      </span>
+                      <span className="px-2 py-0.5 rounded-full bg-primary/80 text-on-primary font-label-sm text-label-sm backdrop-blur">
+                        Dystopian
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                    <div>
+                      <div className="flex items-center gap-1 text-on-tertiary-container mb-1">
+                        <span
+                          className="material-symbols-outlined text-[16px]"
+                          style={{ fontVariationSettings: '"FILL" 1' }}
+                        >
+                          star
+                        </span>
+                        <span className="font-label-sm text-label-sm font-bold">
+                          4.7
+                        </span>
+                        <span className="text-on-surface-variant font-label-sm text-label-sm">
+                          (18,500 citations)
+                        </span>
+                      </div>
+                      <h3 className="font-headline-sm text-headline-sm text-primary leading-tight">
+                        1984
+                      </h3>
+                      <p className="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                        George Orwell
+                      </p>
+                      <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-2">
+                        A seminal interrogation into state control,
+                        surveillance, psychological orthodoxy, and truth.
+                      </p>
+                    </div>
+                    <div className="pt-3 flex items-center justify-between">
+                      <a
+                        className="w-full py-2.5 rounded-xl bg-surface-container text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md transition-colors text-center"
+                        data-path="explorer"
+                        href="#"
+                      >
+                        View Details
+                      </a>
+                    </div>
+                  </div>
+                </article>
+                <article className="bg-surface-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group -translate-y-0 hover:-translate-y-1">
+                  <div className="relative aspect-[2/3] w-full overflow-hidden bg-primary">
+                    <img
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      alt="Editorial book cover photograph of Haruki Murakami Norwegian Wood with minimalist Japanese graphic composition, deep forest pine green with subtle red accents on clean textured stock."
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvwxymfylpnwGLeA8NlYGmDsgdM5gmUW4KMZ-kn8mO6WmCdemIjH1G-LxYzdqqUVyJs5c3qdcH8NSq921YkeL6E4Ujyx-Cg1r7ARwEJZB3irXlKPiJzbZDcnX-E6fPcywBeY3KBHGhnXk3suC788nL0zBj4nSCzvu_UmKWD27kdaiVLKdfYE3eVIW51wYCCX0ZvwMvdelY23YLcw6ZeyeT3SD8Z5cTudbzm22__g"
+                    />
+                    <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm shadow-sm backdrop-blur">
+                      Editor's Choice
+                    </span>
+                    <button
+                      aria-label="Bookmark Norwegian Wood"
+                      className="bookmark-btn absolute top-3 right-3 w-9 h-9 rounded-full bg-surface/90 text-primary hover:bg-surface flex items-center justify-center shadow-md backdrop-blur transition-all"
+                      onClick={(event) => {
+                        window.toggleBookmark(
+                          event.currentTarget,
+                          "Norwegian Wood",
+                        );
+                      }}
+                      type="button"
+                    >
+                      <span className="material-symbols-outlined text-[18px]">
+                        bookmark_border
+                      </span>
+                    </button>
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2">
+                      <span className="px-2 py-0.5 rounded-full bg-primary/80 text-on-primary font-label-sm text-label-sm backdrop-blur">
+                        日本語
+                      </span>
+                      <span className="px-2 py-0.5 rounded-full bg-primary/80 text-on-primary font-label-sm text-label-sm backdrop-blur">
+                        Contemporary
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                    <div>
+                      <div className="flex items-center gap-1 text-on-tertiary-container mb-1">
+                        <span
+                          className="material-symbols-outlined text-[16px]"
+                          style={{ fontVariationSettings: '"FILL" 1' }}
+                        >
+                          star
+                        </span>
+                        <span className="font-label-sm text-label-sm font-bold">
+                          4.6
+                        </span>
+                        <span className="text-on-surface-variant font-label-sm text-label-sm">
+                          (9,820 citations)
+                        </span>
+                      </div>
+                      <h3 className="font-headline-sm text-headline-sm text-primary leading-tight">
+                        Norwegian Wood
+                      </h3>
+                      <p className="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                        Haruki Murakami
+                      </p>
+                      <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-2">
+                        A nostalgic and emotional chronicle of collegiate youth,
+                        quiet loss, and awakening sexuality.
+                      </p>
+                    </div>
+                    <div className="pt-3 flex items-center justify-between">
+                      <a
+                        className="w-full py-2.5 rounded-xl bg-surface-container text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md transition-colors text-center"
+                        data-path="explorer"
+                        href="#"
+                      >
+                        View Details
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+          <section className="max-w-[1440px] mx-auto px-6 lg:px-12 py-20 w-full">
+            <div className="space-y-3 mb-12">
+              <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-tertiary-container">
+                Themed Pathways
+              </span>
+              <h2 className="font-headline-lg text-headline-lg text-primary">
+                Curated Reading Collections
+              </h2>
+              <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                Immerse yourself along deliberate scholarly lineages, compiled
+                by comparative literature academics and community archivists.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <a
+                className="group relative rounded-2xl overflow-hidden bg-primary min-h-[320px] p-6 flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300"
+                data-path="collections"
+                href="#"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 group-hover:opacity-50 transition-all duration-700"
+                  style={{
+                    backgroundImage:
+                      'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtqh2mIErlpE67fxx5ZE19fPx2qOr3k9G7sNS9ZrdRBI6mnDkh32K3CcWD8WAin5zq5UOoaEpW0bFue-YtIyQPg11aT4y4mUtkvB3DHof-2PJ20VHQB4FaVV3jNlzx3UBAxhAUxZBq_XQBkCFJv1o7QZ0rOxgROCHqVdNZnsL0j1Z10zPzKfJDmFuU5uolNy_ZnB23dZFkWqQIvnX8DVNJw7QW0jVCSU96DFR59g")',
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent" />
+                <div className="relative z-10">
+                  <span className="px-3 py-1 rounded-full bg-surface-container-high/40 text-on-secondary-container font-label-sm text-label-sm backdrop-blur">
+                    42 Titles Available
+                  </span>
+                </div>
+                <div className="relative z-10 space-y-2">
+                  <div className="flex items-center gap-2 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider">
+                    <span className="material-symbols-outlined text-[16px]">
+                      menu_book
+                    </span>
+                    <span className>Worldwide Canon</span>
+                  </div>
+                  <h3 className="font-headline-md text-headline-md text-on-primary group-hover:translate-x-1 transition-transform">
+                    Timeless Classics
+                  </h3>
+                  <p className="font-body-sm text-body-sm text-on-primary-container">
+                    Global literary giants that constructed civilization’s
+                    philosophical vernacular.
+                  </p>
+                </div>
+              </a>
+              <a
+                className="group relative rounded-2xl overflow-hidden bg-primary min-h-[320px] p-6 flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300"
+                data-path="collections"
+                href="#"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 group-hover:opacity-50 transition-all duration-700"
+                  style={{
+                    backgroundImage:
+                      'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCWJ8ys0BRXJOkDtKNIoF1SgRfXXkDN9VuIuZoXzOhmrh0bdBTJeW87NGHKb-BFn4tnGmFZNtcoilARaQkSB8ZzaIlQiL4T5KwmYL2jjmLJ81gdoSyLAm0Y6fUCg9VfK9knqi6CFKi5QYUD2sfOGbczuPoNJ_2VuDMq0W6Hv630oJ9hFqTFOl-6ZkhpnBbXUpxOqPBwNk2bRydBRz5W2t-ItQ4Qdj1wgbosXKPjPQ")',
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent" />
+                <div className="relative z-10">
+                  <span className="px-3 py-1 rounded-full bg-surface-container-high/40 text-on-secondary-container font-label-sm text-label-sm backdrop-blur">
+                    &lt; 200 Pages
+                  </span>
+                </div>
+                <div className="relative z-10 space-y-2">
+                  <div className="flex items-center gap-2 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider">
+                    <span className="material-symbols-outlined text-[16px]">
+                      hourglass_top
+                    </span>
+                    <span className>Single Afternoon</span>
+                  </div>
+                  <h3 className="font-headline-md text-headline-md text-on-primary group-hover:translate-x-1 transition-transform">
+                    Bite-sized Reads
+                  </h3>
+                  <p className="font-body-sm text-body-sm text-on-primary-container">
+                    Deep, transformative literature engineered for busy readers
+                    and weekend respites.
+                  </p>
+                </div>
+              </a>
+              <a
+                className="group relative rounded-2xl overflow-hidden bg-primary min-h-[320px] p-6 flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300"
+                data-path="collections"
+                href="#"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 group-hover:opacity-50 transition-all duration-700"
+                  style={{
+                    backgroundImage:
+                      'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAxSKIsbtOJ1FEuxz93F3JPQPgEw7HNhpnhw0bwb3UnluMPM9xaJ61b3P3MDbRqQs2stFGxJu5GTpuWLJpP2GMqNAz7XnO7LiBvkgAEPMNZr9Dc3vhzL7peCjsC6k3vvlTApgGkXZ2DEEfWB_rOX_0Ejr28-dPKy3YpODWGrk1vVJfMNpI0QwvNpTDHaB9REeokv9EpnzOkCCnyC-YxofVfMJqAk_wYdMRWfc29oA")',
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent" />
+                <div className="relative z-10">
+                  <span className="px-3 py-1 rounded-full bg-surface-container-high/40 text-on-secondary-container font-label-sm text-label-sm backdrop-blur">
+                    28 Modern Works
+                  </span>
+                </div>
+                <div className="relative z-10 space-y-2">
+                  <div className="flex items-center gap-2 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider">
+                    <span className="material-symbols-outlined text-[16px]">
+                      public
+                    </span>
+                    <span className>21st Century</span>
+                  </div>
+                  <h3 className="font-headline-md text-headline-md text-on-primary group-hover:translate-x-1 transition-transform">
+                    Contemporary Voices
+                  </h3>
+                  <p className="font-body-sm text-body-sm text-on-primary-container">
+                    Modern reflections exploring migration, digital solitude,
+                    and cultural hybridity.
+                  </p>
+                </div>
+              </a>
+              <a
+                className="group relative rounded-2xl overflow-hidden bg-primary min-h-[320px] p-6 flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300"
+                data-path="collections"
+                href="#"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 group-hover:opacity-50 transition-all duration-700"
+                  style={{
+                    backgroundImage:
+                      'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRqdmiyBcAlcQ51Qu3xFhJhKrpIVAGU39NPAxbQW2YMWP7Q4cVxlMdO2Oj3UpYKZXlnRhL2szdnV957ZkmaacDWKF7oWyy-W_ysrQsxJIBrGctpBfR-_NTwJFganeRiRduaAlWDyidATJR1iHuwqyrPxMMtXEKgZ-3lI_O1CxyxYHhNmGa6hY1o5ubWTOlqpQDWwAc5cWlpTNMAnMKKUtF015fCQzTvOWJqBx6ig")',
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent" />
+                <div className="relative z-10">
+                  <span className="px-3 py-1 rounded-full bg-surface-container-high/40 text-on-secondary-container font-label-sm text-label-sm backdrop-blur">
+                    Accessible Prose
+                  </span>
+                </div>
+                <div className="relative z-10 space-y-2">
+                  <div className="flex items-center gap-2 text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider">
+                    <span className="material-symbols-outlined text-[16px]">
+                      park
+                    </span>
+                    <span className>Gateway Books</span>
+                  </div>
+                  <h3 className="font-headline-md text-headline-md text-on-primary group-hover:translate-x-1 transition-transform">
+                    Beginner Friendly
+                  </h3>
+                  <p className="font-body-sm text-body-sm text-on-primary-container">
+                    Gentle narrative on-ramps to reawaken the habit of
+                    unhurried, reflective reading.
+                  </p>
+                </div>
+              </a>
+            </div>
+          </section>
+          <section className="max-w-[1440px] mx-auto px-6 lg:px-12 pb-16 w-full">
+            <div className="rounded-3xl bg-surface-container p-8 lg:p-12 shadow-sm relative overflow-hidden">
+              <div className="pointer-events-none absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-surface-variant/40 blur-2xl" />
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                <div className="lg:col-span-7 space-y-4">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-card text-on-tertiary-container font-label-sm text-label-sm shadow-sm">
+                    <span className="material-symbols-outlined text-[14px]">
+                      save
+                    </span>
+                    <span className>
+                      Zero Sign-Up Required • Saved to Your Browser
+                    </span>
+                  </div>
+                  <h3 className="font-headline-lg text-headline-lg text-primary">
+                    Your Private Local Reading Desk
+                  </h3>
+                  <p className="font-body-md text-body-md text-on-surface-variant max-w-xl">
+                    Track reading sessions right where you are. Books you save
+                    or read automatically sync with browser storage,
+                    safeguarding your privacy without requiring accounts or
+                    cloud synchronization.
+                  </p>
+                  <div className="pt-2 flex flex-wrap gap-4 items-center">
+                    <a
+                      className="px-6 py-3 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all shadow-md"
+                      data-path="my-library"
+                      href="#"
+                    >
+                      Open Reading Dashboard
+                    </a>
+                    <span
+                      className="font-body-sm text-body-sm text-on-surface-variant"
+                      id="reading-status-notice"
+                    >
+                      3 active volumes cataloged in your current browser
+                    </span>
+                  </div>
+                </div>
+                <div className="lg:col-span-5 bg-surface-card rounded-2xl p-6 shadow-md space-y-4">
+                  <div className="flex items-center justify-between pb-3">
+                    <span className="font-label-md text-label-md text-primary font-bold">
+                      Currently In Progress
+                    </span>
+                    <span className="px-2 py-0.5 rounded-full bg-surface-container-high text-on-tertiary-container font-label-sm text-label-sm">
+                      Active Session
+                    </span>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="font-title-md text-title-md text-primary">
+                          Le Petit Prince
+                        </p>
+                        <p className="font-body-sm text-body-sm text-on-surface-variant">
+                          Page 48 of 96 • Chapter VII
+                        </p>
+                      </div>
+                      <span className="font-label-md text-label-md text-on-tertiary-container font-bold">
+                        50%
+                      </span>
+                    </div>
+                    <div className="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+                      <div className="h-full bg-on-tertiary-container rounded-full w-1/2 transition-all duration-500" />
+                    </div>
+                  </div>
+                  <div className="pt-3 flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+                    <span className="flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-[16px] text-status-success">
+                        check_circle
+                      </span>
+                      <span className>18 min read today</span>
+                    </span>
+                    <a
+                      className="text-primary hover:text-secondary font-label-sm text-label-sm font-semibold"
+                      data-path="explorer"
+                      href="#"
+                    >
+                      Resume Reader →
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section className="w-full bg-tertiary-container text-on-tertiary-container relative overflow-hidden py-16 px-6 lg:px-12 my-6">
+            <div className="pointer-events-none absolute left-10 -top-12 text-surface-container-highest/10 font-headline-lg text-[140px] leading-none select-none">
+              “
+            </div>
+            <div className="max-w-[1000px] mx-auto text-center relative z-10 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-tertiary text-on-tertiary font-label-sm text-label-sm uppercase tracking-wider">
+                <span className="material-symbols-outlined text-[14px]">
+                  format_quote
+                </span>
+                <span className>Literary Thought of the Day</span>
+              </div>
+              <blockquote className="font-headline-lg text-headline-lg italic font-normal text-surface leading-snug">
+                “On ne voit bien qu’avec le cœur. L’essentiel est invisible pour
+                les yeux.”
+              </blockquote>
+              <div className="space-y-1">
+                <p className="font-title-md text-title-md text-on-tertiary font-bold tracking-wide">
+                  Antoine de Saint-Exupéry
+                </p>
+                <p className="font-body-sm text-body-sm text-surface-container-highest/80">
+                  <em>Le Petit Prince (The Little Prince)</em> • Chapter XXI,
+                  Published 1943
+                </p>
+              </div>
+              <div className="pt-2">
+                <span className="font-label-sm text-label-sm text-surface-container-highest/60 italic">
+                  “One sees clearly only with the heart. What is essential is
+                  invisible to the eye.”
+                </span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <footer className="w-full bg-surface-container-low shadow-[0_-1px_8px_rgba(0,0,0,0.02)]">
+        <div className="max-w-[1440px] mx-auto px-6 lg:px-12 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
+            <div className="lg:col-span-2 space-y-4">
+              <div className="flex items-center gap-3">
+                <img
+                  alt="BookBridge Logo"
+                  className="h-7 w-auto object-contain"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEDzO_GBPm8isEUkTqlc0rXu0_CDktn0QcjBDQc8lwZ2oQyRpG9MkPFYhbvUKXmBhdK2GJgYVYAMhG2Vx6oj7aqnEb4cuLSFnSJK5356BnlaaQpZo6m4C2iQsyTsxqQXmfC8dHRL30N8OSPQzTEYbxyaJZy0d3kun6iP7ROH7IBhuU9vkHTy06UR-JLKph1gjAHaH89kBMePOEsWbliDR50dnSmBfid-LCRtFZaQ"
+                />
+                <span className="font-headline-sm text-headline-sm tracking-tight text-primary">
+                  BookBridge
+                </span>
+              </div>
+              <p className="font-headline-sm text-headline-sm italic text-on-tertiary-container font-normal">
+                “Bridge Worlds, Discover Voices Through Books”
+              </p>
+              <p className="font-body-sm text-body-sm text-on-surface-variant max-w-sm">
+                A scholarly digital reading platform curated for reflective
+                readers, archival researchers, and bibliophiles.
+              </p>
+            </div>
+            <div className="space-y-3">
+              <h4 className="font-label-md text-label-md uppercase tracking-wider text-primary">
+                Explore
+              </h4>
+              <ul className="space-y-2">
+                <li className="font-body-sm text-body-sm">
+                  <a
+                    className="text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="directory"
+                    href="#"
+                  >
+                    Book Directory
+                  </a>
+                </li>
+                <li className="font-body-sm text-body-sm">
+                  <a
+                    className="text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="explorer"
+                    href="#"
+                  >
+                    Interactive Explorer
+                  </a>
+                </li>
+                <li className="font-body-sm text-body-sm">
+                  <a
+                    className="text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="gallery"
+                    href="#"
+                  >
+                    Cover Visual Gallery
+                  </a>
+                </li>
+                <li className="font-body-sm text-body-sm">
+                  <a
+                    className="text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="collections"
+                    href="#"
+                  >
+                    Themed Shelves
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="space-y-3">
+              <h4 className="font-label-md text-label-md uppercase tracking-wider text-primary">
+                Collections
+              </h4>
+              <ul className="space-y-2">
+                <li className="font-body-sm text-body-sm">
+                  <a
+                    className="text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="collections"
+                    href="#"
+                  >
+                    Literary Modernism
+                  </a>
+                </li>
+                <li className="font-body-sm text-body-sm">
+                  <a
+                    className="text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="collections"
+                    href="#"
+                  >
+                    Curated Anthologies
+                  </a>
+                </li>
+                <li className="font-body-sm text-body-sm">
+                  <a
+                    className="text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="collections"
+                    href="#"
+                  >
+                    Global Dissertations
+                  </a>
+                </li>
+                <li className="font-body-sm text-body-sm">
+                  <a
+                    className="text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="my-library"
+                    href="#"
+                  >
+                    Personal Archival Shelf
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="space-y-3">
+              <h4 className="font-label-md text-label-md uppercase tracking-wider text-primary">
+                Resources
+              </h4>
+              <ul className="space-y-2">
+                <li className="font-body-sm text-body-sm">
+                  <a
+                    className="text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="about"
+                    href="#"
+                  >
+                    Editorial Standards
+                  </a>
+                </li>
+                <li className="font-body-sm text-body-sm">
+                  <a
+                    className="text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="about"
+                    href="#"
+                  >
+                    Archival Citations
+                  </a>
+                </li>
+                <li className="font-body-sm text-body-sm">
+                  <a
+                    className="text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="contact"
+                    href="#"
+                  >
+                    Scholarly Inquiry
+                  </a>
+                </li>
+                <li className="font-body-sm text-body-sm">
+                  <a
+                    className="text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="contact"
+                    href="#"
+                  >
+                    Community Reader Notes
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="space-y-3">
+              <h4 className="font-label-md text-label-md uppercase tracking-wider text-primary">
+                Legal
+              </h4>
+              <ul className="space-y-2">
+                <li className="font-body-sm text-body-sm">
+                  <a
+                    className="text-on-surface-variant hover:text-on-surface transition-colors"
+                    href="#"
+                  >
+                    Privacy Charter
+                  </a>
+                </li>
+                <li className="font-body-sm text-body-sm">
+                  <a
+                    className="text-on-surface-variant hover:text-on-surface transition-colors"
+                    href="#"
+                  >
+                    Public Domain Notice
+                  </a>
+                </li>
+                <li className="font-body-sm text-body-sm">
+                  <a
+                    className="text-on-surface-variant hover:text-on-surface transition-colors"
+                    href="#"
+                  >
+                    Metadata Usage Rights
+                  </a>
+                </li>
+                <li className="font-body-sm text-body-sm">
+                  <a
+                    className="text-on-surface-variant hover:text-on-surface transition-colors"
+                    href="#"
+                  >
+                    Open Access Ethics
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="font-body-sm text-body-sm text-on-surface-variant text-center md:text-left">
+              BookBridge Academic eProject Demo © 2026. Interactive local
+              storage reading tracker.
+            </p>
+            <div className="flex items-center gap-6">
+              <span className="font-label-sm text-label-sm text-on-surface-variant">
+                v1.4 Archive Build
+              </span>
+              <span className="inline-flex items-center gap-1 font-label-sm text-label-sm text-on-tertiary-container">
+                <span className="material-symbols-outlined text-[14px]">
+                  bookmarks
+                </span>
+                Local Persistence Active
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}

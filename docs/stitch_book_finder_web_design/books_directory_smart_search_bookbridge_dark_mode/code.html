@@ -1,830 +1,2391 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"primary-fixed":"#ffddb8","inverse-surface":"#dfe2ee","on-primary-fixed":"#2a1700","tertiary":"#ffc08e","tertiary-fixed":"#ffdcc3","inverse-on-surface":"#2c3039","tertiary-fixed-dim":"#ffb77d","outline-variant":"#534434","surface-container":"#1c2028","surface":"#0f131c","background":"#0f131c","outline":"#a08e7a","on-surface":"#dfe2ee","tertiary-container":"#ff9837","surface-dim":"#0f131c","surface-bright":"#353942","on-secondary-fixed-variant":"#004395","secondary-fixed":"#d8e2ff","primary-container":"#f59e0b","on-surface-variant":"#d8c3ad","surface-tint":"#ffb95f","on-primary":"#472a00","surface-variant":"#31353e","primary-fixed-dim":"#ffb95f","surface-container-highest":"#31353e","on-primary-container":"#613b00","on-tertiary-fixed-variant":"#6e3900","on-secondary":"#002e6a","error-container":"#93000a","on-background":"#dfe2ee","on-error":"#690005","secondary":"#adc6ff","secondary-container":"#0566d9","surface-container-high":"#262a33","surface-container-lowest":"#0a0e16","secondary-fixed-dim":"#adc6ff","on-secondary-fixed":"#001a42","on-tertiary":"#4d2600","on-tertiary-container":"#6a3700","on-secondary-container":"#e6ecff","error":"#ffb4ab","on-tertiary-fixed":"#2f1500","surface-container-low":"#181c24","on-error-container":"#ffdad6","inverse-primary":"#855300","primary":"#ffc174","on-primary-fixed-variant":"#653e00"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"margin-sm":"1rem","space-sm":"0.5rem","space-2xl":"4rem","space-lg":"1.5rem","margin":"1.5rem","gutter-lg":"2.5rem","margin-lg":"4rem","space-xl":"2.5rem","space-xs":"0.25rem","space-md":"1rem","gutter":"1.5rem","gutter-sm":"1rem"},"fontFamily":{"display-lg-mobile":["Playfair Display"],"label-lg":["Inter"],"headline-xl":["Playfair Display"],"headline-xl-mobile":["Playfair Display"],"body-lg":["Plus Jakarta Sans"],"headline-sm":["Playfair Display"],"label-caps":["Inter"],"display-lg":["Playfair Display"],"headline-md":["Playfair Display"],"label-md":["Inter"],"headline-lg":["Playfair Display"],"body-xl":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"]},"fontSize":{"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-xl":["40px",{"lineHeight":"48px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-xl-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"label-caps":["11px",{"lineHeight":"16px","letterSpacing":"0.08em","fontWeight":"700"}],"display-lg":["56px",{"lineHeight":"68px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","fontWeight":"500"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"500"}],"body-xl":["20px",{"lineHeight":"34px","letterSpacing":"-0.005em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}]}}}};</script></head><body class="bg-background text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"><header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1440px] mx-auto px-margin md:px-margin-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-xs group" data-path="home" href="#"><span class="material-symbols-outlined text-primary text-[28px] transition-transform duration-300 group-hover:scale-105">auto_stories</span><span class="font-headline-md text-headline-md text-on-surface tracking-tight">Book<span class="text-primary">Bridge</span></span></a></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-primary font-semibold"><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="home" href="#">Home</a><a aria-current="page" class="px-space-md py-space-xs rounded-lg transition-colors bg-surface-container-high text-primary font-semibold" data-path="directory" href="#">Directory</a><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="explorer" href="#">Explorer</a><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="collections" href="#">Collections</a><a class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="my-library" href="#"><span>My Library</span><span class="px-1.5 py-0.5 rounded-full font-label-caps text-label-caps bg-primary-container text-on-primary-container">3 saved</span></a><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="about" href="#">About</a><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-space-sm md:gap-space-md"><button aria-label="Quick Search" class="p-space-xs rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">search</span></button><button aria-label="Toggle Light or Dark Mode" class="flex items-center p-1 bg-surface-container rounded-full hover:bg-surface-container-high transition-colors" type="button"><span class="w-6 h-6 rounded-full flex items-center justify-center text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">light_mode</span></span><span class="w-6 h-6 rounded-full flex items-center justify-center bg-surface-container-highest text-primary shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><span class="material-symbols-outlined text-[16px]">dark_mode</span></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-background min-h-screen"><div class="flex flex-col w-full">
-<!-- Subtle Ambient Glow Canvas Decor -->
-<div class="relative w-full overflow-hidden">
-<div class="absolute top-0 right-1/4 w-96 h-96 bg-primary-container/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
-<div class="absolute top-1/3 left-10 w-72 h-72 bg-secondary/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
-<!-- Header & Breadcrumb Ribbon -->
-<section class="max-w-[1440px] mx-auto w-full px-margin md:px-margin-lg pt-space-lg pb-space-md">
-<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md mb-space-sm">
-<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
-<span class="material-symbols-outlined text-[16px]">home</span>
-<span>Archive</span>
-</a>
-<span class="text-on-surface-variant/40">/</span>
-<span class="text-on-surface">Catalogue Index</span>
-<span class="text-on-surface-variant/40">/</span>
-<span class="text-primary font-semibold">Smart Search</span>
-</nav>
-<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md pb-space-lg">
-<div class="space-y-space-xs">
-<div class="inline-flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-caps text-label-caps uppercase tracking-wider">
-<span class="material-symbols-outlined text-[14px]">local_library</span>
-<span>Comprehensive Indexation</span>
-</div>
-<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">
-            Books Directory <span class="font-serif italic font-normal text-primary">&amp; Smart Search</span>
-</h1>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
-            Traverse multilingual manuscripts, rare translations, and canonical prose through multi-tier bibliometric taxonomy.
-          </p>
-</div>
-<div class="flex items-center gap-space-md bg-surface-container-low px-space-md py-space-sm rounded-xl shadow-sm">
-<div class="flex flex-col">
-<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Index Coverage</span>
-<span class="font-label-lg text-label-lg text-on-surface" id="results-count-text">Showing <strong class="text-primary" id="visible-count">10</strong> of 10 books cataloged</span>
-</div>
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[22px]">auto_stories</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Main Directory Layout -->
-<main class="max-w-[1440px] mx-auto w-full px-margin md:px-margin-lg pb-space-2xl">
-<div class="flex flex-col lg:flex-row items-start gap-gutter-lg">
-<!-- Left Filter Sidebar -->
-<aside class="w-full lg:w-80 flex-shrink-0 transition-all duration-300" id="filter-sidebar">
-<div class="bg-surface-container-low/90 backdrop-blur-xl rounded-xl p-space-md lg:p-space-lg space-y-space-lg shadow-xl sticky top-24">
-<!-- Sidebar Header & Toggle -->
-<div class="flex items-center justify-between pb-space-sm">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-primary text-[20px]">tune</span>
-<span class="font-headline-sm text-headline-sm text-on-surface">Filter Stacks</span>
-</div>
-<button class="font-label-md text-label-md text-primary hover:text-primary-fixed underline underline-offset-4 cursor-pointer transition-colors" id="clear-all-btn" type="button">
-                Clear All
-              </button>
-</div>
-<!-- Search Input -->
-<div class="space-y-space-xs">
-<label class="font-label-md text-label-md text-on-surface flex items-center justify-between" for="search-input">
-<span>Keyword / Title / Author</span>
-<span class="text-on-surface-variant text-[11px] font-label-caps uppercase">Live Filter</span>
-</label>
-<div class="relative">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
-<input class="w-full bg-surface-container rounded-lg pl-9 pr-8 py-2 text-on-surface placeholder:text-on-surface-variant/60 font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" id="search-input" placeholder="e.g. Kiều, Orwell, Camus..." type="text"/>
-<button class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface" id="clear-search" type="button">
-<span class="material-symbols-outlined text-[16px]">close</span>
-</button>
-</div>
-</div>
-<!-- Languages -->
-<div class="space-y-space-xs">
-<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant block">Language</span>
-<div class="space-y-1.5 pt-1" id="language-filters">
-<label class="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-surface-container cursor-pointer transition-colors">
-<div class="flex items-center gap-2.5">
-<input checked="" class="accent-primary-container w-4 h-4 rounded cursor-pointer" name="lang-filter" type="radio" value="all"/>
-<span class="font-body-md text-body-md text-on-surface">All Languages</span>
-</div>
-<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded-full">10</span>
-</label>
-<label class="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-surface-container cursor-pointer transition-colors">
-<div class="flex items-center gap-2.5">
-<input class="accent-primary-container w-4 h-4 rounded cursor-pointer" name="lang-filter" type="radio" value="Vietnamese"/>
-<span class="font-body-md text-body-md text-on-surface">Vietnamese</span>
-</div>
-<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded-full">3</span>
-</label>
-<label class="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-surface-container cursor-pointer transition-colors">
-<div class="flex items-center gap-2.5">
-<input class="accent-primary-container w-4 h-4 rounded cursor-pointer" name="lang-filter" type="radio" value="English"/>
-<span class="font-body-md text-body-md text-on-surface">English</span>
-</div>
-<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded-full">2</span>
-</label>
-<label class="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-surface-container cursor-pointer transition-colors">
-<div class="flex items-center gap-2.5">
-<input class="accent-primary-container w-4 h-4 rounded cursor-pointer" name="lang-filter" type="radio" value="French"/>
-<span class="font-body-md text-body-md text-on-surface">French</span>
-</div>
-<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded-full">1</span>
-</label>
-<label class="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-surface-container cursor-pointer transition-colors">
-<div class="flex items-center gap-2.5">
-<input class="accent-primary-container w-4 h-4 rounded cursor-pointer" name="lang-filter" type="radio" value="Japanese"/>
-<span class="font-body-md text-body-md text-on-surface">Japanese</span>
-</div>
-<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded-full">2</span>
-</label>
-<label class="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-surface-container cursor-pointer transition-colors">
-<div class="flex items-center gap-2.5">
-<input class="accent-primary-container w-4 h-4 rounded cursor-pointer" name="lang-filter" type="radio" value="Spanish"/>
-<span class="font-body-md text-body-md text-on-surface">Spanish</span>
-</div>
-<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded-full">1</span>
-</label>
-<label class="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-surface-container cursor-pointer transition-colors">
-<div class="flex items-center gap-2.5">
-<input class="accent-primary-container w-4 h-4 rounded cursor-pointer" name="lang-filter" type="radio" value="Russian"/>
-<span class="font-body-md text-body-md text-on-surface">Russian</span>
-</div>
-<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded-full">1</span>
-</label>
-</div>
-</div>
-<!-- Genres Multi-Select -->
-<div class="space-y-space-xs">
-<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant block">Genre &amp; Taxonomy</span>
-<div class="grid grid-cols-2 gap-1.5 pt-1" id="genre-filters">
-<label class="flex items-center gap-2 px-2 py-1 rounded bg-surface-container/60 hover:bg-surface-container cursor-pointer transition-colors">
-<input class="genre-checkbox accent-primary-container w-3.5 h-3.5 rounded" type="checkbox" value="Fiction"/>
-<span class="font-label-md text-label-md text-on-surface">Fiction</span>
-</label>
-<label class="flex items-center gap-2 px-2 py-1 rounded bg-surface-container/60 hover:bg-surface-container cursor-pointer transition-colors">
-<input class="genre-checkbox accent-primary-container w-3.5 h-3.5 rounded" type="checkbox" value="Philosophy"/>
-<span class="font-label-md text-label-md text-on-surface">Philosophy</span>
-</label>
-<label class="flex items-center gap-2 px-2 py-1 rounded bg-surface-container/60 hover:bg-surface-container cursor-pointer transition-colors">
-<input class="genre-checkbox accent-primary-container w-3.5 h-3.5 rounded" type="checkbox" value="Sci-Fi"/>
-<span class="font-label-md text-label-md text-on-surface">Sci-Fi</span>
-</label>
-<label class="flex items-center gap-2 px-2 py-1 rounded bg-surface-container/60 hover:bg-surface-container cursor-pointer transition-colors">
-<input class="genre-checkbox accent-primary-container w-3.5 h-3.5 rounded" type="checkbox" value="Historical"/>
-<span class="font-label-md text-label-md text-on-surface">Historical</span>
-</label>
-<label class="flex items-center gap-2 px-2 py-1 rounded bg-surface-container/60 hover:bg-surface-container cursor-pointer transition-colors">
-<input class="genre-checkbox accent-primary-container w-3.5 h-3.5 rounded" type="checkbox" value="Romance"/>
-<span class="font-label-md text-label-md text-on-surface">Romance</span>
-</label>
-<label class="flex items-center gap-2 px-2 py-1 rounded bg-surface-container/60 hover:bg-surface-container cursor-pointer transition-colors">
-<input class="genre-checkbox accent-primary-container w-3.5 h-3.5 rounded" type="checkbox" value="Satire"/>
-<span class="font-label-md text-label-md text-on-surface">Satire</span>
-</label>
-</div>
-</div>
-<!-- Reading Level -->
-<div class="space-y-space-xs">
-<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant block">Curated Difficulty</span>
-<div class="flex flex-wrap gap-1.5 pt-1" id="level-filters">
-<button class="level-btn px-2.5 py-1 rounded-full font-label-md text-label-md bg-primary-container text-on-primary-container transition-all" data-level="all" type="button">All Levels</button>
-<button class="level-btn px-2.5 py-1 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" data-level="Beginner" type="button">Beginner</button>
-<button class="level-btn px-2.5 py-1 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" data-level="Intermediate" type="button">Intermediate</button>
-<button class="level-btn px-2.5 py-1 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" data-level="Advanced" type="button">Advanced</button>
-</div>
-</div>
-<!-- Publication Era -->
-<div class="space-y-space-xs">
-<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant block">Publication Period</span>
-<div class="space-y-1.5 pt-1" id="period-filters">
-<label class="flex items-center gap-2 px-2 py-1 rounded hover:bg-surface-container cursor-pointer transition-colors">
-<input checked="" class="accent-primary-container w-3.5 h-3.5 rounded cursor-pointer" name="period-filter" type="radio" value="all"/>
-<span class="font-body-md text-body-md text-on-surface">All Eras</span>
-</label>
-<label class="flex items-center gap-2 px-2 py-1 rounded hover:bg-surface-container cursor-pointer transition-colors">
-<input class="accent-primary-container w-3.5 h-3.5 rounded cursor-pointer" name="period-filter" type="radio" value="pre-1950"/>
-<span class="font-body-md text-body-md text-on-surface">Before 1950</span>
-</label>
-<label class="flex items-center gap-2 px-2 py-1 rounded hover:bg-surface-container cursor-pointer transition-colors">
-<input class="accent-primary-container w-3.5 h-3.5 rounded cursor-pointer" name="period-filter" type="radio" value="1950-2000"/>
-<span class="font-body-md text-body-md text-on-surface">1950 – 2000</span>
-</label>
-<label class="flex items-center gap-2 px-2 py-1 rounded hover:bg-surface-container cursor-pointer transition-colors">
-<input class="accent-primary-container w-3.5 h-3.5 rounded cursor-pointer" name="period-filter" type="radio" value="post-2000"/>
-<span class="font-body-md text-body-md text-on-surface">Post-2000</span>
-</label>
-</div>
-</div>
-<!-- Quick Action button -->
-<div class="pt-space-xs">
-<button class="w-full py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-2 transition-colors" id="reset-filters-hero" type="button">
-<span class="material-symbols-outlined text-[18px]">restart_alt</span>
-<span>Reset Applied Filters</span>
-</button>
-</div>
-</div>
-</aside>
-<!-- Main Content Area -->
-<div class="flex-1 w-full space-y-space-lg">
-<!-- Results Toolbar -->
-<div class="bg-surface-container-low/70 backdrop-blur-md rounded-xl p-space-sm md:p-space-md flex flex-wrap items-center justify-between gap-space-md shadow-md">
-<div class="flex items-center gap-space-sm flex-wrap">
-<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px] text-primary">sort</span>
-<span>Order by:</span>
-</span>
-<div class="relative">
-<select class="appearance-none bg-surface-container text-on-surface font-label-md text-label-md pl-3 pr-8 py-1.5 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer shadow-sm" id="sort-select">
-<option value="title-asc">Title: A → Z</option>
-<option value="title-desc">Title: Z → A</option>
-<option value="year-asc">Publication Year (Oldest)</option>
-<option value="year-desc">Publication Year (Newest)</option>
-<option value="pages-asc">Page Count (Shortest)</option>
-<option value="pages-desc">Page Count (Longest)</option>
-<option value="popular">Popularity / Scholarly Acclaim</option>
-</select>
-<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[16px]">expand_more</span>
-</div>
-<!-- Quick Active Badges Indicator -->
-<div class="hidden items-center gap-1.5" id="active-tag-pills"></div>
-</div>
-<!-- View Switcher & Mobile Filter Toggle -->
-<div class="flex items-center gap-space-xs ml-auto">
-<button class="lg:hidden px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1.5" id="toggle-filter-view" type="button">
-<span class="material-symbols-outlined text-[18px]">tune</span>
-<span>Filters</span>
-</button>
-<div class="inline-flex p-1 bg-surface-container rounded-lg gap-0.5">
-<button aria-label="Grid View" class="w-8 h-8 rounded flex items-center justify-center bg-surface-container-highest text-primary shadow-sm transition-colors" id="view-grid-btn" type="button">
-<span class="material-symbols-outlined text-[18px]">grid_view</span>
-</button>
-<button aria-label="List View" class="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" id="view-list-btn" type="button">
-<span class="material-symbols-outlined text-[18px]">view_list</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Books Dynamic Container (4-column responsive grid by default) -->
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-gutter transition-all duration-300" id="books-grid">
-<!-- Book 1: Truyện Kiều -->
-<article class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md" data-author="nguyen du" data-genre="Historical Fiction" data-lang="Vietnamese" data-level="Advanced" data-pages="3254" data-popular="99" data-title="truyen kieu the tale of kieu" data-year="1820">
-<div class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Dark vintage Vietnamese archival manuscript cover of Truyen Kieu Nguyen Du with gilded classical calligraphy motifs, rich indigo ink, deep amber illumination, and aged textured deckle-edge paper inside an atmospheric scholar sanctuary." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX6K_QMarONYuIkP794pfyYASHcGDwAIOFzBpSqzqBJmsn-vL-zGp7j23gQfZVbybVXGngYmqXRlASVHK356SoW6uQmtS9YiyfwdYhAx7J-ShZsnfgz6FUSEmF6_p8Pv7Jf6cBzGor9-kWtP_ljN4lwhpedYCRSOyD9D54flyAvvx_61w4W7rVYsrHkLfj8s_eQdgLKArE5K5nV6PeIdeXyJquQ1PtahVnePTOGw"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"></div>
-<!-- Bookmark Action -->
-<button aria-label="Bookmark Truyen Kieu" class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-</button>
-<!-- Floating Badges -->
-<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-<span class="px-2 py-0.5 rounded bg-primary-container text-on-primary-container font-label-caps text-label-caps uppercase tracking-wider font-bold">1820 CE</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps">Advanced</span>
-</div>
-</div>
-<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md">
-<div class="space-y-1">
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">Vietnamese</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">Historical</span>
-</div>
-<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1">Truyện Kiều</h2>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block" href="#">Nguyễn Du</a>
-</div>
-<div class="pt-space-xs space-y-space-sm">
-<div class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">menu_book</span> 3,254 lines</span>
-<span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9 (1.8k)</span>
-</div>
-<button class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm" type="button">
-<span>View Archival Record</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</div>
-</div>
-</article>
-<!-- Book 2: Le Petit Prince -->
-<article class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md" data-author="antoine de saint-exupery" data-genre="Fiction Philosophy" data-lang="French" data-level="Beginner" data-pages="96" data-popular="98" data-title="le petit prince the little prince" data-year="1943">
-<div class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Artistic deep nocturnal cover of Le Petit Prince standing on a miniature solitary asteroid with deep gold stars, atmospheric cobalt night cosmos, celestial dust, cinematic vintage French literary style with warm amber glowing nebula." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYd-RXeagk8y6befBGST5347Cff8ZvzOeMq2iDUWt4Iw2YaIoSsciaNctN0nLRmLDpUN-QMkBFZMuXuD4B7aKgcNYtvJ6aG2mU0HWtPqy0jEzloBGVEzDnDd7nMf1SVqc6k4zKVOsUNd9Gfe-oStjDz723uYrjk3vdZVdk4ez1O6K2mLq0034G-uewIcKM_sUyScUksIyx6yW3FsbSCjtgw4WP3Rn7Nw9JPpiHSw"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"></div>
-<button aria-label="Bookmark Le Petit Prince" class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-</button>
-<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-bold">1943</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps">Beginner</span>
-</div>
-</div>
-<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md">
-<div class="space-y-1">
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">French</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">Philosophy</span>
-</div>
-<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1">Le Petit Prince</h2>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block" href="#">Antoine de Saint-Exupéry</a>
-</div>
-<div class="pt-space-xs space-y-space-sm">
-<div class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">menu_book</span> 96 pages</span>
-<span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9 (4.2k)</span>
-</div>
-<button class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm" type="button">
-<span>View Archival Record</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</div>
-</div>
-</article>
-<!-- Book 3: 1984 -->
-<article class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md" data-author="george orwell" data-genre="Sci-Fi Fiction" data-lang="English" data-level="Intermediate" data-pages="328" data-popular="97" data-title="1984 nineteen eighty-four" data-year="1949">
-<div class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Brutalist dystopian book cover of 1984 by George Orwell featuring a giant glowing watchful eye silhouette, architectural concrete surveillance towers, deep slate darkness, with subtle amber backlight beam casting heavy noir shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYemwu0SIF2XHBd9QJuu3UyqkdchzQkSBzzznk41aLqpBHh6trTESztdKXdi7AS6kcR0krAG-u_9xGipJw3lSDSlgdJC_5y2ZgHQQ72T198CFw7TB4TixIRQr0RrMb-JcVFj9HsGTKSQuBIU6PgQV8Ofm8mdBy7-Kouz7UKPRuXpofkH16vXdr7PTqzS6MiZhnf5d1KPfc8xUO90MNMxEkx1USnqR1LXEZkcuI9A"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"></div>
-<button aria-label="Bookmark 1984" class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-</button>
-<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-bold">1949</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps">Intermediate</span>
-</div>
-</div>
-<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md">
-<div class="space-y-1">
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">English</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">Sci-Fi</span>
-</div>
-<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1">1984</h2>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block" href="#">George Orwell</a>
-</div>
-<div class="pt-space-xs space-y-space-sm">
-<div class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">menu_book</span> 328 pages</span>
-<span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.8 (3.5k)</span>
-</div>
-<button class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm" type="button">
-<span>View Archival Record</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</div>
-</div>
-</article>
-<!-- Book 4: The Great Gatsby -->
-<article class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md" data-author="f. scott fitzgerald" data-genre="Fiction Romance" data-lang="English" data-level="Intermediate" data-pages="180" data-popular="93" data-title="the great gatsby" data-year="1925">
-<div class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Art Deco dark book cover design for The Great Gatsby, opulent geometric gold foil filigree lines against midnight blue slate velvet background, distant piercing emerald green dock light through mist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJcN4g9YMPB2SsfC_yYeoZi5tJHNcc_AY0Pga2A8EjJJ8pvCGK5xVOy0A5_6hOfP5_uEbH3Xy19jou996xIkOAXtOcSBxv-2S4YnYpgN959bm6i6qOWyFMTqmgtkX9_frVZpTW74gibh9z5xFFW2ECEPnCuVpkk6kZQS7ms7cZNsfIzFBINe5KhpnGamRaidl5Oow9PzQbJllbZ0YNgbU9SjN3FamP72CW85jMJg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"></div>
-<button aria-label="Bookmark Gatsby" class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-</button>
-<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-bold">1925</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps">Intermediate</span>
-</div>
-</div>
-<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md">
-<div class="space-y-1">
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">English</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">Romance</span>
-</div>
-<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1">The Great Gatsby</h2>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block" href="#">F. Scott Fitzgerald</a>
-</div>
-<div class="pt-space-xs space-y-space-sm">
-<div class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">menu_book</span> 180 pages</span>
-<span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.7 (2.9k)</span>
-</div>
-<button class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm" type="button">
-<span>View Archival Record</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</div>
-</div>
-</article>
-<!-- Book 5: Norwegian Wood -->
-<article class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md" data-author="haruki murakami" data-genre="Fiction Romance" data-lang="Japanese" data-level="Intermediate" data-pages="296" data-popular="94" data-title="norwegian wood" data-year="1987">
-<div class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Melancholic Japanese book cover for Norwegian Wood by Haruki Murakami, minimalist winter pine forest shrouded in pale mountain fog, deep charcoal nightfall tones, quiet vinyl record motif with crimson accent detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQQUdQcHPBAqfgOW7qJKeAvZEZ52H83yVupRKejNnnbbvvUuTCAXMn9X_YexuNUO-DbnyQ4cOaW-aua_2jjL-x2FEqzczpWVoE7V0BDmTZmq20TBj1RviCqF64iXRDLjA7s-cIOUbpOBE2K4dY-DsZn2X734dcTqQYv8jERFPLYflYc9NBiXU-jAyeXpAWDnAXDQ_IzRbdI9v2N4lKeQ-VjPdzovuVipNmNONNUg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"></div>
-<button aria-label="Bookmark Norwegian Wood" class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-</button>
-<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-bold">1987</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps">Intermediate</span>
-</div>
-</div>
-<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md">
-<div class="space-y-1">
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">Japanese</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">Fiction</span>
-</div>
-<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1">Norwegian Wood</h2>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block" href="#">Haruki Murakami</a>
-</div>
-<div class="pt-space-xs space-y-space-sm">
-<div class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">menu_book</span> 296 pages</span>
-<span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.7 (2.1k)</span>
-</div>
-<button class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm" type="button">
-<span>View Archival Record</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</div>
-</div>
-</article>
-<!-- Book 6: Kokoro -->
-<article class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md" data-author="natsume soseki" data-genre="Fiction Philosophy" data-lang="Japanese" data-level="Advanced" data-pages="248" data-popular="91" data-title="kokoro the heart" data-year="1914">
-<div class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Refined Japanese literary Meiji-era book cover of Kokoro by Natsume Soseki, subtle traditional sumi-e ink wash, quiet tea room shadows, amber candlelight bleeding through sliding shoji lattice paper." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC11C_XtyAATPEY4f087-x7vSsJgVcNYjv2mg2-0jAv9F2M72BSsk5eIMn-eXnYNDKZvTrREP1jOfrVNBRKJLa7X_OCTQox3I78r9ChaGsxtbQgU6uc6FqLaweUSJHm65_cr811kFQsQmQWORq4sd00PGH9IGuky9zLl6Ug4s2XNfi8h8-Nmd8hVOwKnnITeael7Bq9xeBMOrEECyRBFicuEmq5KNfxeV6wpZOCcg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"></div>
-<button aria-label="Bookmark Kokoro" class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-</button>
-<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-bold">1914</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps">Advanced</span>
-</div>
-</div>
-<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md">
-<div class="space-y-1">
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">Japanese</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">Philosophy</span>
-</div>
-<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1">Kokoro</h2>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block" href="#">Natsume Sōseki</a>
-</div>
-<div class="pt-space-xs space-y-space-sm">
-<div class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">menu_book</span> 248 pages</span>
-<span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.8 (1.2k)</span>
-</div>
-<button class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm" type="button">
-<span>View Archival Record</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</div>
-</div>
-</article>
-<!-- Book 7: Crime and Punishment -->
-<article class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md" data-author="fyodor dostoevsky" data-genre="Fiction Philosophy" data-lang="Russian" data-level="Advanced" data-pages="671" data-popular="96" data-title="crime and punishment" data-year="1866">
-<div class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Intense psychological archival Russian book jacket of Crime and Punishment by Fyodor Dostoevsky, somber Saint Petersburg cobblestone streets in winter dusk, silhouette figure walking into amber gaslamp radiance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJTf0dUpLYqKVLMEwfddpSUFaDWO0njWZHSYAOkdXWeX1T8u79mq2wRd3LEMl1yiFdtM0Bxg4ih2UNI4A2xyetj8KfjmacIYq4ipNNxX3bJmH68JLmwXDkvQYYopqE30f9fc0ghjtD4Tw7U9Im6w5NGLxDJvFsDYgBP478_a_tTsX2mByiWJBCMTnmQ5L0TPs216nh4aF1hXVm1iUK4JJOsr1rtVUlYiri4GHGKg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"></div>
-<button aria-label="Bookmark Crime and Punishment" class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-</button>
-<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-bold">1866</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps">Advanced</span>
-</div>
-</div>
-<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md">
-<div class="space-y-1">
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">Russian</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">Philosophy</span>
-</div>
-<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1">Crime and Punishment</h2>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block" href="#">Fyodor Dostoevsky</a>
-</div>
-<div class="pt-space-xs space-y-space-sm">
-<div class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">menu_book</span> 671 pages</span>
-<span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9 (3.1k)</span>
-</div>
-<button class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm" type="button">
-<span>View Archival Record</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</div>
-</div>
-</article>
-<!-- Book 8: Dế Mèn Phiêu Lưu Ký -->
-<article class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md" data-author="to hoai" data-genre="Fiction" data-lang="Vietnamese" data-level="Beginner" data-pages="144" data-popular="92" data-title="de men phieu luu ky diary of a cricket" data-year="1941">
-<div class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Charming nocturnal folklore illustration cover for Vietnamese classic De Men Phieu Luu Ky by To Hoai, whimsical meadow under moonlight, glowing fireflies, deep teal foliage, warm golden lantern gleams." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGCCoo5TKcxnFG1R1TGfT_FL8-srPnjUzvpJqXqidEjiolVxoEnhiHUolMtyoACGXYoSDsn7bjhDdoyR57EhU3Mv1lSD_XuW4fMOSdDuysObfsoh2Uwvwrz3slrS74DtcPil9ZeIUfgrMHftgFlsDUMJI4vGShTZpLOkbicfgXtE_pA8MCghaVxU3w3088skHkE3yLBnsiJ3PSf033RL41vBIYMw3co8HS7YXYJg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"></div>
-<button aria-label="Bookmark De Men" class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-</button>
-<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-bold">1941</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps">Beginner</span>
-</div>
-</div>
-<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md">
-<div class="space-y-1">
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">Vietnamese</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">Fiction</span>
-</div>
-<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1">Dế Mèn Phiêu Lưu Ký</h2>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block" href="#">Tô Hoài</a>
-</div>
-<div class="pt-space-xs space-y-space-sm">
-<div class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">menu_book</span> 144 pages</span>
-<span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.8 (1.5k)</span>
-</div>
-<button class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm" type="button">
-<span>View Archival Record</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</div>
-</div>
-</article>
-<!-- Book 9: One Hundred Years of Solitude -->
-<article class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md" data-author="gabriel garcia marquez" data-genre="Fiction Historical" data-lang="Spanish" data-level="Advanced" data-pages="417" data-popular="98" data-title="one hundred years of solitude cien anos de soledad" data-year="1967">
-<div class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Magical realist dark atmospheric cover of One Hundred Years of Solitude by Gabriel Garcia Marquez, glowing yellow butterflies fluttering across ancient midnight Macondo mansion ruins under starry tropical sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWz6PjY4ChQU1gDocPb7zbtju0ip8-p0_nyAPj3r1FKVWug0zLhjcFx83xzNZz1007YTRmPmM2blgfmNmFgH8_QrELAJ_KGVu5cVFBNAFiaQxr2NIIeKXbyyJ3O9lkwtXO8vtO_EyxKZIqm7yTq3pL5E6Z5qkGZGuvXGhhud6B6fH-ZpDnTl3Q5PVeQZNw12YBqPd-7zdHYJPlB-6CeoQK2I8qGEmbiLY74WbV0Q"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"></div>
-<button aria-label="Bookmark 100 Years" class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-</button>
-<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-bold">1967</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps">Advanced</span>
-</div>
-</div>
-<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md">
-<div class="space-y-1">
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">Spanish</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">Historical</span>
-</div>
-<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1">One Hundred Years of Solitude</h2>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block" href="#">Gabriel García Márquez</a>
-</div>
-<div class="pt-space-xs space-y-space-sm">
-<div class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">menu_book</span> 417 pages</span>
-<span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9 (4.8k)</span>
-</div>
-<button class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm" type="button">
-<span>View Archival Record</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</div>
-</div>
-</article>
-<!-- Book 10: Số Đỏ -->
-<article class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md" data-author="vu trong phung" data-genre="Satire Fiction" data-lang="Vietnamese" data-level="Intermediate" data-pages="260" data-popular="90" data-title="so do dumb luck" data-year="1936">
-<div class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Dramatic 1930s colonial Hanoi satirical book cover for So Do Vu Trong Phung, art deco Vietnamese typography, dark silhouettes of dandy tennis players, rich dark crimson shadows and amber lamp light glow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWps9jiDj4PS6SB8Yg5hJszdZQIzqFQDqZichtPoS6X6ddfGkMXxEPsex6JoUdPNjdraTsS_0xnVm7iGrJ3D9XLoczdpgMFnf05vjGlJwO_Zf3AUa6zcSsziVWuiNqBb5dG1gPItV5chpsQl-ho51UdZtdYpqFnHvvBNg8e2A6rAoheqyXC5p-KfLSKqLcUxSAj1wH7DP-_nkwXyfheTIP_LUuh2gcU3rtzBxkeQ"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"></div>
-<button aria-label="Bookmark So Do" class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-</button>
-<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-bold">1936</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps">Intermediate</span>
-</div>
-</div>
-<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md">
-<div class="space-y-1">
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">Vietnamese</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant">Satire</span>
-</div>
-<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1">Số Đỏ (Dumb Luck)</h2>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block" href="#">Vũ Trọng Phụng</a>
-</div>
-<div class="pt-space-xs space-y-space-sm">
-<div class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">menu_book</span> 260 pages</span>
-<span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.7 (980)</span>
-</div>
-<button class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm" type="button">
-<span>View Archival Record</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</div>
-</div>
-</article>
-</div>
-<!-- Empty State (Shown when no cards match) -->
-<div class="hidden flex-col items-center justify-center py-space-2xl px-space-lg text-center bg-surface-container-low/40 rounded-xl" id="no-results-state">
-<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant mb-space-md">
-<span class="material-symbols-outlined text-[32px]">menu_book</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">No Archival Volumes Found</h3>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">
-              No manuscripts match your multi-criteria query parameters. Broaden the filters or explore alternative keywords.
-            </p>
-<button class="px- space-lg py-2.5 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg font-bold shadow-md hover:bg-primary-fixed transition-colors" id="reset-empty-btn" type="button">
-              Reset All Filters
-            </button>
-</div>
-<!-- Pagination Bar -->
-<div class="bg-surface-container-low/80 backdrop-blur-md rounded-xl p-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md shadow-sm">
-<div class="font-label-md text-label-md text-on-surface-variant">
-              Viewing folio page <span class="text-on-surface font-bold">1</span> of <span class="text-on-surface">1</span> in active query
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Book Directory | BookBridge (Dark Mode)</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#ffddb8",
+              "inverse-surface": "#dfe2ee",
+              "on-primary-fixed": "#2a1700",
+              tertiary: "#ffc08e",
+              "tertiary-fixed": "#ffdcc3",
+              "inverse-on-surface": "#2c3039",
+              "tertiary-fixed-dim": "#ffb77d",
+              "outline-variant": "#534434",
+              "surface-container": "#1c2028",
+              surface: "#0f131c",
+              background: "#0f131c",
+              outline: "#a08e7a",
+              "on-surface": "#dfe2ee",
+              "tertiary-container": "#ff9837",
+              "surface-dim": "#0f131c",
+              "surface-bright": "#353942",
+              "on-secondary-fixed-variant": "#004395",
+              "secondary-fixed": "#d8e2ff",
+              "primary-container": "#f59e0b",
+              "on-surface-variant": "#d8c3ad",
+              "surface-tint": "#ffb95f",
+              "on-primary": "#472a00",
+              "surface-variant": "#31353e",
+              "primary-fixed-dim": "#ffb95f",
+              "surface-container-highest": "#31353e",
+              "on-primary-container": "#613b00",
+              "on-tertiary-fixed-variant": "#6e3900",
+              "on-secondary": "#002e6a",
+              "error-container": "#93000a",
+              "on-background": "#dfe2ee",
+              "on-error": "#690005",
+              secondary: "#adc6ff",
+              "secondary-container": "#0566d9",
+              "surface-container-high": "#262a33",
+              "surface-container-lowest": "#0a0e16",
+              "secondary-fixed-dim": "#adc6ff",
+              "on-secondary-fixed": "#001a42",
+              "on-tertiary": "#4d2600",
+              "on-tertiary-container": "#6a3700",
+              "on-secondary-container": "#e6ecff",
+              error: "#ffb4ab",
+              "on-tertiary-fixed": "#2f1500",
+              "surface-container-low": "#181c24",
+              "on-error-container": "#ffdad6",
+              "inverse-primary": "#855300",
+              primary: "#ffc174",
+              "on-primary-fixed-variant": "#653e00",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              "margin-sm": "1rem",
+              "space-sm": "0.5rem",
+              "space-2xl": "4rem",
+              "space-lg": "1.5rem",
+              margin: "1.5rem",
+              "gutter-lg": "2.5rem",
+              "margin-lg": "4rem",
+              "space-xl": "2.5rem",
+              "space-xs": "0.25rem",
+              "space-md": "1rem",
+              gutter: "1.5rem",
+              "gutter-sm": "1rem",
+            },
+            fontFamily: {
+              "display-lg-mobile": ["Playfair Display"],
+              "label-lg": ["Inter"],
+              "headline-xl": ["Playfair Display"],
+              "headline-xl-mobile": ["Playfair Display"],
+              "body-lg": ["Plus Jakarta Sans"],
+              "headline-sm": ["Playfair Display"],
+              "label-caps": ["Inter"],
+              "display-lg": ["Playfair Display"],
+              "headline-md": ["Playfair Display"],
+              "label-md": ["Inter"],
+              "headline-lg": ["Playfair Display"],
+              "body-xl": ["Plus Jakarta Sans"],
+              "body-md": ["Plus Jakarta Sans"],
+            },
+            fontSize: {
+              "display-lg-mobile": [
+                "36px",
+                {
+                  lineHeight: "44px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "label-lg": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-xl": [
+                "40px",
+                {
+                  lineHeight: "48px",
+                  letterSpacing: "-0.015em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-xl-mobile": [
+                "28px",
+                {
+                  lineHeight: "36px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-lg": ["16px", { lineHeight: "26px", fontWeight: "400" }],
+              "headline-sm": [
+                "20px",
+                { lineHeight: "28px", fontWeight: "600" },
+              ],
+              "label-caps": [
+                "11px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.08em",
+                  fontWeight: "700",
+                },
+              ],
+              "display-lg": [
+                "56px",
+                {
+                  lineHeight: "68px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "500" },
+              ],
+              "label-md": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.02em",
+                  fontWeight: "500",
+                },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "500",
+                },
+              ],
+              "body-xl": [
+                "20px",
+                {
+                  lineHeight: "34px",
+                  letterSpacing: "-0.005em",
+                  fontWeight: "400",
+                },
+              ],
+              "body-md": ["14px", { lineHeight: "22px", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"
+  >
+    <header
+      class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"
+    >
+      <div
+        class="h-20 max-w-[1440px] mx-auto px-margin md:px-margin-lg flex items-center justify-between gap-space-md"
+      >
+        <div class="flex items-center gap-space-lg">
+          <a
+            class="flex items-center gap-space-xs group"
+            data-path="home"
+            href="#"
+            ><span
+              class="material-symbols-outlined text-primary text-[28px] transition-transform duration-300 group-hover:scale-105"
+              >auto_stories</span
+            ><span
+              class="font-headline-md text-headline-md text-on-surface tracking-tight"
+              >Book<span class="text-primary">Bridge</span></span
+            ></a
+          >
+        </div>
+        <nav
+          class="hidden xl:flex items-center gap-space-xs"
+          data-active-classes="bg-surface-container-high text-primary font-semibold"
+        >
+          <a
+            class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+            data-path="home"
+            href="#"
+            >Home</a
+          ><a
+            aria-current="page"
+            class="px-space-md py-space-xs rounded-lg transition-colors bg-surface-container-high text-primary font-semibold"
+            data-path="directory"
+            href="#"
+            >Directory</a
+          ><a
+            class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+            data-path="explorer"
+            href="#"
+            >Explorer</a
+          ><a
+            class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+            data-path="collections"
+            href="#"
+            >Collections</a
+          ><a
+            class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+            data-path="my-library"
+            href="#"
+            ><span>My Library</span
+            ><span
+              class="px-1.5 py-0.5 rounded-full font-label-caps text-label-caps bg-primary-container text-on-primary-container"
+              >3 saved</span
+            ></a
+          ><a
+            class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+            data-path="about"
+            href="#"
+            >About</a
+          ><a
+            class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+            data-path="contact"
+            href="#"
+            >Contact</a
+          >
+        </nav>
+        <div class="flex items-center gap-space-sm md:gap-space-md">
+          <button
+            aria-label="Quick Search"
+            class="p-space-xs rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors flex items-center justify-center"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[20px]"
+              >search</span
+            ></button
+          ><button
+            aria-label="Toggle Light or Dark Mode"
+            class="flex items-center p-1 bg-surface-container rounded-full hover:bg-surface-container-high transition-colors"
+            type="button"
+          >
+            <span
+              class="w-6 h-6 rounded-full flex items-center justify-center text-on-surface-variant"
+              ><span class="material-symbols-outlined text-[16px]"
+                >light_mode</span
+              ></span
+            ><span
+              class="w-6 h-6 rounded-full flex items-center justify-center bg-surface-container-highest text-primary shadow-[0_1px_8px_rgba(0,0,0,0.04)]"
+              ><span class="material-symbols-outlined text-[16px]"
+                >dark_mode</span
+              ></span
+            >
+          </button>
+          <div
+            class="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer shadow-[0_1px_8px_rgba(0,0,0,0.04)]"
+          >
+            <span class="material-symbols-outlined text-on-primary text-[18px]"
+              >person</span
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="w-full pt-20 bg-background min-h-screen">
+      <div class="flex flex-col w-full">
+        <div class="relative w-full overflow-hidden">
+          <div
+            class="absolute top-0 right-1/4 w-96 h-96 bg-primary-container/5 rounded-full blur-3xl pointer-events-none -z-10"
+          ></div>
+          <div
+            class="absolute top-1/3 left-10 w-72 h-72 bg-secondary/5 rounded-full blur-3xl pointer-events-none -z-10"
+          ></div>
+
+          <section
+            class="max-w-[1440px] mx-auto w-full px-margin md:px-margin-lg pt-space-lg pb-space-md"
+          >
+            <nav
+              aria-label="Breadcrumb"
+              class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md mb-space-sm"
+            >
+              <a
+                class="hover:text-primary transition-colors flex items-center gap-1"
+                href="#"
+              >
+                <span class="material-symbols-outlined text-[16px]">home</span>
+                <span>Archive</span>
+              </a>
+              <span class="text-on-surface-variant/40">/</span>
+              <span class="text-on-surface">Catalogue Index</span>
+              <span class="text-on-surface-variant/40">/</span>
+              <span class="text-primary font-semibold">Smart Search</span>
+            </nav>
+            <div
+              class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md pb-space-lg"
+            >
+              <div class="space-y-space-xs">
+                <div
+                  class="inline-flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-caps text-label-caps uppercase tracking-wider"
+                >
+                  <span class="material-symbols-outlined text-[14px]"
+                    >local_library</span
+                  >
+                  <span>Comprehensive Indexation</span>
+                </div>
+                <h1
+                  class="font-headline-xl text-headline-xl text-on-surface tracking-tight"
+                >
+                  Books Directory
+                  <span class="font-serif italic font-normal text-primary"
+                    >&amp; Smart Search</span
+                  >
+                </h1>
+                <p
+                  class="font-body-md text-body-md text-on-surface-variant max-w-2xl"
+                >
+                  Traverse multilingual manuscripts, rare translations, and
+                  canonical prose through multi-tier bibliometric taxonomy.
+                </p>
+              </div>
+              <div
+                class="flex items-center gap-space-md bg-surface-container-low px-space-md py-space-sm rounded-xl shadow-sm"
+              >
+                <div class="flex flex-col">
+                  <span
+                    class="font-label-caps text-label-caps text-on-surface-variant uppercase"
+                    >Index Coverage</span
+                  >
+                  <span
+                    class="font-label-lg text-label-lg text-on-surface"
+                    id="results-count-text"
+                    >Showing
+                    <strong class="text-primary" id="visible-count">10</strong>
+                    of 10 books cataloged</span
+                  >
+                </div>
+                <div
+                  class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary"
+                >
+                  <span class="material-symbols-outlined text-[22px]"
+                    >auto_stories</span
+                  >
+                </div>
+              </div>
             </div>
-<div class="flex items-center gap-1.5">
-<button class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant/40 cursor-not-allowed font-label-md text-label-md flex items-center gap-1" disabled="" type="button">
-<span class="material-symbols-outlined text-[16px]">chevron_left</span>
-<span>Prior</span>
-</button>
-<button class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md font-bold flex items-center justify-center" type="button">
-                1
-              </button>
-<button class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant/40 cursor-not-allowed font-label-md text-label-md flex items-center gap-1" disabled="" type="button">
-<span>Next</span>
-<span class="material-symbols-outlined text-[16px]">chevron_right</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-</main>
-</div>
-<!-- Interactive JavaScript Layer -->
-<script>
-    (function initBooksDirectory() {
-      const searchInput = document.getElementById('search-input');
-      const clearSearchBtn = document.getElementById('clear-search');
-      const langRadios = document.querySelectorAll('input[name="lang-filter"]');
-      const genreCheckboxes = document.querySelectorAll('.genre-checkbox');
-      const levelButtons = document.querySelectorAll('.level-btn');
-      const periodRadios = document.querySelectorAll('input[name="period-filter"]');
-      const clearAllBtn = document.getElementById('clear-all-btn');
-      const resetFiltersHero = document.getElementById('reset-filters-hero');
-      const resetEmptyBtn = document.getElementById('reset-empty-btn');
-      const sortSelect = document.getElementById('sort-select');
-      const booksGrid = document.getElementById('books-grid');
-      const bookCards = Array.from(document.querySelectorAll('.book-card'));
-      const visibleCountEl = document.getElementById('visible-count');
-      const noResultsState = document.getElementById('no-results-state');
-      const viewGridBtn = document.getElementById('view-grid-btn');
-      const viewListBtn = document.getElementById('view-list-btn');
-      const bookmarkBtns = document.querySelectorAll('.bookmark-btn');
+          </section>
 
-      let currentLevel = 'all';
+          <main
+            class="max-w-[1440px] mx-auto w-full px-margin md:px-margin-lg pb-space-2xl"
+          >
+            <div class="flex flex-col lg:flex-row items-start gap-gutter-lg">
+              <aside
+                class="w-full lg:w-80 flex-shrink-0 transition-all duration-300"
+                id="filter-sidebar"
+              >
+                <div
+                  class="bg-surface-container-low/90 backdrop-blur-xl rounded-xl p-space-md lg:p-space-lg space-y-space-lg shadow-xl sticky top-24"
+                >
+                  <div class="flex items-center justify-between pb-space-sm">
+                    <div class="flex items-center gap-space-xs">
+                      <span
+                        class="material-symbols-outlined text-primary text-[20px]"
+                        >tune</span
+                      >
+                      <span
+                        class="font-headline-sm text-headline-sm text-on-surface"
+                        >Filter Stacks</span
+                      >
+                    </div>
+                    <button
+                      class="font-label-md text-label-md text-primary hover:text-primary-fixed underline underline-offset-4 cursor-pointer transition-colors"
+                      id="clear-all-btn"
+                      type="button"
+                    >
+                      Clear All
+                    </button>
+                  </div>
 
-      // Bookmark Toggle
-      bookmarkBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const icon = btn.querySelector('.material-symbols-outlined');
-          if (icon.textContent === 'bookmark_border') {
-            icon.textContent = 'bookmark';
-            icon.style.fontVariationSettings = "'FILL' 1";
-            btn.classList.add('text-primary');
-            btn.classList.remove('text-on-surface-variant');
-          } else {
-            icon.textContent = 'bookmark_border';
-            icon.style.fontVariationSettings = "'FILL' 0";
-            btn.classList.remove('text-primary');
-            btn.classList.add('text-on-surface-variant');
-          }
-        });
-      });
+                  <div class="space-y-space-xs">
+                    <label
+                      class="font-label-md text-label-md text-on-surface flex items-center justify-between"
+                      for="search-input"
+                    >
+                      <span>Keyword / Title / Author</span>
+                      <span
+                        class="text-on-surface-variant text-[11px] font-label-caps uppercase"
+                        >Live Filter</span
+                      >
+                    </label>
+                    <div class="relative">
+                      <span
+                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]"
+                        >search</span
+                      >
+                      <input
+                        class="w-full bg-surface-container rounded-lg pl-9 pr-8 py-2 text-on-surface placeholder:text-on-surface-variant/60 font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary shadow-inner"
+                        id="search-input"
+                        placeholder="e.g. Kiều, Orwell, Camus..."
+                        type="text"
+                      />
+                      <button
+                        class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface"
+                        id="clear-search"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[16px]"
+                          >close</span
+                        >
+                      </button>
+                    </div>
+                  </div>
 
-      // View Layout Toggle
-      viewListBtn.addEventListener('click', () => {
-        booksGrid.classList.remove('sm:grid-cols-2', 'md:grid-cols-2', 'xl:grid-cols-4');
-        booksGrid.classList.add('grid-cols-1');
-        viewListBtn.classList.add('bg-surface-container-highest', 'text-primary');
-        viewListBtn.classList.remove('text-on-surface-variant');
-        viewGridBtn.classList.remove('bg-surface-container-highest', 'text-primary');
-        viewGridBtn.classList.add('text-on-surface-variant');
-      });
+                  <div class="space-y-space-xs">
+                    <span
+                      class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant block"
+                      >Language</span
+                    >
+                    <div class="space-y-1.5 pt-1" id="language-filters">
+                      <label
+                        class="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-surface-container cursor-pointer transition-colors"
+                      >
+                        <div class="flex items-center gap-2.5">
+                          <input
+                            checked=""
+                            class="accent-primary-container w-4 h-4 rounded cursor-pointer"
+                            name="lang-filter"
+                            type="radio"
+                            value="all"
+                          />
+                          <span
+                            class="font-body-md text-body-md text-on-surface"
+                            >All Languages</span
+                          >
+                        </div>
+                        <span
+                          class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded-full"
+                          >10</span
+                        >
+                      </label>
+                      <label
+                        class="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-surface-container cursor-pointer transition-colors"
+                      >
+                        <div class="flex items-center gap-2.5">
+                          <input
+                            class="accent-primary-container w-4 h-4 rounded cursor-pointer"
+                            name="lang-filter"
+                            type="radio"
+                            value="Vietnamese"
+                          />
+                          <span
+                            class="font-body-md text-body-md text-on-surface"
+                            >Vietnamese</span
+                          >
+                        </div>
+                        <span
+                          class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded-full"
+                          >3</span
+                        >
+                      </label>
+                      <label
+                        class="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-surface-container cursor-pointer transition-colors"
+                      >
+                        <div class="flex items-center gap-2.5">
+                          <input
+                            class="accent-primary-container w-4 h-4 rounded cursor-pointer"
+                            name="lang-filter"
+                            type="radio"
+                            value="English"
+                          />
+                          <span
+                            class="font-body-md text-body-md text-on-surface"
+                            >English</span
+                          >
+                        </div>
+                        <span
+                          class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded-full"
+                          >2</span
+                        >
+                      </label>
+                      <label
+                        class="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-surface-container cursor-pointer transition-colors"
+                      >
+                        <div class="flex items-center gap-2.5">
+                          <input
+                            class="accent-primary-container w-4 h-4 rounded cursor-pointer"
+                            name="lang-filter"
+                            type="radio"
+                            value="French"
+                          />
+                          <span
+                            class="font-body-md text-body-md text-on-surface"
+                            >French</span
+                          >
+                        </div>
+                        <span
+                          class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded-full"
+                          >1</span
+                        >
+                      </label>
+                      <label
+                        class="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-surface-container cursor-pointer transition-colors"
+                      >
+                        <div class="flex items-center gap-2.5">
+                          <input
+                            class="accent-primary-container w-4 h-4 rounded cursor-pointer"
+                            name="lang-filter"
+                            type="radio"
+                            value="Japanese"
+                          />
+                          <span
+                            class="font-body-md text-body-md text-on-surface"
+                            >Japanese</span
+                          >
+                        </div>
+                        <span
+                          class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded-full"
+                          >2</span
+                        >
+                      </label>
+                      <label
+                        class="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-surface-container cursor-pointer transition-colors"
+                      >
+                        <div class="flex items-center gap-2.5">
+                          <input
+                            class="accent-primary-container w-4 h-4 rounded cursor-pointer"
+                            name="lang-filter"
+                            type="radio"
+                            value="Spanish"
+                          />
+                          <span
+                            class="font-body-md text-body-md text-on-surface"
+                            >Spanish</span
+                          >
+                        </div>
+                        <span
+                          class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded-full"
+                          >1</span
+                        >
+                      </label>
+                      <label
+                        class="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-surface-container cursor-pointer transition-colors"
+                      >
+                        <div class="flex items-center gap-2.5">
+                          <input
+                            class="accent-primary-container w-4 h-4 rounded cursor-pointer"
+                            name="lang-filter"
+                            type="radio"
+                            value="Russian"
+                          />
+                          <span
+                            class="font-body-md text-body-md text-on-surface"
+                            >Russian</span
+                          >
+                        </div>
+                        <span
+                          class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded-full"
+                          >1</span
+                        >
+                      </label>
+                    </div>
+                  </div>
 
-      viewGridBtn.addEventListener('click', () => {
-        booksGrid.classList.add('sm:grid-cols-2', 'md:grid-cols-2', 'xl:grid-cols-4');
-        booksGrid.classList.remove('grid-cols-1');
-        viewGridBtn.classList.add('bg-surface-container-highest', 'text-primary');
-        viewGridBtn.classList.remove('text-on-surface-variant');
-        viewListBtn.classList.remove('bg-surface-container-highest', 'text-primary');
-        viewListBtn.classList.add('text-on-surface-variant');
-      });
+                  <div class="space-y-space-xs">
+                    <span
+                      class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant block"
+                      >Genre &amp; Taxonomy</span
+                    >
+                    <div
+                      class="grid grid-cols-2 gap-1.5 pt-1"
+                      id="genre-filters"
+                    >
+                      <label
+                        class="flex items-center gap-2 px-2 py-1 rounded bg-surface-container/60 hover:bg-surface-container cursor-pointer transition-colors"
+                      >
+                        <input
+                          class="genre-checkbox accent-primary-container w-3.5 h-3.5 rounded"
+                          type="checkbox"
+                          value="Fiction"
+                        />
+                        <span
+                          class="font-label-md text-label-md text-on-surface"
+                          >Fiction</span
+                        >
+                      </label>
+                      <label
+                        class="flex items-center gap-2 px-2 py-1 rounded bg-surface-container/60 hover:bg-surface-container cursor-pointer transition-colors"
+                      >
+                        <input
+                          class="genre-checkbox accent-primary-container w-3.5 h-3.5 rounded"
+                          type="checkbox"
+                          value="Philosophy"
+                        />
+                        <span
+                          class="font-label-md text-label-md text-on-surface"
+                          >Philosophy</span
+                        >
+                      </label>
+                      <label
+                        class="flex items-center gap-2 px-2 py-1 rounded bg-surface-container/60 hover:bg-surface-container cursor-pointer transition-colors"
+                      >
+                        <input
+                          class="genre-checkbox accent-primary-container w-3.5 h-3.5 rounded"
+                          type="checkbox"
+                          value="Sci-Fi"
+                        />
+                        <span
+                          class="font-label-md text-label-md text-on-surface"
+                          >Sci-Fi</span
+                        >
+                      </label>
+                      <label
+                        class="flex items-center gap-2 px-2 py-1 rounded bg-surface-container/60 hover:bg-surface-container cursor-pointer transition-colors"
+                      >
+                        <input
+                          class="genre-checkbox accent-primary-container w-3.5 h-3.5 rounded"
+                          type="checkbox"
+                          value="Historical"
+                        />
+                        <span
+                          class="font-label-md text-label-md text-on-surface"
+                          >Historical</span
+                        >
+                      </label>
+                      <label
+                        class="flex items-center gap-2 px-2 py-1 rounded bg-surface-container/60 hover:bg-surface-container cursor-pointer transition-colors"
+                      >
+                        <input
+                          class="genre-checkbox accent-primary-container w-3.5 h-3.5 rounded"
+                          type="checkbox"
+                          value="Romance"
+                        />
+                        <span
+                          class="font-label-md text-label-md text-on-surface"
+                          >Romance</span
+                        >
+                      </label>
+                      <label
+                        class="flex items-center gap-2 px-2 py-1 rounded bg-surface-container/60 hover:bg-surface-container cursor-pointer transition-colors"
+                      >
+                        <input
+                          class="genre-checkbox accent-primary-container w-3.5 h-3.5 rounded"
+                          type="checkbox"
+                          value="Satire"
+                        />
+                        <span
+                          class="font-label-md text-label-md text-on-surface"
+                          >Satire</span
+                        >
+                      </label>
+                    </div>
+                  </div>
 
-      // Difficulty level pill selector
-      levelButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          levelButtons.forEach(b => {
-            b.classList.remove('bg-primary-container', 'text-on-primary-container');
-            b.classList.add('bg-surface-container', 'text-on-surface-variant');
-          });
-          btn.classList.add('bg-primary-container', 'text-on-primary-container');
-          btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
-          currentLevel = btn.getAttribute('data-level');
-          filterAndSortBooks();
-        });
-      });
+                  <div class="space-y-space-xs">
+                    <span
+                      class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant block"
+                      >Curated Difficulty</span
+                    >
+                    <div class="flex flex-wrap gap-1.5 pt-1" id="level-filters">
+                      <button
+                        class="level-btn px-2.5 py-1 rounded-full font-label-md text-label-md bg-primary-container text-on-primary-container transition-all"
+                        data-level="all"
+                        type="button"
+                      >
+                        All Levels
+                      </button>
+                      <button
+                        class="level-btn px-2.5 py-1 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface transition-all"
+                        data-level="Beginner"
+                        type="button"
+                      >
+                        Beginner
+                      </button>
+                      <button
+                        class="level-btn px-2.5 py-1 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface transition-all"
+                        data-level="Intermediate"
+                        type="button"
+                      >
+                        Intermediate
+                      </button>
+                      <button
+                        class="level-btn px-2.5 py-1 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface transition-all"
+                        data-level="Advanced"
+                        type="button"
+                      >
+                        Advanced
+                      </button>
+                    </div>
+                  </div>
 
-      // Clear search button visibility
-      searchInput.addEventListener('input', () => {
-        if (searchInput.value.trim().length > 0) {
-          clearSearchBtn.classList.remove('hidden');
-        } else {
-          clearSearchBtn.classList.add('hidden');
-        }
-        filterAndSortBooks();
-      });
+                  <div class="space-y-space-xs">
+                    <span
+                      class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant block"
+                      >Publication Period</span
+                    >
+                    <div class="space-y-1.5 pt-1" id="period-filters">
+                      <label
+                        class="flex items-center gap-2 px-2 py-1 rounded hover:bg-surface-container cursor-pointer transition-colors"
+                      >
+                        <input
+                          checked=""
+                          class="accent-primary-container w-3.5 h-3.5 rounded cursor-pointer"
+                          name="period-filter"
+                          type="radio"
+                          value="all"
+                        />
+                        <span class="font-body-md text-body-md text-on-surface"
+                          >All Eras</span
+                        >
+                      </label>
+                      <label
+                        class="flex items-center gap-2 px-2 py-1 rounded hover:bg-surface-container cursor-pointer transition-colors"
+                      >
+                        <input
+                          class="accent-primary-container w-3.5 h-3.5 rounded cursor-pointer"
+                          name="period-filter"
+                          type="radio"
+                          value="pre-1950"
+                        />
+                        <span class="font-body-md text-body-md text-on-surface"
+                          >Before 1950</span
+                        >
+                      </label>
+                      <label
+                        class="flex items-center gap-2 px-2 py-1 rounded hover:bg-surface-container cursor-pointer transition-colors"
+                      >
+                        <input
+                          class="accent-primary-container w-3.5 h-3.5 rounded cursor-pointer"
+                          name="period-filter"
+                          type="radio"
+                          value="1950-2000"
+                        />
+                        <span class="font-body-md text-body-md text-on-surface"
+                          >1950 – 2000</span
+                        >
+                      </label>
+                      <label
+                        class="flex items-center gap-2 px-2 py-1 rounded hover:bg-surface-container cursor-pointer transition-colors"
+                      >
+                        <input
+                          class="accent-primary-container w-3.5 h-3.5 rounded cursor-pointer"
+                          name="period-filter"
+                          type="radio"
+                          value="post-2000"
+                        />
+                        <span class="font-body-md text-body-md text-on-surface"
+                          >Post-2000</span
+                        >
+                      </label>
+                    </div>
+                  </div>
 
-      clearSearchBtn.addEventListener('click', () => {
-        searchInput.value = '';
-        clearSearchBtn.classList.add('hidden');
-        filterAndSortBooks();
-      });
+                  <div class="pt-space-xs">
+                    <button
+                      class="w-full py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-2 transition-colors"
+                      id="reset-filters-hero"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >restart_alt</span
+                      >
+                      <span>Reset Applied Filters</span>
+                    </button>
+                  </div>
+                </div>
+              </aside>
 
-      // Filter state reset function
-      function resetAll() {
-        searchInput.value = '';
-        clearSearchBtn.classList.add('hidden');
-        document.querySelector('input[name="lang-filter"][value="all"]').checked = true;
-        document.querySelector('input[name="period-filter"][value="all"]').checked = true;
-        genreCheckboxes.forEach(cb => cb.checked = false);
-        
-        currentLevel = 'all';
-        levelButtons.forEach(b => {
-          if (b.getAttribute('data-level') === 'all') {
-            b.classList.add('bg-primary-container', 'text-on-primary-container');
-            b.classList.remove('bg-surface-container', 'text-on-surface-variant');
-          } else {
-            b.classList.remove('bg-primary-container', 'text-on-primary-container');
-            b.classList.add('bg-surface-container', 'text-on-surface-variant');
-          }
-        });
+              <div class="flex-1 w-full space-y-space-lg">
+                <div
+                  class="bg-surface-container-low/70 backdrop-blur-md rounded-xl p-space-sm md:p-space-md flex flex-wrap items-center justify-between gap-space-md shadow-md"
+                >
+                  <div class="flex items-center gap-space-sm flex-wrap">
+                    <span
+                      class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1"
+                    >
+                      <span
+                        class="material-symbols-outlined text-[16px] text-primary"
+                        >sort</span
+                      >
+                      <span>Order by:</span>
+                    </span>
+                    <div class="relative">
+                      <select
+                        class="appearance-none bg-surface-container text-on-surface font-label-md text-label-md pl-3 pr-8 py-1.5 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer shadow-sm"
+                        id="sort-select"
+                      >
+                        <option value="title-asc">Title: A → Z</option>
+                        <option value="title-desc">Title: Z → A</option>
+                        <option value="year-asc">
+                          Publication Year (Oldest)
+                        </option>
+                        <option value="year-desc">
+                          Publication Year (Newest)
+                        </option>
+                        <option value="pages-asc">Page Count (Shortest)</option>
+                        <option value="pages-desc">Page Count (Longest)</option>
+                        <option value="popular">
+                          Popularity / Scholarly Acclaim
+                        </option>
+                      </select>
+                      <span
+                        class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[16px]"
+                        >expand_more</span
+                      >
+                    </div>
 
-        sortSelect.value = 'title-asc';
-        filterAndSortBooks();
-      }
+                    <div
+                      class="hidden items-center gap-1.5"
+                      id="active-tag-pills"
+                    ></div>
+                  </div>
 
-      clearAllBtn.addEventListener('click', resetAll);
-      resetFiltersHero.addEventListener('click', resetAll);
-      resetEmptyBtn.addEventListener('click', resetAll);
+                  <div class="flex items-center gap-space-xs ml-auto">
+                    <button
+                      class="lg:hidden px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1.5"
+                      id="toggle-filter-view"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >tune</span
+                      >
+                      <span>Filters</span>
+                    </button>
+                    <div
+                      class="inline-flex p-1 bg-surface-container rounded-lg gap-0.5"
+                    >
+                      <button
+                        aria-label="Grid View"
+                        class="w-8 h-8 rounded flex items-center justify-center bg-surface-container-highest text-primary shadow-sm transition-colors"
+                        id="view-grid-btn"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[18px]"
+                          >grid_view</span
+                        >
+                      </button>
+                      <button
+                        aria-label="List View"
+                        class="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"
+                        id="view-list-btn"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[18px]"
+                          >view_list</span
+                        >
+                      </button>
+                    </div>
+                  </div>
+                </div>
 
-      // Event triggers for changes
-      langRadios.forEach(r => r.addEventListener('change', filterAndSortBooks));
-      genreCheckboxes.forEach(cb => cb.addEventListener('change', filterAndSortBooks));
-      periodRadios.forEach(r => r.addEventListener('change', filterAndSortBooks));
-      sortSelect.addEventListener('change', filterAndSortBooks);
+                <div
+                  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-gutter transition-all duration-300"
+                  id="books-grid"
+                >
+                  <article
+                    class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md"
+                    data-author="nguyen du"
+                    data-genre="Historical Fiction"
+                    data-lang="Vietnamese"
+                    data-level="Advanced"
+                    data-pages="3254"
+                    data-popular="99"
+                    data-title="truyen kieu the tale of kieu"
+                    data-year="1820"
+                  >
+                    <div
+                      class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden"
+                    >
+                      <img
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        alt="Dark vintage Vietnamese archival manuscript cover of Truyen Kieu Nguyen Du with gilded classical calligraphy motifs, rich indigo ink, deep amber illumination, and aged textured deckle-edge paper inside an atmospheric scholar sanctuary."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX6K_QMarONYuIkP794pfyYASHcGDwAIOFzBpSqzqBJmsn-vL-zGp7j23gQfZVbybVXGngYmqXRlASVHK356SoW6uQmtS9YiyfwdYhAx7J-ShZsnfgz6FUSEmF6_p8Pv7Jf6cBzGor9-kWtP_ljN4lwhpedYCRSOyD9D54flyAvvx_61w4W7rVYsrHkLfj8s_eQdgLKArE5K5nV6PeIdeXyJquQ1PtahVnePTOGw"
+                      />
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"
+                      ></div>
 
-      // Core Filter & Sort logic
-      function filterAndSortBooks() {
-        const query = searchInput.value.toLowerCase().trim();
-        const selectedLang = document.querySelector('input[name="lang-filter"]:checked').value;
-        const selectedPeriod = document.querySelector('input[name="period-filter"]:checked').value;
-        const checkedGenres = Array.from(genreCheckboxes).filter(cb => cb.checked).map(cb => cb.value.toLowerCase());
+                      <button
+                        aria-label="Bookmark Truyen Kieu"
+                        class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[18px]"
+                          >bookmark_border</span
+                        >
+                      </button>
 
-        let visibleCards = [];
+                      <div
+                        class="absolute bottom-3 left-3 right-3 flex items-center justify-between"
+                      >
+                        <span
+                          class="px-2 py-0.5 rounded bg-primary-container text-on-primary-container font-label-caps text-label-caps uppercase tracking-wider font-bold"
+                          >1820 CE</span
+                        >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps"
+                          >Advanced</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="p-space-md flex-1 flex flex-col justify-between space-y-space-md"
+                    >
+                      <div class="space-y-1">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >Vietnamese</span
+                          >
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >Historical</span
+                          >
+                        </div>
+                        <h2
+                          class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1"
+                        >
+                          Truyện Kiều
+                        </h2>
+                        <a
+                          class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block"
+                          href="#"
+                          >Nguyễn Du</a
+                        >
+                      </div>
+                      <div class="pt-space-xs space-y-space-sm">
+                        <div
+                          class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md"
+                        >
+                          <span class="flex items-center gap-1"
+                            ><span class="material-symbols-outlined text-[15px]"
+                              >menu_book</span
+                            >
+                            3,254 lines</span
+                          >
+                          <span class="flex items-center gap-1 text-primary"
+                            ><span
+                              class="material-symbols-outlined text-[15px]"
+                              style="
+                                font-variation-settings: &quot;FILL&quot; 1;
+                              "
+                              >star</span
+                            >
+                            4.9 (1.8k)</span
+                          >
+                        </div>
+                        <button
+                          class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm"
+                          type="button"
+                        >
+                          <span>View Archival Record</span>
+                          <span class="material-symbols-outlined text-[16px]"
+                            >arrow_forward</span
+                          >
+                        </button>
+                      </div>
+                    </div>
+                  </article>
 
-        bookCards.forEach(card => {
-          const title = card.getAttribute('data-title');
-          const author = card.getAttribute('data-author');
-          const lang = card.getAttribute('data-lang');
-          const genre = card.getAttribute('data-genre').toLowerCase();
-          const level = card.getAttribute('data-level');
-          const year = parseInt(card.getAttribute('data-year'), 10);
+                  <article
+                    class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md"
+                    data-author="antoine de saint-exupery"
+                    data-genre="Fiction Philosophy"
+                    data-lang="French"
+                    data-level="Beginner"
+                    data-pages="96"
+                    data-popular="98"
+                    data-title="le petit prince the little prince"
+                    data-year="1943"
+                  >
+                    <div
+                      class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden"
+                    >
+                      <img
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        alt="Artistic deep nocturnal cover of Le Petit Prince standing on a miniature solitary asteroid with deep gold stars, atmospheric cobalt night cosmos, celestial dust, cinematic vintage French literary style with warm amber glowing nebula."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYd-RXeagk8y6befBGST5347Cff8ZvzOeMq2iDUWt4Iw2YaIoSsciaNctN0nLRmLDpUN-QMkBFZMuXuD4B7aKgcNYtvJ6aG2mU0HWtPqy0jEzloBGVEzDnDd7nMf1SVqc6k4zKVOsUNd9Gfe-oStjDz723uYrjk3vdZVdk4ez1O6K2mLq0034G-uewIcKM_sUyScUksIyx6yW3FsbSCjtgw4WP3Rn7Nw9JPpiHSw"
+                      />
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"
+                      ></div>
+                      <button
+                        aria-label="Bookmark Le Petit Prince"
+                        class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[18px]"
+                          >bookmark_border</span
+                        >
+                      </button>
+                      <div
+                        class="absolute bottom-3 left-3 right-3 flex items-center justify-between"
+                      >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-bold"
+                          >1943</span
+                        >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps"
+                          >Beginner</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="p-space-md flex-1 flex flex-col justify-between space-y-space-md"
+                    >
+                      <div class="space-y-1">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >French</span
+                          >
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >Philosophy</span
+                          >
+                        </div>
+                        <h2
+                          class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1"
+                        >
+                          Le Petit Prince
+                        </h2>
+                        <a
+                          class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block"
+                          href="#"
+                          >Antoine de Saint-Exupéry</a
+                        >
+                      </div>
+                      <div class="pt-space-xs space-y-space-sm">
+                        <div
+                          class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md"
+                        >
+                          <span class="flex items-center gap-1"
+                            ><span class="material-symbols-outlined text-[15px]"
+                              >menu_book</span
+                            >
+                            96 pages</span
+                          >
+                          <span class="flex items-center gap-1 text-primary"
+                            ><span
+                              class="material-symbols-outlined text-[15px]"
+                              style="
+                                font-variation-settings: &quot;FILL&quot; 1;
+                              "
+                              >star</span
+                            >
+                            4.9 (4.2k)</span
+                          >
+                        </div>
+                        <button
+                          class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm"
+                          type="button"
+                        >
+                          <span>View Archival Record</span>
+                          <span class="material-symbols-outlined text-[16px]"
+                            >arrow_forward</span
+                          >
+                        </button>
+                      </div>
+                    </div>
+                  </article>
 
-          // Keyword filter
-          const matchesQuery = !query || title.includes(query) || author.includes(query);
+                  <article
+                    class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md"
+                    data-author="george orwell"
+                    data-genre="Sci-Fi Fiction"
+                    data-lang="English"
+                    data-level="Intermediate"
+                    data-pages="328"
+                    data-popular="97"
+                    data-title="1984 nineteen eighty-four"
+                    data-year="1949"
+                  >
+                    <div
+                      class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden"
+                    >
+                      <img
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        alt="Brutalist dystopian book cover of 1984 by George Orwell featuring a giant glowing watchful eye silhouette, architectural concrete surveillance towers, deep slate darkness, with subtle amber backlight beam casting heavy noir shadows."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYemwu0SIF2XHBd9QJuu3UyqkdchzQkSBzzznk41aLqpBHh6trTESztdKXdi7AS6kcR0krAG-u_9xGipJw3lSDSlgdJC_5y2ZgHQQ72T198CFw7TB4TixIRQr0RrMb-JcVFj9HsGTKSQuBIU6PgQV8Ofm8mdBy7-Kouz7UKPRuXpofkH16vXdr7PTqzS6MiZhnf5d1KPfc8xUO90MNMxEkx1USnqR1LXEZkcuI9A"
+                      />
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"
+                      ></div>
+                      <button
+                        aria-label="Bookmark 1984"
+                        class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[18px]"
+                          >bookmark_border</span
+                        >
+                      </button>
+                      <div
+                        class="absolute bottom-3 left-3 right-3 flex items-center justify-between"
+                      >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-bold"
+                          >1949</span
+                        >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps"
+                          >Intermediate</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="p-space-md flex-1 flex flex-col justify-between space-y-space-md"
+                    >
+                      <div class="space-y-1">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >English</span
+                          >
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >Sci-Fi</span
+                          >
+                        </div>
+                        <h2
+                          class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1"
+                        >
+                          1984
+                        </h2>
+                        <a
+                          class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block"
+                          href="#"
+                          >George Orwell</a
+                        >
+                      </div>
+                      <div class="pt-space-xs space-y-space-sm">
+                        <div
+                          class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md"
+                        >
+                          <span class="flex items-center gap-1"
+                            ><span class="material-symbols-outlined text-[15px]"
+                              >menu_book</span
+                            >
+                            328 pages</span
+                          >
+                          <span class="flex items-center gap-1 text-primary"
+                            ><span
+                              class="material-symbols-outlined text-[15px]"
+                              style="
+                                font-variation-settings: &quot;FILL&quot; 1;
+                              "
+                              >star</span
+                            >
+                            4.8 (3.5k)</span
+                          >
+                        </div>
+                        <button
+                          class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm"
+                          type="button"
+                        >
+                          <span>View Archival Record</span>
+                          <span class="material-symbols-outlined text-[16px]"
+                            >arrow_forward</span
+                          >
+                        </button>
+                      </div>
+                    </div>
+                  </article>
 
-          // Language filter
-          const matchesLang = (selectedLang === 'all') || (lang === selectedLang);
+                  <article
+                    class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md"
+                    data-author="f. scott fitzgerald"
+                    data-genre="Fiction Romance"
+                    data-lang="English"
+                    data-level="Intermediate"
+                    data-pages="180"
+                    data-popular="93"
+                    data-title="the great gatsby"
+                    data-year="1925"
+                  >
+                    <div
+                      class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden"
+                    >
+                      <img
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        alt="Art Deco dark book cover design for The Great Gatsby, opulent geometric gold foil filigree lines against midnight blue slate velvet background, distant piercing emerald green dock light through mist."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJcN4g9YMPB2SsfC_yYeoZi5tJHNcc_AY0Pga2A8EjJJ8pvCGK5xVOy0A5_6hOfP5_uEbH3Xy19jou996xIkOAXtOcSBxv-2S4YnYpgN959bm6i6qOWyFMTqmgtkX9_frVZpTW74gibh9z5xFFW2ECEPnCuVpkk6kZQS7ms7cZNsfIzFBINe5KhpnGamRaidl5Oow9PzQbJllbZ0YNgbU9SjN3FamP72CW85jMJg"
+                      />
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"
+                      ></div>
+                      <button
+                        aria-label="Bookmark Gatsby"
+                        class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[18px]"
+                          >bookmark_border</span
+                        >
+                      </button>
+                      <div
+                        class="absolute bottom-3 left-3 right-3 flex items-center justify-between"
+                      >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-bold"
+                          >1925</span
+                        >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps"
+                          >Intermediate</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="p-space-md flex-1 flex flex-col justify-between space-y-space-md"
+                    >
+                      <div class="space-y-1">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >English</span
+                          >
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >Romance</span
+                          >
+                        </div>
+                        <h2
+                          class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1"
+                        >
+                          The Great Gatsby
+                        </h2>
+                        <a
+                          class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block"
+                          href="#"
+                          >F. Scott Fitzgerald</a
+                        >
+                      </div>
+                      <div class="pt-space-xs space-y-space-sm">
+                        <div
+                          class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md"
+                        >
+                          <span class="flex items-center gap-1"
+                            ><span class="material-symbols-outlined text-[15px]"
+                              >menu_book</span
+                            >
+                            180 pages</span
+                          >
+                          <span class="flex items-center gap-1 text-primary"
+                            ><span
+                              class="material-symbols-outlined text-[15px]"
+                              style="
+                                font-variation-settings: &quot;FILL&quot; 1;
+                              "
+                              >star</span
+                            >
+                            4.7 (2.9k)</span
+                          >
+                        </div>
+                        <button
+                          class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm"
+                          type="button"
+                        >
+                          <span>View Archival Record</span>
+                          <span class="material-symbols-outlined text-[16px]"
+                            >arrow_forward</span
+                          >
+                        </button>
+                      </div>
+                    </div>
+                  </article>
 
-          // Reading level
-          const matchesLevel = (currentLevel === 'all') || (level === currentLevel);
+                  <article
+                    class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md"
+                    data-author="haruki murakami"
+                    data-genre="Fiction Romance"
+                    data-lang="Japanese"
+                    data-level="Intermediate"
+                    data-pages="296"
+                    data-popular="94"
+                    data-title="norwegian wood"
+                    data-year="1987"
+                  >
+                    <div
+                      class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden"
+                    >
+                      <img
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        alt="Melancholic Japanese book cover for Norwegian Wood by Haruki Murakami, minimalist winter pine forest shrouded in pale mountain fog, deep charcoal nightfall tones, quiet vinyl record motif with crimson accent detail."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQQUdQcHPBAqfgOW7qJKeAvZEZ52H83yVupRKejNnnbbvvUuTCAXMn9X_YexuNUO-DbnyQ4cOaW-aua_2jjL-x2FEqzczpWVoE7V0BDmTZmq20TBj1RviCqF64iXRDLjA7s-cIOUbpOBE2K4dY-DsZn2X734dcTqQYv8jERFPLYflYc9NBiXU-jAyeXpAWDnAXDQ_IzRbdI9v2N4lKeQ-VjPdzovuVipNmNONNUg"
+                      />
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"
+                      ></div>
+                      <button
+                        aria-label="Bookmark Norwegian Wood"
+                        class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[18px]"
+                          >bookmark_border</span
+                        >
+                      </button>
+                      <div
+                        class="absolute bottom-3 left-3 right-3 flex items-center justify-between"
+                      >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-bold"
+                          >1987</span
+                        >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps"
+                          >Intermediate</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="p-space-md flex-1 flex flex-col justify-between space-y-space-md"
+                    >
+                      <div class="space-y-1">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >Japanese</span
+                          >
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >Fiction</span
+                          >
+                        </div>
+                        <h2
+                          class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1"
+                        >
+                          Norwegian Wood
+                        </h2>
+                        <a
+                          class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block"
+                          href="#"
+                          >Haruki Murakami</a
+                        >
+                      </div>
+                      <div class="pt-space-xs space-y-space-sm">
+                        <div
+                          class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md"
+                        >
+                          <span class="flex items-center gap-1"
+                            ><span class="material-symbols-outlined text-[15px]"
+                              >menu_book</span
+                            >
+                            296 pages</span
+                          >
+                          <span class="flex items-center gap-1 text-primary"
+                            ><span
+                              class="material-symbols-outlined text-[15px]"
+                              style="
+                                font-variation-settings: &quot;FILL&quot; 1;
+                              "
+                              >star</span
+                            >
+                            4.7 (2.1k)</span
+                          >
+                        </div>
+                        <button
+                          class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm"
+                          type="button"
+                        >
+                          <span>View Archival Record</span>
+                          <span class="material-symbols-outlined text-[16px]"
+                            >arrow_forward</span
+                          >
+                        </button>
+                      </div>
+                    </div>
+                  </article>
 
-          // Genre multi-select
-          let matchesGenre = true;
-          if (checkedGenres.length > 0) {
-            matchesGenre = checkedGenres.some(g => genre.includes(g));
-          }
+                  <article
+                    class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md"
+                    data-author="natsume soseki"
+                    data-genre="Fiction Philosophy"
+                    data-lang="Japanese"
+                    data-level="Advanced"
+                    data-pages="248"
+                    data-popular="91"
+                    data-title="kokoro the heart"
+                    data-year="1914"
+                  >
+                    <div
+                      class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden"
+                    >
+                      <img
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        alt="Refined Japanese literary Meiji-era book cover of Kokoro by Natsume Soseki, subtle traditional sumi-e ink wash, quiet tea room shadows, amber candlelight bleeding through sliding shoji lattice paper."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC11C_XtyAATPEY4f087-x7vSsJgVcNYjv2mg2-0jAv9F2M72BSsk5eIMn-eXnYNDKZvTrREP1jOfrVNBRKJLa7X_OCTQox3I78r9ChaGsxtbQgU6uc6FqLaweUSJHm65_cr811kFQsQmQWORq4sd00PGH9IGuky9zLl6Ug4s2XNfi8h8-Nmd8hVOwKnnITeael7Bq9xeBMOrEECyRBFicuEmq5KNfxeV6wpZOCcg"
+                      />
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"
+                      ></div>
+                      <button
+                        aria-label="Bookmark Kokoro"
+                        class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[18px]"
+                          >bookmark_border</span
+                        >
+                      </button>
+                      <div
+                        class="absolute bottom-3 left-3 right-3 flex items-center justify-between"
+                      >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-bold"
+                          >1914</span
+                        >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps"
+                          >Advanced</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="p-space-md flex-1 flex flex-col justify-between space-y-space-md"
+                    >
+                      <div class="space-y-1">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >Japanese</span
+                          >
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >Philosophy</span
+                          >
+                        </div>
+                        <h2
+                          class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1"
+                        >
+                          Kokoro
+                        </h2>
+                        <a
+                          class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block"
+                          href="#"
+                          >Natsume Sōseki</a
+                        >
+                      </div>
+                      <div class="pt-space-xs space-y-space-sm">
+                        <div
+                          class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md"
+                        >
+                          <span class="flex items-center gap-1"
+                            ><span class="material-symbols-outlined text-[15px]"
+                              >menu_book</span
+                            >
+                            248 pages</span
+                          >
+                          <span class="flex items-center gap-1 text-primary"
+                            ><span
+                              class="material-symbols-outlined text-[15px]"
+                              style="
+                                font-variation-settings: &quot;FILL&quot; 1;
+                              "
+                              >star</span
+                            >
+                            4.8 (1.2k)</span
+                          >
+                        </div>
+                        <button
+                          class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm"
+                          type="button"
+                        >
+                          <span>View Archival Record</span>
+                          <span class="material-symbols-outlined text-[16px]"
+                            >arrow_forward</span
+                          >
+                        </button>
+                      </div>
+                    </div>
+                  </article>
 
-          // Publication period
-          let matchesPeriod = true;
-          if (selectedPeriod === 'pre-1950') matchesPeriod = year < 1950;
-          else if (selectedPeriod === '1950-2000') matchesPeriod = year >= 1950 && year <= 2000;
-          else if (selectedPeriod === 'post-2000') matchesPeriod = year > 2000;
+                  <article
+                    class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md"
+                    data-author="fyodor dostoevsky"
+                    data-genre="Fiction Philosophy"
+                    data-lang="Russian"
+                    data-level="Advanced"
+                    data-pages="671"
+                    data-popular="96"
+                    data-title="crime and punishment"
+                    data-year="1866"
+                  >
+                    <div
+                      class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden"
+                    >
+                      <img
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        alt="Intense psychological archival Russian book jacket of Crime and Punishment by Fyodor Dostoevsky, somber Saint Petersburg cobblestone streets in winter dusk, silhouette figure walking into amber gaslamp radiance."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJTf0dUpLYqKVLMEwfddpSUFaDWO0njWZHSYAOkdXWeX1T8u79mq2wRd3LEMl1yiFdtM0Bxg4ih2UNI4A2xyetj8KfjmacIYq4ipNNxX3bJmH68JLmwXDkvQYYopqE30f9fc0ghjtD4Tw7U9Im6w5NGLxDJvFsDYgBP478_a_tTsX2mByiWJBCMTnmQ5L0TPs216nh4aF1hXVm1iUK4JJOsr1rtVUlYiri4GHGKg"
+                      />
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"
+                      ></div>
+                      <button
+                        aria-label="Bookmark Crime and Punishment"
+                        class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[18px]"
+                          >bookmark_border</span
+                        >
+                      </button>
+                      <div
+                        class="absolute bottom-3 left-3 right-3 flex items-center justify-between"
+                      >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-bold"
+                          >1866</span
+                        >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps"
+                          >Advanced</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="p-space-md flex-1 flex flex-col justify-between space-y-space-md"
+                    >
+                      <div class="space-y-1">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >Russian</span
+                          >
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >Philosophy</span
+                          >
+                        </div>
+                        <h2
+                          class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1"
+                        >
+                          Crime and Punishment
+                        </h2>
+                        <a
+                          class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block"
+                          href="#"
+                          >Fyodor Dostoevsky</a
+                        >
+                      </div>
+                      <div class="pt-space-xs space-y-space-sm">
+                        <div
+                          class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md"
+                        >
+                          <span class="flex items-center gap-1"
+                            ><span class="material-symbols-outlined text-[15px]"
+                              >menu_book</span
+                            >
+                            671 pages</span
+                          >
+                          <span class="flex items-center gap-1 text-primary"
+                            ><span
+                              class="material-symbols-outlined text-[15px]"
+                              style="
+                                font-variation-settings: &quot;FILL&quot; 1;
+                              "
+                              >star</span
+                            >
+                            4.9 (3.1k)</span
+                          >
+                        </div>
+                        <button
+                          class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm"
+                          type="button"
+                        >
+                          <span>View Archival Record</span>
+                          <span class="material-symbols-outlined text-[16px]"
+                            >arrow_forward</span
+                          >
+                        </button>
+                      </div>
+                    </div>
+                  </article>
 
-          if (matchesQuery && matchesLang && matchesLevel && matchesGenre && matchesPeriod) {
-            card.classList.remove('hidden');
-            visibleCards.push(card);
-          } else {
-            card.classList.add('hidden');
-          }
-        });
+                  <article
+                    class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md"
+                    data-author="to hoai"
+                    data-genre="Fiction"
+                    data-lang="Vietnamese"
+                    data-level="Beginner"
+                    data-pages="144"
+                    data-popular="92"
+                    data-title="de men phieu luu ky diary of a cricket"
+                    data-year="1941"
+                  >
+                    <div
+                      class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden"
+                    >
+                      <img
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        alt="Charming nocturnal folklore illustration cover for Vietnamese classic De Men Phieu Luu Ky by To Hoai, whimsical meadow under moonlight, glowing fireflies, deep teal foliage, warm golden lantern gleams."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGCCoo5TKcxnFG1R1TGfT_FL8-srPnjUzvpJqXqidEjiolVxoEnhiHUolMtyoACGXYoSDsn7bjhDdoyR57EhU3Mv1lSD_XuW4fMOSdDuysObfsoh2Uwvwrz3slrS74DtcPil9ZeIUfgrMHftgFlsDUMJI4vGShTZpLOkbicfgXtE_pA8MCghaVxU3w3088skHkE3yLBnsiJ3PSf033RL41vBIYMw3co8HS7YXYJg"
+                      />
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"
+                      ></div>
+                      <button
+                        aria-label="Bookmark De Men"
+                        class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[18px]"
+                          >bookmark_border</span
+                        >
+                      </button>
+                      <div
+                        class="absolute bottom-3 left-3 right-3 flex items-center justify-between"
+                      >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-bold"
+                          >1941</span
+                        >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps"
+                          >Beginner</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="p-space-md flex-1 flex flex-col justify-between space-y-space-md"
+                    >
+                      <div class="space-y-1">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >Vietnamese</span
+                          >
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >Fiction</span
+                          >
+                        </div>
+                        <h2
+                          class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1"
+                        >
+                          Dế Mèn Phiêu Lưu Ký
+                        </h2>
+                        <a
+                          class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block"
+                          href="#"
+                          >Tô Hoài</a
+                        >
+                      </div>
+                      <div class="pt-space-xs space-y-space-sm">
+                        <div
+                          class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md"
+                        >
+                          <span class="flex items-center gap-1"
+                            ><span class="material-symbols-outlined text-[15px]"
+                              >menu_book</span
+                            >
+                            144 pages</span
+                          >
+                          <span class="flex items-center gap-1 text-primary"
+                            ><span
+                              class="material-symbols-outlined text-[15px]"
+                              style="
+                                font-variation-settings: &quot;FILL&quot; 1;
+                              "
+                              >star</span
+                            >
+                            4.8 (1.5k)</span
+                          >
+                        </div>
+                        <button
+                          class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm"
+                          type="button"
+                        >
+                          <span>View Archival Record</span>
+                          <span class="material-symbols-outlined text-[16px]"
+                            >arrow_forward</span
+                          >
+                        </button>
+                      </div>
+                    </div>
+                  </article>
 
-        // Sorting
-        const sortValue = sortSelect.value;
-        visibleCards.sort((a, b) => {
-          if (sortValue === 'title-asc') {
-            return a.getAttribute('data-title').localeCompare(b.getAttribute('data-title'));
-          } else if (sortValue === 'title-desc') {
-            return b.getAttribute('data-title').localeCompare(a.getAttribute('data-title'));
-          } else if (sortValue === 'year-asc') {
-            return parseInt(a.getAttribute('data-year')) - parseInt(b.getAttribute('data-year'));
-          } else if (sortValue === 'year-desc') {
-            return parseInt(b.getAttribute('data-year')) - parseInt(a.getAttribute('data-year'));
-          } else if (sortValue === 'pages-asc') {
-            return parseInt(a.getAttribute('data-pages')) - parseInt(b.getAttribute('data-pages'));
-          } else if (sortValue === 'pages-desc') {
-            return parseInt(b.getAttribute('data-pages')) - parseInt(a.getAttribute('data-pages'));
-          } else if (sortValue === 'popular') {
-            return parseInt(b.getAttribute('data-popular')) - parseInt(a.getAttribute('data-popular'));
-          }
-          return 0;
-        });
+                  <article
+                    class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md"
+                    data-author="gabriel garcia marquez"
+                    data-genre="Fiction Historical"
+                    data-lang="Spanish"
+                    data-level="Advanced"
+                    data-pages="417"
+                    data-popular="98"
+                    data-title="one hundred years of solitude cien anos de soledad"
+                    data-year="1967"
+                  >
+                    <div
+                      class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden"
+                    >
+                      <img
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        alt="Magical realist dark atmospheric cover of One Hundred Years of Solitude by Gabriel Garcia Marquez, glowing yellow butterflies fluttering across ancient midnight Macondo mansion ruins under starry tropical sky."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWz6PjY4ChQU1gDocPb7zbtju0ip8-p0_nyAPj3r1FKVWug0zLhjcFx83xzNZz1007YTRmPmM2blgfmNmFgH8_QrELAJ_KGVu5cVFBNAFiaQxr2NIIeKXbyyJ3O9lkwtXO8vtO_EyxKZIqm7yTq3pL5E6Z5qkGZGuvXGhhud6B6fH-ZpDnTl3Q5PVeQZNw12YBqPd-7zdHYJPlB-6CeoQK2I8qGEmbiLY74WbV0Q"
+                      />
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"
+                      ></div>
+                      <button
+                        aria-label="Bookmark 100 Years"
+                        class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[18px]"
+                          >bookmark_border</span
+                        >
+                      </button>
+                      <div
+                        class="absolute bottom-3 left-3 right-3 flex items-center justify-between"
+                      >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-bold"
+                          >1967</span
+                        >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps"
+                          >Advanced</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="p-space-md flex-1 flex flex-col justify-between space-y-space-md"
+                    >
+                      <div class="space-y-1">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >Spanish</span
+                          >
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >Historical</span
+                          >
+                        </div>
+                        <h2
+                          class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1"
+                        >
+                          One Hundred Years of Solitude
+                        </h2>
+                        <a
+                          class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block"
+                          href="#"
+                          >Gabriel García Márquez</a
+                        >
+                      </div>
+                      <div class="pt-space-xs space-y-space-sm">
+                        <div
+                          class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md"
+                        >
+                          <span class="flex items-center gap-1"
+                            ><span class="material-symbols-outlined text-[15px]"
+                              >menu_book</span
+                            >
+                            417 pages</span
+                          >
+                          <span class="flex items-center gap-1 text-primary"
+                            ><span
+                              class="material-symbols-outlined text-[15px]"
+                              style="
+                                font-variation-settings: &quot;FILL&quot; 1;
+                              "
+                              >star</span
+                            >
+                            4.9 (4.8k)</span
+                          >
+                        </div>
+                        <button
+                          class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm"
+                          type="button"
+                        >
+                          <span>View Archival Record</span>
+                          <span class="material-symbols-outlined text-[16px]"
+                            >arrow_forward</span
+                          >
+                        </button>
+                      </div>
+                    </div>
+                  </article>
 
-        visibleCards.forEach(card => booksGrid.appendChild(card));
+                  <article
+                    class="book-card group flex flex-col bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-md"
+                    data-author="vu trong phung"
+                    data-genre="Satire Fiction"
+                    data-lang="Vietnamese"
+                    data-level="Intermediate"
+                    data-pages="260"
+                    data-popular="90"
+                    data-title="so do dumb luck"
+                    data-year="1936"
+                  >
+                    <div
+                      class="relative w-full aspect-[2/3] bg-surface-container-highest overflow-hidden"
+                    >
+                      <img
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        alt="Dramatic 1930s colonial Hanoi satirical book cover for So Do Vu Trong Phung, art deco Vietnamese typography, dark silhouettes of dandy tennis players, rich dark crimson shadows and amber lamp light glow."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWps9jiDj4PS6SB8Yg5hJszdZQIzqFQDqZichtPoS6X6ddfGkMXxEPsex6JoUdPNjdraTsS_0xnVm7iGrJ3D9XLoczdpgMFnf05vjGlJwO_Zf3AUa6zcSsziVWuiNqBb5dG1gPItV5chpsQl-ho51UdZtdYpqFnHvvBNg8e2A6rAoheqyXC5p-KfLSKqLcUxSAj1wH7DP-_nkwXyfheTIP_LUuh2gcU3rtzBxkeQ"
+                      />
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent opacity-90"
+                      ></div>
+                      <button
+                        aria-label="Bookmark So Do"
+                        class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[18px]"
+                          >bookmark_border</span
+                        >
+                      </button>
+                      <div
+                        class="absolute bottom-3 left-3 right-3 flex items-center justify-between"
+                      >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-bold"
+                          >1936</span
+                        >
+                        <span
+                          class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-label-caps text-label-caps"
+                          >Intermediate</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="p-space-md flex-1 flex flex-col justify-between space-y-space-md"
+                    >
+                      <div class="space-y-1">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >Vietnamese</span
+                          >
+                          <span
+                            class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface-variant"
+                            >Satire</span
+                          >
+                        </div>
+                        <h2
+                          class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1"
+                        >
+                          Số Đỏ (Dumb Luck)
+                        </h2>
+                        <a
+                          class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors block"
+                          href="#"
+                          >Vũ Trọng Phụng</a
+                        >
+                      </div>
+                      <div class="pt-space-xs space-y-space-sm">
+                        <div
+                          class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md"
+                        >
+                          <span class="flex items-center gap-1"
+                            ><span class="material-symbols-outlined text-[15px]"
+                              >menu_book</span
+                            >
+                            260 pages</span
+                          >
+                          <span class="flex items-center gap-1 text-primary"
+                            ><span
+                              class="material-symbols-outlined text-[15px]"
+                              style="
+                                font-variation-settings: &quot;FILL&quot; 1;
+                              "
+                              >star</span
+                            >
+                            4.7 (980)</span
+                          >
+                        </div>
+                        <button
+                          class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm"
+                          type="button"
+                        >
+                          <span>View Archival Record</span>
+                          <span class="material-symbols-outlined text-[16px]"
+                            >arrow_forward</span
+                          >
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                </div>
 
-        // Update Counter & Empty state
-        visibleCountEl.textContent = visibleCards.length;
-        if (visibleCards.length === 0) {
-          booksGrid.classList.add('hidden');
-          noResultsState.classList.remove('hidden');
-        } else {
-          booksGrid.classList.remove('hidden');
-          noResultsState.classList.add('hidden');
-        }
-      }
+                <div
+                  class="hidden flex-col items-center justify-center py-space-2xl px-space-lg text-center bg-surface-container-low/40 rounded-xl"
+                  id="no-results-state"
+                >
+                  <div
+                    class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant mb-space-md"
+                  >
+                    <span class="material-symbols-outlined text-[32px]"
+                      >menu_book</span
+                    >
+                  </div>
+                  <h3
+                    class="font-headline-sm text-headline-sm text-on-surface mb-space-xs"
+                  >
+                    No Archival Volumes Found
+                  </h3>
+                  <p
+                    class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg"
+                  >
+                    No manuscripts match your multi-criteria query parameters.
+                    Broaden the filters or explore alternative keywords.
+                  </p>
+                  <button
+                    class="px- space-lg py-2.5 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg font-bold shadow-md hover:bg-primary-fixed transition-colors"
+                    id="reset-empty-btn"
+                    type="button"
+                  >
+                    Reset All Filters
+                  </button>
+                </div>
 
-      // Initial run
-      filterAndSortBooks();
-    })();
-  </script>
-</div></main><footer class="w-full bg-surface-container-lowest py-space-2xl mt-space-2xl"><div class="max-w-[1440px] mx-auto px-margin md:px-margin-lg"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg pb-space-xl"><div class="space-y-space-xs"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[24px]">auto_stories</span><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">BookBridge</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-md">A digital sanctuary for archival discovery, rare volume curations, and contemplative scholarship.</p></div><div class="flex flex-wrap items-center gap-space-md lg:gap-space-lg"><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="home" href="#">Home</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="directory" href="#">Directory</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="explorer" href="#">Explorer</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="collections" href="#">Collections</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="about" href="#">About</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="contact" href="#">Contact</a></div></div><div class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-lg"><div class="flex items-center gap-space-xs text-on-surface-variant"><span class="font-label-md text-label-md">© 2026 BookBridge Archive. All rights reserved.</span></div><div class="inline-flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-low rounded-full"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Local Persistence Active</span></div></div></div></footer></body></html>
+                <div
+                  class="bg-surface-container-low/80 backdrop-blur-md rounded-xl p-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md shadow-sm"
+                >
+                  <div
+                    class="font-label-md text-label-md text-on-surface-variant"
+                  >
+                    Viewing folio page
+                    <span class="text-on-surface font-bold">1</span> of
+                    <span class="text-on-surface">1</span> in active query
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <button
+                      class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant/40 cursor-not-allowed font-label-md text-label-md flex items-center gap-1"
+                      disabled=""
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[16px]"
+                        >chevron_left</span
+                      >
+                      <span>Prior</span>
+                    </button>
+                    <button
+                      class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md font-bold flex items-center justify-center"
+                      type="button"
+                    >
+                      1
+                    </button>
+                    <button
+                      class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant/40 cursor-not-allowed font-label-md text-label-md flex items-center gap-1"
+                      disabled=""
+                      type="button"
+                    >
+                      <span>Next</span>
+                      <span class="material-symbols-outlined text-[16px]"
+                        >chevron_right</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+
+        <script>
+          (function initBooksDirectory() {
+            const searchInput = document.getElementById("search-input");
+            const clearSearchBtn = document.getElementById("clear-search");
+            const langRadios = document.querySelectorAll(
+              'input[name="lang-filter"]',
+            );
+            const genreCheckboxes =
+              document.querySelectorAll(".genre-checkbox");
+            const levelButtons = document.querySelectorAll(".level-btn");
+            const periodRadios = document.querySelectorAll(
+              'input[name="period-filter"]',
+            );
+            const clearAllBtn = document.getElementById("clear-all-btn");
+            const resetFiltersHero =
+              document.getElementById("reset-filters-hero");
+            const resetEmptyBtn = document.getElementById("reset-empty-btn");
+            const sortSelect = document.getElementById("sort-select");
+            const booksGrid = document.getElementById("books-grid");
+            const bookCards = Array.from(
+              document.querySelectorAll(".book-card"),
+            );
+            const visibleCountEl = document.getElementById("visible-count");
+            const noResultsState = document.getElementById("no-results-state");
+            const viewGridBtn = document.getElementById("view-grid-btn");
+            const viewListBtn = document.getElementById("view-list-btn");
+            const bookmarkBtns = document.querySelectorAll(".bookmark-btn");
+
+            let currentLevel = "all";
+
+            bookmarkBtns.forEach((btn) => {
+              btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                const icon = btn.querySelector(".material-symbols-outlined");
+                if (icon.textContent === "bookmark_border") {
+                  icon.textContent = "bookmark";
+                  icon.style.fontVariationSettings = "'FILL' 1";
+                  btn.classList.add("text-primary");
+                  btn.classList.remove("text-on-surface-variant");
+                } else {
+                  icon.textContent = "bookmark_border";
+                  icon.style.fontVariationSettings = "'FILL' 0";
+                  btn.classList.remove("text-primary");
+                  btn.classList.add("text-on-surface-variant");
+                }
+              });
+            });
+
+            viewListBtn.addEventListener("click", () => {
+              booksGrid.classList.remove(
+                "sm:grid-cols-2",
+                "md:grid-cols-2",
+                "xl:grid-cols-4",
+              );
+              booksGrid.classList.add("grid-cols-1");
+              viewListBtn.classList.add(
+                "bg-surface-container-highest",
+                "text-primary",
+              );
+              viewListBtn.classList.remove("text-on-surface-variant");
+              viewGridBtn.classList.remove(
+                "bg-surface-container-highest",
+                "text-primary",
+              );
+              viewGridBtn.classList.add("text-on-surface-variant");
+            });
+
+            viewGridBtn.addEventListener("click", () => {
+              booksGrid.classList.add(
+                "sm:grid-cols-2",
+                "md:grid-cols-2",
+                "xl:grid-cols-4",
+              );
+              booksGrid.classList.remove("grid-cols-1");
+              viewGridBtn.classList.add(
+                "bg-surface-container-highest",
+                "text-primary",
+              );
+              viewGridBtn.classList.remove("text-on-surface-variant");
+              viewListBtn.classList.remove(
+                "bg-surface-container-highest",
+                "text-primary",
+              );
+              viewListBtn.classList.add("text-on-surface-variant");
+            });
+
+            levelButtons.forEach((btn) => {
+              btn.addEventListener("click", () => {
+                levelButtons.forEach((b) => {
+                  b.classList.remove(
+                    "bg-primary-container",
+                    "text-on-primary-container",
+                  );
+                  b.classList.add(
+                    "bg-surface-container",
+                    "text-on-surface-variant",
+                  );
+                });
+                btn.classList.add(
+                  "bg-primary-container",
+                  "text-on-primary-container",
+                );
+                btn.classList.remove(
+                  "bg-surface-container",
+                  "text-on-surface-variant",
+                );
+                currentLevel = btn.getAttribute("data-level");
+                filterAndSortBooks();
+              });
+            });
+
+            searchInput.addEventListener("input", () => {
+              if (searchInput.value.trim().length > 0) {
+                clearSearchBtn.classList.remove("hidden");
+              } else {
+                clearSearchBtn.classList.add("hidden");
+              }
+              filterAndSortBooks();
+            });
+
+            clearSearchBtn.addEventListener("click", () => {
+              searchInput.value = "";
+              clearSearchBtn.classList.add("hidden");
+              filterAndSortBooks();
+            });
+
+            function resetAll() {
+              searchInput.value = "";
+              clearSearchBtn.classList.add("hidden");
+              document.querySelector(
+                'input[name="lang-filter"][value="all"]',
+              ).checked = true;
+              document.querySelector(
+                'input[name="period-filter"][value="all"]',
+              ).checked = true;
+              genreCheckboxes.forEach((cb) => (cb.checked = false));
+
+              currentLevel = "all";
+              levelButtons.forEach((b) => {
+                if (b.getAttribute("data-level") === "all") {
+                  b.classList.add(
+                    "bg-primary-container",
+                    "text-on-primary-container",
+                  );
+                  b.classList.remove(
+                    "bg-surface-container",
+                    "text-on-surface-variant",
+                  );
+                } else {
+                  b.classList.remove(
+                    "bg-primary-container",
+                    "text-on-primary-container",
+                  );
+                  b.classList.add(
+                    "bg-surface-container",
+                    "text-on-surface-variant",
+                  );
+                }
+              });
+
+              sortSelect.value = "title-asc";
+              filterAndSortBooks();
+            }
+
+            clearAllBtn.addEventListener("click", resetAll);
+            resetFiltersHero.addEventListener("click", resetAll);
+            resetEmptyBtn.addEventListener("click", resetAll);
+
+            langRadios.forEach((r) =>
+              r.addEventListener("change", filterAndSortBooks),
+            );
+            genreCheckboxes.forEach((cb) =>
+              cb.addEventListener("change", filterAndSortBooks),
+            );
+            periodRadios.forEach((r) =>
+              r.addEventListener("change", filterAndSortBooks),
+            );
+            sortSelect.addEventListener("change", filterAndSortBooks);
+
+            function filterAndSortBooks() {
+              const query = searchInput.value.toLowerCase().trim();
+              const selectedLang = document.querySelector(
+                'input[name="lang-filter"]:checked',
+              ).value;
+              const selectedPeriod = document.querySelector(
+                'input[name="period-filter"]:checked',
+              ).value;
+              const checkedGenres = Array.from(genreCheckboxes)
+                .filter((cb) => cb.checked)
+                .map((cb) => cb.value.toLowerCase());
+
+              let visibleCards = [];
+
+              bookCards.forEach((card) => {
+                const title = card.getAttribute("data-title");
+                const author = card.getAttribute("data-author");
+                const lang = card.getAttribute("data-lang");
+                const genre = card.getAttribute("data-genre").toLowerCase();
+                const level = card.getAttribute("data-level");
+                const year = parseInt(card.getAttribute("data-year"), 10);
+
+                const matchesQuery =
+                  !query || title.includes(query) || author.includes(query);
+
+                const matchesLang =
+                  selectedLang === "all" || lang === selectedLang;
+
+                const matchesLevel =
+                  currentLevel === "all" || level === currentLevel;
+
+                let matchesGenre = true;
+                if (checkedGenres.length > 0) {
+                  matchesGenre = checkedGenres.some((g) => genre.includes(g));
+                }
+
+                let matchesPeriod = true;
+                if (selectedPeriod === "pre-1950") matchesPeriod = year < 1950;
+                else if (selectedPeriod === "1950-2000")
+                  matchesPeriod = year >= 1950 && year <= 2000;
+                else if (selectedPeriod === "post-2000")
+                  matchesPeriod = year > 2000;
+
+                if (
+                  matchesQuery &&
+                  matchesLang &&
+                  matchesLevel &&
+                  matchesGenre &&
+                  matchesPeriod
+                ) {
+                  card.classList.remove("hidden");
+                  visibleCards.push(card);
+                } else {
+                  card.classList.add("hidden");
+                }
+              });
+
+              const sortValue = sortSelect.value;
+              visibleCards.sort((a, b) => {
+                if (sortValue === "title-asc") {
+                  return a
+                    .getAttribute("data-title")
+                    .localeCompare(b.getAttribute("data-title"));
+                } else if (sortValue === "title-desc") {
+                  return b
+                    .getAttribute("data-title")
+                    .localeCompare(a.getAttribute("data-title"));
+                } else if (sortValue === "year-asc") {
+                  return (
+                    parseInt(a.getAttribute("data-year")) -
+                    parseInt(b.getAttribute("data-year"))
+                  );
+                } else if (sortValue === "year-desc") {
+                  return (
+                    parseInt(b.getAttribute("data-year")) -
+                    parseInt(a.getAttribute("data-year"))
+                  );
+                } else if (sortValue === "pages-asc") {
+                  return (
+                    parseInt(a.getAttribute("data-pages")) -
+                    parseInt(b.getAttribute("data-pages"))
+                  );
+                } else if (sortValue === "pages-desc") {
+                  return (
+                    parseInt(b.getAttribute("data-pages")) -
+                    parseInt(a.getAttribute("data-pages"))
+                  );
+                } else if (sortValue === "popular") {
+                  return (
+                    parseInt(b.getAttribute("data-popular")) -
+                    parseInt(a.getAttribute("data-popular"))
+                  );
+                }
+                return 0;
+              });
+
+              visibleCards.forEach((card) => booksGrid.appendChild(card));
+
+              visibleCountEl.textContent = visibleCards.length;
+              if (visibleCards.length === 0) {
+                booksGrid.classList.add("hidden");
+                noResultsState.classList.remove("hidden");
+              } else {
+                booksGrid.classList.remove("hidden");
+                noResultsState.classList.add("hidden");
+              }
+            }
+
+            filterAndSortBooks();
+          })();
+        </script>
+      </div>
+    </main>
+    <footer
+      class="w-full bg-surface-container-lowest py-space-2xl mt-space-2xl"
+    >
+      <div class="max-w-[1440px] mx-auto px-margin md:px-margin-lg">
+        <div
+          class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg pb-space-xl"
+        >
+          <div class="space-y-space-xs">
+            <div class="flex items-center gap-space-xs">
+              <span class="material-symbols-outlined text-primary text-[24px]"
+                >auto_stories</span
+              ><span
+                class="font-headline-sm text-headline-sm text-on-surface tracking-tight"
+                >BookBridge</span
+              >
+            </div>
+            <p
+              class="font-body-md text-body-md text-on-surface-variant max-w-md"
+            >
+              A digital sanctuary for archival discovery, rare volume curations,
+              and contemplative scholarship.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-space-md lg:gap-space-lg">
+            <a
+              class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+              data-path="home"
+              href="#"
+              >Home</a
+            ><a
+              class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+              data-path="directory"
+              href="#"
+              >Directory</a
+            ><a
+              class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+              data-path="explorer"
+              href="#"
+              >Explorer</a
+            ><a
+              class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+              data-path="collections"
+              href="#"
+              >Collections</a
+            ><a
+              class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+              data-path="about"
+              href="#"
+              >About</a
+            ><a
+              class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+              data-path="contact"
+              href="#"
+              >Contact</a
+            >
+          </div>
+        </div>
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-lg"
+        >
+          <div class="flex items-center gap-space-xs text-on-surface-variant">
+            <span class="font-label-md text-label-md"
+              >© 2026 BookBridge Archive. All rights reserved.</span
+            >
+          </div>
+          <div
+            class="inline-flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-low rounded-full"
+          >
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span
+            ><span
+              class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider"
+              >Local Persistence Active</span
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

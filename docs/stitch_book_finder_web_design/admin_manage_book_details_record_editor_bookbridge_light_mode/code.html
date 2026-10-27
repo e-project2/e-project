@@ -1,648 +1,1694 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-fixed-variant": "#3c475a", "status-success": "#10B981", "inverse-primary": "#bcc7de", "on-primary-fixed": "#111c2d", "surface-tint": "#545f73", "surface-canvas": "#F8FAFC", "on-secondary": "#ffffff", "primary-fixed-dim": "#bcc7de", "on-error": "#ffffff", "surface-card": "#FFFFFF", "on-background": "#0b1c30", "text-primary": "#0F172A", "primary-container": "#1e293b", "on-secondary-fixed": "#001a42", "error": "#ba1a1a", "on-tertiary-fixed-variant": "#6e3900", "secondary": "#0058be", "on-secondary-container": "#fefcff", "tertiary": "#240f00", "status-info": "#0EA5E9", "surface-container-highest": "#d3e4fe", "tertiary-fixed": "#ffdcc3", "background": "#f8f9ff", "secondary-container": "#2170e4", "on-surface-variant": "#45474c", "surface-container-low": "#eff4ff", "accent-gold-light": "#F59E0B", "surface-bright": "#f8f9ff", "outline-variant": "#c5c6cd", "inverse-surface": "#213145", "outline": "#75777d", "surface-variant": "#d3e4fe", "secondary-fixed-dim": "#adc6ff", "tertiary-fixed-dim": "#ffb77d", "surface-dim": "#cbdbf5", "on-surface": "#0b1c30", "on-tertiary-container": "#d97705", "secondary-fixed": "#d8e2ff", "on-error-container": "#93000a", "error-container": "#ffdad6", "tertiary-container": "#422000", "surface-container-lowest": "#ffffff", "on-tertiary-fixed": "#2f1500", "accent-indigo": "#6366F1", "surface-container": "#e5eeff", "primary-fixed": "#d8e3fb", "on-primary-container": "#8590a6", "on-primary": "#ffffff", "surface": "#f8f9ff", "on-tertiary": "#ffffff", "on-secondary-fixed-variant": "#004395", "surface-container-high": "#dce9ff", "status-danger": "#EF4444", "border-subtle": "#E2E8F0", "primary": "#091426", "inverse-on-surface": "#eaf1ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-mobile": "1rem", "margin": "3rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "space-md": "1rem", "margin-mobile": "1.25rem", "gutter": "1.5rem", "space-xl": "2.5rem" }, "fontFamily": { "display-hero": [ "Playfair Display" ], "body-lg": [ "Plus Jakarta Sans" ], "headline-lg": [ "Playfair Display" ], "display-hero-mobile": [ "Playfair Display" ], "headline-md": [ "Playfair Display" ], "title-md": [ "Plus Jakarta Sans" ], "label-md": [ "Plus Jakarta Sans" ], "headline-lg-mobile": [ "Playfair Display" ], "body-md": [ "Plus Jakarta Sans" ], "headline-sm": [ "Playfair Display" ], "body-sm": [ "Plus Jakarta Sans" ], "label-sm": [ "Plus Jakarta Sans" ] }, "fontSize": { "display-hero": [ "3.5rem", { "lineHeight": "4.25rem", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "body-lg": [ "1.125rem", { "lineHeight": "1.875rem", "fontWeight": "400" } ], "headline-lg": [ "2.5rem", { "lineHeight": "3rem", "letterSpacing": "-0.015em", "fontWeight": "700" } ], "display-hero-mobile": [ "2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.01em", "fontWeight": "700" } ], "headline-md": [ "1.75rem", { "lineHeight": "2.25rem", "fontWeight": "600" } ], "title-md": [ "1.125rem", { "lineHeight": "1.625rem", "fontWeight": "600" } ], "label-md": [ "0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "600" } ], "headline-lg-mobile": [ "1.75rem", { "lineHeight": "2.25rem", "fontWeight": "700" } ], "body-md": [ "1rem", { "lineHeight": "1.625rem", "fontWeight": "400" } ], "headline-sm": [ "1.25rem", { "lineHeight": "1.75rem", "fontWeight": "600" } ], "body-sm": [ "0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" } ], "label-sm": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.025em", "fontWeight": "600" } ] } } } };</script></head><body class="bg-surface-canvas font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface-card/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1440px] mx-auto px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm group" data-path="catalog-overview" href="#"><span class="w-9 h-9 rounded-lg bg-primary text-on-primary flex items-center justify-center font-display-hero text-headline-sm">B</span><div class="flex flex-col"><span class="font-display-hero text-headline-sm text-text-primary tracking-tight leading-none">BookBridge</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mt-0.5">Archives</span></div></a><div class="h-5 w-[1px] bg-border-subtle hidden xl:block"></div><span class="hidden xl:inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm tracking-wider font-semibold uppercase"><span class="w-1.5 h-1.5 rounded-full bg-accent-gold-light"></span>CURATION DESK</span></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-primary text-on-primary rounded-full px-space-md py-1.5 shadow-sm font-semibold"><a class="font-label-md text-label-md px-space-md py-1.5 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" data-path="catalog-overview" href="#">Catalog Overview</a><a aria-current="page" class="transition-all bg-primary text-on-primary rounded-full px-space-md py-1.5 shadow-sm font-semibold" data-path="manage-books" href="#">Manage Books</a><a class="font-label-md text-label-md px-space-md py-1.5 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" data-path="manage-authors" href="#">Manage Authors</a><a class="font-label-md text-label-md px-space-md py-1.5 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" data-path="archival-requests" href="#">Archival Requests</a><a class="font-label-md text-label-md px-space-md py-1.5 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" data-path="audit-log" href="#">Audit Log</a></nav><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-card shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><span class="w-2 h-2 rounded-full bg-status-success"></span><span class="font-label-sm text-label-sm text-on-surface font-semibold">LocalStorage Active</span></div><button class="relative p-1.5 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 bg-status-danger rounded-full"></span></button><a class="hidden md:flex items-center gap-1 text-secondary font-label-md text-label-md hover:underline font-semibold" data-path="public-library-preview" href="#"><span class="material-symbols-outlined text-[16px]">open_in_new</span>View Public Library</a><div class="h-6 w-[1px] bg-border-subtle"></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden xl:flex flex-col text-left"><span class="font-title-md text-title-md text-text-primary leading-none">Dr. M. D'Artois</span><span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Senior Curator</span></div></div></div></div></header><main class="w-full pt-20 bg-surface-canvas min-h-screen"><div class="flex flex-col w-full">
-<!-- Top Archival Status Banner & Breadcrumb Header -->
-<section class="w-full bg-surface-card shadow-sm py-space-md">
-<div class="max-w-[1440px] mx-auto px-gutter flex flex-col xl:flex-row items-start xl:items-center justify-between gap-space-md">
-<div class="flex flex-col gap-1.5">
-<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
-<span>Admin Console</span>
-<span class="material-symbols-outlined text-[14px]">chevron_right</span>
-<a class="hover:text-primary transition-colors" href="#">Manage Books</a>
-<span class="material-symbols-outlined text-[14px]">chevron_right</span>
-<span class="text-primary font-semibold">Edit Record #BK-004</span>
-</div>
-<div class="flex flex-wrap items-center gap-space-sm pt-0.5">
-<h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">Le Petit Prince</h1>
-<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-status-success/10 text-status-success font-label-sm text-label-sm font-semibold">
-<span class="w-2 h-2 rounded-full bg-status-success animate-pulse"></span>
-            PUBLISHED • PUBLIC DOMAIN VERIFIED
-          </span>
-<span class="hidden sm:inline-flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low px-2.5 py-1 rounded-full">
-<span class="material-symbols-outlined text-[15px]">schedule</span>
-            Modified Today, 14:32 by Dr. M. D'Artois
-          </span>
-</div>
-</div>
-<!-- Action Group -->
-<div class="flex flex-wrap items-center gap-space-sm">
-<a class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-low text-primary font-label-md text-label-md hover:bg-surface-container transition-all" href="#">
-<span class="material-symbols-outlined text-[18px]">visibility</span>
-          Preview Public Page
-        </a>
-<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:text-error hover:bg-error-container/30 transition-all font-label-md text-label-md" onclick="resetFormState()" type="button">
-<span class="material-symbols-outlined text-[18px]">undo</span>
-          Discard Changes
-        </button>
-<button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent-gold-light text-on-primary font-label-md text-label-md shadow-sm hover:brightness-105 active:scale-95 transition-all" id="btnSyncHeader" onclick="triggerManualSync()" type="button">
-<span class="material-symbols-outlined text-[18px]">sync</span>
-          Save &amp; Sync to LocalStorage
-        </button>
-</div>
-</div>
-</section>
-<!-- Notification Toast Container (Dynamic Micro-interaction) -->
-<div class="fixed bottom-24 right-8 z-50 transform translate-y-16 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-3 bg-primary text-on-primary px-5 py-3 rounded-xl shadow-xl" id="saveToast">
-<span class="material-symbols-outlined text-status-success text-[20px]">check_circle</span>
-<div class="flex flex-col">
-<span class="font-title-md text-title-md leading-none text-white">Record Synchronized</span>
-<span class="font-label-sm text-label-sm text-primary-fixed mt-0.5">LocalStorage Key: bookbridge_bk_004 (Revision 14.3)</span>
-</div>
-</div>
-<!-- Main Administrative Editorial Grid -->
-<main class="max-w-[1440px] mx-auto px-gutter py-space-xl w-full">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
-<!-- ================= LEFT RAIL: ASSET MANAGEMENT & REPOSITORY METRICS (Col 1-4) ================= -->
-<div class="lg:col-span-4 flex flex-col gap-space-lg">
-<!-- 1. Book Cover Asset Manager Card -->
-<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-[20px]">auto_stories</span>
-<h2 class="font-headline-sm text-headline-sm text-text-primary">Cover Folio Master</h2>
-</div>
-<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm tracking-wider uppercase font-semibold">
-              RATIO 2:3 • 300 DPI
-            </span>
-</div>
-<!-- Cover Image Container -->
-<div class="relative group rounded-lg overflow-hidden bg-surface-container shadow-md flex justify-center items-center aspect-[2/3] w-full">
-<img class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" data-alt="Vintage 1943 classic first edition book cover art of Le Petit Prince by Antoine de Saint-Exupéry. An ethereal watercolor illustration of a small golden-haired prince in royal garb standing on a tiny celestial asteroid under a deep indigo starlit cosmos with gentle craters and roses, warm muted paper texture and refined typography." id="previewCoverImage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8j-lTnN5UdApDzK950d6Pc2gPcYYWyZHjN-wEevTmRk3ZHVEFE0e1Jd36dl18QgZBMxWYQ5hhgEVgiD7tZfvfdXEW7p8Sw2gkXm1iJ4Z6ZjE0W286a6VKin5Q7unDI2jDHGT48hpcIcsxo4Lu_zYOs5USvM_qXBWfYhqerf8KqS8wQVTKFHz5EptAhkYqriussHiXRlJwPzKHCWmr8920R04e7vWJO3xTAQWREXSOTbb6r7J9uS8"/>
-<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2 backdrop-blur-xs p-4">
-<button class="p-2.5 rounded-full bg-surface-card text-primary shadow-lg hover:bg-surface-container transition-transform active:scale-95" title="Inspect Full Master" type="button">
-<span class="material-symbols-outlined text-[20px]">zoom_in</span>
-</button>
-<button class="p-2.5 rounded-full bg-surface-card text-primary shadow-lg hover:bg-surface-container transition-transform active:scale-95" title="Crop &amp; Align" type="button">
-<span class="material-symbols-outlined text-[20px]">crop</span>
-</button>
-<button class="p-2.5 rounded-full bg-surface-card text-primary shadow-lg hover:bg-surface-container transition-transform active:scale-95" onclick="document.getElementById('coverFileInput').click()" title="Replace Folio" type="button">
-<span class="material-symbols-outlined text-[20px]">file_upload</span>
-</button>
-</div>
-</div>
-<!-- Master Archival Upload Dropzone -->
-<input accept="image/tiff,image/webp,image/jpeg,image/png" class="hidden" id="coverFileInput" onchange="simulateUpload(event)" type="file"/>
-<div class="cursor-pointer rounded-lg bg-surface-container-low p-space-md text-center hover:bg-surface-container transition-colors flex flex-col items-center justify-center gap-1.5" onclick="document.getElementById('coverFileInput').click()">
-<span class="material-symbols-outlined text-secondary text-[26px]">cloud_upload</span>
-<span class="font-title-md text-title-md text-primary">Upload Archival TIFF / WebP</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Drag replacement master plate or browse (max 48MB)</span>
-</div>
-<!-- Provenance Metadata Stamp -->
-<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-1">
-<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
-<span>Primary Plate Source</span>
-<span class="text-primary font-semibold">BnF Gallica Master Folio</span>
-</div>
-<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
-<span>Verification Hash</span>
-<span class="font-mono text-[11px] text-text-primary">sha256:7f4a...9b11</span>
-</div>
-<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
-<span>Color Profile</span>
-<span class="text-primary font-medium">DCI-P3 16-bit Calibrated</span>
-</div>
-</div>
-</div>
-<!-- 2. Core Identifiers & Shelf Marks Card -->
-<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-[20px]">fingerprint</span>
-<h2 class="font-headline-sm text-headline-sm text-text-primary">Core Archival Identifiers</h2>
-</div>
-<div class="flex flex-col gap-space-sm">
-<!-- System UUID -->
-<div>
-<label class="font-label-sm text-label-sm text-on-surface-variant flex items-center justify-between">
-<span>Repository System UUID</span>
-<span class="flex items-center gap-0.5 text-status-success">
-<span class="material-symbols-outlined text-[13px]">lock</span> Read-only Key
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Manage Books | BookBridge (Light Mode)</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#3c475a",
+              "status-success": "#10B981",
+              "inverse-primary": "#bcc7de",
+              "on-primary-fixed": "#111c2d",
+              "surface-tint": "#545f73",
+              "surface-canvas": "#F8FAFC",
+              "on-secondary": "#ffffff",
+              "primary-fixed-dim": "#bcc7de",
+              "on-error": "#ffffff",
+              "surface-card": "#FFFFFF",
+              "on-background": "#0b1c30",
+              "text-primary": "#0F172A",
+              "primary-container": "#1e293b",
+              "on-secondary-fixed": "#001a42",
+              error: "#ba1a1a",
+              "on-tertiary-fixed-variant": "#6e3900",
+              secondary: "#0058be",
+              "on-secondary-container": "#fefcff",
+              tertiary: "#240f00",
+              "status-info": "#0EA5E9",
+              "surface-container-highest": "#d3e4fe",
+              "tertiary-fixed": "#ffdcc3",
+              background: "#f8f9ff",
+              "secondary-container": "#2170e4",
+              "on-surface-variant": "#45474c",
+              "surface-container-low": "#eff4ff",
+              "accent-gold-light": "#F59E0B",
+              "surface-bright": "#f8f9ff",
+              "outline-variant": "#c5c6cd",
+              "inverse-surface": "#213145",
+              outline: "#75777d",
+              "surface-variant": "#d3e4fe",
+              "secondary-fixed-dim": "#adc6ff",
+              "tertiary-fixed-dim": "#ffb77d",
+              "surface-dim": "#cbdbf5",
+              "on-surface": "#0b1c30",
+              "on-tertiary-container": "#d97705",
+              "secondary-fixed": "#d8e2ff",
+              "on-error-container": "#93000a",
+              "error-container": "#ffdad6",
+              "tertiary-container": "#422000",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#2f1500",
+              "accent-indigo": "#6366F1",
+              "surface-container": "#e5eeff",
+              "primary-fixed": "#d8e3fb",
+              "on-primary-container": "#8590a6",
+              "on-primary": "#ffffff",
+              surface: "#f8f9ff",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed-variant": "#004395",
+              "surface-container-high": "#dce9ff",
+              "status-danger": "#EF4444",
+              "border-subtle": "#E2E8F0",
+              primary: "#091426",
+              "inverse-on-surface": "#eaf1ff",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "gutter-mobile": "1rem",
+              margin: "3rem",
+              "space-sm": "0.5rem",
+              "space-xs": "0.25rem",
+              "space-lg": "1.5rem",
+              "space-md": "1rem",
+              "margin-mobile": "1.25rem",
+              gutter: "1.5rem",
+              "space-xl": "2.5rem",
+            },
+            fontFamily: {
+              "display-hero": ["Playfair Display"],
+              "body-lg": ["Plus Jakarta Sans"],
+              "headline-lg": ["Playfair Display"],
+              "display-hero-mobile": ["Playfair Display"],
+              "headline-md": ["Playfair Display"],
+              "title-md": ["Plus Jakarta Sans"],
+              "label-md": ["Plus Jakarta Sans"],
+              "headline-lg-mobile": ["Playfair Display"],
+              "body-md": ["Plus Jakarta Sans"],
+              "headline-sm": ["Playfair Display"],
+              "body-sm": ["Plus Jakarta Sans"],
+              "label-sm": ["Plus Jakarta Sans"],
+            },
+            fontSize: {
+              "display-hero": [
+                "3.5rem",
+                {
+                  lineHeight: "4.25rem",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": [
+                "1.125rem",
+                { lineHeight: "1.875rem", fontWeight: "400" },
+              ],
+              "headline-lg": [
+                "2.5rem",
+                {
+                  lineHeight: "3rem",
+                  letterSpacing: "-0.015em",
+                  fontWeight: "700",
+                },
+              ],
+              "display-hero-mobile": [
+                "2.25rem",
+                {
+                  lineHeight: "2.75rem",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-md": [
+                "1.75rem",
+                { lineHeight: "2.25rem", fontWeight: "600" },
+              ],
+              "title-md": [
+                "1.125rem",
+                { lineHeight: "1.625rem", fontWeight: "600" },
+              ],
+              "label-md": [
+                "0.875rem",
+                {
+                  lineHeight: "1.25rem",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg-mobile": [
+                "1.75rem",
+                { lineHeight: "2.25rem", fontWeight: "700" },
+              ],
+              "body-md": [
+                "1rem",
+                { lineHeight: "1.625rem", fontWeight: "400" },
+              ],
+              "headline-sm": [
+                "1.25rem",
+                { lineHeight: "1.75rem", fontWeight: "600" },
+              ],
+              "body-sm": [
+                "0.875rem",
+                { lineHeight: "1.375rem", fontWeight: "400" },
+              ],
+              "label-sm": [
+                "0.75rem",
+                {
+                  lineHeight: "1rem",
+                  letterSpacing: "0.025em",
+                  fontWeight: "600",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-surface-canvas font-body-md text-on-surface antialiased">
+    <header
+      class="fixed top-0 w-full z-50 bg-surface-card/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"
+    >
+      <div
+        class="h-20 max-w-[1440px] mx-auto px-gutter flex items-center justify-between gap-space-md"
+      >
+        <div class="flex items-center gap-space-lg">
+          <a
+            class="flex items-center gap-space-sm group"
+            data-path="catalog-overview"
+            href="#"
+            ><span
+              class="w-9 h-9 rounded-lg bg-primary text-on-primary flex items-center justify-center font-display-hero text-headline-sm"
+              >B</span
+            >
+            <div class="flex flex-col">
+              <span
+                class="font-display-hero text-headline-sm text-text-primary tracking-tight leading-none"
+                >BookBridge</span
+              ><span
+                class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mt-0.5"
+                >Archives</span
+              >
+            </div></a
+          >
+          <div class="h-5 w-[1px] bg-border-subtle hidden xl:block"></div>
+          <span
+            class="hidden xl:inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm tracking-wider font-semibold uppercase"
+            ><span class="w-1.5 h-1.5 rounded-full bg-accent-gold-light"></span
+            >CURATION DESK</span
+          >
+        </div>
+        <nav
+          class="hidden lg:flex items-center gap-space-xs"
+          data-active-classes="bg-primary text-on-primary rounded-full px-space-md py-1.5 shadow-sm font-semibold"
+        >
+          <a
+            class="font-label-md text-label-md px-space-md py-1.5 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all"
+            data-path="catalog-overview"
+            href="#"
+            >Catalog Overview</a
+          ><a
+            aria-current="page"
+            class="transition-all bg-primary text-on-primary rounded-full px-space-md py-1.5 shadow-sm font-semibold"
+            data-path="manage-books"
+            href="#"
+            >Manage Books</a
+          ><a
+            class="font-label-md text-label-md px-space-md py-1.5 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all"
+            data-path="manage-authors"
+            href="#"
+            >Manage Authors</a
+          ><a
+            class="font-label-md text-label-md px-space-md py-1.5 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all"
+            data-path="archival-requests"
+            href="#"
+            >Archival Requests</a
+          ><a
+            class="font-label-md text-label-md px-space-md py-1.5 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all"
+            data-path="audit-log"
+            href="#"
+            >Audit Log</a
+          >
+        </nav>
+        <div class="flex items-center gap-space-md">
+          <div
+            class="hidden sm:flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-card shadow-[0_1px_8px_rgba(0,0,0,0.04)]"
+          >
+            <span class="w-2 h-2 rounded-full bg-status-success"></span
+            ><span
+              class="font-label-sm text-label-sm text-on-surface font-semibold"
+              >LocalStorage Active</span
+            >
+          </div>
+          <button
+            class="relative p-1.5 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[20px]"
+              >notifications</span
+            ><span
+              class="absolute top-1.5 right-1.5 w-2 h-2 bg-status-danger rounded-full"
+            ></span></button
+          ><a
+            class="hidden md:flex items-center gap-1 text-secondary font-label-md text-label-md hover:underline font-semibold"
+            data-path="public-library-preview"
+            href="#"
+            ><span class="material-symbols-outlined text-[16px]"
+              >open_in_new</span
+            >View Public Library</a
+          >
+          <div class="h-6 w-[1px] bg-border-subtle"></div>
+          <div class="flex items-center gap-space-sm">
+            <div
+              class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"
+            >
+              <span
+                class="material-symbols-outlined text-on-primary text-[18px]"
+                >person</span
+              >
+            </div>
+            <div class="hidden xl:flex flex-col text-left">
+              <span
+                class="font-title-md text-title-md text-text-primary leading-none"
+                >Dr. M. D'Artois</span
+              ><span
+                class="font-label-sm text-label-sm text-on-surface-variant mt-0.5"
+                >Senior Curator</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="w-full pt-20 bg-surface-canvas min-h-screen">
+      <div class="flex flex-col w-full">
+        <section class="w-full bg-surface-card shadow-sm py-space-md">
+          <div
+            class="max-w-[1440px] mx-auto px-gutter flex flex-col xl:flex-row items-start xl:items-center justify-between gap-space-md"
+          >
+            <div class="flex flex-col gap-1.5">
+              <div
+                class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm"
+              >
+                <span>Admin Console</span>
+                <span class="material-symbols-outlined text-[14px]"
+                  >chevron_right</span
+                >
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Manage Books</a
+                >
+                <span class="material-symbols-outlined text-[14px]"
+                  >chevron_right</span
+                >
+                <span class="text-primary font-semibold"
+                  >Edit Record #BK-004</span
+                >
+              </div>
+              <div class="flex flex-wrap items-center gap-space-sm pt-0.5">
+                <h1
+                  class="font-headline-lg text-headline-lg text-text-primary tracking-tight"
+                >
+                  Le Petit Prince
+                </h1>
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-status-success/10 text-status-success font-label-sm text-label-sm font-semibold"
+                >
+                  <span
+                    class="w-2 h-2 rounded-full bg-status-success animate-pulse"
+                  ></span>
+                  PUBLISHED • PUBLIC DOMAIN VERIFIED
                 </span>
-</label>
-<div class="mt-1 flex items-center bg-surface-container-low rounded-lg px-3 py-2 text-text-primary font-mono text-[13px]">
-<span class="truncate">book-004-saint-exupery-prince</span>
-<button class="ml-auto text-on-surface-variant hover:text-primary" onclick="navigator.clipboard.writeText('book-004-saint-exupery-prince')" title="Copy UUID" type="button">
-<span class="material-symbols-outlined text-[16px]">content_copy</span>
-</button>
-</div>
-</div>
-<!-- ISBN-13 / MARC-21 -->
-<div>
-<label class="font-label-sm text-label-sm text-on-surface-variant">ISBN-13 / MARC-21 Control ID</label>
-<div class="mt-1 flex items-center bg-surface-card rounded-lg px-3 py-2 shadow-sm text-text-primary font-mono text-[13px] focus-within:ring-2 focus-within:ring-secondary">
-<input class="w-full bg-transparent focus:outline-none text-text-primary" type="text" value="978-0156012195 (MARC: 001)"/>
-<span class="material-symbols-outlined text-status-success text-[16px]">verified</span>
-</div>
-</div>
-<!-- Archive Call Number / Shelf Mark -->
-<div>
-<label class="font-label-sm text-label-sm text-on-surface-variant">Rare Vault Shelf Mark &amp; Bin</label>
-<div class="mt-1 flex items-center justify-between bg-surface-container-low rounded-lg p-3">
-<div class="flex flex-col">
-<span class="font-mono text-label-md text-primary font-semibold">RES-8-Y2-1402</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Vault Section B-14 (Climate Controlled)</span>
-</div>
-<!-- Inline SVG Barcode visual -->
-<svg class="w-20 h-8 text-primary" fill="currentColor" viewbox="0 0 100 40">
-<rect height="40" width="3" x="0" y="0"></rect>
-<rect height="40" width="2" x="5" y="0"></rect>
-<rect height="40" width="4" x="9" y="0"></rect>
-<rect height="40" width="1" x="16" y="0"></rect>
-<rect height="40" width="5" x="19" y="0"></rect>
-<rect height="40" width="2" x="26" y="0"></rect>
-<rect height="40" width="4" x="30" y="0"></rect>
-<rect height="40" width="2" x="36" y="0"></rect>
-<rect height="40" width="6" x="41" y="0"></rect>
-<rect height="40" width="2" x="49" y="0"></rect>
-<rect height="40" width="3" x="53" y="0"></rect>
-<rect height="40" width="1" x="58" y="0"></rect>
-<rect height="40" width="5" x="62" y="0"></rect>
-<rect height="40" width="2" x="69" y="0"></rect>
-<rect height="40" width="4" x="74" y="0"></rect>
-<rect height="40" width="2" x="80" y="0"></rect>
-<rect height="40" width="6" x="84" y="0"></rect>
-<rect height="40" width="2" x="92" y="0"></rect>
-<rect height="40" width="4" x="96" y="0"></rect>
-</svg>
-</div>
-</div>
-</div>
-</div>
-<!-- 3. Archival Governance & LocalStorage Monitor -->
-<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-[20px]">shield</span>
-<h2 class="font-headline-sm text-headline-sm text-text-primary">Governance &amp; Storage Engine</h2>
-</div>
-<div class="flex flex-col gap-3">
-<label class="flex items-center gap-3 cursor-pointer">
-<input checked="" class="w-4 h-4 rounded text-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
-<span class="font-body-sm text-body-sm text-text-primary font-medium">Featured Masterpiece (Staff Recommendation)</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer">
-<input checked="" class="w-4 h-4 rounded text-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
-<span class="font-body-sm text-body-sm text-text-primary font-medium">Include in Curated 20 Essential Folios</span>
-</label>
-<div class="pt-2 flex flex-col gap-1.5">
-<label class="font-label-sm text-label-sm text-on-surface-variant">Global Copyright &amp; Access Tier</label>
-<select class="w-full bg-surface-card shadow-sm rounded-lg px-3 py-2 text-body-sm font-body-sm text-text-primary focus:outline-none">
-<option selected="">Global Public Domain (Berne Convention &gt;70pma)</option>
-<option>Restricted Academic Research Folio</option>
-<option>Fair Use Pedagogical Archive</option>
-<option>Special Authorial Estate Clearance</option>
-</select>
-</div>
-<!-- LocalStorage Status Diagnostic Indicator -->
-<div class="mt-2 p-3 rounded-lg bg-surface-container-low flex flex-col gap-2">
-<div class="flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-on-surface-variant">Payload Weight</span>
-<span class="font-mono text-label-sm text-label-sm text-primary font-semibold">38.4 KB (Encrypted)</span>
-</div>
-<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
-<div class="bg-accent-gold-light h-1.5 rounded-full" style="width: 24%"></div>
-</div>
-<div class="flex items-center justify-between pt-1">
-<span class="flex items-center gap-1 font-label-sm text-label-sm text-status-success font-semibold">
-<span class="w-1.5 h-1.5 rounded-full bg-status-success"></span>
-                  State Synced (Rev 14.2)
+                <span
+                  class="hidden sm:inline-flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low px-2.5 py-1 rounded-full"
+                >
+                  <span class="material-symbols-outlined text-[15px]"
+                    >schedule</span
+                  >
+                  Modified Today, 14:32 by Dr. M. D'Artois
                 </span>
-<button class="text-secondary font-label-sm text-label-sm hover:underline font-semibold flex items-center gap-0.5" onclick="exportRawJsonPayload()" type="button">
-<span class="material-symbols-outlined text-[14px]">download</span> Export Raw JSON
-                </button>
-</div>
-</div>
-</div>
-</div>
-<!-- 4. Critical Archival Notation Card -->
-<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-2">
-<div class="flex items-center gap-1.5 text-accent-gold-light">
-<span class="material-symbols-outlined text-[18px]">history_edu</span>
-<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider">Curation Provenance Memo</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-            Originally registered via Reynal &amp; Hitchcock, NY (April 1943) during Saint-Exupéry's North American residence, followed by Éditions Gallimard (Paris, 1946). The text is globally cleared in public domain across jurisdictions observing the standard author lifetime + 70 years rule since January 1, 2015.
-          </p>
-</div>
-</div>
-<!-- ================= RIGHT COLUMN: DEEP BIBLIOGRAPHIC & EDITORIAL FORM (Col 5-12) ================= -->
-<div class="lg:col-span-8 flex flex-col gap-space-lg">
-<!-- ================= SECTION 01: BIBLIOGRAPHIC FOUNDATION ================= -->
-<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
-<div class="flex items-center justify-between pb-space-xs">
-<div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-mono text-[11px] flex items-center justify-center font-bold">01</span>
-<h2 class="font-headline-sm text-headline-sm text-text-primary">Bibliographic Foundation</h2>
-</div>
-<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">ISBD Standard Fields</span>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
-<!-- Canonical Title -->
-<div class="md:col-span-2 flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary flex items-center gap-1">
-                Canonical Work Title <span class="text-status-danger">*</span>
-</label>
-<input class="w-full bg-surface-card shadow-sm rounded-lg px-4 py-2.5 font-title-md text-title-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary" type="text" value="Le Petit Prince"/>
-</div>
-<!-- Parallel Subtitle -->
-<div class="md:col-span-2 flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary">Parallel Script &amp; Cross-Lingual Subtitle</label>
-<input class="w-full bg-surface-card shadow-sm rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary" type="text" value="The Little Prince / 王子さま / El Principito"/>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Universal titles indexed for cross-cultural search retrieval.</span>
-</div>
-<!-- Primary Author Record Select -->
-<div class="md:col-span-2 flex flex-col gap-1.5">
-<div class="flex items-center justify-between">
-<label class="font-label-md text-label-md text-text-primary flex items-center gap-1">
-                  Primary Author / Folio Attributor <span class="text-status-danger">*</span>
-</label>
-<a class="text-secondary font-label-sm text-label-sm hover:underline font-semibold flex items-center gap-0.5" href="#">
-<span class="material-symbols-outlined text-[14px]">person_add</span> + Add New Author Record
-                </a>
-</div>
-<select class="w-full bg-surface-card shadow-sm rounded-lg px-4 py-2.5 font-body-md text-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary">
-<option selected="">Antoine de Saint-Exupéry (ID: auth-007) [1900–1944]</option>
-<option>Victor Hugo (ID: auth-001) [1802–1885]</option>
-<option>Albert Camus (ID: auth-012) [1913–1960]</option>
-<option>Marcel Proust (ID: auth-004) [1871–1922]</option>
-</select>
-</div>
-<!-- Original Composition Language -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary">Original Language</label>
-<select class="w-full bg-surface-card shadow-sm rounded-lg px-4 py-2.5 font-body-md text-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary">
-<option selected="">Français (French Standard)</option>
-<option>English (US / UK)</option>
-<option>Deutsch (German)</option>
-<option>Latin (Classical)</option>
-</select>
-</div>
-<!-- Year of First Inscription -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary">First Publication Year</label>
-<input class="w-full bg-surface-card shadow-sm rounded-lg px-4 py-2.5 font-body-md text-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary" type="number" value="1943"/>
-</div>
-<!-- First Edition Publisher -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary">First Edition Imprint / Publisher</label>
-<input class="w-full bg-surface-card shadow-sm rounded-lg px-4 py-2.5 font-body-md text-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary" type="text" value="Reynal &amp; Hitchcock, New York"/>
-</div>
-<!-- Pages & Reading Estimation Grid -->
-<div class="grid grid-cols-2 gap-space-sm">
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary">Folio Page Count</label>
-<input class="w-full bg-surface-card shadow-sm rounded-lg px-3 py-2.5 font-body-md text-body-md text-text-primary focus:outline-none" type="number" value="96"/>
-</div>
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary">Est. Reading Duration</label>
-<input class="w-full bg-surface-card shadow-sm rounded-lg px-3 py-2.5 font-body-md text-body-md text-text-primary focus:outline-none" type="text" value="1.5 hrs"/>
-</div>
-</div>
-</div>
-</div>
-<!-- ================= SECTION 02: CURATORIAL & PEDAGOGICAL CLASSIFICATION ================= -->
-<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
-<div class="flex items-center justify-between pb-space-xs">
-<div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-mono text-[11px] flex items-center justify-center font-bold">02</span>
-<h2 class="font-headline-sm text-headline-sm text-text-primary">Curatorial &amp; Pedagogical Classification</h2>
-</div>
-<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">Taxonomy Engine</span>
-</div>
-<!-- Primary Literary Genre -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary">Primary Literary Genre &amp; Form</label>
-<select class="w-full bg-surface-card shadow-sm rounded-lg px-4 py-2.5 font-body-md text-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary">
-<option selected="">Philosophical Allegory / Fable Novella</option>
-<option>Magical Realism / Speculative Poetics</option>
-<option>Epistolary Memoir &amp; Aviator Journal</option>
-<option>Existentialist Fiction &amp; Humanism</option>
-</select>
-</div>
-<!-- Interactive Curatorial Thematic Micro-Descriptors -->
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-text-primary flex items-center justify-between">
-<span>Curatorial Thematic Micro-Descriptors</span>
-<span class="text-on-surface-variant font-label-sm text-label-sm">5 Tags Applied</span>
-</label>
-<div class="flex flex-wrap items-center gap-2 p-3 bg-surface-container-low rounded-lg" id="tagCloudContainer">
-<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-card shadow-xs text-primary font-label-md text-label-md">
-                French Classic
-                <button class="text-on-surface-variant hover:text-error ml-0.5" onclick="this.parentElement.remove()" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
-</span>
-<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-card shadow-xs text-primary font-label-md text-label-md">
-                Allegorical Tale
-                <button class="text-on-surface-variant hover:text-error ml-0.5" onclick="this.parentElement.remove()" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
-</span>
-<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-card shadow-xs text-primary font-label-md text-label-md">
-                Philosophy of Friendship
-                <button class="text-on-surface-variant hover:text-error ml-0.5" onclick="this.parentElement.remove()" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
-</span>
-<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-card shadow-xs text-primary font-label-md text-label-md">
-                Aviation Solitude
-                <button class="text-on-surface-variant hover:text-error ml-0.5" onclick="this.parentElement.remove()" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
-</span>
-<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-card shadow-xs text-primary font-label-md text-label-md">
-                Sahara Desert
-                <button class="text-on-surface-variant hover:text-error ml-0.5" onclick="this.parentElement.remove()" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
-</span>
-<div class="inline-flex items-center gap-1">
-<input class="bg-transparent text-label-md font-label-md px-2 py-0.5 focus:outline-none text-text-primary placeholder:text-on-surface-variant" id="newTagInput" onkeydown="handleTagKeydown(event)" placeholder="+ Add descriptor..." type="text"/>
-</div>
-</div>
-</div>
-<!-- CEFR Language Proficiency Gradient -->
-<div class="flex flex-col gap-2 pt-2">
-<div class="flex items-center justify-between">
-<label class="font-label-md text-label-md text-text-primary">CEFR Reading Level Target Gradient</label>
-<span class="font-label-sm text-label-sm font-semibold text-on-tertiary-container bg-tertiary-fixed px-2.5 py-0.5 rounded-full">Recommended: Intermediate (A2 – B1)</span>
-</div>
-<div class="grid grid-cols-6 gap-2">
-<div class="flex flex-col items-center py-2.5 rounded-lg bg-surface-container-low text-on-surface-variant opacity-70">
-<span class="font-label-md text-label-md font-bold">A1</span>
-<span class="text-[10px] uppercase tracking-wider font-semibold">Introductory</span>
-</div>
-<div class="flex flex-col items-center py-2.5 rounded-lg bg-accent-gold-light text-on-primary shadow-sm font-semibold transform scale-105">
-<span class="font-label-md text-label-md font-bold">A2</span>
-<span class="text-[10px] uppercase tracking-wider font-semibold">Elementary</span>
-</div>
-<div class="flex flex-col items-center py-2.5 rounded-lg bg-accent-gold-light text-on-primary shadow-sm font-semibold transform scale-105">
-<span class="font-label-md text-label-md font-bold">B1</span>
-<span class="text-[10px] uppercase tracking-wider font-semibold">Intermediate</span>
-</div>
-<div class="flex flex-col items-center py-2.5 rounded-lg bg-surface-container-low text-on-surface-variant opacity-70">
-<span class="font-label-md text-label-md font-bold">B2</span>
-<span class="text-[10px] uppercase tracking-wider font-semibold">Vantage</span>
-</div>
-<div class="flex flex-col items-center py-2.5 rounded-lg bg-surface-container-low text-on-surface-variant opacity-70">
-<span class="font-label-md text-label-md font-bold">C1</span>
-<span class="text-[10px] uppercase tracking-wider font-semibold">Effective</span>
-</div>
-<div class="flex flex-col items-center py-2.5 rounded-lg bg-surface-container-low text-on-surface-variant opacity-70">
-<span class="font-label-md text-label-md font-bold">C2</span>
-<span class="text-[10px] uppercase tracking-wider font-semibold">Mastery</span>
-</div>
-</div>
-</div>
-<!-- Target Reader Cohorts -->
-<div class="flex flex-col gap-2 pt-1">
-<label class="font-label-md text-label-md text-text-primary">Designated Target Reader Cohorts</label>
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-<label class="flex items-center gap-2.5 p-3 rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
-<input checked="" class="w-4 h-4 rounded text-secondary focus:ring-0" type="checkbox"/>
-<span class="font-body-sm text-body-sm text-text-primary font-medium">Universal (All Ages)</span>
-</label>
-<label class="flex items-center gap-2.5 p-3 rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
-<input checked="" class="w-4 h-4 rounded text-secondary focus:ring-0" type="checkbox"/>
-<span class="font-body-sm text-body-sm text-text-primary font-medium">Philosophers &amp; Thinkers</span>
-</label>
-<label class="flex items-center gap-2.5 p-3 rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
-<input checked="" class="w-4 h-4 rounded text-secondary focus:ring-0" type="checkbox"/>
-<span class="font-body-sm text-body-sm text-text-primary font-medium">Language Learners</span>
-</label>
-</div>
-</div>
-</div>
-<!-- ================= SECTION 03: SYNOPSIS & ARCHIVAL INSCRIPTIONS ================= -->
-<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
-<div class="flex items-center justify-between pb-space-xs">
-<div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-mono text-[11px] flex items-center justify-center font-bold">03</span>
-<h2 class="font-headline-sm text-headline-sm text-text-primary">Synopsis &amp; Archival Inscriptions</h2>
-</div>
-<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">Scholarly Prose</span>
-</div>
-<!-- Editorial Blurb -->
-<div class="flex flex-col gap-1.5">
-<div class="flex items-center justify-between">
-<label class="font-label-md text-label-md text-text-primary">Editorial Blurb (Concise 2-Sentence Micro-Summary)</label>
-<span class="font-mono text-label-sm text-label-sm text-on-surface-variant" id="charCounter">184 / 220 chars</span>
-</div>
-<textarea class="w-full bg-surface-card shadow-sm rounded-lg p-3 font-body-md text-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary leading-relaxed resize-none" id="blurbTextarea" oninput="updateCharCounter(this)" rows="2">A stranded aviator in the Sahara awakens to find a golden-haired child from Asteroid B-612. Through whimsical encounters, the novella contemplates love, loneliness, and the invisible truths of the human heart.</textarea>
-</div>
-<!-- Extended Scholarly Narrative Synopsis with Rich Toolbar -->
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-text-primary">Extended Scholarly Narrative Synopsis</label>
-<div class="bg-surface-container-low rounded-lg p-1.5 flex flex-wrap items-center gap-1 text-on-surface-variant">
-<button class="p-1.5 rounded hover:bg-surface-card text-primary" title="Bold" type="button"><span class="material-symbols-outlined text-[18px]">format_bold</span></button>
-<button class="p-1.5 rounded hover:bg-surface-card text-primary" title="Italic" type="button"><span class="material-symbols-outlined text-[18px]">format_italic</span></button>
-<button class="p-1.5 rounded hover:bg-surface-card text-primary" title="Heading" type="button"><span class="material-symbols-outlined text-[18px]">title</span></button>
-<span class="h-4 w-[1px] bg-border-subtle mx-1"></span>
-<button class="p-1.5 rounded hover:bg-surface-card text-primary" title="Blockquote" type="button"><span class="material-symbols-outlined text-[18px]">format_quote</span></button>
-<button class="p-1.5 rounded hover:bg-surface-card text-primary" title="Unordered List" type="button"><span class="material-symbols-outlined text-[18px]">format_list_bulleted</span></button>
-<button class="p-1.5 rounded hover:bg-surface-card text-primary" title="Hyperlink" type="button"><span class="material-symbols-outlined text-[18px]">link</span></button>
-<span class="h-4 w-[1px] bg-border-subtle mx-1"></span>
-<span class="font-label-sm text-label-sm text-on-surface-variant ml-auto pr-2">Markdown &amp; LaTeX Enabled</span>
-</div>
-<textarea class="w-full bg-surface-card shadow-sm rounded-lg p-4 font-body-md text-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary leading-relaxed" rows="6">Written while Antoine de Saint-Exupéry lived in self-imposed exile in New York and Asharoken, Long Island during the height of the Second World War, *Le Petit Prince* transcends the framework of conventional children's literature. It functions simultaneously as an existential meditation on wartime estrangement and a critique of adult utilitarian rationalism.
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-space-sm">
+              <a
+                class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-low text-primary font-label-md text-label-md hover:bg-surface-container transition-all"
+                href="#"
+              >
+                <span class="material-symbols-outlined text-[18px]"
+                  >visibility</span
+                >
+                Preview Public Page
+              </a>
+              <button
+                class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:text-error hover:bg-error-container/30 transition-all font-label-md text-label-md"
+                onclick="resetFormState()"
+                type="button"
+              >
+                <span class="material-symbols-outlined text-[18px]">undo</span>
+                Discard Changes
+              </button>
+              <button
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent-gold-light text-on-primary font-label-md text-label-md shadow-sm hover:brightness-105 active:scale-95 transition-all"
+                id="btnSyncHeader"
+                onclick="triggerManualSync()"
+                type="button"
+              >
+                <span class="material-symbols-outlined text-[18px]">sync</span>
+                Save &amp; Sync to LocalStorage
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <div
+          class="fixed bottom-24 right-8 z-50 transform translate-y-16 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-3 bg-primary text-on-primary px-5 py-3 rounded-xl shadow-xl"
+          id="saveToast"
+        >
+          <span
+            class="material-symbols-outlined text-status-success text-[20px]"
+            >check_circle</span
+          >
+          <div class="flex flex-col">
+            <span class="font-title-md text-title-md leading-none text-white"
+              >Record Synchronized</span
+            >
+            <span class="font-label-sm text-label-sm text-primary-fixed mt-0.5"
+              >LocalStorage Key: bookbridge_bk_004 (Revision 14.3)</span
+            >
+          </div>
+        </div>
+
+        <main class="max-w-[1440px] mx-auto px-gutter py-space-xl w-full">
+          <div
+            class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start"
+          >
+            <div class="lg:col-span-4 flex flex-col gap-space-lg">
+              <div
+                class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+              >
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="material-symbols-outlined text-primary text-[20px]"
+                      >auto_stories</span
+                    >
+                    <h2
+                      class="font-headline-sm text-headline-sm text-text-primary"
+                    >
+                      Cover Folio Master
+                    </h2>
+                  </div>
+                  <span
+                    class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm tracking-wider uppercase font-semibold"
+                  >
+                    RATIO 2:3 • 300 DPI
+                  </span>
+                </div>
+
+                <div
+                  class="relative group rounded-lg overflow-hidden bg-surface-container shadow-md flex justify-center items-center aspect-[2/3] w-full"
+                >
+                  <img
+                    class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+                    alt="Vintage 1943 classic first edition book cover art of Le Petit Prince by Antoine de Saint-Exupéry. An ethereal watercolor illustration of a small golden-haired prince in royal garb standing on a tiny celestial asteroid under a deep indigo starlit cosmos with gentle craters and roses, warm muted paper texture and refined typography."
+                    id="previewCoverImage"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8j-lTnN5UdApDzK950d6Pc2gPcYYWyZHjN-wEevTmRk3ZHVEFE0e1Jd36dl18QgZBMxWYQ5hhgEVgiD7tZfvfdXEW7p8Sw2gkXm1iJ4Z6ZjE0W286a6VKin5Q7unDI2jDHGT48hpcIcsxo4Lu_zYOs5USvM_qXBWfYhqerf8KqS8wQVTKFHz5EptAhkYqriussHiXRlJwPzKHCWmr8920R04e7vWJO3xTAQWREXSOTbb6r7J9uS8"
+                  />
+                  <div
+                    class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2 backdrop-blur-xs p-4"
+                  >
+                    <button
+                      class="p-2.5 rounded-full bg-surface-card text-primary shadow-lg hover:bg-surface-container transition-transform active:scale-95"
+                      title="Inspect Full Master"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[20px]"
+                        >zoom_in</span
+                      >
+                    </button>
+                    <button
+                      class="p-2.5 rounded-full bg-surface-card text-primary shadow-lg hover:bg-surface-container transition-transform active:scale-95"
+                      title="Crop &amp; Align"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[20px]"
+                        >crop</span
+                      >
+                    </button>
+                    <button
+                      class="p-2.5 rounded-full bg-surface-card text-primary shadow-lg hover:bg-surface-container transition-transform active:scale-95"
+                      onclick="
+                        document.getElementById('coverFileInput').click()
+                      "
+                      title="Replace Folio"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[20px]"
+                        >file_upload</span
+                      >
+                    </button>
+                  </div>
+                </div>
+
+                <input
+                  accept="image/tiff,image/webp,image/jpeg,image/png"
+                  class="hidden"
+                  id="coverFileInput"
+                  onchange="simulateUpload(event)"
+                  type="file"
+                />
+                <div
+                  class="cursor-pointer rounded-lg bg-surface-container-low p-space-md text-center hover:bg-surface-container transition-colors flex flex-col items-center justify-center gap-1.5"
+                  onclick="document.getElementById('coverFileInput').click()"
+                >
+                  <span
+                    class="material-symbols-outlined text-secondary text-[26px]"
+                    >cloud_upload</span
+                  >
+                  <span class="font-title-md text-title-md text-primary"
+                    >Upload Archival TIFF / WebP</span
+                  >
+                  <span
+                    class="font-body-sm text-body-sm text-on-surface-variant"
+                    >Drag replacement master plate or browse (max 48MB)</span
+                  >
+                </div>
+
+                <div
+                  class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-1"
+                >
+                  <div
+                    class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"
+                  >
+                    <span>Primary Plate Source</span>
+                    <span class="text-primary font-semibold"
+                      >BnF Gallica Master Folio</span
+                    >
+                  </div>
+                  <div
+                    class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"
+                  >
+                    <span>Verification Hash</span>
+                    <span class="font-mono text-[11px] text-text-primary"
+                      >sha256:7f4a...9b11</span
+                    >
+                  </div>
+                  <div
+                    class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"
+                  >
+                    <span>Color Profile</span>
+                    <span class="text-primary font-medium"
+                      >DCI-P3 16-bit Calibrated</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+              >
+                <div class="flex items-center gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary text-[20px]"
+                    >fingerprint</span
+                  >
+                  <h2
+                    class="font-headline-sm text-headline-sm text-text-primary"
+                  >
+                    Core Archival Identifiers
+                  </h2>
+                </div>
+                <div class="flex flex-col gap-space-sm">
+                  <div>
+                    <label
+                      class="font-label-sm text-label-sm text-on-surface-variant flex items-center justify-between"
+                    >
+                      <span>Repository System UUID</span>
+                      <span
+                        class="flex items-center gap-0.5 text-status-success"
+                      >
+                        <span class="material-symbols-outlined text-[13px]"
+                          >lock</span
+                        >
+                        Read-only Key
+                      </span>
+                    </label>
+                    <div
+                      class="mt-1 flex items-center bg-surface-container-low rounded-lg px-3 py-2 text-text-primary font-mono text-[13px]"
+                    >
+                      <span class="truncate"
+                        >book-004-saint-exupery-prince</span
+                      >
+                      <button
+                        class="ml-auto text-on-surface-variant hover:text-primary"
+                        onclick="
+                          navigator.clipboard.writeText(
+                            'book-004-saint-exupery-prince',
+                          )
+                        "
+                        title="Copy UUID"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[16px]"
+                          >content_copy</span
+                        >
+                      </button>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      class="font-label-sm text-label-sm text-on-surface-variant"
+                      >ISBN-13 / MARC-21 Control ID</label
+                    >
+                    <div
+                      class="mt-1 flex items-center bg-surface-card rounded-lg px-3 py-2 shadow-sm text-text-primary font-mono text-[13px] focus-within:ring-2 focus-within:ring-secondary"
+                    >
+                      <input
+                        class="w-full bg-transparent focus:outline-none text-text-primary"
+                        type="text"
+                        value="978-0156012195 (MARC: 001)"
+                      />
+                      <span
+                        class="material-symbols-outlined text-status-success text-[16px]"
+                        >verified</span
+                      >
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      class="font-label-sm text-label-sm text-on-surface-variant"
+                      >Rare Vault Shelf Mark &amp; Bin</label
+                    >
+                    <div
+                      class="mt-1 flex items-center justify-between bg-surface-container-low rounded-lg p-3"
+                    >
+                      <div class="flex flex-col">
+                        <span
+                          class="font-mono text-label-md text-primary font-semibold"
+                          >RES-8-Y2-1402</span
+                        >
+                        <span
+                          class="font-label-sm text-label-sm text-on-surface-variant"
+                          >Vault Section B-14 (Climate Controlled)</span
+                        >
+                      </div>
+
+                      <svg
+                        class="w-20 h-8 text-primary"
+                        fill="currentColor"
+                        viewbox="0 0 100 40"
+                      >
+                        <rect height="40" width="3" x="0" y="0"></rect>
+                        <rect height="40" width="2" x="5" y="0"></rect>
+                        <rect height="40" width="4" x="9" y="0"></rect>
+                        <rect height="40" width="1" x="16" y="0"></rect>
+                        <rect height="40" width="5" x="19" y="0"></rect>
+                        <rect height="40" width="2" x="26" y="0"></rect>
+                        <rect height="40" width="4" x="30" y="0"></rect>
+                        <rect height="40" width="2" x="36" y="0"></rect>
+                        <rect height="40" width="6" x="41" y="0"></rect>
+                        <rect height="40" width="2" x="49" y="0"></rect>
+                        <rect height="40" width="3" x="53" y="0"></rect>
+                        <rect height="40" width="1" x="58" y="0"></rect>
+                        <rect height="40" width="5" x="62" y="0"></rect>
+                        <rect height="40" width="2" x="69" y="0"></rect>
+                        <rect height="40" width="4" x="74" y="0"></rect>
+                        <rect height="40" width="2" x="80" y="0"></rect>
+                        <rect height="40" width="6" x="84" y="0"></rect>
+                        <rect height="40" width="2" x="92" y="0"></rect>
+                        <rect height="40" width="4" x="96" y="0"></rect>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+              >
+                <div class="flex items-center gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary text-[20px]"
+                    >shield</span
+                  >
+                  <h2
+                    class="font-headline-sm text-headline-sm text-text-primary"
+                  >
+                    Governance &amp; Storage Engine
+                  </h2>
+                </div>
+                <div class="flex flex-col gap-3">
+                  <label class="flex items-center gap-3 cursor-pointer">
+                    <input
+                      checked=""
+                      class="w-4 h-4 rounded text-secondary focus:ring-0 cursor-pointer"
+                      type="checkbox"
+                    />
+                    <span
+                      class="font-body-sm text-body-sm text-text-primary font-medium"
+                      >Featured Masterpiece (Staff Recommendation)</span
+                    >
+                  </label>
+                  <label class="flex items-center gap-3 cursor-pointer">
+                    <input
+                      checked=""
+                      class="w-4 h-4 rounded text-secondary focus:ring-0 cursor-pointer"
+                      type="checkbox"
+                    />
+                    <span
+                      class="font-body-sm text-body-sm text-text-primary font-medium"
+                      >Include in Curated 20 Essential Folios</span
+                    >
+                  </label>
+                  <div class="pt-2 flex flex-col gap-1.5">
+                    <label
+                      class="font-label-sm text-label-sm text-on-surface-variant"
+                      >Global Copyright &amp; Access Tier</label
+                    >
+                    <select
+                      class="w-full bg-surface-card shadow-sm rounded-lg px-3 py-2 text-body-sm font-body-sm text-text-primary focus:outline-none"
+                    >
+                      <option selected="">
+                        Global Public Domain (Berne Convention &gt;70pma)
+                      </option>
+                      <option>Restricted Academic Research Folio</option>
+                      <option>Fair Use Pedagogical Archive</option>
+                      <option>Special Authorial Estate Clearance</option>
+                    </select>
+                  </div>
+
+                  <div
+                    class="mt-2 p-3 rounded-lg bg-surface-container-low flex flex-col gap-2"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="font-label-sm text-label-sm text-on-surface-variant"
+                        >Payload Weight</span
+                      >
+                      <span
+                        class="font-mono text-label-sm text-label-sm text-primary font-semibold"
+                        >38.4 KB (Encrypted)</span
+                      >
+                    </div>
+                    <div
+                      class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden"
+                    >
+                      <div
+                        class="bg-accent-gold-light h-1.5 rounded-full"
+                        style="width: 24%"
+                      ></div>
+                    </div>
+                    <div class="flex items-center justify-between pt-1">
+                      <span
+                        class="flex items-center gap-1 font-label-sm text-label-sm text-status-success font-semibold"
+                      >
+                        <span
+                          class="w-1.5 h-1.5 rounded-full bg-status-success"
+                        ></span>
+                        State Synced (Rev 14.2)
+                      </span>
+                      <button
+                        class="text-secondary font-label-sm text-label-sm hover:underline font-semibold flex items-center gap-0.5"
+                        onclick="exportRawJsonPayload()"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[14px]"
+                          >download</span
+                        >
+                        Export Raw JSON
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-2"
+              >
+                <div class="flex items-center gap-1.5 text-accent-gold-light">
+                  <span class="material-symbols-outlined text-[18px]"
+                    >history_edu</span
+                  >
+                  <span
+                    class="font-label-sm text-label-sm font-semibold uppercase tracking-wider"
+                    >Curation Provenance Memo</span
+                  >
+                </div>
+                <p
+                  class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"
+                >
+                  Originally registered via Reynal &amp; Hitchcock, NY (April
+                  1943) during Saint-Exupéry's North American residence,
+                  followed by Éditions Gallimard (Paris, 1946). The text is
+                  globally cleared in public domain across jurisdictions
+                  observing the standard author lifetime + 70 years rule since
+                  January 1, 2015.
+                </p>
+              </div>
+            </div>
+
+            <div class="lg:col-span-8 flex flex-col gap-space-lg">
+              <div
+                class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+              >
+                <div class="flex items-center justify-between pb-space-xs">
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="w-6 h-6 rounded-full bg-primary text-on-primary font-mono text-[11px] flex items-center justify-center font-bold"
+                      >01</span
+                    >
+                    <h2
+                      class="font-headline-sm text-headline-sm text-text-primary"
+                    >
+                      Bibliographic Foundation
+                    </h2>
+                  </div>
+                  <span
+                    class="font-label-sm text-label-sm text-on-surface-variant font-mono"
+                    >ISBD Standard Fields</span
+                  >
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+                  <div class="md:col-span-2 flex flex-col gap-1.5">
+                    <label
+                      class="font-label-md text-label-md text-text-primary flex items-center gap-1"
+                    >
+                      Canonical Work Title
+                      <span class="text-status-danger">*</span>
+                    </label>
+                    <input
+                      class="w-full bg-surface-card shadow-sm rounded-lg px-4 py-2.5 font-title-md text-title-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary"
+                      type="text"
+                      value="Le Petit Prince"
+                    />
+                  </div>
+
+                  <div class="md:col-span-2 flex flex-col gap-1.5">
+                    <label class="font-label-md text-label-md text-text-primary"
+                      >Parallel Script &amp; Cross-Lingual Subtitle</label
+                    >
+                    <input
+                      class="w-full bg-surface-card shadow-sm rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary"
+                      type="text"
+                      value="The Little Prince / 王子さま / El Principito"
+                    />
+                    <span
+                      class="font-label-sm text-label-sm text-on-surface-variant"
+                      >Universal titles indexed for cross-cultural search
+                      retrieval.</span
+                    >
+                  </div>
+
+                  <div class="md:col-span-2 flex flex-col gap-1.5">
+                    <div class="flex items-center justify-between">
+                      <label
+                        class="font-label-md text-label-md text-text-primary flex items-center gap-1"
+                      >
+                        Primary Author / Folio Attributor
+                        <span class="text-status-danger">*</span>
+                      </label>
+                      <a
+                        class="text-secondary font-label-sm text-label-sm hover:underline font-semibold flex items-center gap-0.5"
+                        href="#"
+                      >
+                        <span class="material-symbols-outlined text-[14px]"
+                          >person_add</span
+                        >
+                        + Add New Author Record
+                      </a>
+                    </div>
+                    <select
+                      class="w-full bg-surface-card shadow-sm rounded-lg px-4 py-2.5 font-body-md text-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary"
+                    >
+                      <option selected="">
+                        Antoine de Saint-Exupéry (ID: auth-007) [1900–1944]
+                      </option>
+                      <option>Victor Hugo (ID: auth-001) [1802–1885]</option>
+                      <option>Albert Camus (ID: auth-012) [1913–1960]</option>
+                      <option>Marcel Proust (ID: auth-004) [1871–1922]</option>
+                    </select>
+                  </div>
+
+                  <div class="flex flex-col gap-1.5">
+                    <label class="font-label-md text-label-md text-text-primary"
+                      >Original Language</label
+                    >
+                    <select
+                      class="w-full bg-surface-card shadow-sm rounded-lg px-4 py-2.5 font-body-md text-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary"
+                    >
+                      <option selected="">Français (French Standard)</option>
+                      <option>English (US / UK)</option>
+                      <option>Deutsch (German)</option>
+                      <option>Latin (Classical)</option>
+                    </select>
+                  </div>
+
+                  <div class="flex flex-col gap-1.5">
+                    <label class="font-label-md text-label-md text-text-primary"
+                      >First Publication Year</label
+                    >
+                    <input
+                      class="w-full bg-surface-card shadow-sm rounded-lg px-4 py-2.5 font-body-md text-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary"
+                      type="number"
+                      value="1943"
+                    />
+                  </div>
+
+                  <div class="flex flex-col gap-1.5">
+                    <label class="font-label-md text-label-md text-text-primary"
+                      >First Edition Imprint / Publisher</label
+                    >
+                    <input
+                      class="w-full bg-surface-card shadow-sm rounded-lg px-4 py-2.5 font-body-md text-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary"
+                      type="text"
+                      value="Reynal &amp; Hitchcock, New York"
+                    />
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-space-sm">
+                    <div class="flex flex-col gap-1.5">
+                      <label
+                        class="font-label-md text-label-md text-text-primary"
+                        >Folio Page Count</label
+                      >
+                      <input
+                        class="w-full bg-surface-card shadow-sm rounded-lg px-3 py-2.5 font-body-md text-body-md text-text-primary focus:outline-none"
+                        type="number"
+                        value="96"
+                      />
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                      <label
+                        class="font-label-md text-label-md text-text-primary"
+                        >Est. Reading Duration</label
+                      >
+                      <input
+                        class="w-full bg-surface-card shadow-sm rounded-lg px-3 py-2.5 font-body-md text-body-md text-text-primary focus:outline-none"
+                        type="text"
+                        value="1.5 hrs"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+              >
+                <div class="flex items-center justify-between pb-space-xs">
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="w-6 h-6 rounded-full bg-primary text-on-primary font-mono text-[11px] flex items-center justify-center font-bold"
+                      >02</span
+                    >
+                    <h2
+                      class="font-headline-sm text-headline-sm text-text-primary"
+                    >
+                      Curatorial &amp; Pedagogical Classification
+                    </h2>
+                  </div>
+                  <span
+                    class="font-label-sm text-label-sm text-on-surface-variant font-mono"
+                    >Taxonomy Engine</span
+                  >
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                  <label class="font-label-md text-label-md text-text-primary"
+                    >Primary Literary Genre &amp; Form</label
+                  >
+                  <select
+                    class="w-full bg-surface-card shadow-sm rounded-lg px-4 py-2.5 font-body-md text-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary"
+                  >
+                    <option selected="">
+                      Philosophical Allegory / Fable Novella
+                    </option>
+                    <option>Magical Realism / Speculative Poetics</option>
+                    <option>Epistolary Memoir &amp; Aviator Journal</option>
+                    <option>Existentialist Fiction &amp; Humanism</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <label
+                    class="font-label-md text-label-md text-text-primary flex items-center justify-between"
+                  >
+                    <span>Curatorial Thematic Micro-Descriptors</span>
+                    <span
+                      class="text-on-surface-variant font-label-sm text-label-sm"
+                      >5 Tags Applied</span
+                    >
+                  </label>
+                  <div
+                    class="flex flex-wrap items-center gap-2 p-3 bg-surface-container-low rounded-lg"
+                    id="tagCloudContainer"
+                  >
+                    <span
+                      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-card shadow-xs text-primary font-label-md text-label-md"
+                    >
+                      French Classic
+                      <button
+                        class="text-on-surface-variant hover:text-error ml-0.5"
+                        onclick="this.parentElement.remove()"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[14px]"
+                          >close</span
+                        >
+                      </button>
+                    </span>
+                    <span
+                      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-card shadow-xs text-primary font-label-md text-label-md"
+                    >
+                      Allegorical Tale
+                      <button
+                        class="text-on-surface-variant hover:text-error ml-0.5"
+                        onclick="this.parentElement.remove()"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[14px]"
+                          >close</span
+                        >
+                      </button>
+                    </span>
+                    <span
+                      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-card shadow-xs text-primary font-label-md text-label-md"
+                    >
+                      Philosophy of Friendship
+                      <button
+                        class="text-on-surface-variant hover:text-error ml-0.5"
+                        onclick="this.parentElement.remove()"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[14px]"
+                          >close</span
+                        >
+                      </button>
+                    </span>
+                    <span
+                      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-card shadow-xs text-primary font-label-md text-label-md"
+                    >
+                      Aviation Solitude
+                      <button
+                        class="text-on-surface-variant hover:text-error ml-0.5"
+                        onclick="this.parentElement.remove()"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[14px]"
+                          >close</span
+                        >
+                      </button>
+                    </span>
+                    <span
+                      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-card shadow-xs text-primary font-label-md text-label-md"
+                    >
+                      Sahara Desert
+                      <button
+                        class="text-on-surface-variant hover:text-error ml-0.5"
+                        onclick="this.parentElement.remove()"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[14px]"
+                          >close</span
+                        >
+                      </button>
+                    </span>
+                    <div class="inline-flex items-center gap-1">
+                      <input
+                        class="bg-transparent text-label-md font-label-md px-2 py-0.5 focus:outline-none text-text-primary placeholder:text-on-surface-variant"
+                        id="newTagInput"
+                        onkeydown="handleTagKeydown(event)"
+                        placeholder="+ Add descriptor..."
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex flex-col gap-2 pt-2">
+                  <div class="flex items-center justify-between">
+                    <label class="font-label-md text-label-md text-text-primary"
+                      >CEFR Reading Level Target Gradient</label
+                    >
+                    <span
+                      class="font-label-sm text-label-sm font-semibold text-on-tertiary-container bg-tertiary-fixed px-2.5 py-0.5 rounded-full"
+                      >Recommended: Intermediate (A2 – B1)</span
+                    >
+                  </div>
+                  <div class="grid grid-cols-6 gap-2">
+                    <div
+                      class="flex flex-col items-center py-2.5 rounded-lg bg-surface-container-low text-on-surface-variant opacity-70"
+                    >
+                      <span class="font-label-md text-label-md font-bold"
+                        >A1</span
+                      >
+                      <span
+                        class="text-[10px] uppercase tracking-wider font-semibold"
+                        >Introductory</span
+                      >
+                    </div>
+                    <div
+                      class="flex flex-col items-center py-2.5 rounded-lg bg-accent-gold-light text-on-primary shadow-sm font-semibold transform scale-105"
+                    >
+                      <span class="font-label-md text-label-md font-bold"
+                        >A2</span
+                      >
+                      <span
+                        class="text-[10px] uppercase tracking-wider font-semibold"
+                        >Elementary</span
+                      >
+                    </div>
+                    <div
+                      class="flex flex-col items-center py-2.5 rounded-lg bg-accent-gold-light text-on-primary shadow-sm font-semibold transform scale-105"
+                    >
+                      <span class="font-label-md text-label-md font-bold"
+                        >B1</span
+                      >
+                      <span
+                        class="text-[10px] uppercase tracking-wider font-semibold"
+                        >Intermediate</span
+                      >
+                    </div>
+                    <div
+                      class="flex flex-col items-center py-2.5 rounded-lg bg-surface-container-low text-on-surface-variant opacity-70"
+                    >
+                      <span class="font-label-md text-label-md font-bold"
+                        >B2</span
+                      >
+                      <span
+                        class="text-[10px] uppercase tracking-wider font-semibold"
+                        >Vantage</span
+                      >
+                    </div>
+                    <div
+                      class="flex flex-col items-center py-2.5 rounded-lg bg-surface-container-low text-on-surface-variant opacity-70"
+                    >
+                      <span class="font-label-md text-label-md font-bold"
+                        >C1</span
+                      >
+                      <span
+                        class="text-[10px] uppercase tracking-wider font-semibold"
+                        >Effective</span
+                      >
+                    </div>
+                    <div
+                      class="flex flex-col items-center py-2.5 rounded-lg bg-surface-container-low text-on-surface-variant opacity-70"
+                    >
+                      <span class="font-label-md text-label-md font-bold"
+                        >C2</span
+                      >
+                      <span
+                        class="text-[10px] uppercase tracking-wider font-semibold"
+                        >Mastery</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex flex-col gap-2 pt-1">
+                  <label class="font-label-md text-label-md text-text-primary"
+                    >Designated Target Reader Cohorts</label
+                  >
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <label
+                      class="flex items-center gap-2.5 p-3 rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors"
+                    >
+                      <input
+                        checked=""
+                        class="w-4 h-4 rounded text-secondary focus:ring-0"
+                        type="checkbox"
+                      />
+                      <span
+                        class="font-body-sm text-body-sm text-text-primary font-medium"
+                        >Universal (All Ages)</span
+                      >
+                    </label>
+                    <label
+                      class="flex items-center gap-2.5 p-3 rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors"
+                    >
+                      <input
+                        checked=""
+                        class="w-4 h-4 rounded text-secondary focus:ring-0"
+                        type="checkbox"
+                      />
+                      <span
+                        class="font-body-sm text-body-sm text-text-primary font-medium"
+                        >Philosophers &amp; Thinkers</span
+                      >
+                    </label>
+                    <label
+                      class="flex items-center gap-2.5 p-3 rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors"
+                    >
+                      <input
+                        checked=""
+                        class="w-4 h-4 rounded text-secondary focus:ring-0"
+                        type="checkbox"
+                      />
+                      <span
+                        class="font-body-sm text-body-sm text-text-primary font-medium"
+                        >Language Learners</span
+                      >
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+              >
+                <div class="flex items-center justify-between pb-space-xs">
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="w-6 h-6 rounded-full bg-primary text-on-primary font-mono text-[11px] flex items-center justify-center font-bold"
+                      >03</span
+                    >
+                    <h2
+                      class="font-headline-sm text-headline-sm text-text-primary"
+                    >
+                      Synopsis &amp; Archival Inscriptions
+                    </h2>
+                  </div>
+                  <span
+                    class="font-label-sm text-label-sm text-on-surface-variant font-mono"
+                    >Scholarly Prose</span
+                  >
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                  <div class="flex items-center justify-between">
+                    <label class="font-label-md text-label-md text-text-primary"
+                      >Editorial Blurb (Concise 2-Sentence Micro-Summary)</label
+                    >
+                    <span
+                      class="font-mono text-label-sm text-label-sm text-on-surface-variant"
+                      id="charCounter"
+                      >184 / 220 chars</span
+                    >
+                  </div>
+                  <textarea
+                    class="w-full bg-surface-card shadow-sm rounded-lg p-3 font-body-md text-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary leading-relaxed resize-none"
+                    id="blurbTextarea"
+                    oninput="updateCharCounter(this)"
+                    rows="2"
+                  >
+A stranded aviator in the Sahara awakens to find a golden-haired child from Asteroid B-612. Through whimsical encounters, the novella contemplates love, loneliness, and the invisible truths of the human heart.</textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <label class="font-label-md text-label-md text-text-primary"
+                    >Extended Scholarly Narrative Synopsis</label
+                  >
+                  <div
+                    class="bg-surface-container-low rounded-lg p-1.5 flex flex-wrap items-center gap-1 text-on-surface-variant"
+                  >
+                    <button
+                      class="p-1.5 rounded hover:bg-surface-card text-primary"
+                      title="Bold"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >format_bold</span
+                      >
+                    </button>
+                    <button
+                      class="p-1.5 rounded hover:bg-surface-card text-primary"
+                      title="Italic"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >format_italic</span
+                      >
+                    </button>
+                    <button
+                      class="p-1.5 rounded hover:bg-surface-card text-primary"
+                      title="Heading"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >title</span
+                      >
+                    </button>
+                    <span class="h-4 w-[1px] bg-border-subtle mx-1"></span>
+                    <button
+                      class="p-1.5 rounded hover:bg-surface-card text-primary"
+                      title="Blockquote"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >format_quote</span
+                      >
+                    </button>
+                    <button
+                      class="p-1.5 rounded hover:bg-surface-card text-primary"
+                      title="Unordered List"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >format_list_bulleted</span
+                      >
+                    </button>
+                    <button
+                      class="p-1.5 rounded hover:bg-surface-card text-primary"
+                      title="Hyperlink"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >link</span
+                      >
+                    </button>
+                    <span class="h-4 w-[1px] bg-border-subtle mx-1"></span>
+                    <span
+                      class="font-label-sm text-label-sm text-on-surface-variant ml-auto pr-2"
+                      >Markdown &amp; LaTeX Enabled</span
+                    >
+                  </div>
+                  <textarea
+                    class="w-full bg-surface-card shadow-sm rounded-lg p-4 font-body-md text-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary leading-relaxed"
+                    rows="6"
+                  >
+Written while Antoine de Saint-Exupéry lived in self-imposed exile in New York and Asharoken, Long Island during the height of the Second World War, *Le Petit Prince* transcends the framework of conventional children's literature. It functions simultaneously as an existential meditation on wartime estrangement and a critique of adult utilitarian rationalism.
 
 The narrative pivots on the crash of an aviator in the barren expanse of the Sahara desert—an autobiographical echo of Saint-Exupéry's actual 1935 crash during the Paris-Saigon air race. The sudden apparition of the Little Prince, sovereign inhabitant of Asteroid B-612, instigates an epistemic inquiry into the nature of possession, domesticity (represented by the vain rose), and stewardship of baobab seeds.
 
 Through vignettes exploring the absurdity of the monarch, the vain man, the tippler, and the geographer, the novella indicts adult myopia in favor of intuitive, phenomenological lucidity.</textarea>
-</div>
-<!-- Key Folio Inscription / Anchor Quote Card -->
-<div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-surface-container-low via-surface-card to-surface-container-low p-space-lg shadow-sm">
-<span class="material-symbols-outlined absolute -top-4 -right-2 text-surface-container-highest/60 text-[110px] select-none pointer-events-none">format_quote</span>
-<div class="relative z-10 flex flex-col gap-3">
-<span class="font-label-sm text-label-sm text-on-tertiary-container font-semibold uppercase tracking-wider flex items-center gap-1.5">
-<span class="material-symbols-outlined text-[16px]">bookmark_heart</span>
-                Canonical Key Folio Inscription / Anchor Quote
-              </span>
-<p class="font-display-hero text-headline-sm text-text-primary italic leading-snug">
-                “On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux.”
-              </p>
-<div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-border-subtle/60">
-<div class="flex flex-col">
-<span class="font-title-md text-title-md text-primary font-semibold">The Fox to the Little Prince (Chapter XXI)</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Central philosophical thesis on affective taming and bonded presence.</span>
-</div>
-<span class="px-3 py-1 rounded-full bg-surface-card shadow-xs text-primary font-mono text-label-sm text-label-sm">
-                  Thematic Code: EPIST-TENDER-01
-                </span>
-</div>
-</div>
-</div>
-</div>
-<!-- ================= SECTION 04: DUAL-READER & BILINGUAL ENGINE LINKAGE ================= -->
-<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
-<div class="flex items-center justify-between pb-space-xs">
-<div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-mono text-[11px] flex items-center justify-center font-bold">04</span>
-<h2 class="font-headline-sm text-headline-sm text-text-primary">Dual-Reader &amp; Bilingual Engine Linkage</h2>
-</div>
-<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">Sync Alignment Engine</span>
-</div>
-<!-- Parallel Split-Pane Mode Toggle -->
-<div class="flex items-center justify-between p-space-md bg-surface-container-low rounded-xl">
-<div class="flex flex-col gap-0.5">
-<span class="font-title-md text-title-md text-primary font-semibold">Parallel Split-Pane Reading Mode</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Permits reader side-by-side synchronized paragraph alignment with phonetic gloss</span>
-</div>
-<label class="relative inline-flex items-center cursor-pointer">
-<input checked="" class="sr-only peer" id="splitPaneToggle" type="checkbox"/>
-<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-border-subtle after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
-</label>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
-<!-- Synchronized Parallel Target Language -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary">Synchronized Parallel Target Translation</label>
-<select class="w-full bg-surface-card shadow-sm rounded-lg px-4 py-2.5 font-body-md text-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary">
-<option selected="">Tiếng Việt (Bản dịch Hoàng Tử Bé - Bùi Giáng / Nguyễn Thành Long)</option>
-<option>English (Katherine Woods Translation - 1943)</option>
-<option>Español (El Principito - Bonifacio del Carril)</option>
-<option>日本語 (星の王子さま - 内藤濯)</option>
-</select>
-</div>
-<!-- Translation Rights Status -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary">Target Translation Rights Status</label>
-<div class="flex items-center bg-surface-container-low rounded-lg px-4 py-2.5 text-body-md font-body-md text-status-success font-semibold gap-2">
-<span class="material-symbols-outlined text-[18px]">verified_user</span>
-<span>Free Scholarly Open Access • Approved</span>
-</div>
-</div>
-</div>
-<!-- Master Audio Narration Source -->
-<div class="flex flex-col gap-1.5 pt-1">
-<label class="font-label-md text-label-md text-text-primary">Master Audio Narration Canto Source (FLAC / AAC Stream)</label>
-<div class="flex items-center gap-2">
-<div class="flex-1 flex items-center bg-surface-card shadow-sm rounded-lg px-3 py-2 text-text-primary font-mono text-[13px] focus-within:ring-2 focus-within:ring-secondary">
-<span class="material-symbols-outlined text-on-surface-variant text-[18px] mr-2">audiotrack</span>
-<input class="w-full bg-transparent focus:outline-none text-text-primary font-mono text-[13px]" type="text" value="https://cdn.bookbridge.org/audio/masters/fr-bk004-gerard-philipe-remaster.m4a"/>
-</div>
-<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container transition-all font-label-md text-label-md font-semibold whitespace-nowrap" id="btnTestAudio" onclick="testAudioPlayback()" type="button">
-<span class="material-symbols-outlined text-[16px]">play_arrow</span>
-                TEST TRACK
+                </div>
+
+                <div
+                  class="relative overflow-hidden rounded-xl bg-gradient-to-br from-surface-container-low via-surface-card to-surface-container-low p-space-lg shadow-sm"
+                >
+                  <span
+                    class="material-symbols-outlined absolute -top-4 -right-2 text-surface-container-highest/60 text-[110px] select-none pointer-events-none"
+                    >format_quote</span
+                  >
+                  <div class="relative z-10 flex flex-col gap-3">
+                    <span
+                      class="font-label-sm text-label-sm text-on-tertiary-container font-semibold uppercase tracking-wider flex items-center gap-1.5"
+                    >
+                      <span class="material-symbols-outlined text-[16px]"
+                        >bookmark_heart</span
+                      >
+                      Canonical Key Folio Inscription / Anchor Quote
+                    </span>
+                    <p
+                      class="font-display-hero text-headline-sm text-text-primary italic leading-snug"
+                    >
+                      “On ne voit bien qu'avec le cœur. L'essentiel est
+                      invisible pour les yeux.”
+                    </p>
+                    <div
+                      class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-border-subtle/60"
+                    >
+                      <div class="flex flex-col">
+                        <span
+                          class="font-title-md text-title-md text-primary font-semibold"
+                          >The Fox to the Little Prince (Chapter XXI)</span
+                        >
+                        <span
+                          class="font-label-sm text-label-sm text-on-surface-variant"
+                          >Central philosophical thesis on affective taming and
+                          bonded presence.</span
+                        >
+                      </div>
+                      <span
+                        class="px-3 py-1 rounded-full bg-surface-card shadow-xs text-primary font-mono text-label-sm text-label-sm"
+                      >
+                        Thematic Code: EPIST-TENDER-01
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+              >
+                <div class="flex items-center justify-between pb-space-xs">
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="w-6 h-6 rounded-full bg-primary text-on-primary font-mono text-[11px] flex items-center justify-center font-bold"
+                      >04</span
+                    >
+                    <h2
+                      class="font-headline-sm text-headline-sm text-text-primary"
+                    >
+                      Dual-Reader &amp; Bilingual Engine Linkage
+                    </h2>
+                  </div>
+                  <span
+                    class="font-label-sm text-label-sm text-on-surface-variant font-mono"
+                    >Sync Alignment Engine</span
+                  >
+                </div>
+
+                <div
+                  class="flex items-center justify-between p-space-md bg-surface-container-low rounded-xl"
+                >
+                  <div class="flex flex-col gap-0.5">
+                    <span
+                      class="font-title-md text-title-md text-primary font-semibold"
+                      >Parallel Split-Pane Reading Mode</span
+                    >
+                    <span
+                      class="font-body-sm text-body-sm text-on-surface-variant"
+                      >Permits reader side-by-side synchronized paragraph
+                      alignment with phonetic gloss</span
+                    >
+                  </div>
+                  <label
+                    class="relative inline-flex items-center cursor-pointer"
+                  >
+                    <input
+                      checked=""
+                      class="sr-only peer"
+                      id="splitPaneToggle"
+                      type="checkbox"
+                    />
+                    <div
+                      class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-border-subtle after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"
+                    ></div>
+                  </label>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+                  <div class="flex flex-col gap-1.5">
+                    <label class="font-label-md text-label-md text-text-primary"
+                      >Synchronized Parallel Target Translation</label
+                    >
+                    <select
+                      class="w-full bg-surface-card shadow-sm rounded-lg px-4 py-2.5 font-body-md text-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary"
+                    >
+                      <option selected="">
+                        Tiếng Việt (Bản dịch Hoàng Tử Bé - Bùi Giáng / Nguyễn
+                        Thành Long)
+                      </option>
+                      <option>
+                        English (Katherine Woods Translation - 1943)
+                      </option>
+                      <option>
+                        Español (El Principito - Bonifacio del Carril)
+                      </option>
+                      <option>日本語 (星の王子さま - 内藤濯)</option>
+                    </select>
+                  </div>
+
+                  <div class="flex flex-col gap-1.5">
+                    <label class="font-label-md text-label-md text-text-primary"
+                      >Target Translation Rights Status</label
+                    >
+                    <div
+                      class="flex items-center bg-surface-container-low rounded-lg px-4 py-2.5 text-body-md font-body-md text-status-success font-semibold gap-2"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >verified_user</span
+                      >
+                      <span>Free Scholarly Open Access • Approved</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex flex-col gap-1.5 pt-1">
+                  <label class="font-label-md text-label-md text-text-primary"
+                    >Master Audio Narration Canto Source (FLAC / AAC
+                    Stream)</label
+                  >
+                  <div class="flex items-center gap-2">
+                    <div
+                      class="flex-1 flex items-center bg-surface-card shadow-sm rounded-lg px-3 py-2 text-text-primary font-mono text-[13px] focus-within:ring-2 focus-within:ring-secondary"
+                    >
+                      <span
+                        class="material-symbols-outlined text-on-surface-variant text-[18px] mr-2"
+                        >audiotrack</span
+                      >
+                      <input
+                        class="w-full bg-transparent focus:outline-none text-text-primary font-mono text-[13px]"
+                        type="text"
+                        value="https://cdn.bookbridge.org/audio/masters/fr-bk004-gerard-philipe-remaster.m4a"
+                      />
+                    </div>
+                    <button
+                      class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container transition-all font-label-md text-label-md font-semibold whitespace-nowrap"
+                      id="btnTestAudio"
+                      onclick="testAudioPlayback()"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[16px]"
+                        >play_arrow</span
+                      >
+                      TEST TRACK
+                    </button>
+                  </div>
+                  <span
+                    class="font-label-sm text-label-sm text-on-surface-variant"
+                    >Archival voice recording by Gérard Philipe (1954 Disques
+                    Festival, digitised 96kHz/24-bit).</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <aside
+          class="sticky bottom-0 w-full z-40 bg-surface-card/95 backdrop-blur-md shadow-[0_-4px_16px_rgba(0,0,0,0.06)] py-space-md"
+        >
+          <div
+            class="max-w-[1440px] mx-auto px-gutter flex flex-col sm:flex-row items-center justify-between gap-space-sm"
+          >
+            <div
+              class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm"
+            >
+              <span class="w-2 h-2 rounded-full bg-status-success"></span>
+              <span>Draft auto-saved 2 mins ago</span>
+              <span class="hidden md:inline"
+                >• LocalStorage Mirror: key:bookbridge_bk_004</span
+              >
+            </div>
+            <div class="flex items-center gap-space-sm">
+              <button
+                class="px-4 py-2 rounded-full text-on-surface-variant hover:text-primary font-label-md text-label-md transition-colors"
+                onclick="resetFormState()"
+                type="button"
+              >
+                Revert to Initial State
               </button>
-</div>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Archival voice recording by Gérard Philipe (1954 Disques Festival, digitised 96kHz/24-bit).</span>
-</div>
-</div>
-</div>
-</div>
-</main>
-<!-- Sticky Bottom Editorial Command Dock -->
-<aside class="sticky bottom-0 w-full z-40 bg-surface-card/95 backdrop-blur-md shadow-[0_-4px_16px_rgba(0,0,0,0.06)] py-space-md">
-<div class="max-w-[1440px] mx-auto px-gutter flex flex-col sm:flex-row items-center justify-between gap-space-sm">
-<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
-<span class="w-2 h-2 rounded-full bg-status-success"></span>
-<span>Draft auto-saved 2 mins ago</span>
-<span class="hidden md:inline">• LocalStorage Mirror: key:bookbridge_bk_004</span>
-</div>
-<div class="flex items-center gap-space-sm">
-<button class="px-4 py-2 rounded-full text-on-surface-variant hover:text-primary font-label-md text-label-md transition-colors" onclick="resetFormState()" type="button">
-          Revert to Initial State
-        </button>
-<button class="px-4 py-2 rounded-full text-error hover:bg-error-container/40 font-label-md text-label-md transition-colors flex items-center gap-1" onclick="confirmDeletion()" type="button">
-<span class="material-symbols-outlined text-[16px]">delete</span>
-          Delete Book Record
-        </button>
-<button class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-md hover:bg-primary-container active:scale-95 transition-all" onclick="triggerManualSync()" type="button">
-<span class="material-symbols-outlined text-[18px]">save</span>
-          Save Changes (Ctrl+S)
-        </button>
-</div>
-</div>
-</aside>
-<!-- Inline Client-Side Micro-Interactions -->
-<script>
-    function triggerManualSync() {
-      const toast = document.getElementById('saveToast');
-      if (toast) {
-        toast.classList.remove('translate-y-16', 'opacity-0', 'pointer-events-none');
-        toast.classList.add('translate-y-0', 'opacity-100');
-        setTimeout(() => {
-          toast.classList.remove('translate-y-0', 'opacity-100');
-          toast.classList.add('translate-y-16', 'opacity-0', 'pointer-events-none');
-        }, 3200);
-      }
-    }
+              <button
+                class="px-4 py-2 rounded-full text-error hover:bg-error-container/40 font-label-md text-label-md transition-colors flex items-center gap-1"
+                onclick="confirmDeletion()"
+                type="button"
+              >
+                <span class="material-symbols-outlined text-[16px]"
+                  >delete</span
+                >
+                Delete Book Record
+              </button>
+              <button
+                class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-md hover:bg-primary-container active:scale-95 transition-all"
+                onclick="triggerManualSync()"
+                type="button"
+              >
+                <span class="material-symbols-outlined text-[18px]">save</span>
+                Save Changes (Ctrl+S)
+              </button>
+            </div>
+          </div>
+        </aside>
 
-    function updateCharCounter(el) {
-      const counter = document.getElementById('charCounter');
-      if (counter) {
-        counter.textContent = `${el.value.length} / 220 chars`;
-      }
-    }
+        <script>
+          function triggerManualSync() {
+            const toast = document.getElementById("saveToast");
+            if (toast) {
+              toast.classList.remove(
+                "translate-y-16",
+                "opacity-0",
+                "pointer-events-none",
+              );
+              toast.classList.add("translate-y-0", "opacity-100");
+              setTimeout(() => {
+                toast.classList.remove("translate-y-0", "opacity-100");
+                toast.classList.add(
+                  "translate-y-16",
+                  "opacity-0",
+                  "pointer-events-none",
+                );
+              }, 3200);
+            }
+          }
 
-    function handleTagKeydown(e) {
-      if (e.key === 'Enter' && e.target.value.trim() !== '') {
-        e.preventDefault();
-        const tagText = e.target.value.trim();
-        const container = document.getElementById('tagCloudContainer');
-        const tagEl = document.createElement('span');
-        tagEl.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-card shadow-xs text-primary font-label-md text-label-md animate-fadeIn';
-        tagEl.innerHTML = `${tagText} <button type="button" onclick="this.parentElement.remove()" class="text-on-surface-variant hover:text-error ml-0.5"><span class="material-symbols-outlined text-[14px]">close</span></button>`;
-        container.insertBefore(tagEl, e.target.parentElement);
-        e.target.value = '';
-      }
-    }
+          function updateCharCounter(el) {
+            const counter = document.getElementById("charCounter");
+            if (counter) {
+              counter.textContent = `${el.value.length} / 220 chars`;
+            }
+          }
 
-    function testAudioPlayback() {
-      const btn = document.getElementById('btnTestAudio');
-      if (btn) {
-        const isPlaying = btn.classList.contains('bg-status-success');
-        if (isPlaying) {
-          btn.classList.remove('bg-status-success', 'text-white');
-          btn.classList.add('bg-surface-container-low', 'text-primary');
-          btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">play_arrow</span> TEST TRACK';
-        } else {
-          btn.classList.remove('bg-surface-container-low', 'text-primary');
-          btn.classList.add('bg-status-success', 'text-white');
-          btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">pause</span> PLAYING PREVIEW';
-          setTimeout(() => {
-            btn.classList.remove('bg-status-success', 'text-white');
-            btn.classList.add('bg-surface-container-low', 'text-primary');
-            btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">play_arrow</span> TEST TRACK';
-          }, 4000);
-        }
-      }
-    }
+          function handleTagKeydown(e) {
+            if (e.key === "Enter" && e.target.value.trim() !== "") {
+              e.preventDefault();
+              const tagText = e.target.value.trim();
+              const container = document.getElementById("tagCloudContainer");
+              const tagEl = document.createElement("span");
+              tagEl.className =
+                "inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-card shadow-xs text-primary font-label-md text-label-md animate-fadeIn";
+              tagEl.innerHTML = `${tagText} <button type="button" onclick="this.parentElement.remove()" class="text-on-surface-variant hover:text-error ml-0.5"><span class="material-symbols-outlined text-[14px]">close</span></button>`;
+              container.insertBefore(tagEl, e.target.parentElement);
+              e.target.value = "";
+            }
+          }
 
-    function exportRawJsonPayload() {
-      const record = {
-        uuid: 'book-004-saint-exupery-prince',
-        title: 'Le Petit Prince',
-        author: 'Antoine de Saint-Exupéry',
-        isbn: '978-0156012195',
-        year: 1943,
-        publisher: 'Reynal & Hitchcock, New York',
-        pages: 96,
-        cefr: ['A2', 'B1'],
-        rights: 'Global Public Domain',
-        localStorageTimestamp: new Date().toISOString()
-      };
-      const blob = new Blob([JSON.stringify(record, null, 2)], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'record-bk-004-le-petit-prince.json';
-      a.click();
-      URL.revokeObjectURL(url);
-    }
+          function testAudioPlayback() {
+            const btn = document.getElementById("btnTestAudio");
+            if (btn) {
+              const isPlaying = btn.classList.contains("bg-status-success");
+              if (isPlaying) {
+                btn.classList.remove("bg-status-success", "text-white");
+                btn.classList.add("bg-surface-container-low", "text-primary");
+                btn.innerHTML =
+                  '<span class="material-symbols-outlined text-[16px]">play_arrow</span> TEST TRACK';
+              } else {
+                btn.classList.remove(
+                  "bg-surface-container-low",
+                  "text-primary",
+                );
+                btn.classList.add("bg-status-success", "text-white");
+                btn.innerHTML =
+                  '<span class="material-symbols-outlined text-[16px]">pause</span> PLAYING PREVIEW';
+                setTimeout(() => {
+                  btn.classList.remove("bg-status-success", "text-white");
+                  btn.classList.add("bg-surface-container-low", "text-primary");
+                  btn.innerHTML =
+                    '<span class="material-symbols-outlined text-[16px]">play_arrow</span> TEST TRACK';
+                }, 4000);
+              }
+            }
+          }
 
-    function resetFormState() {
-      if (confirm('Revert all unsaved modifications back to latest database checkpoint?')) {
-        location.reload();
-      }
-    }
+          function exportRawJsonPayload() {
+            const record = {
+              uuid: "book-004-saint-exupery-prince",
+              title: "Le Petit Prince",
+              author: "Antoine de Saint-Exupéry",
+              isbn: "978-0156012195",
+              year: 1943,
+              publisher: "Reynal & Hitchcock, New York",
+              pages: 96,
+              cefr: ["A2", "B1"],
+              rights: "Global Public Domain",
+              localStorageTimestamp: new Date().toISOString(),
+            };
+            const blob = new Blob([JSON.stringify(record, null, 2)], {
+              type: "application/json",
+            });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "record-bk-004-le-petit-prince.json";
+            a.click();
+            URL.revokeObjectURL(url);
+          }
 
-    function confirmDeletion() {
-      confirm('Are you certain you wish to archive or purge Book Record #BK-004? This action logs an administrative audit trace.');
-    }
+          function resetFormState() {
+            if (
+              confirm(
+                "Revert all unsaved modifications back to latest database checkpoint?",
+              )
+            ) {
+              location.reload();
+            }
+          }
 
-    function simulateUpload(event) {
-      if (event.target.files && event.target.files[0]) {
-        triggerManualSync();
-      }
-    }
+          function confirmDeletion() {
+            confirm(
+              "Are you certain you wish to archive or purge Book Record #BK-004? This action logs an administrative audit trace.",
+            );
+          }
 
-    // Keyboard shortcut handler (Ctrl+S / Cmd+S)
-    window.addEventListener('keydown', function(e) {
-      if ((e.ctrlKey || e.metaKey) && e.key === 's') {
-        e.preventDefault();
-        triggerManualSync();
-      }
-    });
-  </script>
-</div></main><footer class="w-full bg-surface-card shadow-[0_1px_8px_rgba(0,0,0,0.04)] py-space-lg"><div class="max-w-[1440px] mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><span class="font-display-hero text-headline-sm text-text-primary">BookBridge</span><span class="font-label-sm text-label-sm text-on-surface-variant">Archival Administration Console</span><span class="w-1 h-1 rounded-full bg-outline-variant"></span><div class="flex items-center gap-1 text-status-success font-label-sm text-label-sm font-semibold"><span class="material-symbols-outlined text-[16px]">lock</span>Encrypted Repository Mode</div></div><div class="flex items-center gap-space-lg text-on-surface-variant font-label-sm text-label-sm"><span>Security Clearance: Grade IV Archival</span><span>© 2024 BookBridge Cultural Heritage Foundation. All rights reserved.</span></div></div></footer></body></html>
+          function simulateUpload(event) {
+            if (event.target.files && event.target.files[0]) {
+              triggerManualSync();
+            }
+          }
+
+          window.addEventListener("keydown", function (e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === "s") {
+              e.preventDefault();
+              triggerManualSync();
+            }
+          });
+        </script>
+      </div>
+    </main>
+    <footer
+      class="w-full bg-surface-card shadow-[0_1px_8px_rgba(0,0,0,0.04)] py-space-lg"
+    >
+      <div
+        class="max-w-[1440px] mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md"
+      >
+        <div class="flex items-center gap-space-md">
+          <span class="font-display-hero text-headline-sm text-text-primary"
+            >BookBridge</span
+          ><span class="font-label-sm text-label-sm text-on-surface-variant"
+            >Archival Administration Console</span
+          ><span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+          <div
+            class="flex items-center gap-1 text-status-success font-label-sm text-label-sm font-semibold"
+          >
+            <span class="material-symbols-outlined text-[16px]">lock</span
+            >Encrypted Repository Mode
+          </div>
+        </div>
+        <div
+          class="flex items-center gap-space-lg text-on-surface-variant font-label-sm text-label-sm"
+        >
+          <span>Security Clearance: Grade IV Archival</span
+          ><span
+            >© 2024 BookBridge Cultural Heritage Foundation. All rights
+            reserved.</span
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
