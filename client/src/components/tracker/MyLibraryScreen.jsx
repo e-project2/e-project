@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useBooks } from '../../context/BookContext.jsx';
 import { useFavorites } from '../../context/FavoritesContext.jsx';
 import { useReadingTracker } from '../../context/ReadingTrackerContext.jsx';
-import { booksData } from '../../data/booksData.js';
 import { ImageWithFallback } from '../common/ImageWithFallback.jsx';
 import { ReadingProgressModal } from './ReadingProgressModal.jsx';
 import { Icon } from '../common/Icon.jsx';
@@ -34,11 +33,10 @@ export function MyLibraryScreen({ onNavigate, onSelectBook, onOpenReader }) {
   // Combine book IDs that are favorited OR tracked
   const libraryBookIds = Array.from(new Set([...favorites, ...Object.keys(tracker)]));
 
-  // Resolve books robustly from live books state or catalog fallback
+  // Resolve books robustly from live books state from backend
   const libraryBooks = libraryBookIds
     .map(id => {
-      const match = books.find(b => b._id === id || b.id === id || String(b._id) === String(id) || String(b.id) === String(id))
-        || booksData.find(b => b._id === id || b.id === id || String(b._id) === String(id) || String(b.id) === String(id));
+      const match = (books || []).find(b => b._id === id || b.id === id || String(b._id) === String(id) || String(b.id) === String(id));
       return match || null;
     })
     .filter(Boolean);

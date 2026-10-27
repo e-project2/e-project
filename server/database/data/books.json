@@ -63,9 +63,16 @@
   },
   {
     "_id": "bk-03",
-    "title": "Le Petit Prince (The Little Prince)",
+    "title": "Le Petit Prince",
+    "originalTitle": "Le Petit Prince",
+    "subtitle": "(The Little Prince)",
     "authorId": "auth-02",
+    "authorName": "Antoine de Saint-Exupéry",
+    "authorAvatar": "/images/authors/antoine-portrait.jpg",
+    "authorVerifiedBadge": "Canonical Public Domain Edition",
     "isbn": "978-0156012195",
+    "refCode": "REF: 1943-NYC",
+    "reviewsCount": 216,
     "language": "French",
     "genre": "Philosophy",
     "readingLevel": "Beginner",
@@ -81,7 +88,7 @@
       "True Value"
     ],
     "targetAudience": "Children & Adults",
-    "rating": 4.95,
+    "rating": 4.88,
     "isFeatured": true
   },
   {

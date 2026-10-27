@@ -1,21 +1,17 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { apiService } from '../services/apiService.js';
-import { booksData as initialBooks } from '../data/booksData.js';
-import { authorsData as initialAuthors } from '../data/authorsData.js';
-import { collectionsData as initialCollections } from '../data/collectionsData.js';
-import { galleryData as initialGallery } from '../data/galleryData.js';
 
 const BookContext = createContext();
 
 export function BookProvider({ children }) {
-  const [books, setBooks] = useState(initialBooks);
-  const [authors, setAuthors] = useState(initialAuthors);
-  const [collections, setCollections] = useState(initialCollections);
-  const [gallery, setGallery] = useState(initialGallery);
-  const [loading, setLoading] = useState(false);
+  const [books, setBooks] = useState([]);
+  const [authors, setAuthors] = useState([]);
+  const [collections, setCollections] = useState([]);
+  const [gallery, setGallery] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [backendOnline, setBackendOnline] = useState(false);
 
-  // Selected modals
+  // Selected modals / active items
   const [selectedBook, setSelectedBook] = useState(null);
   const [selectedAuthor, setSelectedAuthor] = useState(null);
   const [selectedGalleryItem, setSelectedGalleryItem] = useState(null);
@@ -30,7 +26,7 @@ export function BookProvider({ children }) {
     sortBy: 'title-az'
   });
 
-  // Attempt fetching from backend on mount
+  // Fetch live collections and catalogue from MongoDB backend on mount
   useEffect(() => {
     async function loadInitialData() {
       try {
@@ -56,7 +52,7 @@ export function BookProvider({ children }) {
         if (fetchedGallery && fetchedGallery.length > 0) setGallery(fetchedGallery);
         setBackendOnline(true);
       } catch (err) {
-        console.info('Backend unreachable, operating smoothly in client standalone mode.', err.message);
+        console.error('Error connecting to BookBridge MongoDB backend:', err.message);
         setBackendOnline(false);
       } finally {
         setLoading(false);

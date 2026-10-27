@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from './context/ThemeContext.jsx';
 import { AuthProvider } from './context/AuthContext.jsx';
 import { BookProvider, useBooks } from './context/BookContext.jsx';
@@ -21,8 +21,8 @@ import { BookCard } from './components/BookCard.jsx';
 import { ContactScreen } from './components/contact/ContactScreen.jsx';
 import { AdminScreen } from './components/admin/AdminScreen.jsx';
 
-import { BookDetailModal } from './components/details/BookDetailModal.jsx';
-import { AuthorProfileModal } from './components/authors/AuthorProfileModal.jsx';
+import { BookDetailScreen } from './components/details/BookDetailScreen.jsx';
+import { AuthorDetailScreen } from './components/authors/AuthorDetailScreen.jsx';
 import { AuthModal } from './components/auth/AuthModal.jsx';
 import { BookReaderModal } from './components/reader/BookReaderModal.jsx';
 
@@ -46,19 +46,69 @@ function MainLayout() {
 
   const handleNavigate = (routeId) => {
     setActiveRoute(routeId);
+    if (routeId !== 'book-detail' && routeId !== 'author-detail') {
+      if (window.location.hash) {
+        try {
+          window.history.pushState(null, '', window.location.pathname);
+        } catch (e) {}
+      }
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSelectBook = (book) => {
+    if (!book) return;
     setSelectedBook(book);
+    setActiveRoute('book-detail');
+    const bId = book._id || book.id;
+    if (bId) {
+      window.location.hash = `book/${bId}`;
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSelectAuthor = (authorId) => {
-    const author = getAuthorById(authorId);
+  const handleSelectAuthor = (authorIdOrObj) => {
+    let author = authorIdOrObj;
+    if (typeof authorIdOrObj === 'string') {
+      author = getAuthorById(authorIdOrObj);
+    }
     if (author) {
       setSelectedAuthor(author);
+      setActiveRoute('author-detail');
+      const aId = author._id || author.id;
+      if (aId) {
+        window.location.hash = `author/${aId}`;
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
+
+  // Listen for direct URL hash routing (e.g. #book/bk-03 or #author/auth-02)
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (!hash) return;
+      if (hash.startsWith('book/')) {
+        const id = hash.replace('book/', '');
+        const found = getBookById(id);
+        if (found) {
+          setSelectedBook(found);
+          setActiveRoute('book-detail');
+        }
+      } else if (hash.startsWith('author/')) {
+        const id = hash.replace('author/', '');
+        const found = getAuthorById(id);
+        if (found) {
+          setSelectedAuthor(found);
+          setActiveRoute('author-detail');
+        }
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, [books, getBookById, getAuthorById]);
 
   const getBreadcrumbs = () => {
     const base = [{ label: 'Home', onClick: () => handleNavigate('home') }];
@@ -94,12 +144,16 @@ function MainLayout() {
 
       {/* Main Body */}
       <main className="flex-1 pt-20">
-        {/* Breadcrumb banner if not on home or about page (AboutMission has its own Stitch breadcrumb) */}
-        {breadcrumbs && activeRoute !== 'home' && activeRoute !== 'about' && (
-          <div className="bb-container">
-            <Breadcrumbs items={breadcrumbs} onBack={() => handleNavigate('home')} />
-          </div>
-        )}
+        {/* Breadcrumb banner if not on home, about, book-detail, or author-detail */}
+        {breadcrumbs &&
+          activeRoute !== 'home' &&
+          activeRoute !== 'about' &&
+          activeRoute !== 'book-detail' &&
+          activeRoute !== 'author-detail' && (
+            <div className="bb-container">
+              <Breadcrumbs items={breadcrumbs} onBack={() => handleNavigate('home')} />
+            </div>
+          )}
 
         {/* Dynamic Route View */}
         {activeRoute === 'home' && (
@@ -178,6 +232,7 @@ function MainLayout() {
                       key={book._id || book.id}
                       book={book}
                       onSelect={handleSelectBook}
+                      onSelectAuthor={handleSelectAuthor}
                       onRead={(b) => setReadingBook(b)}
                       onBookmark={(b, saved) => console.log('Bookmark toggled:', b.title, saved)}
                     />
@@ -199,34 +254,33 @@ function MainLayout() {
         {activeRoute === 'admin' && (
           <AdminScreen onNavigate={handleNavigate} />
         )}
+
+        {/* Dedicated Standalone Book Detail Page */}
+        {activeRoute === 'book-detail' && selectedBook && (
+          <BookDetailScreen
+            book={selectedBook}
+            onNavigate={handleNavigate}
+            onSelectAuthor={handleSelectAuthor}
+            onSelectRelatedBook={handleSelectBook}
+            onOpenReader={(b) => setReadingBook(b)}
+          />
+        )}
+
+        {/* Dedicated Standalone Author Detail Page */}
+        {activeRoute === 'author-detail' && selectedAuthor && (
+          <AuthorDetailScreen
+            author={selectedAuthor}
+            onNavigate={handleNavigate}
+            onSelectBook={handleSelectBook}
+          />
+        )}
       </main>
 
-      {/* Global Modals */}
-      {selectedBook && (
-        <BookDetailModal
-          book={selectedBook}
-          onClose={() => setSelectedBook(null)}
-          onSelectAuthor={handleSelectAuthor}
-          onSelectRelatedBook={(b) => setSelectedBook(b)}
-          onOpenReader={(b) => {
-            setSelectedBook(null);
-            setReadingBook(b);
-          }}
-        />
-      )}
-
+      {/* Global Modals - Reader & Auth */}
       {readingBook && (
         <BookReaderModal
           book={readingBook}
           onClose={() => setReadingBook(null)}
-        />
-      )}
-
-      {selectedAuthor && (
-        <AuthorProfileModal
-          author={selectedAuthor}
-          onClose={() => setSelectedAuthor(null)}
-          onSelectBook={handleSelectBook}
         />
       )}
 

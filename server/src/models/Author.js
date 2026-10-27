@@ -36,7 +36,8 @@ const authorSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-    versionKey: false
+    versionKey: false,
+    strict: false
   }
 );
 
