@@ -1,12 +1,8 @@
-import { booksData } from '../data/booksData.js';
-import { authorsData } from '../data/authorsData.js';
-import { collectionsData } from '../data/collectionsData.js';
-import { galleryData } from '../data/galleryData.js';
 import { storageService } from './storageService.js';
 
 const API_BASE = '/api';
 
-async function fetchWithFallback(url, options = {}, fallbackData = null) {
+async function request(url, options = {}) {
   try {
     const auth = storageService.getAuth();
     const headers = {
@@ -27,10 +23,7 @@ async function fetchWithFallback(url, options = {}, fallbackData = null) {
 
     return await res.json();
   } catch (error) {
-    console.warn(`[API Fallback] ${url} error: ${error.message}. Returning local mock data.`);
-    if (fallbackData !== null) {
-      return { success: true, fromFallback: true, data: fallbackData };
-    }
+    console.warn(`[API Request Error] ${url}: ${error.message}`);
     throw error;
   }
 }
@@ -48,54 +41,49 @@ export const apiService = {
     if (params.page) query.append('page', params.page);
 
     const queryString = query.toString() ? `?${query.toString()}` : '';
-    const res = await fetchWithFallback(`/books${queryString}`, {}, booksData);
-    return res.data || res.books || booksData;
+    const res = await request(`/books${queryString}`);
+    return res.data || res.books || [];
   },
 
   async getBookById(id) {
-    const fallback = booksData.find(b => b._id === id || b.id === id);
-    const res = await fetchWithFallback(`/books/${id}`, {}, fallback);
-    return res.data?.book || res.data || fallback;
+    const res = await request(`/books/${id}`);
+    return res.data?.book || res.data || null;
   },
 
   async getFeaturedBooks() {
-    const fallback = booksData.filter(b => b.isFeatured);
-    const res = await fetchWithFallback('/books/featured', {}, fallback);
-    return res.data || fallback;
+    const res = await request('/books/featured');
+    return res.data || [];
   },
 
   // Authors API
   async getAuthors() {
-    const res = await fetchWithFallback('/authors', {}, authorsData);
-    return res.data || res.authors || authorsData;
+    const res = await request('/authors');
+    return res.data || res.authors || [];
   },
 
   async getAuthorById(id) {
-    const author = authorsData.find(a => a._id === id || a.id === id);
-    const books = booksData.filter(b => b.authorId === id);
-    const fallback = { ...author, books };
-    const res = await fetchWithFallback(`/authors/${id}`, {}, fallback);
-    return res.data || fallback;
+    const res = await request(`/authors/${id}`);
+    return res.data || null;
   },
 
   // Collections API
   async getCollections() {
-    const res = await fetchWithFallback('/collections', {}, collectionsData);
-    return res.data || collectionsData;
+    const res = await request('/collections');
+    return res.data || [];
   },
 
   // Gallery API
   async getGallery() {
-    const res = await fetchWithFallback('/gallery', {}, galleryData);
-    return res.data || galleryData;
+    const res = await request('/gallery');
+    return res.data || [];
   },
 
   // Contact API
   async sendContactMessage(payload) {
-    return await fetchWithFallback('/contact', {
+    return await request('/contact', {
       method: 'POST',
       body: JSON.stringify(payload)
-    }, { message: 'Message sent successfully (Offline mock response)' });
+    });
   },
 
   // Auth API

@@ -63,16 +63,75 @@
   },
   {
     "_id": "bk-03",
-    "title": "Le Petit Prince (The Little Prince)",
+    "title": "Le Petit Prince",
+    "originalTitle": "Le Petit Prince",
+    "subtitle": "(The Little Prince)",
     "authorId": "auth-02",
+    "authorName": "Antoine de Saint-Exupéry",
+    "authorAvatar": "/images/authors/antoine-portrait.jpg",
+    "authorVerifiedBadge": "Canonical Public Domain Edition",
     "isbn": "978-0156012195",
+    "refCode": "REF: 1943-NYC",
+    "reviewsCount": 216,
     "language": "French",
     "genre": "Philosophy",
     "readingLevel": "Beginner",
     "period": "Modern",
     "publicationYear": 1943,
     "pageCount": 96,
-    "coverImage": "/images/books/little-prince.svg",
+    "coverImage": "/images/books/le-petit-prince-archival.jpg",
+    "archivalCover": "/images/books/le-petit-prince-archival.jpg",
+    "coverBadge": "ARCHIVAL COPY",
+    "tags": [
+      "French Classic",
+      "Philosophical Allegory",
+      "Original Illustrations",
+      "World Literature"
+    ],
+    "quote": {
+      "french": "« On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux. »",
+      "english": "\"It is only with the heart that one can see rightly; what is essential is invisible to the eye.\"",
+      "source": "THE FOX TO THE LITTLE PRINCE (CHAPTER XXI)"
+    },
+    "synopsisTitle": "Synopsis & Narrative Architecture",
+    "synopsisParagraphs": [
+      "Stranded in the desolation of the Sahara Desert following a mechanical plane failure, an aviator is awakened at daybreak by an ethereal boy requesting the sketch of a sheep. This miraculous encounter unfolds into an expansive chronicle of the Prince's journey away from his minuscule home, Asteroid B-612, where he painstakingly tended three miniature volcanoes and sheltered a proud, demanding, yet beloved rose.",
+      "Before arriving on Earth, the boy visits neighboring planets inhabited by solitary, tragic caricatures of adult vanity: an autocratic king with no subjects, an obsessive conceited man demanding applause, a drunkard drinking to drown his shame, and a ledger-bound businessman claiming stars as capital. Through each vignette, Saint-Exupéry exposes the absurdity of adult materialism and utilitarian blindness.",
+      "The emotional nucleus arrives in the terrestrial desert through the encounter with the Fox, who imparts the transcendent philosophy of 'taming' (apprivoiser)—the deliberate cultivation of relational bonds that transform an ordinary flower into a singular, sacred devotion in all the universe."
+    ],
+    "keyThemesList": [
+      {
+        "title": "Friendship & Cultivated Love",
+        "description": "The concept of taming defines affection not as an effortless accident, but as an active moral responsibility that demands vulnerability, fidelity, and patience."
+      },
+      {
+        "title": "Innocence vs. Adulthood",
+        "description": "A relentless critique of grown-up narrowness that fixates on figures, titles, and ownership while ignoring beauty, vitality, and existential clarity."
+      },
+      {
+        "title": "Solitude & Desert Wandering",
+        "description": "The stark Sahara serves as both literal exile and spiritual hermitage, stripping human existence down to its essential truths and unvarnished poetic clarity."
+      },
+      {
+        "title": "Mortality & Memory",
+        "description": "The poignant departure of the Little Prince redefines death not as an end, but as a shedding of the earthly vessel to return to one's cherished origin."
+      }
+    ],
+    "pedagogicalNotes": {
+      "level": "CEFR A2-B1",
+      "grammarDynamics": "Primarily written in the Passé Simple for historical narration juxtaposed with conversational Passé Composé and clear Imparfait descriptions.",
+      "lexicalNuance": "Mastery of terms like apprivoiser (to tame/cultivate), éphémère (fleeting/spiritual brevity), and un point dans l'espace for fragility."
+    },
+    "archivalMetadata": {
+      "marcCompliant": true,
+      "originalLanguage": "Français (French)",
+      "firstPublished": "1943 (Reynal & Hitchcock, NY)",
+      "pageCount": "96 pages",
+      "genre": "Philosophical Fiction / Fable",
+      "readingLevel": "Beginner to Intermediate (A2-B1)",
+      "suitableAudience": "All Ages · Philosophers · Youths",
+      "repositoryIndex": "Book-985"
+    },
     "synopsis": "Chuyến du hành liên hành tinh của một hoàng tử bé thơ ngây, gặp gỡ phi công bị rơi máy bay trên sa mạc Sahara, hé lộ những bài học sâu sắc về bản chất của tình yêu và sự gắn kết.",
     "themes": [
       "Love & Attachment",
@@ -81,7 +140,7 @@
       "True Value"
     ],
     "targetAudience": "Children & Adults",
-    "rating": 4.95,
+    "rating": 4.88,
     "isFeatured": true
   },
   {

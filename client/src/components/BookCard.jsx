@@ -28,6 +28,7 @@ export function BookCard({
   book = {},
   onSelect,
   onSelectBook,
+  onSelectAuthor,
   onBookmark,
   onAddToCart,
   onRead,
@@ -215,11 +216,21 @@ export function BookCard({
 
           {/* Author Name */}
           <p
-            className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium truncate group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors flex items-center gap-1"
-            title={displayAuthor}
+            onClick={(e) => {
+              if (onSelectAuthor && (book.authorId || book.author)) {
+                e.stopPropagation();
+                onSelectAuthor(book.authorId || book.author);
+              }
+            }}
+            className={`text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium truncate flex items-center gap-1 transition-colors ${
+              onSelectAuthor ? 'hover:text-amber-600 dark:hover:text-amber-400 hover:underline cursor-pointer' : 'group-hover:text-slate-700 dark:group-hover:text-slate-300'
+            }`}
+            title={onSelectAuthor ? `View author dossier for ${displayAuthor}` : displayAuthor}
           >
             <span>{displayAuthor}</span>
-            <Icon name="open_in_new" className="text-[13px] opacity-0 group-hover:opacity-70 transition-opacity" />
+            {onSelectAuthor && (
+              <Icon name="person" className="text-[13px] text-amber-500/70" />
+            )}
           </p>
 
           {/* Extra Bibliographic Info */}

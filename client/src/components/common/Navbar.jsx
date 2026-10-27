@@ -54,7 +54,9 @@ export function Navbar({ activeRoute, onNavigate }) {
           {/* Desktop Navigation */}
           <nav className="hidden xl:flex items-center gap-1" aria-label="Main Navigation">
             {navItems.map((item) => {
-              const isActive = activeRoute === item.id;
+              const isActive =
+                activeRoute === item.id ||
+                (item.id === 'directory' && (activeRoute === 'book-detail' || activeRoute === 'author-detail'));
               return (
                 <button
                   key={item.id}

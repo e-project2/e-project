@@ -16,9 +16,83 @@
   {
     "_id": "auth-02",
     "name": "Antoine de Saint-Exupéry",
-    "avatar": "/images/authors/antoine-de-saint-exupery.svg",
+    "avatar": "/images/authors/antoine-portrait.jpg",
     "nationality": "French",
+    "birthPlace": "Lyon, France",
+    "deathPlace": "Disappeared near Île de Riou, Mediterranean Sea",
+    "archivalRecordId": "1900-44-SE",
     "specialization": "Philosophical Allegory & Aviation Literature",
+    "focusArea": "French Literature Focus",
+    "collectionBadge": "Public Domain Collection",
+    "archiveBadge": "1900-1944 HISTORICAL ARCHIVE",
+    "period": "1900 - 1944",
+    "quotes": "It is only with the heart that one can see rightly; what is essential is invisible to the eye.",
+    "tags": [
+      "Pioneering Aviator",
+      "Philosophical Novelist",
+      "French Resistance Benefactor",
+      "Airmail Pioneer"
+    ],
+    "stats": {
+      "worksCataloged": 1,
+      "activeReaders": "12.8k",
+      "scholarlyRating": "4.9",
+      "globalTranslations": "100+"
+    },
+    "literaryLegacy": {
+      "category": "LITERARY LEGACY",
+      "title": "The Pilot-Philosopher of the Human Condition",
+      "narrative": [
+        "Antoine Marie Jean-Baptiste Roger, comte de Saint-Exupéry, lived at the razor-edge intersection of pioneering aviation and introspective moral philosophy. In an epoch when open-cockpit flights across uncharted deserts and mountainous terrain constituted mortal gambles, Saint-Exupéry transformed altitude into a transcendental vantage point over human fragility.",
+        "Flying pioneering postal routes across the Sahara and South America for Latécoère and Aéropostale, Saint-Exupéry confronted elemental solitude. His miraculous 1935 survival following a crash in the Libyan Desert—battling hallucinations, dehydration, and mirages for four days before rescue by a Bedouin nomad—crystallized the foundational symbols of his masterpieces: sand, wells, solitary celestial bodies, and unvarnished camaraderie.",
+        "During World War II, exiled in North America and consumed with despair over occupied France, he crafted the allegorical fable The Little Prince alongside his existential reflections in Wind, Sand and Stars. Rejoining the Free French Air Force despite advanced age and chronic injuries, he departed Borgo airfield in Corsica on July 31, 1944, aboard a Lockheed F-5B Lightning on an aerial reconnaissance mission over the Rhône Valley. He never returned. His silver identity bracelet was recovered off the coast of Marseille in 1998, enshrining his life in heroic eternity."
+      ],
+      "quote": {
+        "text": "What is essential is invisible to the eye. It is only with the heart that one can see rightly.",
+        "source": "— LE PETIT PRINCE, 1943 (REYNAL & HITCHCOCK, NEW YORK)"
+      },
+      "commentary": {
+        "title": "Curatorial Commentary: Technology as Spiritual Crucible",
+        "text": "Unlike futurists who glorified mechanistic brute force, Saint-Exupéry considered the airplane merely an instrument of perception—stripping away earthly trivialities to confront humanity with its absolute obligations to fraternity, memory, and spiritual guardianship."
+      }
+    },
+    "milestones": [
+      {
+        "year": "1926",
+        "location": "Toulouse - Dakar",
+        "title": "Airmail Pioneer with Aéropostale",
+        "description": "Named Cape Juby airfield superintendent in Tarfaya, negotiating safe returns with rebellious desert tribes."
+      },
+      {
+        "year": "1931",
+        "location": "Paris, France",
+        "title": "Prix Femina for \"Night Flight\"",
+        "description": "Praised by André Gide for illuminating silent devotion and leadership under South American night skies."
+      },
+      {
+        "year": "1935",
+        "location": "Wadi El Natrun, Egypt",
+        "title": "The Great Saharan Survival",
+        "description": "Paris-to-Saigon air race crash: wandering through desert hallucinations three days before Bedouin rescue."
+      },
+      {
+        "year": "1939",
+        "location": "Académie Française",
+        "title": "Grand Prix du Roman",
+        "description": "Awarded for Terre des Hommes (published in English as Wind, Sand and Stars)."
+      },
+      {
+        "year": "July 1944",
+        "location": "Mediterranean",
+        "title": "Final Reconnaissance Sortie",
+        "description": "Flight mission P-38 Lightning from Bastia-Borgo. Vanished at high altitude; recording post-war myth."
+      }
+    ],
+    "archivalDocument": {
+      "image": "/images/authors/sahara-1935.jpg",
+      "tag": "Archival Document: Sahara Cargon, 1935",
+      "caption": "The Desert of Libya: St-Exupéry and Prévot stranded 200 miles west of Cairo before Bedouin rescue, 1935 (Historical Airmail Archive)."
+    },
     "bio": "Nhà văn, nhà thơ và phi công tiên phong người Pháp. Tác phẩm của ông kết hợp sâu sắc giữa triết lý nhân sinh, tình yêu thương và sự ngây thơ thuần khiết của trẻ thơ.",
     "notableThemes": [
       "Innocence",
