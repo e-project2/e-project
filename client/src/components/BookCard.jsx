@@ -12,7 +12,6 @@ import { Icon } from './common/Icon.jsx';
  * @param {string} props.book.title - Title of the book
  * @param {string} [props.book.author] - Author name
  * @param {string} [props.book.authorName] - Alternate author name field
- * @param {number|string} [props.book.price] - Book price
  * @param {string} [props.book.coverImage] - URL of book cover image
  * @param {string} [props.book.genre] - Book literary genre
  * @param {number} [props.book.rating] - Book rating (e.g. 4.8)
@@ -45,7 +44,6 @@ export function BookCard({
     title = 'Untitled Book',
     author,
     authorName,
-    price,
     coverImage,
     genre,
     rating = 4.8,
@@ -56,18 +54,6 @@ export function BookCard({
   } = book || {};
 
   const displayAuthor = author || authorName || 'Unknown Author';
-
-  // Format price display
-  const formatPrice = (val) => {
-    if (val === undefined || val === null || val === '') {
-      return '$19.99';
-    }
-    if (typeof val === 'number') {
-      if (val === 0) return 'Free';
-      return `$${val.toFixed(2)}`;
-    }
-    return String(val);
-  };
 
   const handleBookmarkClick = (e) => {
     e.stopPropagation();
@@ -150,8 +136,8 @@ export function BookCard({
           onClick={handleBookmarkClick}
           aria-label={isBookmarked ? `Remove ${title} from bookmarks` : `Bookmark ${title}`}
           className={`absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-200 shadow-md z-10 transform hover:scale-110 active:scale-90 cursor-pointer ${isBookmarked
-              ? 'bg-rose-500 text-white shadow-rose-500/30'
-              : 'bg-white/90 dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 hover:text-rose-500 dark:hover:text-rose-400'
+            ? 'bg-rose-500 text-white shadow-rose-500/30'
+            : 'bg-white/90 dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 hover:text-rose-500 dark:hover:text-rose-400'
             }`}
           title={isBookmarked ? 'Bỏ yêu thích' : 'Thêm vào yêu thích (Thư viện cá nhân)'}
         >
@@ -222,9 +208,8 @@ export function BookCard({
                 onSelectAuthor(book.authorId || book.author);
               }
             }}
-            className={`text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium truncate flex items-center gap-1 transition-colors ${
-              onSelectAuthor ? 'hover:text-amber-600 dark:hover:text-amber-400 hover:underline cursor-pointer' : 'group-hover:text-slate-700 dark:group-hover:text-slate-300'
-            }`}
+            className={`text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium truncate flex items-center gap-1 transition-colors ${onSelectAuthor ? 'hover:text-amber-600 dark:hover:text-amber-400 hover:underline cursor-pointer' : 'group-hover:text-slate-700 dark:group-hover:text-slate-300'
+              }`}
             title={onSelectAuthor ? `View author dossier for ${displayAuthor}` : displayAuthor}
           >
             <span>{displayAuthor}</span>
@@ -253,17 +238,8 @@ export function BookCard({
           )}
         </div>
 
-        {/* ================= Price & Action Footer ================= */}
+        {/* ================= Action Footer ================= */}
         <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between gap-3">
-          {/* Dynamic Price Display */}
-          <div className="flex flex-col">
-            <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-              Price
-            </span>
-            <span className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 font-display group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
-              {formatPrice(price)}
-            </span>
-          </div>
 
           {/* Action CTA Button */}
           <button

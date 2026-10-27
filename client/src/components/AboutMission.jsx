@@ -57,14 +57,6 @@ export function AboutMission({ onNavigate, showHeader = true, showFooter = true 
               </a>
               <a
                 className="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors"
-                data-path="explorer"
-                href="#"
-                onClick={handleNavClick('explorer')}
-              >
-                Explorer
-              </a>
-              <a
-                className="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors"
                 data-path="collections"
                 href="#"
                 onClick={handleNavClick('collections')}
@@ -283,7 +275,7 @@ export function AboutMission({ onNavigate, showHeader = true, showFooter = true 
                       <div className="flex items-center justify-between">
                         <span className="font-headline-md text-headline-md text-on-tertiary-container font-bold">01</span>
                         <span className="px-3 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-primary font-medium">
-                          Catalog Explorer
+                          Catalog Directory
                         </span>
                       </div>
                       <h3 className="font-title-md text-title-md text-primary font-bold">
@@ -668,9 +660,6 @@ export function AboutMission({ onNavigate, showHeader = true, showFooter = true 
                 <ul className="space-y-2">
                   <li className="font-body-sm text-body-sm">
                     <a className="text-on-surface-variant hover:text-on-surface transition-colors" data-path="directory" href="#" onClick={handleNavClick('directory')}>Book Directory</a>
-                  </li>
-                  <li className="font-body-sm text-body-sm">
-                    <a className="text-on-surface-variant hover:text-on-surface transition-colors" data-path="explorer" href="#" onClick={handleNavClick('explorer')}>Interactive Explorer</a>
                   </li>
                   <li className="font-body-sm text-body-sm">
                     <a className="text-on-surface-variant hover:text-on-surface transition-colors" data-path="collections" href="#" onClick={handleNavClick('collections')}>Themed Shelves</a>

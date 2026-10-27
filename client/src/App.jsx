@@ -11,7 +11,6 @@ import { Breadcrumbs } from './components/common/Breadcrumbs.jsx';
 
 import { HomeScreen } from './components/home/HomeScreen.jsx';
 import { DirectoryScreen } from './components/directory/DirectoryScreen.jsx';
-import { ExplorerScreen } from './components/explorer/ExplorerScreen.jsx';
 import { CollectionsScreen } from './components/collections/CollectionsScreen.jsx';
 import { GalleryScreen } from './components/gallery/GalleryScreen.jsx';
 import { MyLibraryScreen } from './components/tracker/MyLibraryScreen.jsx';
@@ -116,8 +115,6 @@ function MainLayout() {
     switch (activeRoute) {
       case 'directory':
         return [...base, { label: 'Books Directory' }];
-      case 'explorer':
-        return [...base, { label: 'Language & Genre Explorer' }];
       case 'collections':
         return [...base, { label: 'Featured Collections' }];
       case 'gallery':
@@ -167,14 +164,6 @@ function MainLayout() {
 
         {activeRoute === 'directory' && (
           <DirectoryScreen
-            onSelectBook={handleSelectBook}
-            onSelectAuthor={handleSelectAuthor}
-            onOpenReader={(b) => setReadingBook(b)}
-          />
-        )}
-
-        {activeRoute === 'explorer' && (
-          <ExplorerScreen
             onSelectBook={handleSelectBook}
             onSelectAuthor={handleSelectAuthor}
             onOpenReader={(b) => setReadingBook(b)}

@@ -50,17 +50,11 @@ export function BookDetailScreen({
   const tags = book.tags && book.tags.length > 0
     ? book.tags
     : [
-        `${book.language || 'French'} Classic`,
-        book.genre ? `${book.genre} Literature` : 'Philosophical Allegory',
-        'Original Illustrations',
-        'World Literature'
-      ];
-
-  const quote = book.quote || {
-    french: "« On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux. »",
-    english: "\"It is only with the heart that one can see rightly; what is essential is invisible to the eye.\"",
-    source: "THE FOX TO THE LITTLE PRINCE (CHAPTER XXI)"
-  };
+      `${book.language || 'French'} Classic`,
+      book.genre ? `${book.genre} Literature` : 'Philosophical Allegory',
+      'Original Illustrations',
+      'World Literature'
+    ];
 
   const synopsisHeading = book.synopsisTitle || 'Synopsis & Narrative Architecture';
   const synopsisParagraphs = book.synopsisParagraphs || [
@@ -306,9 +300,8 @@ export function BookDetailScreen({
                           key={st}
                           type="button"
                           onClick={() => handleStatusChange(st)}
-                          className={`w-full text-left px-3.5 py-2 hover:bg-amber-50 dark:hover:bg-slate-700/60 font-medium ${
-                            currentStatus === st ? 'text-amber-600 dark:text-amber-400 font-bold' : 'text-slate-700 dark:text-slate-200'
-                          }`}
+                          className={`w-full text-left px-3.5 py-2 hover:bg-amber-50 dark:hover:bg-slate-700/60 font-medium ${currentStatus === st ? 'text-amber-600 dark:text-amber-400 font-bold' : 'text-slate-700 dark:text-slate-200'
+                            }`}
                         >
                           {st}
                         </button>
@@ -321,11 +314,10 @@ export function BookDetailScreen({
                 <button
                   type="button"
                   onClick={() => toggleFavorite(bookId)}
-                  className={`p-2.5 rounded-xl border transition-all cursor-pointer ${
-                    favorited
+                  className={`p-2.5 rounded-xl border transition-all cursor-pointer ${favorited
                       ? 'bg-rose-50 border-rose-200 text-rose-600 dark:bg-rose-950/40 dark:border-rose-900 dark:text-rose-400'
                       : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
-                  }`}
+                    }`}
                   title={favorited ? 'Remove Bookmark' : 'Add to Bookmarks'}
                 >
                   <Icon name={favorited ? 'favorite' : 'bookmark_border'} className="text-[18px]" />
@@ -498,25 +490,7 @@ export function BookDetailScreen({
               <div className="inline-flex items-center gap-1.5 text-slate-600 dark:text-slate-400 text-xs">
                 <Icon name="verified" className="text-amber-500 text-[16px]" />
                 <span>{verifiedBadge}</span>
-              </div>
-            </div>
-
-            {/* Quote Callout Banner */}
-            {quote && (
-              <div className="relative p-6 sm:p-8 rounded-2xl bg-amber-50/50 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-900/40 shadow-sm space-y-3">
-                <div className="font-display text-lg sm:text-xl font-bold italic text-slate-900 dark:text-slate-100 leading-snug">
-                  {quote.french}
-                </div>
-                {quote.english && (
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 italic">
-                    {quote.english}
-                  </p>
-                )}
-                <div className="text-[11px] font-bold tracking-wider uppercase text-amber-700 dark:text-amber-400 pt-1">
-                  — {quote.source}
-                </div>
-              </div>
-            )}
+              </div>            </div>
 
             {/* Section: Synopsis & Narrative Architecture */}
             <div className="space-y-4">

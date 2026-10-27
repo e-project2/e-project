@@ -13,7 +13,6 @@ export function Navbar({ activeRoute, onNavigate }) {
   const navItems = [
     { id: 'home', label: 'Home', icon: 'home' },
     { id: 'directory', label: 'Directory', icon: 'auto_stories' },
-    { id: 'explorer', label: 'Explorer', icon: 'explore' },
     { id: 'collections', label: 'Collections', icon: 'collections_bookmark' },
     { id: 'gallery', label: 'Gallery', icon: 'photo_library' },
     {
@@ -62,11 +61,10 @@ export function Navbar({ activeRoute, onNavigate }) {
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`px-3 py-1.5 font-label-md text-label-md transition-colors ${
-                    isActive
+                  className={`px-3 py-1.5 font-label-md text-label-md transition-colors ${isActive
                       ? 'text-primary font-bold bg-surface-container rounded-full'
                       : 'text-on-surface-variant hover:text-on-surface'
-                  }`}
+                    }`}
                 >
                   <span className="flex items-center gap-1.5">
                     <span>{item.label}</span>
@@ -92,19 +90,6 @@ export function Navbar({ activeRoute, onNavigate }) {
               title="Search catalog"
             >
               <span className="material-symbols-outlined text-[20px]">search</span>
-            </button>
-
-            {/* Dark/Light Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle Theme"
-              className="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
-              type="button"
-              title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
-            >
-              <span className="material-symbols-outlined text-[20px]">
-                {theme === 'light' ? 'dark_mode' : 'light_mode'}
-              </span>
             </button>
 
             {/* Auth / Admin Account */}
@@ -175,11 +160,10 @@ export function Navbar({ activeRoute, onNavigate }) {
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item.id)}
-                    className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                      isActive
+                    className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-all ${isActive
                         ? 'bg-slate-900 text-white dark:bg-amber-500 dark:text-slate-950'
                         : 'text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
-                    }`}
+                      }`}
                   >
                     <div className="flex items-center gap-3">
                       <Icon name={item.icon} className="text-[20px]" />
