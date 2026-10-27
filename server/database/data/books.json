@@ -10,7 +10,7 @@
     "period": "Modern",
     "publicationYear": 1949,
     "pageCount": 328,
-    "coverImage": "/images/books/1984.svg",
+    "coverImage": "/images/books/1984.png",
     "synopsis": "Một kiệt tác phản địa đàng mô tả một xã hội độc tài toàn trị dưới sự giám sát tối cao của Anh Cả (Big Brother), nơi ngay cả suy nghĩ cũng bị kiểm duyệt bởi Cảnh sát Tư tưởng.",
     "themes": [
       "Totalitarianism",
@@ -49,7 +49,7 @@
     "period": "Modern",
     "publicationYear": 1945,
     "pageCount": 140,
-    "coverImage": "/images/books/animal-farm.svg",
+    "coverImage": "/images/books/animal-farm.png",
     "synopsis": "Truyện ngụ ngôn chính trị sâu sắc về một cuộc nổi dậy của đàn gia súc trong nông trại nhằm lật đổ người chủ, nhưng dần rơi vào sự cai trị độc đoán mới của loài heo.",
     "themes": [
       "Power Corruption",
@@ -72,7 +72,7 @@
     "period": "Modern",
     "publicationYear": 1943,
     "pageCount": 96,
-    "coverImage": "/images/books/little-prince.svg",
+    "coverImage": "/images/books/little-prince.png",
     "synopsis": "Chuyến du hành liên hành tinh của một hoàng tử bé thơ ngây, gặp gỡ phi công bị rơi máy bay trên sa mạc Sahara, hé lộ những bài học sâu sắc về bản chất của tình yêu và sự gắn kết.",
     "themes": [
       "Love & Attachment",
@@ -95,7 +95,7 @@
     "period": "Modern",
     "publicationYear": 1931,
     "pageCount": 180,
-    "coverImage": "/images/books/night-flight.svg",
+    "coverImage": "/images/books/night-flight.png",
     "synopsis": "Tác phẩm đoạt giải Prix Femina về những chuyến bay đêm chở bưu phẩm xuyên Nam Mỹ đầy hiểm nguy, thể hiện lòng dũng cảm và tinh thần trách nhiệm vượt qua giới hạn thể xác.",
     "themes": [
       "Duty & Responsibility",
@@ -117,7 +117,7 @@
     "period": "Contemporary",
     "publicationYear": 1987,
     "pageCount": 296,
-    "coverImage": "/images/books/norwegian-wood.svg",
+    "coverImage": "/images/books/norwegian-wood.png",
     "synopsis": "Hồi ức hoài niệm của Toru Watanabe về tuổi thanh xuân tại Tokyo những năm 1960, những mất mát đau thương và mối quan hệ phức tạp với hai cô gái mang tâm hồn đối lập Naoko và Midori.",
     "themes": [
       "Youth & Grief",
@@ -140,7 +140,7 @@
     "period": "Contemporary",
     "publicationYear": 2002,
     "pageCount": 505,
-    "coverImage": "/images/books/kafka-shore.svg",
+    "coverImage": "/images/books/kafka-shore.png",
     "synopsis": "Hai tuyến truyện song song kỳ ảo đan xen: Cậu bé Kafka Tamura bỏ trốn khỏi lời nguyền gia đình và cụ già Nakata có năng lực trò chuyện với loài mèo.",
     "themes": [
       "Fate & Free Will",
@@ -163,7 +163,7 @@
     "period": "Modern",
     "publicationYear": 1915,
     "pageCount": 120,
-    "coverImage": "/images/books/metamorphosis.svg",
+    "coverImage": "/images/books/metamorphosis.png",
     "synopsis": "Gregor Samsa thức dậy sau một giấc mơ bất an và thấy mình đã biến thành một con côn trùng khổng lồ gớm ghiếc, kéo theo sự xa lánh và ruồng bỏ lạnh lùng từ chính gia đình anh.",
     "themes": [
       "Alienation",
@@ -186,7 +186,7 @@
     "period": "Modern",
     "publicationYear": 1925,
     "pageCount": 255,
-    "coverImage": "/images/books/the-trial.svg",
+    "coverImage": "/images/books/the-trial.png",
     "synopsis": "Josef K. bất ngờ bị bắt giữ và truy tố bởi một hệ thống tòa án bí ẩn mà không hề được thông báo về tội danh của mình, dẫn dắt người đọc vào mê cung pháp lý phi lý.",
     "themes": [
       "Bureaucracy",
@@ -208,7 +208,7 @@
     "period": "Modern",
     "publicationYear": 1967,
     "pageCount": 417,
-    "coverImage": "/images/books/hundred-years.svg",
+    "coverImage": "/images/books/hundred-years.png",
     "synopsis": "Biên niên sử huyền thoại qua bảy thế hệ của dòng họ Buendía tại ngôi làng biệt lập Macondo, một thiên sử thi đỉnh cao của trường phái hiện thực huyền ảo Mỹ Latin.",
     "themes": [
       "Solitude",
@@ -231,7 +231,7 @@
     "period": "Modern",
     "publicationYear": 1961,
     "pageCount": 115,
-    "coverImage": "/images/books/coronel.svg",
+    "coverImage": "/images/books/coronel.png",
     "synopsis": "Một đại tá già nghèo khó trải qua mười lăm năm mòn mỏi chờ đợi khoản lương hưu trợ cấp chiến tranh không bao giờ tới, cùng niềm hy vọng gửi gắm vào một con gà chọi.",
     "themes": [
       "Patience & Dignity",
@@ -253,7 +253,7 @@
     "period": "Modern",
     "publicationYear": 1941,
     "pageCount": 85,
-    "coverImage": "/images/books/chi-pheo.svg",
+    "coverImage": "/images/books/chi-pheo.png",
     "synopsis": "Tấn bi kịch lưu manh hóa và khát vọng làm người lương thiện tuyệt vọng của Chí Phèo trong bối cảnh làng quê phong kiến Bắc Bộ ngột ngạt trước Cách mạng.",
     "themes": [
       "Human Dignity",
@@ -275,7 +275,7 @@
     "period": "Modern",
     "publicationYear": 1944,
     "pageCount": 240,
-    "coverImage": "/images/books/song-mon.svg",
+    "coverImage": "/images/books/song-mon.png",
     "synopsis": "Bức tranh chân thực về nỗi đau sống mòn, những giằng xé nội tâm và sự bế tắc của người trí thức tiểu tư sản nghèo trong vòng xoáy cơm áo gạo tiền.",
     "themes": [
       "Wasted Potential",
@@ -297,7 +297,7 @@
     "period": "Classic",
     "publicationYear": 1866,
     "pageCount": 671,
-    "coverImage": "/images/books/crime-punishment.svg",
+    "coverImage": "/images/books/crime-punishment.png",
     "synopsis": "Cuộc vật lộn tâm lý dữ dội của cựu sinh viên nghèo Raskolnikov sau khi sát hại bà lão cầm đồ để thử thách lý thuyết 'vĩ nhân đứng trên luật pháp' của chính mình.",
     "themes": [
       "Guilt & Conscience",
@@ -320,7 +320,7 @@
     "period": "Classic",
     "publicationYear": 1864,
     "pageCount": 160,
-    "coverImage": "/images/books/notes-underground.svg",
+    "coverImage": "/images/books/notes-underground.png",
     "synopsis": "Bản tuyên ngôn triết học tiên phong cho chủ nghĩa hiện sinh, phơi bày những mâu thuẫn sâu kín, sự căm ghét bản thân và khát vọng tự do tuyệt đối của 'người dưới hầm'.",
     "themes": [
       "Free Will",
@@ -343,7 +343,7 @@
     "period": "Modern",
     "publicationYear": 1942,
     "pageCount": 159,
-    "coverImage": "/images/books/the-stranger.svg",
+    "coverImage": "/images/books/the-stranger.png",
     "synopsis": "Meursault – một người đàn ông hờ hững với mọi quy ước xã hội, bị kết án tử hình không chỉ vì vụ nổ súng trên bãi biển mà chủ yếu vì anh không khóc trong đám tang mẹ.",
     "themes": [
       "The Absurd",
@@ -366,7 +366,7 @@
     "period": "Modern",
     "publicationYear": 1947,
     "pageCount": 308,
-    "coverImage": "/images/books/the-plague.svg",
+    "coverImage": "/images/books/the-plague.png",
     "synopsis": "Trận dịch hạch bùng phát phong tỏa thành phố Oran và cuộc chiến chống chọi đầy kiên cường của bác sĩ Rieux cùng những người bạn trước tai ương phi lý của số phận.",
     "themes": [
       "Solidarity",
@@ -389,7 +389,7 @@
     "period": "Modern",
     "publicationYear": 1932,
     "pageCount": 288,
-    "coverImage": "/images/books/brave-new-world.svg",
+    "coverImage": "/images/books/brave-new-world.png",
     "synopsis": "Viễn cảnh tương lai đen tối nơi loài người được nhân bản theo giai cấp trong ống nghiệm và bị kiểm soát bằng lạc thú nhân tạo và thuốc an thần soma.",
     "themes": [
       "Technological Control",
@@ -411,7 +411,7 @@
     "period": "Modern",
     "publicationYear": 1939,
     "pageCount": 240,
-    "coverImage": "/images/books/wind-sand-stars.svg",
+    "coverImage": "/images/books/wind-sand-stars.png",
     "synopsis": "Hồi ký triết học về tình đồng đội phi công, sự mỏng manh của số phận và vẻ đẹp thiêng liêng của Trái Đất nhìn từ buồng lái trên cao.",
     "themes": [
       "Human Fraternity",
@@ -433,7 +433,7 @@
     "period": "Contemporary",
     "publicationYear": 2009,
     "pageCount": 928,
-    "coverImage": "/images/books/1q84.svg",
+    "coverImage": "/images/books/1q84.png",
     "synopsis": "Thế giới năm 1984 bị bẻ cong thành năm 1Q84 với hai mặt trăng lơ lửng trên bầu trời, nơi Aomame và Tengo tìm kiếm nhau giữa các giáo phái bí ẩn và người tí hon.",
     "themes": [
       "Parallel Realities",
@@ -455,7 +455,7 @@
     "period": "Modern",
     "publicationYear": 1926,
     "pageCount": 352,
-    "coverImage": "/images/books/the-castle.svg",
+    "coverImage": "/images/books/the-castle.png",
     "synopsis": "Chàng trắc địa viên K. đến một ngôi làng phủ tuyết và tìm mọi cách tiếp cận chính quyền tòa lâu đài bí hiểm nhưng liên tục bị chối từ bởi bức tường hành chính vô hình.",
     "themes": [
       "Unreachable Authority",
@@ -477,7 +477,7 @@
     "period": "Modern",
     "publicationYear": 1981,
     "pageCount": 128,
-    "coverImage": "/images/books/cronica.svg",
+    "coverImage": "/images/books/cronica.png",
     "synopsis": "Một vụ ám sát danh dự được báo trước cho toàn bộ cư dân thị trấn, nhưng chuỗi trùng hợp và sự thờ ơ tập thể đã khiến nó trở thành một thảm kịch không thể đảo ngược.",
     "themes": [
       "Collective Guilt",
@@ -499,7 +499,7 @@
     "period": "Modern",
     "publicationYear": 1948,
     "pageCount": 65,
-    "coverImage": "/images/books/doi-mat.svg",
+    "coverImage": "/images/books/doi-mat.png",
     "synopsis": "Tác phẩm ngắn kinh điển đặt ra vấn đề cách nhìn nhận người nông dân và thời cuộc của người trí thức trong những ngày đầu toàn quốc kháng chiến.",
     "themes": [
       "Perspective",
@@ -521,7 +521,7 @@
     "period": "Classic",
     "publicationYear": 1880,
     "pageCount": 824,
-    "coverImage": "/images/books/brothers-karamazov.svg",
+    "coverImage": "/images/books/brothers-karamazov.png",
     "synopsis": "Đỉnh cao tư tưởng thế giới xoay quanh vụ án giết cha và bốn người con trai đại diện cho các mặt đối lập: đam mê xác thịt, lý trí kiêu hãnh, đức tin thuần khiết và hận thù.",
     "themes": [
       "Existence of God",
@@ -544,7 +544,7 @@
     "period": "Modern",
     "publicationYear": 1942,
     "pageCount": 212,
-    "coverImage": "/images/books/sisyphus.svg",
+    "coverImage": "/images/books/sisyphus.png",
     "synopsis": "Luận đề triết học đặt câu hỏi liệu cuộc sống có đáng sống hay không, với biểu tượng chàng Sisyphus hạnh phúc khi không ngừng lăn tảng đá lên đỉnh núi.",
     "themes": [
       "The Absurd",
@@ -567,7 +567,7 @@
     "period": "Modern",
     "publicationYear": 1938,
     "pageCount": 232,
-    "coverImage": "/images/books/catalonia.svg",
+    "coverImage": "/images/books/catalonia.png",
     "synopsis": "Ký ức chân thực và trần trụi của George Orwell khi trực tiếp cầm súng chiến đấu trong cuộc Nội chiến Tây Ban Nha, đối mặt với sự phản bội chính trị.",
     "themes": [
       "War Reality",
@@ -589,7 +589,7 @@
     "period": "Contemporary",
     "publicationYear": 2014,
     "pageCount": 240,
-    "coverImage": "/images/books/men-without-women.svg",
+    "coverImage": "/images/books/men-without-women.png",
     "synopsis": "Tuyển tập 7 truyện ngắn tinh tế về những người đàn ông cô đơn phải học cách chấp nhận sự trống vắng sau khi người phụ nữ họ yêu rời bỏ.",
     "themes": [
       "Loss",

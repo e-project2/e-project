@@ -2,7 +2,7 @@
   {
     "_id": "auth-01",
     "name": "George Orwell",
-    "avatar": "/images/authors/george-orwell.svg",
+    "avatar": "/images/authors/george-orwell.png",
     "nationality": "British",
     "specialization": "Dystopian Fiction & Political Commentary",
     "bio": "Eric Arthur Blair, được biết đến với bút danh George Orwell, là tiểu thuyết gia, nhà viết tiểu luận và nhà phê bình người Anh nổi tiếng với các tác phẩm phản ánh áp bức xã hội và chuyên chế.",
@@ -16,7 +16,7 @@
   {
     "_id": "auth-02",
     "name": "Antoine de Saint-Exupéry",
-    "avatar": "/images/authors/antoine-de-saint-exupery.svg",
+    "avatar": "/images/authors/antoine-de-saint-exupery.png",
     "nationality": "French",
     "specialization": "Philosophical Allegory & Aviation Literature",
     "bio": "Nhà văn, nhà thơ và phi công tiên phong người Pháp. Tác phẩm của ông kết hợp sâu sắc giữa triết lý nhân sinh, tình yêu thương và sự ngây thơ thuần khiết của trẻ thơ.",
@@ -31,7 +31,7 @@
   {
     "_id": "auth-03",
     "name": "Haruki Murakami",
-    "avatar": "/images/authors/haruki-murakami.svg",
+    "avatar": "/images/authors/haruki-murakami.png",
     "nationality": "Japanese",
     "specialization": "Magical Realism & Contemporary Fiction",
     "bio": "Nhà văn đương đại hàng đầu Nhật Bản với lối viết siêu thực huyền ảo, khai thác nỗi cô đơn, những tầng sâu tâm lý và các thế giới song song ẩn sau đời sống đô thị.",
@@ -46,7 +46,7 @@
   {
     "_id": "auth-04",
     "name": "Franz Kafka",
-    "avatar": "/images/authors/franz-kafka.svg",
+    "avatar": "/images/authors/franz-kafka.png",
     "nationality": "German",
     "specialization": "Existential Fiction & Absurdist Literature",
     "bio": "Tiểu thuyết gia vĩ đại người Do Thái viết bằng tiếng Đức thế kỷ 20, nổi tiếng với các tác phẩm khắc họa sự ngột ngạt của bộ máy quan liêu và sự phi lý của tồn tại con người.",
@@ -60,7 +60,7 @@
   {
     "_id": "auth-05",
     "name": "Gabriel García Márquez",
-    "avatar": "/images/authors/gabriel-garcia-marquez.svg",
+    "avatar": "/images/authors/gabriel-garcia-marquez.png",
     "nationality": "Spanish / Colombian",
     "specialization": "Magical Realism & Latin American Epic",
     "bio": "Nhà văn người Colombia đoạt giải Nobel Văn học năm 1982, người tiên phong đưa trường phái Hiện thực huyền ảo (Magic Realism) trở thành hiện tượng văn học toàn cầu.",
@@ -74,7 +74,7 @@
   {
     "_id": "auth-06",
     "name": "Nam Cao",
-    "avatar": "/images/authors/nam-cao.svg",
+    "avatar": "/images/authors/nam-cao.png",
     "nationality": "Vietnamese",
     "specialization": "Realistic Social Critique & Psychology",
     "bio": "Cây bút hiện thực xuất sắc của văn học Việt Nam trước 1945, với cái nhìn xót xa sâu sắc về bi kịch tha hóa của người nông dân và nỗi đau tinh thần của tầng lớp trí thức nghèo.",
@@ -88,7 +88,7 @@
   {
     "_id": "auth-07",
     "name": "Fyodor Dostoevsky",
-    "avatar": "/images/authors/fyodor-dostoevsky.svg",
+    "avatar": "/images/authors/fyodor-dostoevsky.png",
     "nationality": "Russian",
     "specialization": "Psychological Realism & Philosophical Novel",
     "bio": "Bậc thầy tiểu thuyết tâm lý người Nga, khai phá các xung đột đạo đức, đức tin, tội lỗi và sự chuộc tội trong những tầng sâu thẳm nhất của tâm hồn con người.",
@@ -102,7 +102,7 @@
   {
     "_id": "auth-08",
     "name": "Albert Camus",
-    "avatar": "/images/authors/albert-camus.svg",
+    "avatar": "/images/authors/albert-camus.png",
     "nationality": "French",
     "specialization": "Absurdism & Existential Ethics",
     "bio": "Nhà triết học và văn hào Pháp đoạt giải Nobel Văn học năm 1957. Ông đặt nền móng cho Triết học Phi lý (The Absurd) và tinh thần phản kháng bất khuất của con người.",
