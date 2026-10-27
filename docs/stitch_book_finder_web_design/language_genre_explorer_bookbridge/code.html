@@ -1,551 +1,1630 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary": "#240f00", "on-tertiary-fixed": "#2f1500", "inverse-on-surface": "#eaf1ff", "outline": "#75777d", "on-secondary-fixed-variant": "#004395", "surface-bright": "#f8f9ff", "text-primary": "#0F172A", "on-tertiary-fixed-variant": "#6e3900", "on-secondary-container": "#fefcff", "on-tertiary-container": "#d97705", "surface-container-low": "#eff4ff", "surface-container-lowest": "#ffffff", "on-secondary-fixed": "#001a42", "surface-container-high": "#dce9ff", "surface-tint": "#545f73", "on-error-container": "#93000a", "border-subtle": "#E2E8F0", "background": "#f8f9ff", "on-surface-variant": "#45474c", "surface-canvas": "#F8FAFC", "on-background": "#0b1c30", "secondary": "#0058be", "surface-container": "#e5eeff", "primary-fixed": "#d8e3fb", "accent-indigo": "#6366F1", "on-error": "#ffffff", "tertiary-container": "#422000", "status-danger": "#EF4444", "error": "#ba1a1a", "on-surface": "#0b1c30", "surface-variant": "#d3e4fe", "accent-gold-light": "#F59E0B", "surface": "#f8f9ff", "outline-variant": "#c5c6cd", "secondary-fixed": "#d8e2ff", "primary-container": "#1e293b", "on-secondary": "#ffffff", "secondary-container": "#2170e4", "primary-fixed-dim": "#bcc7de", "on-primary": "#ffffff", "primary": "#091426", "on-primary-fixed": "#111c2d", "surface-dim": "#cbdbf5", "inverse-primary": "#bcc7de", "status-info": "#0EA5E9", "on-primary-container": "#8590a6", "secondary-fixed-dim": "#adc6ff", "on-tertiary": "#ffffff", "surface-container-highest": "#d3e4fe", "status-success": "#10B981", "on-primary-fixed-variant": "#3c475a", "inverse-surface": "#213145", "tertiary-fixed-dim": "#ffb77d", "tertiary-fixed": "#ffdcc3", "error-container": "#ffdad6", "surface-card": "#FFFFFF" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1.5rem", "space-xl": "2.5rem", "margin-mobile": "1.25rem", "gutter-mobile": "1rem", "margin": "3rem", "gutter": "1.5rem", "space-md": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem" }, "fontFamily": { "display-hero-mobile": [ "Playfair Display" ], "title-md": [ "Plus Jakarta Sans" ], "headline-lg": [ "Playfair Display" ], "display-hero": [ "Playfair Display" ], "headline-sm": [ "Playfair Display" ], "label-md": [ "Plus Jakarta Sans" ], "body-md": [ "Plus Jakarta Sans" ], "label-sm": [ "Plus Jakarta Sans" ], "headline-md": [ "Playfair Display" ], "headline-lg-mobile": [ "Playfair Display" ], "body-lg": [ "Plus Jakarta Sans" ], "body-sm": [ "Plus Jakarta Sans" ] }, "fontSize": { "display-hero-mobile": [ "2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.01em", "fontWeight": "700" } ], "title-md": [ "1.125rem", { "lineHeight": "1.625rem", "fontWeight": "600" } ], "headline-lg": [ "2.5rem", { "lineHeight": "3rem", "letterSpacing": "-0.015em", "fontWeight": "700" } ], "display-hero": [ "3.5rem", { "lineHeight": "4.25rem", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "headline-sm": [ "1.25rem", { "lineHeight": "1.75rem", "fontWeight": "600" } ], "label-md": [ "0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "600" } ], "body-md": [ "1rem", { "lineHeight": "1.625rem", "fontWeight": "400" } ], "label-sm": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.025em", "fontWeight": "600" } ], "headline-md": [ "1.75rem", { "lineHeight": "2.25rem", "fontWeight": "600" } ], "headline-lg-mobile": [ "1.75rem", { "lineHeight": "2.25rem", "fontWeight": "700" } ], "body-lg": [ "1.125rem", { "lineHeight": "1.875rem", "fontWeight": "400" } ], "body-sm": [ "0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" } ] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-surface-variant selection:text-primary"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1440px] mx-auto px-6 lg:px-12 flex items-center justify-between gap-gutter"><div class="flex items-center gap-4 shrink-0"><img alt="BookBridge Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEDzO_GBPm8isEUkTqlc0rXu0_CDktn0QcjBDQc8lwZ2oQyRpG9MkPFYhbvUKXmBhdK2GJgYVYAMhG2Vx6oj7aqnEb4cuLSFnSJK5356BnlaaQZo6m4C2iQsyTsxqQXmfC8dHRL30N8OSPQzTEYbxyaJZy0d3kun6iP7ROH7IBhuU9vkHTy06UR-JLKph1gjAHaH89kBMePOEsWbliDR50dnSmBfid-LCRtFZaQ"><span class="font-headline-md text-headline-md tracking-tight text-primary">BookBridge</span></div><nav class="hidden xl:flex items-center gap-1" data-active-classes="text-primary font-bold bg-surface-container rounded-full"><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="home---bookbridge-literary-platform" href="#">Home</a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="directory" href="#">Directory</a><a aria-current="page" class="px-3 py-1.5 transition-colors text-primary font-bold bg-surface-container rounded-full" data-path="language-&amp;-genre-explorer-—-bookbridge" href="#">Explorer</a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="featured-reading-collections-—-bookbridge" href="#">Collections</a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="my-library" href="#">My Library</a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">About</a><a class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-3 shrink-0"><button aria-label="Search Catalog" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">search</span></button><button aria-label="Toggle Theme" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">light_mode</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
-<!-- Subtle Ambient Glow Canvas Decor -->
-<div class="relative w-full overflow-hidden">
-<div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[850px] h-[340px] bg-gradient-to-r from-secondary-fixed/30 via-tertiary-fixed/20 to-primary-fixed/30 blur-3xl pointer-events-none rounded-full"></div>
-<!-- Editorial Header Block -->
-<section class="relative max-w-[1440px] mx-auto px-6 lg:px-12 pt-10 pb-8 w-full">
-<div class="flex flex-col items-center text-center max-w-4xl mx-auto space-y-4">
-<!-- Badge -->
-<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-high text-primary shadow-sm">
-<span class="material-symbols-outlined text-[16px] text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">explore</span>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Multilingual &amp; Thematic Discovery</span>
-</div>
-<!-- Main Title -->
-<h1 class="font-display-hero text-display-hero text-primary tracking-tight">
-          Language &amp; Genre Explorer
-        </h1>
-<!-- Subtitle -->
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
-          Traverse literary canons across 5+ world languages and discover timeless works curated by philosophical genres, cultural movements, and linguistic reading depths.
-        </p>
-<!-- Fast Filter / Search Input -->
-<div class="w-full max-w-xl pt-3">
-<div class="relative flex items-center bg-surface-card rounded-full shadow-md shadow-primary/5 transition-all focus-within:shadow-lg">
-<span class="material-symbols-outlined text-on-surface-variant ml-4 text-[22px]">search</span>
-<input class="w-full bg-transparent px-3 py-3.5 font-body-sm text-body-sm text-primary placeholder:text-on-surface-variant/70 focus:outline-none" id="global-explorer-search" placeholder="Search by work title, literary school, or author..." type="text">
-<button class="mr-2 px-5 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">
-              Discover
-            </button>
-</div>
-</div>
-</div>
-</section>
-<!-- Section 1: Interactive Language Selector -->
-<section class="max-w-[1440px] mx-auto px-6 lg:px-12 py-8 w-full">
-<div class="flex items-center justify-between mb-6">
-<div>
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-tertiary-container font-semibold">Step 01 / Select Canonical Language</span>
-<h2 class="font-headline-md text-headline-md text-primary mt-1">Linguistic Traditions</h2>
-</div>
-<span class="hidden sm:inline-flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant bg-surface-container-low px-3 py-1.5 rounded-full">
-<span class="material-symbols-outlined text-[15px]">translate</span>
-          5 Traditions Indexed
-        </span>
-</div>
-<!-- Language Cards Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-<!-- 1. Tiếng Việt (Active) -->
-<div class="language-card cursor-pointer group rounded-xl p-5 bg-surface-card shadow-md transition-all duration-300 hover:-translate-y-1 relative overflow-hidden ring-2 ring-primary">
-<div class="absolute top-0 right-0 px-2.5 py-1 bg-primary text-on-primary font-label-sm text-[10px] rounded-bl-lg font-bold tracking-wider uppercase flex items-center gap-1">
-<span class="w-1.5 h-1.5 rounded-full bg-status-success inline-block"></span>
-            Active
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              tertiary: "#240f00",
+              "on-tertiary-fixed": "#2f1500",
+              "inverse-on-surface": "#eaf1ff",
+              outline: "#75777d",
+              "on-secondary-fixed-variant": "#004395",
+              "surface-bright": "#f8f9ff",
+              "text-primary": "#0F172A",
+              "on-tertiary-fixed-variant": "#6e3900",
+              "on-secondary-container": "#fefcff",
+              "on-tertiary-container": "#d97705",
+              "surface-container-low": "#eff4ff",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed": "#001a42",
+              "surface-container-high": "#dce9ff",
+              "surface-tint": "#545f73",
+              "on-error-container": "#93000a",
+              "border-subtle": "#E2E8F0",
+              background: "#f8f9ff",
+              "on-surface-variant": "#45474c",
+              "surface-canvas": "#F8FAFC",
+              "on-background": "#0b1c30",
+              secondary: "#0058be",
+              "surface-container": "#e5eeff",
+              "primary-fixed": "#d8e3fb",
+              "accent-indigo": "#6366F1",
+              "on-error": "#ffffff",
+              "tertiary-container": "#422000",
+              "status-danger": "#EF4444",
+              error: "#ba1a1a",
+              "on-surface": "#0b1c30",
+              "surface-variant": "#d3e4fe",
+              "accent-gold-light": "#F59E0B",
+              surface: "#f8f9ff",
+              "outline-variant": "#c5c6cd",
+              "secondary-fixed": "#d8e2ff",
+              "primary-container": "#1e293b",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#2170e4",
+              "primary-fixed-dim": "#bcc7de",
+              "on-primary": "#ffffff",
+              primary: "#091426",
+              "on-primary-fixed": "#111c2d",
+              "surface-dim": "#cbdbf5",
+              "inverse-primary": "#bcc7de",
+              "status-info": "#0EA5E9",
+              "on-primary-container": "#8590a6",
+              "secondary-fixed-dim": "#adc6ff",
+              "on-tertiary": "#ffffff",
+              "surface-container-highest": "#d3e4fe",
+              "status-success": "#10B981",
+              "on-primary-fixed-variant": "#3c475a",
+              "inverse-surface": "#213145",
+              "tertiary-fixed-dim": "#ffb77d",
+              "tertiary-fixed": "#ffdcc3",
+              "error-container": "#ffdad6",
+              "surface-card": "#FFFFFF",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "space-lg": "1.5rem",
+              "space-xl": "2.5rem",
+              "margin-mobile": "1.25rem",
+              "gutter-mobile": "1rem",
+              margin: "3rem",
+              gutter: "1.5rem",
+              "space-md": "1rem",
+              "space-xs": "0.25rem",
+              "space-sm": "0.5rem",
+            },
+            fontFamily: {
+              "display-hero-mobile": ["Playfair Display"],
+              "title-md": ["Plus Jakarta Sans"],
+              "headline-lg": ["Playfair Display"],
+              "display-hero": ["Playfair Display"],
+              "headline-sm": ["Playfair Display"],
+              "label-md": ["Plus Jakarta Sans"],
+              "body-md": ["Plus Jakarta Sans"],
+              "label-sm": ["Plus Jakarta Sans"],
+              "headline-md": ["Playfair Display"],
+              "headline-lg-mobile": ["Playfair Display"],
+              "body-lg": ["Plus Jakarta Sans"],
+              "body-sm": ["Plus Jakarta Sans"],
+            },
+            fontSize: {
+              "display-hero-mobile": [
+                "2.25rem",
+                {
+                  lineHeight: "2.75rem",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "title-md": [
+                "1.125rem",
+                { lineHeight: "1.625rem", fontWeight: "600" },
+              ],
+              "headline-lg": [
+                "2.5rem",
+                {
+                  lineHeight: "3rem",
+                  letterSpacing: "-0.015em",
+                  fontWeight: "700",
+                },
+              ],
+              "display-hero": [
+                "3.5rem",
+                {
+                  lineHeight: "4.25rem",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-sm": [
+                "1.25rem",
+                { lineHeight: "1.75rem", fontWeight: "600" },
+              ],
+              "label-md": [
+                "0.875rem",
+                {
+                  lineHeight: "1.25rem",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-md": [
+                "1rem",
+                { lineHeight: "1.625rem", fontWeight: "400" },
+              ],
+              "label-sm": [
+                "0.75rem",
+                {
+                  lineHeight: "1rem",
+                  letterSpacing: "0.025em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-md": [
+                "1.75rem",
+                { lineHeight: "2.25rem", fontWeight: "600" },
+              ],
+              "headline-lg-mobile": [
+                "1.75rem",
+                { lineHeight: "2.25rem", fontWeight: "700" },
+              ],
+              "body-lg": [
+                "1.125rem",
+                { lineHeight: "1.875rem", fontWeight: "400" },
+              ],
+              "body-sm": [
+                "0.875rem",
+                { lineHeight: "1.375rem", fontWeight: "400" },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-surface-variant selection:text-primary"
+  >
+    <header
+      class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"
+    >
+      <div
+        class="h-20 max-w-[1440px] mx-auto px-6 lg:px-12 flex items-center justify-between gap-gutter"
+      >
+        <div class="flex items-center gap-4 shrink-0">
+          <img
+            alt="BookBridge Logo"
+            class="h-8 w-auto object-contain"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEDzO_GBPm8isEUkTqlc0rXu0_CDktn0QcjBDQc8lwZ2oQyRpG9MkPFYhbvUKXmBhdK2GJgYVYAMhG2Vx6oj7aqnEb4cuLSFnSJK5356BnlaaQZo6m4C2iQsyTsxqQXmfC8dHRL30N8OSPQzTEYbxyaJZy0d3kun6iP7ROH7IBhuU9vkHTy06UR-JLKph1gjAHaH89kBMePOEsWbliDR50dnSmBfid-LCRtFZaQ"
+          /><span
+            class="font-headline-md text-headline-md tracking-tight text-primary"
+            >BookBridge</span
+          >
+        </div>
+        <nav
+          class="hidden xl:flex items-center gap-1"
+          data-active-classes="text-primary font-bold bg-surface-container rounded-full"
+        >
+          <a
+            class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="home---bookbridge-literary-platform"
+            href="#"
+            >Home</a
+          ><a
+            class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="directory"
+            href="#"
+            >Directory</a
+          ><a
+            aria-current="page"
+            class="px-3 py-1.5 transition-colors text-primary font-bold bg-surface-container rounded-full"
+            data-path="language-&amp;-genre-explorer-—-bookbridge"
+            href="#"
+            >Explorer</a
+          ><a
+            class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="featured-reading-collections-—-bookbridge"
+            href="#"
+            >Collections</a
+          ><a
+            class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="my-library"
+            href="#"
+            >My Library</a
+          ><a
+            class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="about"
+            href="#"
+            >About</a
+          ><a
+            class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="contact"
+            href="#"
+            >Contact</a
+          >
+        </nav>
+        <div class="flex items-center gap-3 shrink-0">
+          <button
+            aria-label="Search Catalog"
+            class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[20px]"
+              >search</span
+            ></button
+          ><button
+            aria-label="Toggle Theme"
+            class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[20px]"
+              >light_mode</span
+            >
+          </button>
+          <div
+            class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"
+          >
+            <span class="material-symbols-outlined text-on-primary text-[18px]"
+              >person</span
+            >
           </div>
-<div class="flex items-center gap-3 mb-3">
-<div class="w-9 h-9 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed font-headline-sm flex items-center justify-center font-bold">
-              VN
+        </div>
+      </div>
+    </header>
+    <main class="w-full pt-20 bg-surface">
+      <div class="flex flex-col w-full">
+        <div class="relative w-full overflow-hidden">
+          <div
+            class="absolute -top-32 left-1/2 -translate-x-1/2 w-[850px] h-[340px] bg-gradient-to-r from-secondary-fixed/30 via-tertiary-fixed/20 to-primary-fixed/30 blur-3xl pointer-events-none rounded-full"
+          ></div>
+
+          <section
+            class="relative max-w-[1440px] mx-auto px-6 lg:px-12 pt-10 pb-8 w-full"
+          >
+            <div
+              class="flex flex-col items-center text-center max-w-4xl mx-auto space-y-4"
+            >
+              <div
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-high text-primary shadow-sm"
+              >
+                <span
+                  class="material-symbols-outlined text-[16px] text-on-tertiary-container"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >explore</span
+                >
+                <span
+                  class="font-label-sm text-label-sm uppercase tracking-widest text-primary"
+                  >Multilingual &amp; Thematic Discovery</span
+                >
+              </div>
+
+              <h1
+                class="font-display-hero text-display-hero text-primary tracking-tight"
+              >
+                Language &amp; Genre Explorer
+              </h1>
+
+              <p
+                class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed"
+              >
+                Traverse literary canons across 5+ world languages and discover
+                timeless works curated by philosophical genres, cultural
+                movements, and linguistic reading depths.
+              </p>
+
+              <div class="w-full max-w-xl pt-3">
+                <div
+                  class="relative flex items-center bg-surface-card rounded-full shadow-md shadow-primary/5 transition-all focus-within:shadow-lg"
+                >
+                  <span
+                    class="material-symbols-outlined text-on-surface-variant ml-4 text-[22px]"
+                    >search</span
+                  >
+                  <input
+                    class="w-full bg-transparent px-3 py-3.5 font-body-sm text-body-sm text-primary placeholder:text-on-surface-variant/70 focus:outline-none"
+                    id="global-explorer-search"
+                    placeholder="Search by work title, literary school, or author..."
+                    type="text"
+                  />
+                  <button
+                    class="mr-2 px-5 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm"
+                  >
+                    Discover
+                  </button>
+                </div>
+              </div>
             </div>
-<div>
-<h3 class="font-title-md text-title-md text-primary">Tiếng Việt</h3>
-<p class="font-label-sm text-label-sm text-on-surface-variant">Vietnamese Canon</p>
-</div>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-4 leading-snug">
-            Epic poetry, colonial realism &amp; modern introspective literature.
-          </p>
-<div class="flex items-center justify-between pt-2">
-<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-primary font-semibold">8 Titles</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">A1 — C2</span>
-</div>
-</div>
-<!-- 2. English -->
-<div class="language-card cursor-pointer group rounded-xl p-5 bg-surface-card shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
-<div class="flex items-center gap-3 mb-3">
-<div class="w-9 h-9 rounded-lg bg-secondary-fixed text-on-secondary-fixed font-headline-sm flex items-center justify-center font-bold">
-              EN
+          </section>
+
+          <section class="max-w-[1440px] mx-auto px-6 lg:px-12 py-8 w-full">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <span
+                  class="font-label-sm text-label-sm uppercase tracking-wider text-on-tertiary-container font-semibold"
+                  >Step 01 / Select Canonical Language</span
+                >
+                <h2 class="font-headline-md text-headline-md text-primary mt-1">
+                  Linguistic Traditions
+                </h2>
+              </div>
+              <span
+                class="hidden sm:inline-flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant bg-surface-container-low px-3 py-1.5 rounded-full"
+              >
+                <span class="material-symbols-outlined text-[15px]"
+                  >translate</span
+                >
+                5 Traditions Indexed
+              </span>
             </div>
-<div>
-<h3 class="font-title-md text-title-md text-primary">English</h3>
-<p class="font-label-sm text-label-sm text-on-surface-variant">Anglophone Canon</p>
-</div>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-4 leading-snug">
-            Dystopian political allegory, Southern Gothic &amp; 20th century masterpieces.
-          </p>
-<div class="flex items-center justify-between pt-2">
-<span class="px-2.5 py-1 rounded-full bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant">6 Titles</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">B1 — C2</span>
-</div>
-</div>
-<!-- 3. Français -->
-<div class="language-card cursor-pointer group rounded-xl p-5 bg-surface-card shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
-<div class="flex items-center gap-3 mb-3">
-<div class="w-9 h-9 rounded-lg bg-surface-container-high text-primary font-headline-sm flex items-center justify-center font-bold">
-              FR
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              <div
+                class="language-card cursor-pointer group rounded-xl p-5 bg-surface-card shadow-md transition-all duration-300 hover:-translate-y-1 relative overflow-hidden ring-2 ring-primary"
+              >
+                <div
+                  class="absolute top-0 right-0 px-2.5 py-1 bg-primary text-on-primary font-label-sm text-[10px] rounded-bl-lg font-bold tracking-wider uppercase flex items-center gap-1"
+                >
+                  <span
+                    class="w-1.5 h-1.5 rounded-full bg-status-success inline-block"
+                  ></span>
+                  Active
+                </div>
+                <div class="flex items-center gap-3 mb-3">
+                  <div
+                    class="w-9 h-9 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed font-headline-sm flex items-center justify-center font-bold"
+                  >
+                    VN
+                  </div>
+                  <div>
+                    <h3 class="font-title-md text-title-md text-primary">
+                      Tiếng Việt
+                    </h3>
+                    <p
+                      class="font-label-sm text-label-sm text-on-surface-variant"
+                    >
+                      Vietnamese Canon
+                    </p>
+                  </div>
+                </div>
+                <p
+                  class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-4 leading-snug"
+                >
+                  Epic poetry, colonial realism &amp; modern introspective
+                  literature.
+                </p>
+                <div class="flex items-center justify-between pt-2">
+                  <span
+                    class="px-2.5 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-primary font-semibold"
+                    >8 Titles</span
+                  >
+                  <span
+                    class="font-label-sm text-label-sm text-on-surface-variant"
+                    >A1 — C2</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="language-card cursor-pointer group rounded-xl p-5 bg-surface-card shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
+              >
+                <div class="flex items-center gap-3 mb-3">
+                  <div
+                    class="w-9 h-9 rounded-lg bg-secondary-fixed text-on-secondary-fixed font-headline-sm flex items-center justify-center font-bold"
+                  >
+                    EN
+                  </div>
+                  <div>
+                    <h3 class="font-title-md text-title-md text-primary">
+                      English
+                    </h3>
+                    <p
+                      class="font-label-sm text-label-sm text-on-surface-variant"
+                    >
+                      Anglophone Canon
+                    </p>
+                  </div>
+                </div>
+                <p
+                  class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-4 leading-snug"
+                >
+                  Dystopian political allegory, Southern Gothic &amp; 20th
+                  century masterpieces.
+                </p>
+                <div class="flex items-center justify-between pt-2">
+                  <span
+                    class="px-2.5 py-1 rounded-full bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant"
+                    >6 Titles</span
+                  >
+                  <span
+                    class="font-label-sm text-label-sm text-on-surface-variant"
+                    >B1 — C2</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="language-card cursor-pointer group rounded-xl p-5 bg-surface-card shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
+              >
+                <div class="flex items-center gap-3 mb-3">
+                  <div
+                    class="w-9 h-9 rounded-lg bg-surface-container-high text-primary font-headline-sm flex items-center justify-center font-bold"
+                  >
+                    FR
+                  </div>
+                  <div>
+                    <h3 class="font-title-md text-title-md text-primary">
+                      Français
+                    </h3>
+                    <p
+                      class="font-label-sm text-label-sm text-on-surface-variant"
+                    >
+                      French Classics
+                    </p>
+                  </div>
+                </div>
+                <p
+                  class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-4 leading-snug"
+                >
+                  Philosophical existentialism, poetic novellas &amp; 19th
+                  century realism.
+                </p>
+                <div class="flex items-center justify-between pt-2">
+                  <span
+                    class="px-2.5 py-1 rounded-full bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant"
+                    >3 Titles</span
+                  >
+                  <span
+                    class="font-label-sm text-label-sm text-on-surface-variant"
+                    >A2 — C1</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="language-card cursor-pointer group rounded-xl p-5 bg-surface-card shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
+              >
+                <div class="flex items-center gap-3 mb-3">
+                  <div
+                    class="w-9 h-9 rounded-lg bg-primary-fixed text-on-primary-fixed font-headline-sm flex items-center justify-center font-bold"
+                  >
+                    JP
+                  </div>
+                  <div>
+                    <h3 class="font-title-md text-title-md text-primary">
+                      日本語
+                    </h3>
+                    <p
+                      class="font-label-sm text-label-sm text-on-surface-variant"
+                    >
+                      Japanese Literature
+                    </p>
+                  </div>
+                </div>
+                <p
+                  class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-4 leading-snug"
+                >
+                  Melancholic post-war fiction, psychological tension &amp;
+                  modern magic realism.
+                </p>
+                <div class="flex items-center justify-between pt-2">
+                  <span
+                    class="px-2.5 py-1 rounded-full bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant"
+                    >3 Titles</span
+                  >
+                  <span
+                    class="font-label-sm text-label-sm text-on-surface-variant"
+                    >N3 — N1</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="language-card cursor-pointer group rounded-xl p-5 bg-surface-card shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
+              >
+                <div class="flex items-center gap-3 mb-3">
+                  <div
+                    class="w-9 h-9 rounded-lg bg-surface-variant text-primary font-headline-sm flex items-center justify-center font-bold"
+                  >
+                    ES
+                  </div>
+                  <div>
+                    <h3 class="font-title-md text-title-md text-primary">
+                      Español
+                    </h3>
+                    <p
+                      class="font-label-sm text-label-sm text-on-surface-variant"
+                    >
+                      Ibero-American
+                    </p>
+                  </div>
+                </div>
+                <p
+                  class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-4 leading-snug"
+                >
+                  Magical realism, philosophical labyrinths &amp; Latin American
+                  boom.
+                </p>
+                <div class="flex items-center justify-between pt-2">
+                  <span
+                    class="px-2.5 py-1 rounded-full bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant"
+                    >3 Titles</span
+                  >
+                  <span
+                    class="font-label-sm text-label-sm text-on-surface-variant"
+                    >B1 — C2</span
+                  >
+                </div>
+              </div>
             </div>
-<div>
-<h3 class="font-title-md text-title-md text-primary">Français</h3>
-<p class="font-label-sm text-label-sm text-on-surface-variant">French Classics</p>
-</div>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-4 leading-snug">
-            Philosophical existentialism, poetic novellas &amp; 19th century realism.
-          </p>
-<div class="flex items-center justify-between pt-2">
-<span class="px-2.5 py-1 rounded-full bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant">3 Titles</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">A2 — C1</span>
-</div>
-</div>
-<!-- 4. 日本語 -->
-<div class="language-card cursor-pointer group rounded-xl p-5 bg-surface-card shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
-<div class="flex items-center gap-3 mb-3">
-<div class="w-9 h-9 rounded-lg bg-primary-fixed text-on-primary-fixed font-headline-sm flex items-center justify-center font-bold">
-              JP
+          </section>
+
+          <section class="max-w-[1440px] mx-auto px-6 lg:px-12 py-4 w-full">
+            <div class="bg-surface-card rounded-2xl p-6 shadow-sm space-y-5">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span
+                    class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold"
+                    >Thematic Frameworks &amp; Genres</span
+                  >
+                  <span
+                    class="font-label-sm text-label-sm text-on-tertiary-container cursor-pointer hover:underline"
+                    >Reset Filters</span
+                  >
+                </div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <button
+                    class="px-4 py-2 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold shadow-sm transition-colors"
+                  >
+                    All Genres (20)
+                  </button>
+                  <button
+                    class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high font-label-sm text-label-sm font-medium transition-colors"
+                  >
+                    Philosophical Fiction (5)
+                  </button>
+                  <button
+                    class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high font-label-sm text-label-sm font-medium transition-colors"
+                  >
+                    Dystopian &amp; Sci-Fi (3)
+                  </button>
+                  <button
+                    class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high font-label-sm text-label-sm font-medium transition-colors"
+                  >
+                    Epic Poetry &amp; Verse (2)
+                  </button>
+                  <button
+                    class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high font-label-sm text-label-sm font-medium transition-colors"
+                  >
+                    Classic Realism (4)
+                  </button>
+                  <button
+                    class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high font-label-sm text-label-sm font-medium transition-colors"
+                  >
+                    Magical Realism (3)
+                  </button>
+                  <button
+                    class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high font-label-sm text-label-sm font-medium transition-colors"
+                  >
+                    Psychological Drama (3)
+                  </button>
+                </div>
+              </div>
+
+              <div class="h-px bg-surface-container-high w-full"></div>
+
+              <div
+                class="flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+              >
+                <div class="flex items-center gap-2">
+                  <span
+                    class="material-symbols-outlined text-[18px] text-on-tertiary-container"
+                    >auto_stories</span
+                  >
+                  <span
+                    class="font-label-sm text-label-sm text-primary font-semibold"
+                    >Reading Depth (CEFR/Proficiency):</span
+                  >
+                </div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <button
+                    class="px-3 py-1.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold"
+                  >
+                    All Levels
+                  </button>
+                  <button
+                    class="px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-primary font-label-sm text-label-sm"
+                  >
+                    Beginner (A1–B1)
+                  </button>
+                  <button
+                    class="px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-primary font-label-sm text-label-sm"
+                  >
+                    Intermediate (B2)
+                  </button>
+                  <button
+                    class="px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-primary font-label-sm text-label-sm"
+                  >
+                    Advanced Academic (C1–C2)
+                  </button>
+                </div>
+              </div>
             </div>
-<div>
-<h3 class="font-title-md text-title-md text-primary">日本語</h3>
-<p class="font-label-sm text-label-sm text-on-surface-variant">Japanese Literature</p>
-</div>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-4 leading-snug">
-            Melancholic post-war fiction, psychological tension &amp; modern magic realism.
-          </p>
-<div class="flex items-center justify-between pt-2">
-<span class="px-2.5 py-1 rounded-full bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant">3 Titles</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">N3 — N1</span>
-</div>
-</div>
-<!-- 5. Español -->
-<div class="language-card cursor-pointer group rounded-xl p-5 bg-surface-card shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
-<div class="flex items-center gap-3 mb-3">
-<div class="w-9 h-9 rounded-lg bg-surface-variant text-primary font-headline-sm flex items-center justify-center font-bold">
-              ES
+          </section>
+
+          <section class="max-w-[1440px] mx-auto px-6 lg:px-12 py-8 w-full">
+            <div
+              class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8"
+            >
+              <div>
+                <span
+                  class="font-label-sm text-label-sm uppercase tracking-wider text-on-tertiary-container font-semibold"
+                  >Curated Index</span
+                >
+                <h2
+                  class="font-headline-md text-headline-md text-primary mt-0.5"
+                >
+                  Exploring World Literature in Vietnamese &amp; All Genres
+                </h2>
+              </div>
+              <div class="flex items-center gap-3">
+                <span
+                  class="px-3.5 py-1.5 rounded-full bg-surface-card shadow-sm font-label-md text-label-md text-primary font-bold"
+                >
+                  8 Titles Found
+                </span>
+                <button
+                  class="p-2 rounded-full bg-surface-card shadow-sm text-on-surface-variant hover:text-primary"
+                >
+                  <span class="material-symbols-outlined text-[20px]"
+                    >sort</span
+                  >
+                </button>
+              </div>
             </div>
-<div>
-<h3 class="font-title-md text-title-md text-primary">Español</h3>
-<p class="font-label-sm text-label-sm text-on-surface-variant">Ibero-American</p>
-</div>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-4 leading-snug">
-            Magical realism, philosophical labyrinths &amp; Latin American boom.
-          </p>
-<div class="flex items-center justify-between pt-2">
-<span class="px-2.5 py-1 rounded-full bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant">3 Titles</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">B1 — C2</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Section 2: Genre & Thematic Exploration Filter Bar -->
-<section class="max-w-[1440px] mx-auto px-6 lg:px-12 py-4 w-full">
-<div class="bg-surface-card rounded-2xl p-6 shadow-sm space-y-5">
-<!-- Top row: Genre filters -->
-<div class="space-y-3">
-<div class="flex items-center justify-between">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Thematic Frameworks &amp; Genres</span>
-<span class="font-label-sm text-label-sm text-on-tertiary-container cursor-pointer hover:underline">Reset Filters</span>
-</div>
-<div class="flex flex-wrap items-center gap-2">
-<button class="px-4 py-2 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold shadow-sm transition-colors">
-              All Genres (20)
-            </button>
-<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high font-label-sm text-label-sm font-medium transition-colors">
-              Philosophical Fiction (5)
-            </button>
-<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high font-label-sm text-label-sm font-medium transition-colors">
-              Dystopian &amp; Sci-Fi (3)
-            </button>
-<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high font-label-sm text-label-sm font-medium transition-colors">
-              Epic Poetry &amp; Verse (2)
-            </button>
-<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high font-label-sm text-label-sm font-medium transition-colors">
-              Classic Realism (4)
-            </button>
-<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high font-label-sm text-label-sm font-medium transition-colors">
-              Magical Realism (3)
-            </button>
-<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high font-label-sm text-label-sm font-medium transition-colors">
-              Psychological Drama (3)
-            </button>
-</div>
-</div>
-<!-- Divider line through background shift -->
-<div class="h-px bg-surface-container-high w-full"></div>
-<!-- Bottom row: Reading Level Chips -->
-<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[18px] text-on-tertiary-container">auto_stories</span>
-<span class="font-label-sm text-label-sm text-primary font-semibold">Reading Depth (CEFR/Proficiency):</span>
-</div>
-<div class="flex flex-wrap items-center gap-2">
-<button class="px-3 py-1.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">
-              All Levels
-            </button>
-<button class="px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-primary font-label-sm text-label-sm">
-              Beginner (A1–B1)
-            </button>
-<button class="px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-primary font-label-sm text-label-sm">
-              Intermediate (B2)
-            </button>
-<button class="px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-primary font-label-sm text-label-sm">
-              Advanced Academic (C1–C2)
-            </button>
-</div>
-</div>
-</div>
-</section>
-<!-- Section 3: Explorer Dynamic Results Grid -->
-<section class="max-w-[1440px] mx-auto px-6 lg:px-12 py-8 w-full">
-<!-- Grid Header -->
-<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8">
-<div>
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-tertiary-container font-semibold">Curated Index</span>
-<h2 class="font-headline-md text-headline-md text-primary mt-0.5">
-            Exploring World Literature in Vietnamese &amp; All Genres
-          </h2>
-</div>
-<div class="flex items-center gap-3">
-<span class="px-3.5 py-1.5 rounded-full bg-surface-card shadow-sm font-label-md text-label-md text-primary font-bold">
-            8 Titles Found
-          </span>
-<button class="p-2 rounded-full bg-surface-card shadow-sm text-on-surface-variant hover:text-primary">
-<span class="material-symbols-outlined text-[20px]">sort</span>
-</button>
-</div>
-</div>
-<!-- 4-Column Responsive Cards Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-<!-- Card 1: Truyện Kiều -->
-<article class="group rounded-2xl bg-surface-card p-4 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
-<div>
-<!-- Book Cover Container (2:3 Aspect ratio) -->
-<div class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container-high mb-4 shadow-inner">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An ornate classical book cover of Truyen Kieu by Nguyen Du, featuring traditional Vietnamese gold leaf calligraphy and deep indigo silk cloth texture, elegant scholarly library aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRem44n5RebrmdxLXnIeD2BX1CwiavY3dD2I-SojxP2UxZQ4udvloDIuJSwZbphpsC0cRkgi1Wew9U-qSnFZe9x-NEDgN99ZECVRhEzAQrJzXeGDMoo8l4-ZeasgBp8eCNG9yRpP2Ii5XCh4VGg2oKWwq7KSvkw9sXcpxMw7WOYo-DhciRfp2tSSr_Vj3vmlF-gnyEyDNNScs9wdLKwNT3y3-1BZVSvw7jBxMtFw">
-<span class="absolute top-3 left-3 px-2 py-1 rounded-md bg-primary/90 text-on-primary font-label-sm text-[11px] backdrop-blur-sm shadow">
-                Vietnamese Masterpiece
-              </span>
-<button aria-label="Bookmark Truyện Kiều" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-card/90 text-primary hover:text-on-tertiary-container flex items-center justify-center backdrop-blur-sm shadow transition-colors">
-<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-</button>
-</div>
-<!-- Meta Badges -->
-<div class="flex items-center gap-2 mb-2">
-<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold">Tiếng Việt</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-[11px] text-on-surface-variant">Epic Poetry</span>
-</div>
-<!-- Title & Author -->
-<h3 class="font-title-md text-title-md text-primary font-bold line-clamp-1 group-hover:text-secondary transition-colors">Truyện Kiều</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant italic mb-2">Nguyễn Du</p>
-<div class="flex items-center gap-3 text-on-surface-variant font-label-sm text-[11px] mb-4">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">format_quote</span>3,254 verses</span>
-<span>•</span>
-<span class="text-on-tertiary-container font-semibold">A1 – C2</span>
-</div>
-</div>
-<!-- Action CTA -->
-<button class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm font-semibold transition-all flex items-center justify-center gap-1.5">
-<span>View Details</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</article>
-<!-- Card 2: Dế Mèn Phiêu Lưu Ký -->
-<article class="group rounded-2xl bg-surface-card p-4 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
-<div>
-<div class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container-high mb-4 shadow-inner">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Vintage woodcut illustration book cover of De Men Phieu Luu Ky by To Hoai, depicting an adventurous cricket in a lush grassy meadow with warm earth tones and minimalist typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzKntJy9VHz6iU94_CPcbLPcbm4LhbW359lICLw-LLQOUQuh9oOEhBNxsmaFDGe2gdoxYD688Xv8qQQHxQkwjyZ6-r3apYa_N7IOyzWBAkhkjVGG3UoByNc3bzTSGWDoLnkulYVCDnTymrQeCwC3PUTeupyB3YuEcWrcAXR_420aDzzpUXsXvusrYezyUhve0dxBElIgRv1c6vVJPepZnN-s4xhB8loZohxOI_jg">
-<span class="absolute top-3 left-3 px-2 py-1 rounded-md bg-primary/90 text-on-primary font-label-sm text-[11px] backdrop-blur-sm shadow">
-                Folk Allegory
-              </span>
-<button aria-label="Bookmark Dế Mèn Phiêu Lưu Ký" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-card/90 text-primary hover:text-on-tertiary-container flex items-center justify-center backdrop-blur-sm shadow transition-colors">
-<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-</button>
-</div>
-<div class="flex items-center gap-2 mb-2">
-<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold">Tiếng Việt</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-[11px] text-on-surface-variant">Allegorical</span>
-</div>
-<h3 class="font-title-md text-title-md text-primary font-bold line-clamp-1 group-hover:text-secondary transition-colors">Dế Mèn Phiêu Lưu Ký</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant italic mb-2">Tô Hoài</p>
-<div class="flex items-center gap-3 text-on-surface-variant font-label-sm text-[11px] mb-4">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">menu_book</span>196 pages</span>
-<span>•</span>
-<span class="text-status-success font-semibold">Beginner</span>
-</div>
-</div>
-<button class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm font-semibold transition-all flex items-center justify-center gap-1.5">
-<span>View Details</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</article>
-<!-- Card 3: Số Đỏ -->
-<article class="group rounded-2xl bg-surface-card p-4 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
-<div>
-<div class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container-high mb-4 shadow-inner">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Retro 1930s art deco book cover for So Do Dumb Luck by Vu Trong Phung, displaying colonial Hanoi urban scenery with satirical sharp silhouettes, high contrast slate navy and amber hues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhkTu5fYEEn6uWGM9OIUAO_v1_Xpm9oRr1-PDF7FDWhXE4k-0bSfzJOeOu56wYvgwuqqADaR3DZ2lFTanQZtTkIIfobUmsjPHKlA0cFwAFL_LYWjgGRgKB7KgA3_s3Tah9ay3Xw2L0BaUYYZjYsIBPSD9tfcOjtSlIBSrIgb8ZMnseCwfVlP2WwzItCsU94QEey2pWwbL2-9a784LJLEK-84zGF3LcNC0UOEuGeQ">
-<span class="absolute top-3 left-3 px-2 py-1 rounded-md bg-primary/90 text-on-primary font-label-sm text-[11px] backdrop-blur-sm shadow">
-                Modernist Satire
-              </span>
-<button aria-label="Bookmark Số Đỏ" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-card/90 text-primary hover:text-on-tertiary-container flex items-center justify-center backdrop-blur-sm shadow transition-colors">
-<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-</button>
-</div>
-<div class="flex items-center gap-2 mb-2">
-<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold">Tiếng Việt</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-[11px] text-on-surface-variant">Satirical Realism</span>
-</div>
-<h3 class="font-title-md text-title-md text-primary font-bold line-clamp-1 group-hover:text-secondary transition-colors">Số Đỏ (Dumb Luck)</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant italic mb-2">Vũ Trọng Phụng</p>
-<div class="flex items-center gap-3 text-on-surface-variant font-label-sm text-[11px] mb-4">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">menu_book</span>256 pages</span>
-<span>•</span>
-<span class="text-secondary font-semibold">Intermediate (B2)</span>
-</div>
-</div>
-<button class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm font-semibold transition-all flex items-center justify-center gap-1.5">
-<span>View Details</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</article>
-<!-- Card 4: Tắt Đèn -->
-<article class="group rounded-2xl bg-surface-card p-4 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
-<div>
-<div class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container-high mb-4 shadow-inner">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Dramatic chiaroscuro book cover for Tat Den by Ngo Tat To, showing an antique oil lamp casting shadows over weathered bamboo paper, evoking early 20th century rural life." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALigDvt6VSoELZiYJct3rO9G0b4VMdehzdmmPtS40eDGX-s3VKlscpWk_HKwjGvLgoQjN1fhnN2-aw_S6oXzIVI7ew8qP8FD-x2uRIG4RacPGOQDINyiGJoJQ5gpzmetEiaEOTsc72XenEsiT9G7IvM6DtwEMiO3avOa__g3VMuxPoMgRK0e1zIVw_tNX_6khYIphq3gbTbJo4IG08baMDEMXmOt2RRZsCbTz3mQ">
-<span class="absolute top-3 left-3 px-2 py-1 rounded-md bg-primary/90 text-on-primary font-label-sm text-[11px] backdrop-blur-sm shadow">
-                Rural Realism
-              </span>
-<button aria-label="Bookmark Tắt Đèn" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-card/90 text-primary hover:text-on-tertiary-container flex items-center justify-center backdrop-blur-sm shadow transition-colors">
-<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-</button>
-</div>
-<div class="flex items-center gap-2 mb-2">
-<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold">Tiếng Việt</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-[11px] text-on-surface-variant">Social Realism</span>
-</div>
-<h3 class="font-title-md text-title-md text-primary font-bold line-clamp-1 group-hover:text-secondary transition-colors">Tắt Đèn</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant italic mb-2">Ngô Tất Tố</p>
-<div class="flex items-center gap-3 text-on-surface-variant font-label-sm text-[11px] mb-4">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">menu_book</span>216 pages</span>
-<span>•</span>
-<span class="text-secondary font-semibold">Intermediate (B2)</span>
-</div>
-</div>
-<button class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm font-semibold transition-all flex items-center justify-center gap-1.5">
-<span>View Details</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</article>
-<!-- Card 5: Lão Hạc và Tuyển Tập -->
-<article class="group rounded-2xl bg-surface-card p-4 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
-<div>
-<div class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container-high mb-4 shadow-inner">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Editorial book cover for Lao Hac anthology by Nam Cao, featuring a poignant charcoal drawing of a village elder and dog with textured cream parchment finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlwpWplFgBHsmEeejf2Jt34aZE2Rg1YVhgNUFiEAu-8w9t8mjiossmO1IqwbjRMgU1l_Hi_ENqxGLaJXTi2kEAEkiKhaHAOD1JDK8mHc5S-jErt1EAaZRbkTJYnyLx-cDhyvxWDurcwdt-8wK77A4TssbT7CKMOnnSUHFM6Yt8_s6lIGkaErOV40hswGBsiftE9WXgCZkATzndqRo6Ek_BMatd0pXHf0wOK7krkg">
-<span class="absolute top-3 left-3 px-2 py-1 rounded-md bg-primary/90 text-on-primary font-label-sm text-[11px] backdrop-blur-sm shadow">
-                Existential Empathy
-              </span>
-<button aria-label="Bookmark Lão Hạc" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-card/90 text-primary hover:text-on-tertiary-container flex items-center justify-center backdrop-blur-sm shadow transition-colors">
-<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-</button>
-</div>
-<div class="flex items-center gap-2 mb-2">
-<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold">Tiếng Việt</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-[11px] text-on-surface-variant">Psychological Realism</span>
-</div>
-<h3 class="font-title-md text-title-md text-primary font-bold line-clamp-1 group-hover:text-secondary transition-colors">Lão Hạc và Tuyển Tập</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant italic mb-2">Nam Cao</p>
-<div class="flex items-center gap-3 text-on-surface-variant font-label-sm text-[11px] mb-4">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">menu_book</span>184 pages</span>
-<span>•</span>
-<span class="text-secondary font-semibold">Intermediate (B2)</span>
-</div>
-</div>
-<button class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm font-semibold transition-all flex items-center justify-center gap-1.5">
-<span>View Details</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</article>
-<!-- Card 6: Nỗi Buồn Chiến Tranh -->
-<article class="group rounded-2xl bg-surface-card p-4 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
-<div>
-<div class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container-high mb-4 shadow-inner">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Haunting modernist book cover of The Sorrow of War Noi Buon Chien Tranh by Bao Ninh, evocative misty rainforest silhouette overlaid with expressive brushwork, deep slate and bronze." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgeUTNQNa7vhY9EKmHQhgGpRKkNtGV1tD26BJeFq7nMUylNAvZJpQWX0qcmG49V4qB-rSnXrkLWRzrnDR-GvOMG9q7V-OCniH_MHlggShAhzUeFc5rLJ_YSuheCyZ7wMcKLNVb8d1av26g3hXrXuWSECchEMFOd8yKiwqCp6LDL0BQewI5TV05jl0QmKtAWiHts4UTvUFRN6wXv4lbZMfl_0Kt_3AvBGinJ680pQ">
-<span class="absolute top-3 left-3 px-2 py-1 rounded-md bg-primary/90 text-on-primary font-label-sm text-[11px] backdrop-blur-sm shadow">
-                Acclaimed Translation
-              </span>
-<button aria-label="Bookmark Nỗi Buồn Chiến Tranh" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-card/90 text-primary hover:text-on-tertiary-container flex items-center justify-center backdrop-blur-sm shadow transition-colors">
-<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-</button>
-</div>
-<div class="flex items-center gap-2 mb-2">
-<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold">Tiếng Việt</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-[11px] text-on-surface-variant">Post-war Memory</span>
-</div>
-<h3 class="font-title-md text-title-md text-primary font-bold line-clamp-1 group-hover:text-secondary transition-colors">Nỗi Buồn Chiến Tranh</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant italic mb-2">Bảo Ninh</p>
-<div class="flex items-center gap-3 text-on-surface-variant font-label-sm text-[11px] mb-4">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">menu_book</span>312 pages</span>
-<span>•</span>
-<span class="text-on-tertiary-container font-semibold">Advanced (C1)</span>
-</div>
-</div>
-<button class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm font-semibold transition-all flex items-center justify-center gap-1.5">
-<span>View Details</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</article>
-<!-- Card 7: Hà Nội 36 Phố Phường -->
-<article class="group rounded-2xl bg-surface-card p-4 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
-<div>
-<div class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container-high mb-4 shadow-inner">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Delicate nostalgic book cover for Ha Noi 36 Pho Phuong by Thach Lam, showing early autumnal street scenes of ancient Hanoi with warm ochre walls and French colonial shutters." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8az12Rj-82ahHq5vsKeloq4QqQ0rkUhieCxvBoAcy3JmZ-0t2neuorDmUlE54SM_ZbCyc0cjjXansdrhTW5uRhBlZQI9dxcuwOPumfXW9MPR7wtMV_1ejTnnvl3-RF9L9xlMZ1G-p_6QqGGTs2xuPcc5I_V3Rv074U_0-_WvALfh9pU7uvSPJN_7S2BiAJSPgT8Lt8Iu5bp2Ay9sl_9sD5bbqljliBbwYmvvmSQ">
-<span class="absolute top-3 left-3 px-2 py-1 rounded-md bg-primary/90 text-on-primary font-label-sm text-[11px] backdrop-blur-sm shadow">
-                Cultural Heritage
-              </span>
-<button aria-label="Bookmark Hà Nội 36 Phố Phường" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-card/90 text-primary hover:text-on-tertiary-container flex items-center justify-center backdrop-blur-sm shadow transition-colors">
-<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-</button>
-</div>
-<div class="flex items-center gap-2 mb-2">
-<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold">Tiếng Việt</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-[11px] text-on-surface-variant">Lyrical Essay</span>
-</div>
-<h3 class="font-title-md text-title-md text-primary font-bold line-clamp-1 group-hover:text-secondary transition-colors">Hà Nội 36 Phố Phường</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant italic mb-2">Thạch Lam</p>
-<div class="flex items-center gap-3 text-on-surface-variant font-label-sm text-[11px] mb-4">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">menu_book</span>140 pages</span>
-<span>•</span>
-<span class="text-status-success font-semibold">Beginner</span>
-</div>
-</div>
-<button class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm font-semibold transition-all flex items-center justify-center gap-1.5">
-<span>View Details</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</article>
-<!-- Card 8: Chí Phèo & Tác Phẩm -->
-<article class="group rounded-2xl bg-surface-card p-4 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
-<div>
-<div class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container-high mb-4 shadow-inner">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Evocative literary cover for Chi Pheo by Nam Cao, featuring raw expressionist ink washes portraying human resilience in an agrarian landscape under a pale moonlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqaKFh2b4LDnng_XmNm9-WaMKowqpS7z3f70DUEuhGXU_MFhnUuBMsaea8fS_UowP8V-nReAhEcxt_edSRX9g2WXM3GNBmx2KYby3tMV09fxvSJsirI3xO_Iq2PFsN_xyXO_UlgYs2fObrrSklR1EOzml46kw4tZiS-sgeMFU4Gh3AsZh24WqqjXU1IjroOuzDOftKzkLvM8PRZLmkQKLdDJ7dRIZVzf5pkxE-2Q">
-<span class="absolute top-3 left-3 px-2 py-1 rounded-md bg-primary/90 text-on-primary font-label-sm text-[11px] backdrop-blur-sm shadow">
-                Human Dignity
-              </span>
-<button aria-label="Bookmark Chí Phèo" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-card/90 text-primary hover:text-on-tertiary-container flex items-center justify-center backdrop-blur-sm shadow transition-colors">
-<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-</button>
-</div>
-<div class="flex items-center gap-2 mb-2">
-<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold">Tiếng Việt</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-[11px] text-on-surface-variant">Critical Realism</span>
-</div>
-<h3 class="font-title-md text-title-md text-primary font-bold line-clamp-1 group-hover:text-secondary transition-colors">Chí Phèo &amp; Tác Phẩm</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant italic mb-2">Nam Cao</p>
-<div class="flex items-center gap-3 text-on-surface-variant font-label-sm text-[11px] mb-4">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">menu_book</span>190 pages</span>
-<span>•</span>
-<span class="text-secondary font-semibold">Intermediate (B2)</span>
-</div>
-</div>
-<button class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm font-semibold transition-all flex items-center justify-center gap-1.5">
-<span>View Details</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</article>
-</div>
-</section>
-<!-- Section 4: Cross-Cultural Reading Pathways Banner -->
-<section class="max-w-[1440px] mx-auto px-6 lg:px-12 pt-6 pb-16 w-full">
-<div class="relative overflow-hidden rounded-3xl bg-primary text-on-primary p-8 md:p-12 shadow-xl">
-<!-- Decorative subtle background SVG elements -->
-<div class="absolute -right-12 -bottom-12 opacity-10 pointer-events-none">
-<svg fill="none" height="400" viewBox="0 0 200 200" width="400" xmlns="http://www.w3.org/2000/svg">
-<circle cx="100" cy="100" r="80" stroke="currentColor" stroke-dasharray="8 8" stroke-width="2"></circle>
-<circle cx="100" cy="100" r="50" stroke="currentColor" stroke-width="1.5"></circle>
-<path d="M100 20V180M20 100H180" stroke="currentColor" stroke-width="1"></path>
-</svg>
-</div>
-<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-<div class="lg:col-span-8 space-y-4">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-card/10 backdrop-blur-md text-tertiary-fixed font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[16px]">compare_arrows</span>
-              Cross-Cultural Reading Pathways
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <article
+                class="group rounded-2xl bg-surface-card p-4 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+              >
+                <div>
+                  <div
+                    class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container-high mb-4 shadow-inner"
+                  >
+                    <img
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      alt="An ornate classical book cover of Truyen Kieu by Nguyen Du, featuring traditional Vietnamese gold leaf calligraphy and deep indigo silk cloth texture, elegant scholarly library aesthetic."
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRem44n5RebrmdxLXnIeD2BX1CwiavY3dD2I-SojxP2UxZQ4udvloDIuJSwZbphpsC0cRkgi1Wew9U-qSnFZe9x-NEDgN99ZECVRhEzAQrJzXeGDMoo8l4-ZeasgBp8eCNG9yRpP2Ii5XCh4VGg2oKWwq7KSvkw9sXcpxMw7WOYo-DhciRfp2tSSr_Vj3vmlF-gnyEyDNNScs9wdLKwNT3y3-1BZVSvw7jBxMtFw"
+                    />
+                    <span
+                      class="absolute top-3 left-3 px-2 py-1 rounded-md bg-primary/90 text-on-primary font-label-sm text-[11px] backdrop-blur-sm shadow"
+                    >
+                      Vietnamese Masterpiece
+                    </span>
+                    <button
+                      aria-label="Bookmark Truyện Kiều"
+                      class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-card/90 text-primary hover:text-on-tertiary-container flex items-center justify-center backdrop-blur-sm shadow transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >bookmark_border</span
+                      >
+                    </button>
+                  </div>
+
+                  <div class="flex items-center gap-2 mb-2">
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold"
+                      >Tiếng Việt</span
+                    >
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-[11px] text-on-surface-variant"
+                      >Epic Poetry</span
+                    >
+                  </div>
+
+                  <h3
+                    class="font-title-md text-title-md text-primary font-bold line-clamp-1 group-hover:text-secondary transition-colors"
+                  >
+                    Truyện Kiều
+                  </h3>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant italic mb-2"
+                  >
+                    Nguyễn Du
+                  </p>
+                  <div
+                    class="flex items-center gap-3 text-on-surface-variant font-label-sm text-[11px] mb-4"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><span class="material-symbols-outlined text-[13px]"
+                        >format_quote</span
+                      >3,254 verses</span
+                    >
+                    <span>•</span>
+                    <span class="text-on-tertiary-container font-semibold"
+                      >A1 – C2</span
+                    >
+                  </div>
+                </div>
+
+                <button
+                  class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm font-semibold transition-all flex items-center justify-center gap-1.5"
+                >
+                  <span>View Details</span>
+                  <span class="material-symbols-outlined text-[16px]"
+                    >arrow_forward</span
+                  >
+                </button>
+              </article>
+
+              <article
+                class="group rounded-2xl bg-surface-card p-4 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+              >
+                <div>
+                  <div
+                    class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container-high mb-4 shadow-inner"
+                  >
+                    <img
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      alt="Vintage woodcut illustration book cover of De Men Phieu Luu Ky by To Hoai, depicting an adventurous cricket in a lush grassy meadow with warm earth tones and minimalist typography."
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzKntJy9VHz6iU94_CPcbLPcbm4LhbW359lICLw-LLQOUQuh9oOEhBNxsmaFDGe2gdoxYD688Xv8qQQHxQkwjyZ6-r3apYa_N7IOyzWBAkhkjVGG3UoByNc3bzTSGWDoLnkulYVCDnTymrQeCwC3PUTeupyB3YuEcWrcAXR_420aDzzpUXsXvusrYezyUhve0dxBElIgRv1c6vVJPepZnN-s4xhB8loZohxOI_jg"
+                    />
+                    <span
+                      class="absolute top-3 left-3 px-2 py-1 rounded-md bg-primary/90 text-on-primary font-label-sm text-[11px] backdrop-blur-sm shadow"
+                    >
+                      Folk Allegory
+                    </span>
+                    <button
+                      aria-label="Bookmark Dế Mèn Phiêu Lưu Ký"
+                      class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-card/90 text-primary hover:text-on-tertiary-container flex items-center justify-center backdrop-blur-sm shadow transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >bookmark_border</span
+                      >
+                    </button>
+                  </div>
+                  <div class="flex items-center gap-2 mb-2">
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold"
+                      >Tiếng Việt</span
+                    >
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-[11px] text-on-surface-variant"
+                      >Allegorical</span
+                    >
+                  </div>
+                  <h3
+                    class="font-title-md text-title-md text-primary font-bold line-clamp-1 group-hover:text-secondary transition-colors"
+                  >
+                    Dế Mèn Phiêu Lưu Ký
+                  </h3>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant italic mb-2"
+                  >
+                    Tô Hoài
+                  </p>
+                  <div
+                    class="flex items-center gap-3 text-on-surface-variant font-label-sm text-[11px] mb-4"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><span class="material-symbols-outlined text-[13px]"
+                        >menu_book</span
+                      >196 pages</span
+                    >
+                    <span>•</span>
+                    <span class="text-status-success font-semibold"
+                      >Beginner</span
+                    >
+                  </div>
+                </div>
+                <button
+                  class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm font-semibold transition-all flex items-center justify-center gap-1.5"
+                >
+                  <span>View Details</span>
+                  <span class="material-symbols-outlined text-[16px]"
+                    >arrow_forward</span
+                  >
+                </button>
+              </article>
+
+              <article
+                class="group rounded-2xl bg-surface-card p-4 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+              >
+                <div>
+                  <div
+                    class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container-high mb-4 shadow-inner"
+                  >
+                    <img
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      alt="Retro 1930s art deco book cover for So Do Dumb Luck by Vu Trong Phung, displaying colonial Hanoi urban scenery with satirical sharp silhouettes, high contrast slate navy and amber hues."
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhkTu5fYEEn6uWGM9OIUAO_v1_Xpm9oRr1-PDF7FDWhXE4k-0bSfzJOeOu56wYvgwuqqADaR3DZ2lFTanQZtTkIIfobUmsjPHKlA0cFwAFL_LYWjgGRgKB7KgA3_s3Tah9ay3Xw2L0BaUYYZjYsIBPSD9tfcOjtSlIBSrIgb8ZMnseCwfVlP2WwzItCsU94QEey2pWwbL2-9a784LJLEK-84zGF3LcNC0UOEuGeQ"
+                    />
+                    <span
+                      class="absolute top-3 left-3 px-2 py-1 rounded-md bg-primary/90 text-on-primary font-label-sm text-[11px] backdrop-blur-sm shadow"
+                    >
+                      Modernist Satire
+                    </span>
+                    <button
+                      aria-label="Bookmark Số Đỏ"
+                      class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-card/90 text-primary hover:text-on-tertiary-container flex items-center justify-center backdrop-blur-sm shadow transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >bookmark_border</span
+                      >
+                    </button>
+                  </div>
+                  <div class="flex items-center gap-2 mb-2">
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold"
+                      >Tiếng Việt</span
+                    >
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-[11px] text-on-surface-variant"
+                      >Satirical Realism</span
+                    >
+                  </div>
+                  <h3
+                    class="font-title-md text-title-md text-primary font-bold line-clamp-1 group-hover:text-secondary transition-colors"
+                  >
+                    Số Đỏ (Dumb Luck)
+                  </h3>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant italic mb-2"
+                  >
+                    Vũ Trọng Phụng
+                  </p>
+                  <div
+                    class="flex items-center gap-3 text-on-surface-variant font-label-sm text-[11px] mb-4"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><span class="material-symbols-outlined text-[13px]"
+                        >menu_book</span
+                      >256 pages</span
+                    >
+                    <span>•</span>
+                    <span class="text-secondary font-semibold"
+                      >Intermediate (B2)</span
+                    >
+                  </div>
+                </div>
+                <button
+                  class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm font-semibold transition-all flex items-center justify-center gap-1.5"
+                >
+                  <span>View Details</span>
+                  <span class="material-symbols-outlined text-[16px]"
+                    >arrow_forward</span
+                  >
+                </button>
+              </article>
+
+              <article
+                class="group rounded-2xl bg-surface-card p-4 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+              >
+                <div>
+                  <div
+                    class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container-high mb-4 shadow-inner"
+                  >
+                    <img
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      alt="Dramatic chiaroscuro book cover for Tat Den by Ngo Tat To, showing an antique oil lamp casting shadows over weathered bamboo paper, evoking early 20th century rural life."
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuALigDvt6VSoELZiYJct3rO9G0b4VMdehzdmmPtS40eDGX-s3VKlscpWk_HKwjGvLgoQjN1fhnN2-aw_S6oXzIVI7ew8qP8FD-x2uRIG4RacPGOQDINyiGJoJQ5gpzmetEiaEOTsc72XenEsiT9G7IvM6DtwEMiO3avOa__g3VMuxPoMgRK0e1zIVw_tNX_6khYIphq3gbTbJo4IG08baMDEMXmOt2RRZsCbTz3mQ"
+                    />
+                    <span
+                      class="absolute top-3 left-3 px-2 py-1 rounded-md bg-primary/90 text-on-primary font-label-sm text-[11px] backdrop-blur-sm shadow"
+                    >
+                      Rural Realism
+                    </span>
+                    <button
+                      aria-label="Bookmark Tắt Đèn"
+                      class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-card/90 text-primary hover:text-on-tertiary-container flex items-center justify-center backdrop-blur-sm shadow transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >bookmark_border</span
+                      >
+                    </button>
+                  </div>
+                  <div class="flex items-center gap-2 mb-2">
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold"
+                      >Tiếng Việt</span
+                    >
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-[11px] text-on-surface-variant"
+                      >Social Realism</span
+                    >
+                  </div>
+                  <h3
+                    class="font-title-md text-title-md text-primary font-bold line-clamp-1 group-hover:text-secondary transition-colors"
+                  >
+                    Tắt Đèn
+                  </h3>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant italic mb-2"
+                  >
+                    Ngô Tất Tố
+                  </p>
+                  <div
+                    class="flex items-center gap-3 text-on-surface-variant font-label-sm text-[11px] mb-4"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><span class="material-symbols-outlined text-[13px]"
+                        >menu_book</span
+                      >216 pages</span
+                    >
+                    <span>•</span>
+                    <span class="text-secondary font-semibold"
+                      >Intermediate (B2)</span
+                    >
+                  </div>
+                </div>
+                <button
+                  class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm font-semibold transition-all flex items-center justify-center gap-1.5"
+                >
+                  <span>View Details</span>
+                  <span class="material-symbols-outlined text-[16px]"
+                    >arrow_forward</span
+                  >
+                </button>
+              </article>
+
+              <article
+                class="group rounded-2xl bg-surface-card p-4 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+              >
+                <div>
+                  <div
+                    class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container-high mb-4 shadow-inner"
+                  >
+                    <img
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      alt="Editorial book cover for Lao Hac anthology by Nam Cao, featuring a poignant charcoal drawing of a village elder and dog with textured cream parchment finish."
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlwpWplFgBHsmEeejf2Jt34aZE2Rg1YVhgNUFiEAu-8w9t8mjiossmO1IqwbjRMgU1l_Hi_ENqxGLaJXTi2kEAEkiKhaHAOD1JDK8mHc5S-jErt1EAaZRbkTJYnyLx-cDhyvxWDurcwdt-8wK77A4TssbT7CKMOnnSUHFM6Yt8_s6lIGkaErOV40hswGBsiftE9WXgCZkATzndqRo6Ek_BMatd0pXHf0wOK7krkg"
+                    />
+                    <span
+                      class="absolute top-3 left-3 px-2 py-1 rounded-md bg-primary/90 text-on-primary font-label-sm text-[11px] backdrop-blur-sm shadow"
+                    >
+                      Existential Empathy
+                    </span>
+                    <button
+                      aria-label="Bookmark Lão Hạc"
+                      class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-card/90 text-primary hover:text-on-tertiary-container flex items-center justify-center backdrop-blur-sm shadow transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >bookmark_border</span
+                      >
+                    </button>
+                  </div>
+                  <div class="flex items-center gap-2 mb-2">
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold"
+                      >Tiếng Việt</span
+                    >
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-[11px] text-on-surface-variant"
+                      >Psychological Realism</span
+                    >
+                  </div>
+                  <h3
+                    class="font-title-md text-title-md text-primary font-bold line-clamp-1 group-hover:text-secondary transition-colors"
+                  >
+                    Lão Hạc và Tuyển Tập
+                  </h3>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant italic mb-2"
+                  >
+                    Nam Cao
+                  </p>
+                  <div
+                    class="flex items-center gap-3 text-on-surface-variant font-label-sm text-[11px] mb-4"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><span class="material-symbols-outlined text-[13px]"
+                        >menu_book</span
+                      >184 pages</span
+                    >
+                    <span>•</span>
+                    <span class="text-secondary font-semibold"
+                      >Intermediate (B2)</span
+                    >
+                  </div>
+                </div>
+                <button
+                  class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm font-semibold transition-all flex items-center justify-center gap-1.5"
+                >
+                  <span>View Details</span>
+                  <span class="material-symbols-outlined text-[16px]"
+                    >arrow_forward</span
+                  >
+                </button>
+              </article>
+
+              <article
+                class="group rounded-2xl bg-surface-card p-4 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+              >
+                <div>
+                  <div
+                    class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container-high mb-4 shadow-inner"
+                  >
+                    <img
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      alt="Haunting modernist book cover of The Sorrow of War Noi Buon Chien Tranh by Bao Ninh, evocative misty rainforest silhouette overlaid with expressive brushwork, deep slate and bronze."
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgeUTNQNa7vhY9EKmHQhgGpRKkNtGV1tD26BJeFq7nMUylNAvZJpQWX0qcmG49V4qB-rSnXrkLWRzrnDR-GvOMG9q7V-OCniH_MHlggShAhzUeFc5rLJ_YSuheCyZ7wMcKLNVb8d1av26g3hXrXuWSECchEMFOd8yKiwqCp6LDL0BQewI5TV05jl0QmKtAWiHts4UTvUFRN6wXv4lbZMfl_0Kt_3AvBGinJ680pQ"
+                    />
+                    <span
+                      class="absolute top-3 left-3 px-2 py-1 rounded-md bg-primary/90 text-on-primary font-label-sm text-[11px] backdrop-blur-sm shadow"
+                    >
+                      Acclaimed Translation
+                    </span>
+                    <button
+                      aria-label="Bookmark Nỗi Buồn Chiến Tranh"
+                      class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-card/90 text-primary hover:text-on-tertiary-container flex items-center justify-center backdrop-blur-sm shadow transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >bookmark_border</span
+                      >
+                    </button>
+                  </div>
+                  <div class="flex items-center gap-2 mb-2">
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold"
+                      >Tiếng Việt</span
+                    >
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-[11px] text-on-surface-variant"
+                      >Post-war Memory</span
+                    >
+                  </div>
+                  <h3
+                    class="font-title-md text-title-md text-primary font-bold line-clamp-1 group-hover:text-secondary transition-colors"
+                  >
+                    Nỗi Buồn Chiến Tranh
+                  </h3>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant italic mb-2"
+                  >
+                    Bảo Ninh
+                  </p>
+                  <div
+                    class="flex items-center gap-3 text-on-surface-variant font-label-sm text-[11px] mb-4"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><span class="material-symbols-outlined text-[13px]"
+                        >menu_book</span
+                      >312 pages</span
+                    >
+                    <span>•</span>
+                    <span class="text-on-tertiary-container font-semibold"
+                      >Advanced (C1)</span
+                    >
+                  </div>
+                </div>
+                <button
+                  class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm font-semibold transition-all flex items-center justify-center gap-1.5"
+                >
+                  <span>View Details</span>
+                  <span class="material-symbols-outlined text-[16px]"
+                    >arrow_forward</span
+                  >
+                </button>
+              </article>
+
+              <article
+                class="group rounded-2xl bg-surface-card p-4 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+              >
+                <div>
+                  <div
+                    class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container-high mb-4 shadow-inner"
+                  >
+                    <img
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      alt="Delicate nostalgic book cover for Ha Noi 36 Pho Phuong by Thach Lam, showing early autumnal street scenes of ancient Hanoi with warm ochre walls and French colonial shutters."
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8az12Rj-82ahHq5vsKeloq4QqQ0rkUhieCxvBoAcy3JmZ-0t2neuorDmUlE54SM_ZbCyc0cjjXansdrhTW5uRhBlZQI9dxcuwOPumfXW9MPR7wtMV_1ejTnnvl3-RF9L9xlMZ1G-p_6QqGGTs2xuPcc5I_V3Rv074U_0-_WvALfh9pU7uvSPJN_7S2BiAJSPgT8Lt8Iu5bp2Ay9sl_9sD5bbqljliBbwYmvvmSQ"
+                    />
+                    <span
+                      class="absolute top-3 left-3 px-2 py-1 rounded-md bg-primary/90 text-on-primary font-label-sm text-[11px] backdrop-blur-sm shadow"
+                    >
+                      Cultural Heritage
+                    </span>
+                    <button
+                      aria-label="Bookmark Hà Nội 36 Phố Phường"
+                      class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-card/90 text-primary hover:text-on-tertiary-container flex items-center justify-center backdrop-blur-sm shadow transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >bookmark_border</span
+                      >
+                    </button>
+                  </div>
+                  <div class="flex items-center gap-2 mb-2">
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold"
+                      >Tiếng Việt</span
+                    >
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-[11px] text-on-surface-variant"
+                      >Lyrical Essay</span
+                    >
+                  </div>
+                  <h3
+                    class="font-title-md text-title-md text-primary font-bold line-clamp-1 group-hover:text-secondary transition-colors"
+                  >
+                    Hà Nội 36 Phố Phường
+                  </h3>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant italic mb-2"
+                  >
+                    Thạch Lam
+                  </p>
+                  <div
+                    class="flex items-center gap-3 text-on-surface-variant font-label-sm text-[11px] mb-4"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><span class="material-symbols-outlined text-[13px]"
+                        >menu_book</span
+                      >140 pages</span
+                    >
+                    <span>•</span>
+                    <span class="text-status-success font-semibold"
+                      >Beginner</span
+                    >
+                  </div>
+                </div>
+                <button
+                  class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm font-semibold transition-all flex items-center justify-center gap-1.5"
+                >
+                  <span>View Details</span>
+                  <span class="material-symbols-outlined text-[16px]"
+                    >arrow_forward</span
+                  >
+                </button>
+              </article>
+
+              <article
+                class="group rounded-2xl bg-surface-card p-4 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+              >
+                <div>
+                  <div
+                    class="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-surface-container-high mb-4 shadow-inner"
+                  >
+                    <img
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      alt="Evocative literary cover for Chi Pheo by Nam Cao, featuring raw expressionist ink washes portraying human resilience in an agrarian landscape under a pale moonlight."
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqaKFh2b4LDnng_XmNm9-WaMKowqpS7z3f70DUEuhGXU_MFhnUuBMsaea8fS_UowP8V-nReAhEcxt_edSRX9g2WXM3GNBmx2KYby3tMV09fxvSJsirI3xO_Iq2PFsN_xyXO_UlgYs2fObrrSklR1EOzml46kw4tZiS-sgeMFU4Gh3AsZh24WqqjXU1IjroOuzDOftKzkLvM8PRZLmkQKLdDJ7dRIZVzf5pkxE-2Q"
+                    />
+                    <span
+                      class="absolute top-3 left-3 px-2 py-1 rounded-md bg-primary/90 text-on-primary font-label-sm text-[11px] backdrop-blur-sm shadow"
+                    >
+                      Human Dignity
+                    </span>
+                    <button
+                      aria-label="Bookmark Chí Phèo"
+                      class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-card/90 text-primary hover:text-on-tertiary-container flex items-center justify-center backdrop-blur-sm shadow transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >bookmark_border</span
+                      >
+                    </button>
+                  </div>
+                  <div class="flex items-center gap-2 mb-2">
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold"
+                      >Tiếng Việt</span
+                    >
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-[11px] text-on-surface-variant"
+                      >Critical Realism</span
+                    >
+                  </div>
+                  <h3
+                    class="font-title-md text-title-md text-primary font-bold line-clamp-1 group-hover:text-secondary transition-colors"
+                  >
+                    Chí Phèo &amp; Tác Phẩm
+                  </h3>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant italic mb-2"
+                  >
+                    Nam Cao
+                  </p>
+                  <div
+                    class="flex items-center gap-3 text-on-surface-variant font-label-sm text-[11px] mb-4"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><span class="material-symbols-outlined text-[13px]"
+                        >menu_book</span
+                      >190 pages</span
+                    >
+                    <span>•</span>
+                    <span class="text-secondary font-semibold"
+                      >Intermediate (B2)</span
+                    >
+                  </div>
+                </div>
+                <button
+                  class="w-full py-2.5 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm font-semibold transition-all flex items-center justify-center gap-1.5"
+                >
+                  <span>View Details</span>
+                  <span class="material-symbols-outlined text-[16px]"
+                    >arrow_forward</span
+                  >
+                </button>
+              </article>
             </div>
-<h2 class="font-headline-lg text-headline-lg tracking-tight">
-              Bilingual &amp; Annotated Editions Available
-            </h2>
-<p class="font-body-md text-body-md text-primary-fixed max-w-2xl leading-relaxed">
-              BookBridge pairs original linguistic texts side-by-side with peer-reviewed English translations and cultural glossaries. Toggle sentence-level alignment, dialect annotations, and historical context notes in your personal reading reader.
+          </section>
+
+          <section
+            class="max-w-[1440px] mx-auto px-6 lg:px-12 pt-6 pb-16 w-full"
+          >
+            <div
+              class="relative overflow-hidden rounded-3xl bg-primary text-on-primary p-8 md:p-12 shadow-xl"
+            >
+              <div
+                class="absolute -right-12 -bottom-12 opacity-10 pointer-events-none"
+              >
+                <svg
+                  fill="none"
+                  height="400"
+                  viewBox="0 0 200 200"
+                  width="400"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    stroke="currentColor"
+                    stroke-dasharray="8 8"
+                    stroke-width="2"
+                  ></circle>
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="50"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  ></circle>
+                  <path
+                    d="M100 20V180M20 100H180"
+                    stroke="currentColor"
+                    stroke-width="1"
+                  ></path>
+                </svg>
+              </div>
+              <div
+                class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+              >
+                <div class="lg:col-span-8 space-y-4">
+                  <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-card/10 backdrop-blur-md text-tertiary-fixed font-label-sm text-label-sm"
+                  >
+                    <span class="material-symbols-outlined text-[16px]"
+                      >compare_arrows</span
+                    >
+                    Cross-Cultural Reading Pathways
+                  </div>
+                  <h2 class="font-headline-lg text-headline-lg tracking-tight">
+                    Bilingual &amp; Annotated Editions Available
+                  </h2>
+                  <p
+                    class="font-body-md text-body-md text-primary-fixed max-w-2xl leading-relaxed"
+                  >
+                    BookBridge pairs original linguistic texts side-by-side with
+                    peer-reviewed English translations and cultural glossaries.
+                    Toggle sentence-level alignment, dialect annotations, and
+                    historical context notes in your personal reading reader.
+                  </p>
+                  <div class="flex flex-wrap items-center gap-6 pt-2">
+                    <div class="flex items-center gap-2">
+                      <span
+                        class="material-symbols-outlined text-accent-gold-light text-[20px]"
+                        >check_circle</span
+                      >
+                      <span class="font-label-md text-label-md"
+                        >Synchronized Dual Scroll</span
+                      >
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span
+                        class="material-symbols-outlined text-accent-gold-light text-[20px]"
+                        >check_circle</span
+                      >
+                      <span class="font-label-md text-label-md"
+                        >Scholarly Footnotes</span
+                      >
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span
+                        class="material-symbols-outlined text-accent-gold-light text-[20px]"
+                        >check_circle</span
+                      >
+                      <span class="font-label-md text-label-md"
+                        >CEFR Lexical Highlights</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end items-stretch"
+                >
+                  <button
+                    class="px-6 py-3.5 rounded-full bg-on-tertiary-container hover:bg-tertiary-fixed hover:text-on-tertiary-fixed text-on-primary font-label-md text-label-md font-bold text-center transition-all shadow-md"
+                  >
+                    Launch Dual-Reader Mode
+                  </button>
+                  <button
+                    class="px-6 py-3.5 rounded-full bg-surface-card/10 hover:bg-surface-card/20 text-on-primary font-label-md text-label-md font-semibold text-center transition-all"
+                  >
+                    Request Language Addition
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <script>
+        document.querySelectorAll(".language-card").forEach((card) => {
+          card.addEventListener("click", () => {
+            document.querySelectorAll(".language-card").forEach((c) => {
+              c.classList.remove("ring-2", "ring-primary", "shadow-md");
+              const badge = c.querySelector(".bg-primary");
+              if (badge && badge.innerText.includes("ACTIVE")) {
+                badge.remove();
+              }
+            });
+            card.classList.add("ring-2", "ring-primary", "shadow-md");
+          });
+        });
+
+        const searchInput = document.getElementById("global-explorer-search");
+        if (searchInput) {
+          searchInput.addEventListener("input", (e) => {
+            const query = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll("article");
+            cards.forEach((card) => {
+              const title =
+                card.querySelector("h3")?.innerText.toLowerCase() || "";
+              const author =
+                card.querySelector("p")?.innerText.toLowerCase() || "";
+              if (title.includes(query) || author.includes(query)) {
+                card.style.display = "flex";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        }
+      </script>
+    </main>
+    <footer
+      class="w-full bg-surface-container-low shadow-[0_-1px_8px_rgba(0,0,0,0.02)]"
+    >
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-12 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
+          <div class="lg:col-span-2 space-y-4">
+            <div class="flex items-center gap-3">
+              <img
+                alt="BookBridge Logo"
+                class="h-7 w-auto object-contain"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEDzO_GBPm8isEUkTqlc0rXu0_CDktn0QcjBDQc8lwZ2oQyRpG9MkPFYhbvUKXmBhdK2GJgYVYAMhG2Vx6oj7aqnEb4cuLSFnSJK5356BnlaaQZo6m4C2iQsyTsxqQXmfC8dHRL30N8OSPQzTEYbxyaJZy0d3kun6iP7ROH7IBhuU9vkHTy06UR-JLKph1gjAHaH89kBMePOEsWbliDR50dnSmBfid-LCRtFZaQ"
+              /><span
+                class="font-headline-sm text-headline-sm tracking-tight text-primary"
+                >BookBridge</span
+              >
+            </div>
+            <p
+              class="font-headline-sm text-headline-sm italic text-on-tertiary-container font-normal"
+            >
+              “Bridge Worlds, Discover Voices Through Books”
             </p>
-<div class="flex flex-wrap items-center gap-6 pt-2">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-accent-gold-light text-[20px]">check_circle</span>
-<span class="font-label-md text-label-md">Synchronized Dual Scroll</span>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-accent-gold-light text-[20px]">check_circle</span>
-<span class="font-label-md text-label-md">Scholarly Footnotes</span>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-accent-gold-light text-[20px]">check_circle</span>
-<span class="font-label-md text-label-md">CEFR Lexical Highlights</span>
-</div>
-</div>
-</div>
-<div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end items-stretch">
-<button class="px-6 py-3.5 rounded-full bg-on-tertiary-container hover:bg-tertiary-fixed hover:text-on-tertiary-fixed text-on-primary font-label-md text-label-md font-bold text-center transition-all shadow-md">
-              Launch Dual-Reader Mode
-            </button>
-<button class="px-6 py-3.5 rounded-full bg-surface-card/10 hover:bg-surface-card/20 text-on-primary font-label-md text-label-md font-semibold text-center transition-all">
-              Request Language Addition
-            </button>
-</div>
-</div>
-</div>
-</section>
-</div>
-</div>
-<script>
-  // Simple micro-interaction for language selector & search simulation
-  document.querySelectorAll('.language-card').forEach(card => {
-    card.addEventListener('click', () => {
-      document.querySelectorAll('.language-card').forEach(c => {
-        c.classList.remove('ring-2', 'ring-primary', 'shadow-md');
-        const badge = c.querySelector('.bg-primary');
-        if (badge && badge.innerText.includes('ACTIVE')) {
-          badge.remove();
-        }
-      });
-      card.classList.add('ring-2', 'ring-primary', 'shadow-md');
-    });
-  });
-
-  const searchInput = document.getElementById('global-explorer-search');
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      const query = e.target.value.toLowerCase();
-      const cards = document.querySelectorAll('article');
-      cards.forEach(card => {
-        const title = card.querySelector('h3')?.innerText.toLowerCase() || '';
-        const author = card.querySelector('p')?.innerText.toLowerCase() || '';
-        if (title.includes(query) || author.includes(query)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  }
-</script></main><footer class="w-full bg-surface-container-low shadow-[0_-1px_8px_rgba(0,0,0,0.02)]"><div class="max-w-[1440px] mx-auto px-6 lg:px-12 py-16"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10"><div class="lg:col-span-2 space-y-4"><div class="flex items-center gap-3"><img alt="BookBridge Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEDzO_GBPm8isEUkTqlc0rXu0_CDktn0QcjBDQc8lwZ2oQyRpG9MkPFYhbvUKXmBhdK2GJgYVYAMhG2Vx6oj7aqnEb4cuLSFnSJK5356BnlaaQZo6m4C2iQsyTsxqQXmfC8dHRL30N8OSPQzTEYbxyaJZy0d3kun6iP7ROH7IBhuU9vkHTy06UR-JLKph1gjAHaH89kBMePOEsWbliDR50dnSmBfid-LCRtFZaQ"><span class="font-headline-sm text-headline-sm tracking-tight text-primary">BookBridge</span></div><p class="font-headline-sm text-headline-sm italic text-on-tertiary-container font-normal">“Bridge Worlds, Discover Voices Through Books”</p><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">A scholarly digital reading platform curated for reflective readers, archival researchers, and bibliophiles.</p></div><div class="space-y-3"><h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Explore</h4><ul class="space-y-2"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="directory" href="#">Book Directory</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="language-&amp;-genre-explorer-—-bookbridge" href="#">Interactive Explorer</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="gallery" href="#">Cover Visual Gallery</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="featured-reading-collections-—-bookbridge" href="#">Themed Shelves</a></li></ul></div><div class="space-y-3"><h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Collections</h4><ul class="space-y-2"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="featured-reading-collections-—-bookbridge" href="#">Literary Modernism</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="featured-reading-collections-—-bookbridge" href="#">Curated Anthologies</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="featured-reading-collections-—-bookbridge" href="#">Global Dissertations</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="my-library" href="#">Personal Archival Shelf</a></li></ul></div><div class="space-y-3"><h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Resources</h4><ul class="space-y-2"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">Editorial Standards</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">Archival Citations</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Scholarly Inquiry</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Community Reader Notes</a></li></ul></div><div class="space-y-3"><h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Legal</h4><ul class="space-y-2"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Privacy Charter</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Public Domain Notice</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Metadata Usage Rights</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Open Access Ethics</a></li></ul></div></div><div class="mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4"><p class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-left">BookBridge Academic eProject Demo © 2026. Interactive local storage reading tracker.</p><div class="flex items-center gap-6"><span class="font-label-sm text-label-sm text-on-surface-variant">v1.4 Archive Build</span><span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-on-tertiary-container"><span class="material-symbols-outlined text-[14px]">bookmarks</span>Local Persistence Active</span></div></div></div></footer>
-
-</body></html>
+            <p
+              class="font-body-sm text-body-sm text-on-surface-variant max-w-sm"
+            >
+              A scholarly digital reading platform curated for reflective
+              readers, archival researchers, and bibliophiles.
+            </p>
+          </div>
+          <div class="space-y-3">
+            <h4
+              class="font-label-md text-label-md uppercase tracking-wider text-primary"
+            >
+              Explore
+            </h4>
+            <ul class="space-y-2">
+              <li class="font-body-sm text-body-sm">
+                <a
+                  class="text-on-surface-variant hover:text-on-surface transition-colors"
+                  data-path="directory"
+                  href="#"
+                  >Book Directory</a
+                >
+              </li>
+              <li class="font-body-sm text-body-sm">
+                <a
+                  class="text-on-surface-variant hover:text-on-surface transition-colors"
+                  data-path="language-&amp;-genre-explorer-—-bookbridge"
+                  href="#"
+                  >Interactive Explorer</a
+                >
+              </li>
+              <li class="font-body-sm text-body-sm">
+                <a
+                  class="text-on-surface-variant hover:text-on-surface transition-colors"
+                  data-path="gallery"
+                  href="#"
+                  >Cover Visual Gallery</a
+                >
+              </li>
+              <li class="font-body-sm text-body-sm">
+                <a
+                  class="text-on-surface-variant hover:text-on-surface transition-colors"
+                  data-path="featured-reading-collections-—-bookbridge"
+                  href="#"
+                  >Themed Shelves</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="space-y-3">
+            <h4
+              class="font-label-md text-label-md uppercase tracking-wider text-primary"
+            >
+              Collections
+            </h4>
+            <ul class="space-y-2">
+              <li class="font-body-sm text-body-sm">
+                <a
+                  class="text-on-surface-variant hover:text-on-surface transition-colors"
+                  data-path="featured-reading-collections-—-bookbridge"
+                  href="#"
+                  >Literary Modernism</a
+                >
+              </li>
+              <li class="font-body-sm text-body-sm">
+                <a
+                  class="text-on-surface-variant hover:text-on-surface transition-colors"
+                  data-path="featured-reading-collections-—-bookbridge"
+                  href="#"
+                  >Curated Anthologies</a
+                >
+              </li>
+              <li class="font-body-sm text-body-sm">
+                <a
+                  class="text-on-surface-variant hover:text-on-surface transition-colors"
+                  data-path="featured-reading-collections-—-bookbridge"
+                  href="#"
+                  >Global Dissertations</a
+                >
+              </li>
+              <li class="font-body-sm text-body-sm">
+                <a
+                  class="text-on-surface-variant hover:text-on-surface transition-colors"
+                  data-path="my-library"
+                  href="#"
+                  >Personal Archival Shelf</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="space-y-3">
+            <h4
+              class="font-label-md text-label-md uppercase tracking-wider text-primary"
+            >
+              Resources
+            </h4>
+            <ul class="space-y-2">
+              <li class="font-body-sm text-body-sm">
+                <a
+                  class="text-on-surface-variant hover:text-on-surface transition-colors"
+                  data-path="about"
+                  href="#"
+                  >Editorial Standards</a
+                >
+              </li>
+              <li class="font-body-sm text-body-sm">
+                <a
+                  class="text-on-surface-variant hover:text-on-surface transition-colors"
+                  data-path="about"
+                  href="#"
+                  >Archival Citations</a
+                >
+              </li>
+              <li class="font-body-sm text-body-sm">
+                <a
+                  class="text-on-surface-variant hover:text-on-surface transition-colors"
+                  data-path="contact"
+                  href="#"
+                  >Scholarly Inquiry</a
+                >
+              </li>
+              <li class="font-body-sm text-body-sm">
+                <a
+                  class="text-on-surface-variant hover:text-on-surface transition-colors"
+                  data-path="contact"
+                  href="#"
+                  >Community Reader Notes</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="space-y-3">
+            <h4
+              class="font-label-md text-label-md uppercase tracking-wider text-primary"
+            >
+              Legal
+            </h4>
+            <ul class="space-y-2">
+              <li class="font-body-sm text-body-sm">
+                <a
+                  class="text-on-surface-variant hover:text-on-surface transition-colors"
+                  href="#"
+                  >Privacy Charter</a
+                >
+              </li>
+              <li class="font-body-sm text-body-sm">
+                <a
+                  class="text-on-surface-variant hover:text-on-surface transition-colors"
+                  href="#"
+                  >Public Domain Notice</a
+                >
+              </li>
+              <li class="font-body-sm text-body-sm">
+                <a
+                  class="text-on-surface-variant hover:text-on-surface transition-colors"
+                  href="#"
+                  >Metadata Usage Rights</a
+                >
+              </li>
+              <li class="font-body-sm text-body-sm">
+                <a
+                  class="text-on-surface-variant hover:text-on-surface transition-colors"
+                  href="#"
+                  >Open Access Ethics</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4"
+        >
+          <p
+            class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-left"
+          >
+            BookBridge Academic eProject Demo © 2026. Interactive local storage
+            reading tracker.
+          </p>
+          <div class="flex items-center gap-6">
+            <span class="font-label-sm text-label-sm text-on-surface-variant"
+              >v1.4 Archive Build</span
+            ><span
+              class="inline-flex items-center gap-1 font-label-sm text-label-sm text-on-tertiary-container"
+              ><span class="material-symbols-outlined text-[14px]"
+                >bookmarks</span
+              >Local Persistence Active</span
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

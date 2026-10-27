@@ -18,7 +18,7 @@ export function Footer({ onNavigate }) {
               <img
                 alt="BookBridge Logo"
                 className="h-7 w-auto object-contain"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEDzO_GBPm8isEUkTqlc0rXu0_CDktn0QcjBDQc8lwZ2oQyRpG9MkPFYhbvUKXmBhdK2GJgYVYAMhG2Vx6oj7aqnEb4cuLSFnSJK5356BnlaaQpZo6m4C2iQsyTsxqQXmfC8dHRL30N8OSPQzTEYbxyaJZy0d3kun6iP7ROH7IBhuU9vkHTy06UR-JLKph1gjAHaH89kBMePOEsWbliDR50dnSmBfid-LCRtFZaQ"
+                src="/favicon.svg"
               />
               <span className="font-headline-sm text-headline-sm tracking-tight text-primary dark:text-slate-100">
                 BookBridge
