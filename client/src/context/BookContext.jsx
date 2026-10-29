@@ -96,6 +96,22 @@ export function BookProvider({ children }) {
       .slice(0, count);
   };
 
+  const updateBookInState = (updatedBook) => {
+    const id = updatedBook._id || updatedBook.id;
+    setBooks(prev => prev.map(b => (b._id === id || b.id === id ? { ...b, ...updatedBook, id } : b)));
+    setSelectedBook(prev => (prev && (prev._id === id || prev.id === id) ? { ...prev, ...updatedBook, id } : prev));
+  };
+
+  const updateAuthorInState = (updatedAuthor) => {
+    const id = updatedAuthor._id || updatedAuthor.id;
+    setAuthors(prev => prev.map(a => (a._id === id || a.id === id ? { ...a, ...updatedAuthor, id } : a)));
+    setSelectedAuthor(prev => (prev && (prev._id === id || prev.id === id) ? { ...prev, ...updatedAuthor, id } : prev));
+    // Also sync authorName into books
+    if (updatedAuthor.name) {
+      setBooks(prev => prev.map(b => (b.authorId === id ? { ...b, authorName: updatedAuthor.name } : b)));
+    }
+  };
+
   return (
     <BookContext.Provider
       value={{
@@ -118,7 +134,10 @@ export function BookProvider({ children }) {
         getAuthorById,
         getBooksByAuthor,
         getRelatedBooks,
-        setBooks
+        setBooks,
+        setAuthors,
+        updateBookInState,
+        updateAuthorInState
       }}
     >
       {children}

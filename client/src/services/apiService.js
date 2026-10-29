@@ -28,6 +28,17 @@ async function request(url, options = {}) {
   }
 }
 
+async function fetchWithFallback(url, options = {}, fallback = null) {
+  try {
+    return await request(url, options);
+  } catch (error) {
+    if (fallback !== null && fallback !== undefined) {
+      return fallback;
+    }
+    throw error;
+  }
+}
+
 export const apiService = {
   // Books API
   async getBooks(params = {}) {
@@ -165,6 +176,26 @@ export const apiService = {
 
   async deleteBook(id) {
     return await fetchWithFallback(`/admin/books/${id}`, {
+      method: 'DELETE'
+    });
+  },
+
+  async createAuthor(authorPayload) {
+    return await fetchWithFallback('/admin/authors', {
+      method: 'POST',
+      body: JSON.stringify(authorPayload)
+    });
+  },
+
+  async updateAuthor(id, authorPayload) {
+    return await fetchWithFallback(`/admin/authors/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(authorPayload)
+    });
+  },
+
+  async deleteAuthor(id) {
+    return await fetchWithFallback(`/admin/authors/${id}`, {
       method: 'DELETE'
     });
   }

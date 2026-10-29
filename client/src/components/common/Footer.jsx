@@ -50,15 +50,6 @@ export function Footer({ onNavigate }) {
               <li className="font-body-sm text-body-sm">
                 <button
                   type="button"
-                  onClick={() => handleNav('explorer')}
-                  className="text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-slate-100 transition-colors text-left"
-                >
-                  Interactive Explorer
-                </button>
-              </li>
-              <li className="font-body-sm text-body-sm">
-                <button
-                  type="button"
                   onClick={() => handleNav('gallery')}
                   className="text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-slate-100 transition-colors text-left"
                 >

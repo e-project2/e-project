@@ -253,7 +253,7 @@ export function HomeScreen({ onNavigate, onSelectBook, onSelectAuthor, onOpenRea
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Pillar 1: Multilingual Discovery */}
           <div
-            onClick={() => onNavigate('explorer')}
+            onClick={() => onNavigate('directory')}
             className="rounded-2xl bg-surface-card p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group cursor-pointer"
           >
             <div className="space-y-5">

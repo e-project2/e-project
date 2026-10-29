@@ -7,7 +7,7 @@ import { LANGUAGES } from '../../constants/languages.js';
 import { READING_LEVELS } from '../../constants/readingLevels.js';
 import { Icon } from '../common/Icon.jsx';
 
-export function AdminScreen({ onNavigate }) {
+export function AdminScreen({ onNavigate, onEditBook, onEditAuthor }) {
   const { books, setBooks, authors } = useBooks();
   const { currentUser, isAdmin } = useAuth();
 
@@ -392,10 +392,12 @@ export function AdminScreen({ onNavigate }) {
                       </td>
                       <td className="py-3 px-4 text-right space-x-2">
                         <button
-                          onClick={() => handleEdit(b)}
-                          className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-800 dark:text-slate-200 font-semibold"
+                          onClick={() => onEditBook ? onEditBook(b) : handleEdit(b)}
+                          className="px-2.5 py-1 rounded-lg bg-amber-500 text-slate-950 hover:bg-amber-400 font-bold inline-flex items-center gap-1 shadow-xs"
+                          title="Mở trình chỉnh sửa Record Editor chi tiết theo chuẩn Stitch"
                         >
-                          Edit
+                          <Icon name="edit_document" className="text-[14px]" />
+                          <span>Record Editor</span>
                         </button>
                         <button
                           onClick={() => handleDelete(b._id || b.id)}
@@ -418,24 +420,36 @@ export function AdminScreen({ onNavigate }) {
             {authors.map((auth) => (
               <div
                 key={auth._id || auth.id}
-                className="bb-card p-5 bg-white dark:bg-slate-900 rounded-2xl flex items-center gap-4"
+                className="bb-card p-5 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-between gap-4 border border-slate-200 dark:border-slate-800 shadow-xs"
               >
-                <img
-                  src={auth.avatar}
-                  alt={auth.name}
-                  className="w-16 h-16 rounded-xl object-cover shrink-0 border border-slate-200"
-                />
-                <div className="flex-1 min-w-0">
-                  <span className="text-[10px] font-bold uppercase text-amber-500">
-                    {auth.nationality}
-                  </span>
-                  <h4 className="font-display font-bold text-base text-slate-900 dark:text-slate-100 truncate">
-                    {auth.name}
-                  </h4>
-                  <p className="text-xs text-slate-400 truncate">
-                    {auth.specialization}
-                  </p>
+                <div className="flex items-center gap-4 min-w-0">
+                  <img
+                    src={auth.avatar}
+                    alt={auth.name}
+                    className="w-16 h-16 rounded-xl object-cover shrink-0 border border-slate-200 dark:border-slate-700"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <span className="text-[10px] font-bold uppercase text-amber-500">
+                      {auth.nationality}
+                    </span>
+                    <h4 className="font-display font-bold text-base text-slate-900 dark:text-slate-100 truncate">
+                      {auth.name}
+                    </h4>
+                    <p className="text-xs text-slate-400 truncate">
+                      {auth.specialization}
+                    </p>
+                  </div>
                 </div>
+
+                <button
+                  type="button"
+                  onClick={() => onEditAuthor && onEditAuthor(auth)}
+                  className="px-3 py-1.5 rounded-xl bg-slate-900 dark:bg-amber-500 text-amber-400 dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-amber-400 text-xs font-bold flex items-center gap-1.5 shadow-sm shrink-0"
+                  title="Mở hồ sơ Dossier Editor để chỉnh sửa và đẩy về database"
+                >
+                  <Icon name="edit" className="text-[14px]" />
+                  <span>Dossier Editor</span>
+                </button>
               </div>
             ))}
           </div>

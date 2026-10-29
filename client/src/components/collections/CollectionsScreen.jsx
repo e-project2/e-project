@@ -4,11 +4,27 @@ import { BookCard } from '../BookCard.jsx';
 import { Icon } from '../common/Icon.jsx';
 
 export function CollectionsScreen({ onSelectBook, onSelectAuthor, onOpenReader }) {
-  const { collections, books } = useBooks();
+  const { collections, books, loading } = useBooks();
 
   const getBooksForCollection = (bookIds = []) => {
+    if (!Array.isArray(bookIds)) return [];
     return bookIds
-      .map(id => books.find(b => b._id === id || b.id === id))
+      .map(item => {
+        const id = typeof item === 'object' && item !== null ? (item._id || item.id) : item;
+        const fullBook = books.find(b => b._id === id || b.id === id);
+        if (fullBook) return fullBook;
+        if (typeof item === 'object' && item !== null) {
+          return {
+            ...item,
+            id: item._id || item.id,
+            authorName:
+              typeof item.authorId === 'object'
+                ? item.authorId?.name
+                : item.authorName || 'World Classic Author'
+          };
+        }
+        return null;
+      })
       .filter(Boolean);
   };
 
