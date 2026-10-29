@@ -12,11 +12,8 @@ import { Breadcrumbs } from './components/common/Breadcrumbs.jsx';
 import { HomeScreen } from './components/home/HomeScreen.jsx';
 import { DirectoryScreen } from './components/directory/DirectoryScreen.jsx';
 import { CollectionsScreen } from './components/collections/CollectionsScreen.jsx';
-import { GalleryScreen } from './components/gallery/GalleryScreen.jsx';
 import { MyLibraryScreen } from './components/tracker/MyLibraryScreen.jsx';
-import { AboutScreen } from './components/about/AboutScreen.jsx';
 import { AboutMission } from './components/AboutMission.jsx';
-import { BookCard } from './components/BookCard.jsx';
 import { ContactScreen } from './components/contact/ContactScreen.jsx';
 import { AdminScreen } from './components/admin/AdminScreen.jsx';
 
@@ -45,10 +42,6 @@ function MainLayout() {
     getAuthorById
   } = useBooks();
 
-  const showcaseBooks = (books && books.length > 0 ? books.slice(0, 4) : []).map((b, idx) => ({
-    ...b,
-    price: b.price || [18.99, 14.50, 22.00, 16.75][idx] || 19.99
-  }));
 
   const handleNavigate = (routeId) => {
     setActiveRoute(routeId);
@@ -148,8 +141,6 @@ function MainLayout() {
         return [...base, { label: 'Books Directory' }];
       case 'collections':
         return [...base, { label: 'Featured Collections' }];
-      case 'gallery':
-        return [...base, { label: 'Interactive Gallery' }];
       case 'my-library':
         return [...base, { label: 'My Library & Reading Tracker' }];
       case 'about':
@@ -223,9 +214,6 @@ function MainLayout() {
           />
         )}
 
-        {activeRoute === 'gallery' && (
-          <GalleryScreen onSelectBook={handleSelectBook} />
-        )}
 
         {activeRoute === 'my-library' && (
           <MyLibraryScreen
@@ -236,51 +224,11 @@ function MainLayout() {
         )}
 
         {activeRoute === 'about' && (
-          <div className="space-y-4">
-            {/* Live Interactive BookCard Showcase */}
-            <section className="bg-slate-50/90 dark:bg-slate-900/60 border-b border-slate-200 dark:border-slate-800 py-10">
-              <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
-                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
-                  <div>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
-                      <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-                      Live Component • BookCard.jsx
-                    </div>
-                    <h2 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-100">
-                      Thẻ Sách BookCard (Stitch Design)
-                    </h2>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                      Hiển thị dữ liệu động (title, author, price, coverImage) cùng hiệu ứng hover đẹp mắt.
-                    </p>
-                  </div>
-                  <div className="text-xs text-slate-400 flex items-center gap-2">
-                    <span className="px-3 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
-                      Rê chuột lên thẻ để trải nghiệm hover effect
-                    </span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {showcaseBooks.map((book) => (
-                    <BookCard
-                      key={book._id || book.id}
-                      book={book}
-                      onSelect={handleSelectBook}
-                      onSelectAuthor={handleSelectAuthor}
-                      onRead={(b) => setReadingBook(b)}
-                      onBookmark={(b, saved) => console.log('Bookmark toggled:', b.title, saved)}
-                    />
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            <AboutMission
-              onNavigate={handleNavigate}
-              showHeader={false}
-              showFooter={false}
-            />
-          </div>
+          <AboutMission
+            onNavigate={handleNavigate}
+            showHeader={false}
+            showFooter={false}
+          />
         )}
 
         {activeRoute === 'contact' && <ContactScreen />}

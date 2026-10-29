@@ -30,7 +30,6 @@ export function Navbar({ activeRoute, onNavigate }) {
     { id: 'home', label: 'Home', icon: 'home' },
     { id: 'directory', label: 'Directory', icon: 'auto_stories' },
     { id: 'collections', label: 'Collections', icon: 'collections_bookmark' },
-    { id: 'gallery', label: 'Gallery', icon: 'photo_library' },
     {
       id: 'my-library',
       label: 'My Library',
