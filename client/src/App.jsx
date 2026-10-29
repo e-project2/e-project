@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from './context/ThemeContext.jsx';
-import { AuthProvider } from './context/AuthContext.jsx';
+import { AuthProvider, useAuth } from './context/AuthContext.jsx';
 import { BookProvider, useBooks } from './context/BookContext.jsx';
 import { FavoritesProvider } from './context/FavoritesContext.jsx';
 import { ReadingTrackerProvider } from './context/ReadingTrackerContext.jsx';
@@ -22,14 +22,21 @@ import { AdminScreen } from './components/admin/AdminScreen.jsx';
 
 import { BookDetailScreen } from './components/details/BookDetailScreen.jsx';
 import { AuthorDetailScreen } from './components/authors/AuthorDetailScreen.jsx';
-import { AuthModal } from './components/auth/AuthModal.jsx';
+import { LoginScreen } from './components/auth/LoginScreen.jsx';
+import { AdminBookEditorScreen } from './components/admin/AdminBookEditorScreen.jsx';
+import { AdminAuthorEditorScreen } from './components/admin/AdminAuthorEditorScreen.jsx';
 import { BookReaderModal } from './components/reader/BookReaderModal.jsx';
 
 function MainLayout() {
+  const { isAuthenticated, isAdmin } = useAuth();
   const [activeRoute, setActiveRoute] = useState('home');
   const [readingBook, setReadingBook] = useState(null);
+  const [adminEditBook, setAdminEditBook] = useState(null);
+  const [adminEditAuthor, setAdminEditAuthor] = useState(null);
+
   const {
     books,
+    authors,
     selectedBook,
     setSelectedBook,
     selectedAuthor,
@@ -82,6 +89,18 @@ function MainLayout() {
     }
   };
 
+  const handleOpenAdminBookEditor = (bookToEdit) => {
+    setAdminEditBook(bookToEdit);
+    setActiveRoute('admin-book-editor');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleOpenAdminAuthorEditor = (authorToEdit) => {
+    setAdminEditAuthor(authorToEdit);
+    setActiveRoute('admin-author-editor');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // Listen for direct URL hash routing (e.g. #book/bk-03 or #author/auth-02)
   useEffect(() => {
     const handleHashChange = () => {
@@ -109,6 +128,18 @@ function MainLayout() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, [books, getBookById, getAuthorById]);
 
+  // Route Guard: Mandatory authentication before accessing Home or any app feature
+  if (!isAuthenticated) {
+    return (
+      <LoginScreen
+        onLoginSuccess={() => {
+          setActiveRoute('home');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+      />
+    );
+  }
+
   const getBreadcrumbs = () => {
     const base = [{ label: 'Home', onClick: () => handleNavigate('home') }];
 
@@ -127,6 +158,18 @@ function MainLayout() {
         return [...base, { label: 'Contact Us' }];
       case 'admin':
         return [...base, { label: 'Admin Desk' }];
+      case 'admin-book-editor':
+        return [
+          ...base,
+          { label: 'Admin Console', onClick: () => handleNavigate('admin') },
+          { label: 'Book Record Editor' }
+        ];
+      case 'admin-author-editor':
+        return [
+          ...base,
+          { label: 'Admin Console', onClick: () => handleNavigate('admin') },
+          { label: 'Author Dossier Editor' }
+        ];
       default:
         return null;
     }
@@ -141,18 +184,20 @@ function MainLayout() {
 
       {/* Main Body */}
       <main className="flex-1 pt-20">
-        {/* Breadcrumb banner if not on home, about, book-detail, or author-detail */}
+        {/* Breadcrumb banner if not on home, about, book-detail, author-detail, or admin editors */}
         {breadcrumbs &&
           activeRoute !== 'home' &&
           activeRoute !== 'about' &&
           activeRoute !== 'book-detail' &&
-          activeRoute !== 'author-detail' && (
+          activeRoute !== 'author-detail' &&
+          activeRoute !== 'admin-book-editor' &&
+          activeRoute !== 'admin-author-editor' && (
             <div className="bb-container">
               <Breadcrumbs items={breadcrumbs} onBack={() => handleNavigate('home')} />
             </div>
           )}
 
-        {/* Dynamic Route View */}
+        {/* Dynamic Route Views */}
         {activeRoute === 'home' && (
           <HomeScreen
             onNavigate={handleNavigate}
@@ -241,7 +286,11 @@ function MainLayout() {
         {activeRoute === 'contact' && <ContactScreen />}
 
         {activeRoute === 'admin' && (
-          <AdminScreen onNavigate={handleNavigate} />
+          <AdminScreen
+            onNavigate={handleNavigate}
+            onEditBook={handleOpenAdminBookEditor}
+            onEditAuthor={handleOpenAdminAuthorEditor}
+          />
         )}
 
         {/* Dedicated Standalone Book Detail Page */}
@@ -252,6 +301,7 @@ function MainLayout() {
             onSelectAuthor={handleSelectAuthor}
             onSelectRelatedBook={handleSelectBook}
             onOpenReader={(b) => setReadingBook(b)}
+            onEditAdmin={handleOpenAdminBookEditor}
           />
         )}
 
@@ -261,19 +311,36 @@ function MainLayout() {
             author={selectedAuthor}
             onNavigate={handleNavigate}
             onSelectBook={handleSelectBook}
+            onEditAdmin={handleOpenAdminAuthorEditor}
+          />
+        )}
+
+        {/* Dedicated Admin Book Record Editor (Stitch Design) */}
+        {activeRoute === 'admin-book-editor' && (
+          <AdminBookEditorScreen
+            book={adminEditBook || selectedBook || books[0]}
+            onNavigate={handleNavigate}
+            onPreviewBook={handleSelectBook}
+          />
+        )}
+
+        {/* Dedicated Admin Author Dossier Editor (Stitch Design) */}
+        {activeRoute === 'admin-author-editor' && (
+          <AdminAuthorEditorScreen
+            author={adminEditAuthor || selectedAuthor || authors[0]}
+            onNavigate={handleNavigate}
+            onPreviewAuthor={handleSelectAuthor}
           />
         )}
       </main>
 
-      {/* Global Modals - Reader & Auth */}
+      {/* Global Modals - Reader */}
       {readingBook && (
         <BookReaderModal
           book={readingBook}
           onClose={() => setReadingBook(null)}
         />
       )}
-
-      <AuthModal />
 
       {/* Footer */}
       <Footer onNavigate={handleNavigate} />

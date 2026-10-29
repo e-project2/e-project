@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useBooks } from '../../context/BookContext.jsx';
+import { useAuth } from '../../context/AuthContext.jsx';
 import { Icon } from '../common/Icon.jsx';
 import { BookCard } from '../BookCard.jsx';
 
-export function AuthorDetailScreen({ author, onNavigate, onSelectBook }) {
+export function AuthorDetailScreen({ author, onNavigate, onSelectBook, onEditAdmin }) {
   const { getBooksByAuthor, books } = useBooks();
+  const { isAdmin } = useAuth();
   const [following, setFollowing] = useState(false);
   const [copiedCitation, setCopiedCitation] = useState(false);
 
@@ -273,6 +275,17 @@ export function AuthorDetailScreen({ author, onNavigate, onSelectBook }) {
                   <Icon name={copiedCitation ? 'done' : 'format_quote'} className="text-[16px]" />
                   <span>{copiedCitation ? 'Citation Copied!' : 'Cite Source'}</span>
                 </button>
+
+                {isAdmin && (
+                  <button
+                    type="button"
+                    onClick={() => onEditAdmin && onEditAdmin(author)}
+                    className="px-4 py-2.5 rounded-xl bg-slate-900 text-amber-400 hover:bg-slate-800 dark:bg-amber-500/20 dark:text-amber-300 dark:hover:bg-amber-500/30 border border-amber-500/40 font-bold text-xs flex items-center gap-2 shadow-xs transition-all cursor-pointer"
+                  >
+                    <Icon name="edit" className="text-[16px]" />
+                    <span>Chỉnh Sửa Hồ Sơ (Admin Dossier Editor)</span>
+                  </button>
+                )}
               </div>
             </div>
           </div>

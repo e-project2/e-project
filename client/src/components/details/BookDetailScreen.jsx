@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useFavorites } from '../../context/FavoritesContext.jsx';
 import { useReadingTracker } from '../../context/ReadingTrackerContext.jsx';
 import { useBooks } from '../../context/BookContext.jsx';
+import { useAuth } from '../../context/AuthContext.jsx';
 import { Icon } from '../common/Icon.jsx';
 import { BookCard } from '../BookCard.jsx';
 
@@ -10,11 +11,13 @@ export function BookDetailScreen({
   onNavigate,
   onSelectAuthor,
   onSelectRelatedBook,
-  onOpenReader
+  onOpenReader,
+  onEditAdmin
 }) {
   const { isFavorite, toggleFavorite } = useFavorites();
   const { getBookProgress, setStatusOnly, updateProgress } = useReadingTracker();
   const { getRelatedBooks, getAuthorById } = useBooks();
+  const { isAdmin } = useAuth();
 
   if (!book) return null;
 
@@ -343,6 +346,17 @@ export function BookDetailScreen({
                 <Icon name="auto_stories" className="text-[18px]" />
                 <span>Đọc Trực Tuyến &amp; Ghi Nhật Ký</span>
               </button>
+
+              {isAdmin && (
+                <button
+                  type="button"
+                  onClick={() => onEditAdmin && onEditAdmin(book)}
+                  className="w-full mt-2.5 py-3 px-4 rounded-xl bg-slate-900 text-amber-400 hover:bg-slate-800 dark:bg-amber-500/20 dark:text-amber-300 dark:hover:bg-amber-500/30 border border-amber-500/40 font-bold text-xs flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer"
+                >
+                  <Icon name="edit_document" className="text-[18px]" />
+                  <span>Chỉnh Sửa Sách (Admin Record Editor)</span>
+                </button>
+              )}
             </div>
 
             {/* Archival Metadata Card */}
