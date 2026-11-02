@@ -20,11 +20,11 @@ export function Footer({ onNavigate }) {
                 className="h-7 w-auto object-contain"
                 src="/favicon.svg"
               />
-              <span className="font-headline-sm text-headline-sm tracking-tight text-primary dark:text-slate-100">
+              <span className="font-headline-sm text-headline-sm tracking-tight text-primary dark:text-slate-100 font-bold">
                 BookBridge
               </span>
             </div>
-            <p className="font-headline-sm text-headline-sm italic text-on-tertiary-container font-normal leading-snug">
+            <p className="font-headline-sm text-headline-sm italic text-on-tertiary-container dark:text-amber-500 font-normal leading-snug">
               “Bridge Worlds, Discover Voices Through Books”
             </p>
             <p className="font-body-sm text-body-sm text-on-surface-variant dark:text-slate-400 max-w-sm">
@@ -56,13 +56,23 @@ export function Footer({ onNavigate }) {
                   Themed Shelves
                 </button>
               </li>
+              <li className="font-body-sm text-body-sm">
+                <button
+                  type="button"
+                  onClick={() => handleNav('ai-concierge')}
+                  className="text-amber-600 dark:text-amber-400 hover:underline transition-colors text-left font-semibold flex items-center gap-1.5"
+                >
+                  <span className="material-symbols-outlined text-[15px]">auto_awesome</span>
+                  <span>AI Concierge</span>
+                </button>
+              </li>
             </ul>
           </div>
 
-          {/* Collections */}
+          {/* Assistance & Shelves */}
           <div className="space-y-3">
             <h4 className="font-label-md text-label-md uppercase tracking-wider text-primary dark:text-slate-200 font-bold">
-              Collections
+              Shelves
             </h4>
             <ul className="space-y-2">
               <li className="font-body-sm text-body-sm">
@@ -81,15 +91,6 @@ export function Footer({ onNavigate }) {
                   className="text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-slate-100 transition-colors text-left"
                 >
                   Curated Anthologies
-                </button>
-              </li>
-              <li className="font-body-sm text-body-sm">
-                <button
-                  type="button"
-                  onClick={() => handleNav('collections')}
-                  className="text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-slate-100 transition-colors text-left"
-                >
-                  Global Dissertations
                 </button>
               </li>
               <li className="font-body-sm text-body-sm">

@@ -11,6 +11,7 @@ import favoriteRoutes from './favoriteRoutes.js';
 import reviewRoutes from './reviewRoutes.js';
 import contactRoutes from './contactRoutes.js';
 import adminRoutes from './adminRoutes.js';
+import aiRoutes from './aiRoutes.js';
 
 const router = express.Router();
 
@@ -48,5 +49,6 @@ router.use('/favorites', favoriteRoutes);
 router.use('/reviews', reviewRoutes);
 router.use('/contact', contactRoutes);
 router.use('/admin', adminRoutes);
+router.use('/ai', aiRoutes);
 
 export default router;

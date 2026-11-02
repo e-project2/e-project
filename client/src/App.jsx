@@ -23,6 +23,7 @@ import { LoginScreen } from './components/auth/LoginScreen.jsx';
 import { AdminBookEditorScreen } from './components/admin/AdminBookEditorScreen.jsx';
 import { AdminAuthorEditorScreen } from './components/admin/AdminAuthorEditorScreen.jsx';
 import { BookReaderModal } from './components/reader/BookReaderModal.jsx';
+import { AiConciergeScreen } from './components/ai/AiConciergeScreen.jsx';
 
 function MainLayout() {
   const { isAuthenticated, isAdmin } = useAuth();
@@ -41,7 +42,6 @@ function MainLayout() {
     getBookById,
     getAuthorById
   } = useBooks();
-
 
   const handleNavigate = (routeId) => {
     setActiveRoute(routeId);
@@ -141,6 +141,9 @@ function MainLayout() {
         return [...base, { label: 'Books Directory' }];
       case 'collections':
         return [...base, { label: 'Featured Collections' }];
+      case 'ai-concierge':
+      case 'ai-literary-assistant':
+        return [...base, { label: 'AI Literary Concierge' }];
       case 'my-library':
         return [...base, { label: 'My Library & Reading Tracker' }];
       case 'about':
@@ -175,10 +178,12 @@ function MainLayout() {
 
       {/* Main Body */}
       <main className="flex-1 pt-20">
-        {/* Breadcrumb banner if not on home, about, book-detail, author-detail, or admin editors */}
+        {/* Breadcrumb banner if not on home, about, ai-concierge, book-detail, author-detail, or admin editors */}
         {breadcrumbs &&
           activeRoute !== 'home' &&
           activeRoute !== 'about' &&
+          activeRoute !== 'ai-concierge' &&
+          activeRoute !== 'ai-literary-assistant' &&
           activeRoute !== 'book-detail' &&
           activeRoute !== 'author-detail' &&
           activeRoute !== 'admin-book-editor' &&
@@ -214,6 +219,14 @@ function MainLayout() {
           />
         )}
 
+        {(activeRoute === 'ai-concierge' || activeRoute === 'ai-literary-assistant') && (
+          <AiConciergeScreen
+            onNavigate={handleNavigate}
+            onSelectBook={handleSelectBook}
+            onSelectAuthor={handleSelectAuthor}
+            onOpenReader={(b) => setReadingBook(b)}
+          />
+        )}
 
         {activeRoute === 'my-library' && (
           <MyLibraryScreen
@@ -281,6 +294,22 @@ function MainLayout() {
           />
         )}
       </main>
+
+      {/* Floating Action Button for AI Concierge (when on other screens) */}
+      {activeRoute !== 'ai-concierge' && activeRoute !== 'ai-literary-assistant' && (
+        <button
+          type="button"
+          onClick={() => handleNavigate('ai-concierge')}
+          aria-label="Khám phá cùng AI Literary Concierge"
+          className="fixed bottom-6 right-6 z-40 px-4 py-3 rounded-full bg-primary hover:bg-primary-container text-on-primary dark:bg-amber-500 dark:hover:bg-amber-400 dark:text-slate-950 font-label-md text-label-md shadow-2xl flex items-center gap-2 transition-all hover:scale-105 active:scale-95 group cursor-pointer border border-amber-500/30"
+          title="Hỏi AI Concierge gợi ý sách"
+        >
+          <span className="material-symbols-outlined text-[20px] text-amber-400 dark:text-slate-950 group-hover:rotate-180 transition-transform">
+            auto_awesome
+          </span>
+          <span className="font-bold hidden sm:inline">Hỏi AI Concierge</span>
+        </button>
+      )}
 
       {/* Global Modals - Reader */}
       {readingBook && (

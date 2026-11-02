@@ -30,6 +30,7 @@ export function Navbar({ activeRoute, onNavigate }) {
     { id: 'home', label: 'Home', icon: 'home' },
     { id: 'directory', label: 'Directory', icon: 'auto_stories' },
     { id: 'collections', label: 'Collections', icon: 'collections_bookmark' },
+    { id: 'ai-concierge', label: 'AI Concierge', icon: 'auto_awesome' },
     {
       id: 'my-library',
       label: 'My Library',
@@ -229,12 +230,6 @@ export function Navbar({ activeRoute, onNavigate }) {
                   </button>
                 );
               })}
-            </div>
-
-            <div className="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-3">
-              {/* Mobile Account Section */}
-              <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 space-y-2.5">
-              </div>
             </div>
           </div>
         </div>
