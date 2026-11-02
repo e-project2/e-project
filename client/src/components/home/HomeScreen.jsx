@@ -355,6 +355,7 @@ export function HomeScreen({ onNavigate, onSelectBook, onSelectAuthor, onOpenRea
               <BookCard
                 key={book._id || book.id}
                 book={book}
+                bookList={featuredBooks}
                 onSelect={onSelectBook}
                 onSelectAuthor={onSelectAuthor}
                 onRead={onOpenReader}

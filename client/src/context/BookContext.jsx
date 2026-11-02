@@ -7,14 +7,12 @@ export function BookProvider({ children }) {
   const [books, setBooks] = useState([]);
   const [authors, setAuthors] = useState([]);
   const [collections, setCollections] = useState([]);
-  const [gallery, setGallery] = useState([]);
   const [loading, setLoading] = useState(true);
   const [backendOnline, setBackendOnline] = useState(false);
 
   // Selected modals / active items
   const [selectedBook, setSelectedBook] = useState(null);
   const [selectedAuthor, setSelectedAuthor] = useState(null);
-  const [selectedGalleryItem, setSelectedGalleryItem] = useState(null);
 
   // Global search & filter state
   const [filters, setFilters] = useState({
@@ -31,11 +29,10 @@ export function BookProvider({ children }) {
     async function loadInitialData() {
       try {
         setLoading(true);
-        const [fetchedBooks, fetchedAuthors, fetchedCollections, fetchedGallery] = await Promise.all([
+        const [fetchedBooks, fetchedAuthors, fetchedCollections] = await Promise.all([
           apiService.getBooks(),
           apiService.getAuthors(),
-          apiService.getCollections(),
-          apiService.getGallery()
+          apiService.getCollections()
         ]);
 
         if (fetchedBooks && fetchedBooks.length > 0) {
@@ -49,7 +46,6 @@ export function BookProvider({ children }) {
         }
         if (fetchedAuthors && fetchedAuthors.length > 0) setAuthors(fetchedAuthors);
         if (fetchedCollections && fetchedCollections.length > 0) setCollections(fetchedCollections);
-        if (fetchedGallery && fetchedGallery.length > 0) setGallery(fetchedGallery);
         setBackendOnline(true);
       } catch (err) {
         console.error('Error connecting to BookBridge MongoDB backend:', err.message);
@@ -118,7 +114,6 @@ export function BookProvider({ children }) {
         books,
         authors,
         collections,
-        gallery,
         loading,
         backendOnline,
         filters,
@@ -128,8 +123,6 @@ export function BookProvider({ children }) {
         setSelectedBook,
         selectedAuthor,
         setSelectedAuthor,
-        selectedGalleryItem,
-        setSelectedGalleryItem,
         getBookById,
         getAuthorById,
         getBooksByAuthor,

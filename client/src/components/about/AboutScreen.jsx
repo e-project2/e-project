@@ -79,7 +79,7 @@ export function AboutScreen({ onNavigate }) {
                 Inspect Art & Authors
               </h3>
               <p className="text-xs text-slate-500 leading-relaxed">
-                Open Fullscreen Lightbox in the Gallery to inspect cover typography, and explore Author Profiles to understand their philosophical heritage.
+                Click any book card to inspect cover typography and curatorial details in the Lightbox, and explore Author Profiles to understand their philosophical heritage.
               </p>
             </div>
 

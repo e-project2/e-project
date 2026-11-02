@@ -191,6 +191,7 @@ export function DirectoryScreen({ onSelectBook, onSelectAuthor, onOpenReader }) 
                   <BookCard
                     key={book._id || book.id}
                     book={book}
+                    bookList={filteredBooks}
                     onSelect={onSelectBook}
                     onSelectBook={onSelectBook}
                     onRead={onOpenReader}
